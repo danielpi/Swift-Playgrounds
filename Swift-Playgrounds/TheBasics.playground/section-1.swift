@@ -37,3 +37,122 @@ let cat = "🐱"; println(cat)
 let minValue = UInt8.min
 let maxValue = UInt8.max
 
+// Floating Point
+var w = [1, 1.2]
+
+
+// Type Safety and Type Inference
+var meaningOfLife = 42
+// inferred to be of type Int
+// meaningOfLife = 35.0 //Type Error
+
+let  pi = 3.14159
+let anotherPi = 3 + 0.14159
+
+
+// Numeric Literals
+let descimalInteger = 17
+let binaryInteger = 0b10001
+let octalInteger = 0o21
+let hexadecimalInteger = 0x11
+
+//let hexFloat = 0x1234.0x5678
+
+1.25e2
+1.25e-2
+
+0xFp2
+0x8p4
+
+let decimalDouble = 12.1875
+let exponentDouble = 1.21875e1
+let hexadecialDouble = 0xC.3p0
+
+let paddedDouble = 000123.456
+let oneMillion = 1_000_000
+let justOverOneMillion = 1_000_000.000_000_1
+
+// Integer Conversion
+//let cannotBeNegative: UInt8 = -1
+//let tooBig: Int8 = Int8.max + 1
+let twoThousand: UInt16 = 2_000
+let one: UInt8 = 1
+let twoThousandAndOne = twoThousand + UInt16(one)
+
+// Integer and Floating Point Conversion
+let three = 3
+let pointOneFourOneFiveNine = 0.14159
+let pi2 = Double(three) + pointOneFourOneFiveNine
+
+let integerPi = Int(pi)
+// Floats are always truncated when cast to Integers
+let integerFourPointSeven = Int(4.75)
+let integerNegativeThreePointNine = Int(-3.9)
+// Literals can be cross type combined because they have no type until they are evaluated
+3 + 0.14159
+
+
+// Type Aliases
+// Type aliases are useful when you want to refer to an existing type by a name that is contextually more appropriate, such as when working with data of a specific size from an external source:
+
+typealias AudioSample = UInt16
+var macAmplitudeFound = AudioSample.min
+
+
+// Booleans
+let orangesAreOrange = true
+let turnipsAreDelicious = false
+
+if turnipsAreDelicious {
+    println("Mmm, tasty turnips!")
+} else {
+    println("Eww, turnips are horrible.")
+}
+
+// Non-Bool types can't be used for flow control
+let i = 1
+/*
+if i {
+    
+}
+*/
+if i == 1 {
+    
+}
+
+
+// Tuples
+let http404Error = (404, "Not Found")
+
+let (statusCode, statusMessage) = http404Error
+println("The status code is \(statusCode)")
+println("The status message is \(statusMessage)")
+
+// use _ if you don't want to decompose one of the values of a tuple
+let (justTheStatusCode, _) = http404Error
+println("The status code is \(justTheStatusCode)")
+
+// You can access the values of the tuple using index numbers
+println("The status code is \(http404Error.0)")
+println("The status message is \(http404Error.1)")
+
+// You can name the elements of a tuple when it is defined
+let http200Status = (statusCode: 200, description: "OK")
+println("The status code is \(http200Status.statusCode)")
+println("The status message is \(http200Status.description)")
+// “Tuples are useful for temporary groups of related values. They are not suited to the creation of complex data structures. If your data structure is likely to persist beyond a temporary scope, model it as a class or structure, rather than as a tuple. For more information”
+
+
+// Optionals
+
+
+
+
+
+
+
+
+
+
+
+
