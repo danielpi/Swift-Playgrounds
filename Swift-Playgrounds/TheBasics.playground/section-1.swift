@@ -144,9 +144,54 @@ println("The status message is \(http200Status.description)")
 
 
 // Optionals
+let possibleNumber = "123"
+let convertedNumber = possibleNumber.toInt()
+// convertedNumber is inferred to be ot type "Int?" (optional Int)
+
+// If statements and forced Unwrapping
+if convertedNumber {
+    println("\(possibleNumber) has an integer value of \(convertedNumber!)")
+} else {
+    println("\(possibleNumber) could not be converted to an integer")
+}
+// Using ! on a non-existent value triggers a runtime error
+
+if let actualNumber = possibleNumber.toInt() {
+    println("\(possibleNumber) has an integer value of \(actualNumber)")
+} else {
+    println("\(possibleNumber) could not be converted to an integer")
+}
+
+//actualNumber // THis brings up an error as the unwrapped value is only available within the if statement
+
+var serverResponseCode: Int? = 404
+serverResponseCode = nil
+
+var surveyAnswer: String?
 
 
+// Implicitly Unwrapped Optionals
+// Implicitly unwrapped optionals are useful when an optional’s value is confirmed to exist immediately after the optional is first defined and can definitely be assumed to exist at every point thereafter. The primary use of implicitly unwrapped optionals in Swift is during class initialization
 
+let possibleString: String? = "An optional string."
+println(possibleString!)
+let assumedString: String! = "An implicitly unwrapped optional string"
+println(assumedString)
+
+if assumedString {
+    println(assumedString)
+}
+
+if let definiteString = assumedString {
+    println(definiteString)
+}
+// “Implicitly unwrapped optionals should not be used when there is a possibility of a variable becoming nil at a later point. Always use a normal optional type if you need to check for a nil value during the lifetime of a variable.”
+
+
+// Assertions
+let age = -3
+//assert(age >= 0, "A person's age cannot be less than zero")
+// Left this out as it stops the REPL from continuing
 
 
 
