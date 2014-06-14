@@ -53,6 +53,18 @@ while square < finalSquare {
         square += board[square]
     }
 }
+println("Game over!")
+
+do {
+    // move up or down for a snake or ladder
+    square += board[square]
+    // roll the dice
+    if ++diceRoll == 7 { diceRoll = 1 }
+    // move by the rolled amount
+    square += diceRoll
+} while square < finalSquare
+println("Game over!")
+
 
 
 
