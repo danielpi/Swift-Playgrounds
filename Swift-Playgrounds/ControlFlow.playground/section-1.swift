@@ -65,6 +65,66 @@ do {
 } while square < finalSquare
 println("Game over!")
 
+// If
+var temperatureInFarenheit = 30
+if temperatureInFarenheit <= 32 {
+    println("It's very cold. Consider wearing a scarf")
+}
+
+temperatureInFarenheit = 40
+if temperatureInFarenheit <= 32 {
+    println("It's very cold. Consider wearing a scarf")
+} else {
+    println("It's not that cold. wear a t-shirt.")
+}
+
+temperatureInFarenheit = 90
+if temperatureInFarenheit <= 32 {
+    println("It's very cold. Consider wearing a scarf")
+} else if temperatureInFarenheit >= 86 {
+    println("It's really warm. Don't forget to wear sunscreen.")
+} else {
+    println("It's not that cold. wear a t-shirt.")
+}
+
+temperatureInFarenheit = 72
+if temperatureInFarenheit <= 32 {
+    println("It's very cold. Consider wearing a scarf")
+} else if temperatureInFarenheit >= 86 {
+    println("It's really warm. Don't forget to wear sunscreen.")
+}
+
+
+// Switch
+let someCharacter: Character = "e"
+switch someCharacter {
+    case "a", "e", "i", "o", "u":
+        println("\(someCharacter) is a vowel")
+    case "b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "y", "z":
+        println("\(someCharacter) is a consonant")
+    default:
+        println("\(someCharacter) is not a vowel or consonant")
+}
+
+let anotherCharacter: Character = "a"
+switch anotherCharacter {
+    //case "a": // Not valid if this line is in place as no executble line for this case statement.
+    case "A":
+        println("The letter A")
+    default:
+        println("Not the letter A")
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
