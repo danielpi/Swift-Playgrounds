@@ -55,6 +55,8 @@ while square < finalSquare {
 }
 println("Game over!")
 
+square = 0
+diceRoll = 0
 do {
     // move up or down for a snake or ladder
     square += board[square]
@@ -116,15 +118,118 @@ switch anotherCharacter {
 }
 
 
+// Range Matching
+let count = 3_000_000_000_000
+let countedThings = "stars in the Milky Way"
+var naturalCount: String
+switch count {
+case 0:
+    naturalCount = "no"
+case 1...3:
+    naturalCount = "a few"
+case 4...9:
+    naturalCount = "several"
+case 10...99:
+    naturalCount = "tens of"
+case 100...999:
+    naturalCount = "hundreds of"
+case 1000...999_999:
+    naturalCount = "thousands of"
+default:
+    naturalCount = "millions and millions of"
+}
+println("There are \(naturalCount) \(countedThings).")
 
 
+// Tuples
+let somePoint = (1,1)
+switch somePoint {
+case (0, 0):
+    println("(0,0) is at the origin")
+case (_, 0):
+    println("\(somePoint.0),0) is on the x-axis")
+case (0, _):
+    println("(0, \(somePoint.1)) is on the y-axis")
+case (-2...2, -2...2):
+    println("(\(somePoint.0, somePoint.1)) is inside the box")
+default:
+    println("(\(somePoint.0, somePoint.1)) is outside of the box")
+}
 
 
+// Value Bindings
+let anotherPoint = (2, 0)
+switch anotherPoint {
+case (let x, 0):
+    println("on the x-axis with an x value of \(x)")
+case (0, let y):
+    println("on the y-axis with a y value of \(y)")
+case let (x, y):
+    println("somewhare else at (\(x), \(y))")
+}
 
 
+// Where
+let yetAnotherPoint = (1, -1)
+switch yetAnotherPoint {
+case let (x, y) where x == y:
+    println("(\(x), \(y)) is on the line x == y")
+case let (x, y) where x == -y:
+    println("(\(x), \(y)) is on the line x == -y")
+case let (x, y):
+    println("(\(x), \(y)) is just some arbitrary point")
+}
+
+// Control Transfer Statements
+// Continue
+let puzzleInput = "great minds think alike"
+var puzzleOutput = ""
+for character in puzzleInput {
+    switch character {
+        case "a", "e", "i", "o", "u", " ":
+            continue
+    default:
+        puzzleOutput += character
+    }
+}
+puzzleOutput
+
+// Break
+let numberSymbol: Character = "三"  // Simplified Chinese for the number 3”
+var possibleIntegerValue: Int?
+switch numberSymbol {
+case "1", "١", "一", "๑":
+    possibleIntegerValue = 1
+case "2", "٢", "二", "๒":
+    possibleIntegerValue = 2
+case "3", "٣", "三", "๓":
+    possibleIntegerValue = 3
+case "4", "٤", "四", "๔":
+    possibleIntegerValue = 4
+default:
+    break
+
+}
+if let integerValue = possibleIntegerValue {
+    println("The integer value of \(numberSymbol) is \(integerValue).")
+} else {
+    println("An integer value could not be found for \(numberSymbol).")
+}
+
+// Fallthrough
+let integerToDescribe = 5
+var description = "The number \(integerToDescribe) is"
+switch integerToDescribe {
+case 2, 3, 5, 7, 11, 13, 17, 19:
+    description += " a prime number, and also"
+    fallthrough
+default:
+    description += " an integer."
+}
+println(description)
 
 
-
+// Labelled Statements
 
 
 
