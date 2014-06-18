@@ -19,3 +19,7 @@ Chapters from the Language guide. Each chapter goes into depth about its particu
 - **Functions.playground**
 
 - **Closures.playground**
+
+- **Enumerations.playground**
+
+- **ClassesAndStructures.playground**
