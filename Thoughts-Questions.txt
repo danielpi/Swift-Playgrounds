@@ -1,0 +1,4 @@
+Swift Thoughts and Questions
+
+- How do you get pretty printing of instances in the playground?
+- Could you get a pretty printout of something like a 2D matrix?
