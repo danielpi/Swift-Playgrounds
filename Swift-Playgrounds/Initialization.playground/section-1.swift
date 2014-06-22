@@ -113,7 +113,45 @@ let centerRect = Rect(center: Point(x: 4.0, y: 4.0), size: Size2(width: 3.0, hei
 
 
 // Class Inheritance and Initialization
+// Rule 1
+//   Designated initializers must call a designated initializer from their immediate superclass
+// Rule 2
+//   Convenience initializers must call another initializer available in the same class
+// Rule 3
+//   Convenience initializers must ultimately end up calling a designated initializer
+// Designated initializers must always delegate up. Convenience initializers must always delegate across
 
+// Initialization is a 2 stage process. There are several safety checks that the compiler performs
+// Safety Check 1
+//   A deignated initializer must ensure that all of the properties introduced by its class are initialized before it delegates up to a superclass
+// Safety Check 2
+//   A designated initializer must delegate up to a superclass initializer before assigning a value to an inherited property. If it doesn't, the new value the designated initializer assigns will be overwritten by the superclass as part of its own initialization
+// Safety Check 3
+//   A convenience initializer must delegate to another initializer before assigning a value to any property (including properties defined by the same class). If it doesn't, the new value the convenience initializer assigns will be overwritten by its own class's designated initializer.
+// Safety Check 4
+//   An initializer cannot call any instance methods, read the values of any instance properties, or refer to self as a value until after the first phase of initialization is complete.
+
+// Two-Phase initialization
+// Phase 1
+// - A designated or convenience initializer is called on a class
+// - Memory for a new instance of that class is allocated. The memory is not yet initialized.
+// - A designated initializer for that class confirms that all stored properties introduced by that class have a value. The memory for these stored properties is now initialized.
+// - The designated initializer hands off to a superclass initializer to perform the same task for its own stored properties.
+// - This continues up the class inheritance chain until the top of the chain is reached.
+// - Once the top of the chain is reached, and the final class in the chain has ensured that all of its stored properties have a value, the instance's memory is considered to be fully initialized, and phase 1 is complete.
+//
+// Phase 2
+// - Working back down from the top of the chain, each designated initializer in the chain has the option to customize the instance further. Initializers are now able to access self and can modify its properties, call its instance methods, and so on.
+// - Finally, any convenience initializers in the chain have the option to customize the instance and to work with self.
+
+// Automatic Initializers
+// Rule 1
+//   If your subclass doesn't define any designated initializers, it automatically inherits all of its superclass designated initializers
+// Rule 2
+//   If your subclass provides an implementaction of all of its superclass designated initializers- either by inheriting them as per rule 1, or by providing a custom implementation as part of its definitition- the it automatically inherits all of the superclass convenience initializers.
+
+
+// Designated and Convenience Initializers in Action
 
 
 
