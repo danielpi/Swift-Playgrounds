@@ -152,7 +152,84 @@ let centerRect = Rect(center: Point(x: 4.0, y: 4.0), size: Size2(width: 3.0, hei
 
 
 // Designated and Convenience Initializers in Action
+class Food {
+    var name: String
+    init(name: String) {
+        self.name = name
+    }
+    convenience init() {
+        self.init(name: "[Unnamed]")
+    }
+}
+let namedMeat = Food(name: "Bacon")
+let mysteryMeat = Food()
 
+class RecipeIngredient: Food {
+    var quantity: Int
+    init(name: String, quantity: Int) {
+        self.quantity = quantity
+        super.init(name: name)
+    }
+    convenience init(name: String) {
+        self.init(name: name, quantity: 1)
+    }
+}
+let oneBacon = RecipeIngredient(name: "Bacon")
+let sixEggs = RecipeIngredient(name: "Eggs", quantity: 6)
+//  In this example, the superclass for RecipeIngredient is Food, which has a single convenience initializer called init(). This initializer is therefore inherited by RecipeIngredient. The inherited version of init() functions in exactly the same way as the Food version, except that it delegates to the RecipeIngredient version of init(name: String) rather than the Food version.
+let oneMysteryItem = RecipeIngredient()
+
+class ShoppingListItem2: RecipeIngredient {
+    var purchased = false
+    var description: String {
+        var output = "\(quantity) x \(name.lowercaseString)"
+        output += purchased ? " √" : " ✘"
+        return output
+    }
+}
+//  Because ShoppingListItem2 provides a default value for all of the properties it introduces and does not define any initializers itself, ShoppingListItem automatically inherits all of the designated and convenience initializers from its superclass. ShoppingListItem2(name: "Eggs, quantity: 6),
+var breakfastList = [
+    ShoppingListItem2(),
+    ShoppingListItem2(name: "Bacon"),
+    ShoppingListItem2(name: "Eggs", quantity: 6),
+]
+breakfastList[0].name = "Orange juice"
+breakfastList[0].purchased = true
+for item in breakfastList {
+    println(item.description)
+}
+
+// Setting a default Property Value with a Closure or Function
+/*
+class SomeClass {
+    let someProperty: SomeType = {
+        // create a default value for someProperty inside this closure
+        // someValue must be of the same type as SomeType
+        return someValue
+    }()
+}
+*/
+//  Note that the closure’s end curly brace is followed by an empty pair of parentheses. This tells Swift to execute the closure immediately. If you omit these parentheses, you are trying to assign the closure itself to the property, and not the return value of the closure.
+struct Checkerboard {
+    let boardColors: Bool[] = {
+        var temporaryBoard = Bool[]()
+        var isBlack = false
+        for i in 1...10 {
+            for j in 1...10 {
+                temporaryBoard.append(isBlack)
+                isBlack = !isBlack
+            }
+            isBlack = !isBlack
+        }
+        return temporaryBoard
+    }()
+    func squareIsBlackAtRow(row: Int, column: Int) -> Bool {
+        return boardColors[(row * 10) + column]
+    }
+}
+let board = Checkerboard()
+println(board.squareIsBlackAtRow(0, column: 1))
+println(board.squareIsBlackAtRow(9, column: 9))
 
 
 
