@@ -3,3 +3,5 @@ Swift Thoughts and Questions
 - How do you get pretty printing of instances in the playground?
 - Could you get a pretty printout of something like a 2D matrix?
 - How does Phase two of object initialization work?
+- In the Deinitialization Chapter is the Bank object (that only contains Type properties and methods) a hacky way of having a singleton?
+- The Player deinitialization method doesn't get called in the playground when the playerOne variable is set to nil.
