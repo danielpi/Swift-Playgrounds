@@ -22,6 +22,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E61A5FDC195C4E2600821435 /* OptionalChaining.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = OptionalChaining.playground; sourceTree = "<group>"; };
 		E62A02011951909B007EE39F /* Enumerations.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Enumerations.playground; sourceTree = "<group>"; };
 		E62A020219519B95007EE39F /* ClassesAndStructures.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ClassesAndStructures.playground; sourceTree = "<group>"; };
 		E62A02031951C686007EE39F /* Properties.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Properties.playground; sourceTree = "<group>"; };
@@ -103,6 +104,7 @@
 				E6D3454A19552CE700423381 /* Initialization.playground */,
 				E6904BAD19597E02008CF099 /* Deinitialization.playground */,
 				E6904BAE19598806008CF099 /* AutomaticReferenceCounting.playground */,
+				E61A5FDC195C4E2600821435 /* OptionalChaining.playground */,
 				E6E1BED519401B3600DA4D53 /* Supporting Files */,
 			);
 			path = "Swift-Playgrounds";
