@@ -96,10 +96,32 @@ if let firstRoomName = jack.residence?[0].name {
 
 
 // Linking Multiple levels of Chaining
+if let jacksStreet = jack.residence?.address?.street {
+    println("Jack's street name is \(jacksStreet).")
+} else {
+    println("Unable to retrieve the address.")
+}
+
+let jacksAddress = Address()
+jacksAddress.buildingName = "The Larches"
+jacksAddress.street = "Laurel Street"
+jack.residence!.address = jacksAddress
+
+if let jacksStreet = jack.residence?.address?.street {
+    println("Jack's street name is \(jacksStreet).")
+} else {
+    println("Unable to retrieve the address.")
+}
 
 
+// Chaining on Methods With Optional Return Values
+if let buildingIdentifier = jack.residence?.address?.buildingIdentifier() {
+    println("Jack's building identifier is \(buildingIdentifier).")
+}
 
-
+if let upper = jack.residence?.address?.buildingIdentifier()?.uppercaseString {
+    println("Jack's uppercase building identifier is \(upper).")
+}
 
 
 
