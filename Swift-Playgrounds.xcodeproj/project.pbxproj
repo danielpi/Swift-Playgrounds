@@ -30,6 +30,7 @@
 		E63990941950566000412EC5 /* Functions.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Functions.playground; sourceTree = "<group>"; };
 		E63CCE581941BB050087C852 /* TheBasics.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TheBasics.playground; sourceTree = "<group>"; };
 		E6459C0B19470BD600C236CC /* CollectionTypes.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = CollectionTypes.playground; sourceTree = "<group>"; };
+		E65A5CCF19617C1E006FFFC4 /* TypeCasting.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TypeCasting.playground; sourceTree = "<group>"; };
 		E6904BAD19597E02008CF099 /* Deinitialization.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Deinitialization.playground; sourceTree = "<group>"; };
 		E6904BAE19598806008CF099 /* AutomaticReferenceCounting.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = AutomaticReferenceCounting.playground; sourceTree = "<group>"; };
 		E69DFCFB19513D66006F065A /* Closures.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Closures.playground; sourceTree = "<group>"; };
@@ -105,6 +106,7 @@
 				E6904BAD19597E02008CF099 /* Deinitialization.playground */,
 				E6904BAE19598806008CF099 /* AutomaticReferenceCounting.playground */,
 				E61A5FDC195C4E2600821435 /* OptionalChaining.playground */,
+				E65A5CCF19617C1E006FFFC4 /* TypeCasting.playground */,
 				E6E1BED519401B3600DA4D53 /* Supporting Files */,
 			);
 			path = "Swift-Playgrounds";
