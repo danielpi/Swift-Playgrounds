@@ -185,7 +185,7 @@ if assumedString {
 if let definiteString = assumedString {
     println(definiteString)
 }
-// “Implicitly unwrapped optionals should not be used when there is a possibility of a variable becoming nil at a later point. Always use a normal optional type if you need to check for a nil value during the lifetime of a variable.”
+//  Implicitly unwrapped optionals should not be used when there is a possibility of a variable becoming nil at a later point. Always use a normal optional type if you need to check for a nil value during the lifetime of a variable.
 
 
 // Assertions

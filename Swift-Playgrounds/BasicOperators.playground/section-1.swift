@@ -26,7 +26,7 @@ if x = y {
 
 let dog: Character = "🐶"
 let cow: Character = "🐮"
-let dogcoa = dog + cow
+let dogcow = dog + cow
 
 // Remainder Operator
 9 % 4
@@ -38,7 +38,7 @@ let dogcoa = dog + cow
 
 8 % 2.5
 
-// Invrement and Decrement Operators
+// Increment and Decrement Operators
 var i = 0
 ++i
 
