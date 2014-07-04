@@ -31,6 +31,7 @@
 		E63990941950566000412EC5 /* Functions.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Functions.playground; sourceTree = "<group>"; };
 		E63CCE581941BB050087C852 /* TheBasics.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TheBasics.playground; sourceTree = "<group>"; };
 		E6459C0B19470BD600C236CC /* CollectionTypes.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = CollectionTypes.playground; sourceTree = "<group>"; };
+		E657B68619666895006AE171 /* Protocols.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Protocols.playground; sourceTree = "<group>"; };
 		E65A5CCF19617C1E006FFFC4 /* TypeCasting.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TypeCasting.playground; sourceTree = "<group>"; };
 		E684E7B11964D21C00DF5F3C /* Extensions.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Extensions.playground; sourceTree = "<group>"; };
 		E6904BAD19597E02008CF099 /* Deinitialization.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Deinitialization.playground; sourceTree = "<group>"; };
@@ -111,6 +112,7 @@
 				E65A5CCF19617C1E006FFFC4 /* TypeCasting.playground */,
 				E62B3AA91962426F00088655 /* NestedTypes.playground */,
 				E684E7B11964D21C00DF5F3C /* Extensions.playground */,
+				E657B68619666895006AE171 /* Protocols.playground */,
 				E6E1BED519401B3600DA4D53 /* Supporting Files */,
 			);
 			path = "Swift-Playgrounds";
