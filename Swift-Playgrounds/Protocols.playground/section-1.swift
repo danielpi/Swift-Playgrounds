@@ -221,3 +221,64 @@ let simonTheHamster = Hamster(name: "Simon")
 let somethingTextRepresentable: TextRepresentable = simonTheHamster
 println(somethingTextRepresentable.asText())
 
+
+// Collections of Protocol Types
+let things: TextRepresentable[] = [game, d12, simonTheHamster]
+for thing in things {
+    println(thing.asText())
+}
+//  Note that the thing constant is of type TextRepresentable. It is not of type Dice, or DiceGame, or Hamster, even if the actual instance behind the scenes is of one of those types.
+
+
+// Protocol Inheritance
+/*
+protocol InheritingProtocol: SomeProtocol, Another Protocol {
+    // protocol definition goes here
+}
+*/
+
+protocol PrettyTextRepresentable: TextRepresentable {
+    func asPrettyText() -> String
+}
+//  PrettyTextRepresentable must satisfy all of the requirements enforced by TextRepresentable, plus the additional requirements enforced by PrettyTextRepresentable.
+
+extension SnakesAndLadders: PrettyTextRepresentable {
+    func asPrettyText() -> String {
+        var output = asText() + ":\n"
+        for index in 1...finalSquare {
+            switch board[index] {
+            case let ladder where ladder > 0:
+                output += "▲ "
+            case let snake where snake < 0:
+                output += "▼ "
+            default:
+                output += "○ "
+            }
+        }
+        return output
+    }
+}
+println(game.asPrettyText())
+
+
+// Protocol Composition
+protocol Named {
+    var name: String { get }
+}
+protocol Aged {
+    var age: Int { get }
+}
+struct Person2: Named, Aged {
+    var name: String
+    var age: Int
+}
+func wishHappyBirthday(celebrator: protocol<Named, Aged>) {
+    println("Happy birthday \(celebrator.name) - you're \(celebrator.age)!")
+}
+let birthdayPerson = Person2(name:"Malcom", age: 21)
+wishHappyBirthday(birthdayPerson)
+
+
+// Checking for Protocol Conformance
+
+
