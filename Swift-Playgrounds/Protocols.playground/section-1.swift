@@ -280,5 +280,89 @@ wishHappyBirthday(birthdayPerson)
 
 
 // Checking for Protocol Conformance
+@objc protocol HasArea {
+    var area: Double { get }
+}
+//  You can check for protocol conformance only if your protocol is marked with the @objc attribute
+class Circle: HasArea {
+    let pi = 3.1415927
+    var radius: Double
+    var area: Double { return pi * radius * radius }
+    init(radius: Double) { self.radius = radius }
+}
+class Country: HasArea {
+    var area: Double
+    init(area: Double) { self.area = area }
+}
+class Animal {
+    var legs: Int
+    init(legs: Int) { self.legs = legs }
+}
+
+let objects: AnyObject[] = [
+    Circle(radius: 2.0),
+    Country(area: 243_610),
+    Animal(legs: 4)
+]
+for object in objects {
+    if let objectWithArea = object as? HasArea {
+        println("Area is \(objectWithArea.area)")
+    } else {
+        println("Something that doesn't have an area")
+    }
+}
+//  Note that the underlying objects are not changed by the casting process. They continue to be a Circle, a Country and an Animal. However, at the point that they are stored in the objectWithArea constant, they are only known to be of type HasArea, and so only their area property can be accessed.
+
+
+// Optional Protocol Requirements
+//  Optional property requirements, and optional method requirements that return a value, will always return an optional value of the appropriate type when they are accessed or called, to reflect the fact that the optional requirement may not have been implemented.
+@objc protocol CounterDataSource {
+    @optional func incrementForCount(count: Int) -> Int
+    @optional var fixedIncrement: Int { get }
+}
+
+@objc class Counter {
+    var count = 0
+    var dataSource: CounterDataSource?
+    func increment() {
+        if let amount = dataSource?.incrementForCount?(count) {
+            count += amount
+        } else if let amount = dataSource?.fixedIncrement? {
+            count += amount
+        }
+    }
+}
+
+class ThreeSource: CounterDataSource {
+    let fixedIncrement = 3
+}
+
+var counter = Counter()
+counter.dataSource = ThreeSource()
+for _ in 1...4 {
+    counter.increment()
+    println(counter.count)
+}
+
+class TowardsZeroSource: CounterDataSource {
+    func incrementForCount(count: Int) -> Int {
+        if count == 0 {
+            return 0
+        } else if count < 0 {
+            return 1
+        } else {
+            return -1
+        }
+    }
+}
+
+counter.count = -4
+counter.dataSource = TowardsZeroSource()
+for _ in 1...5 {
+    counter.increment()
+    println(counter.count)
+}
+
+
 
 
