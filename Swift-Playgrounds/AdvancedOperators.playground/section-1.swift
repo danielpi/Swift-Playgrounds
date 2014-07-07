@@ -45,4 +45,126 @@ negativeBits >> 5 // Doesn't overflow
 
 
 // Overflow Operators
+//  Overflow addition (&+)
+//  Overflow subtraction (&-)
+//  Overflow multiplication (&*)
+//  Overflow division (&/)
+//  Overflow remainder (&%)
+
+var potentialOverflow = Int16.max
+// potentialOverflow += 1 // This causes an error if it runs
+
+var willOverflow = UInt8.max
+willOverflow = willOverflow &+ 1
+
+// Value Underflow
+var willUnderflow = UInt8.min
+willUnderflow = willUnderflow &- 1
+
+var signedUnderflow = Int8.min
+signedUnderflow = signedUnderflow &- 1
+
+
+// Division by Zero
+//  Dividing a number by zero (i / 0), or trying to calculate remainder by zero (i % 0), causes an error:
+let x = 1
+//let y = x / 0 // This causes an error
+
+//  However, the overflow versions of these operators (&/ and &%) return a value of zero if you divide by zero:
+let y = x &/ 0
+
+
+// Precedence and Associativity
+//  Operator associativity defines how operators of the same precedence are grouped together (or associated)—either grouped from the left, or grouped from the right. Think of it as meaning “they associate with the expression to their left,” or “they associate with the expression to their right.
+2 + 3 * 4 % 5
+
+// * and % have a higher precedence than +. 
+// * and & have the same precendence as each other but both associate to their left. Think of this as adding implicit parentheses around these parts of the expression, starting from their left: (This explanation seems arbitrary to me. Aparently more info in the Expressions chapter)
+
+
+// Operator Functions
+// Infix Operators
+struct Vector2D {
+    var x = 0.0, y = 0.0
+}
+@infix func + (left: Vector2D, right: Vector2D) -> Vector2D {
+    return Vector2D(x: left.x + right.x, y: left.y + right.y)
+}
+let vector = Vector2D(x: 3.0, y: 1.0)
+let anotherVector = Vector2D(x: 2.0, y:4.0)
+let combinedVector = vector + anotherVector
+
+// Prefix and Postfix Operators
+@prefix func - (vector: Vector2D) -> Vector2D {
+    return Vector2D(x: -vector.x, y: -vector.y)
+}
+let positive = Vector2D(x: 3.0, y: 4.0)
+let negative = -positive
+let alsoPositive = -negative
+
+
+// Compound Assignment Operators
+@assignment func += (inout left: Vector2D, right: Vector2D) {
+    left = left + right
+}
+var original = Vector2D(x: 1.0, y: 2.0)
+let vectorToAdd = Vector2D(x: 3.0, y: 4.0)
+original += vectorToAdd
+
+@prefix @assignment func ++ (inout vector: Vector2D) -> Vector2D {
+    vector += Vector2D(x: 1.0, y: 1.0)
+    return vector
+}
+var toIncrement = Vector2D(x: 3.0, y: 4.0)
+let afterIncrement = ++toIncrement
+
+//  It is not possible to overload the default assignment operator (=). Only the compound assignment operators can be overloaded. Similarly, the ternary conditional operator (a ? b : c) cannot be overloaded.
+
+
+// Equivalence Operators
+//  Custom classes and structures do not receive a default implementation of the equivalence operators, known as the “equal to” operator (==) and “not equal to” operator (!=).
+@infix func == (left: Vector2D, right: Vector2D) -> Bool {
+    return (left.x == right.x) && (left.y == right.y)
+}
+@infix func != (left: Vector2D, right: Vector2D) -> Bool {
+    return !(left == right)
+}
+let twoThree = Vector2D(x: 2.0, y: 3.0)
+let anotherTwoThree = Vector2D(x: 2.0, y: 3.0)
+if twoThree == anotherTwoThree {
+    println("These two vectors are equivilent.")
+}
+
+
+// Custom Operators
+//  Custom operators can be defined only with the characters / = - + * % < > ! & | ^ . ~
+
+// +++ prefix doubling incrementer
+operator prefix +++ {}
+@prefix @assignment func +++ (inout vector: Vector2D) -> Vector2D {
+    vector += vector
+    return vector
+}
+var toBeDoubled = Vector2D(x: 1.0, y: 4.0)
+let afterDoubling = +++toBeDoubled
+
+
+// Precedence and Associativity for Custom Infix Operators
+operator infix +- { associativity left precedence 140 }
+func +- (left: Vector2D, right: Vector2D) -> Vector2D {
+    return Vector2D(x: left.x + right.x, y: left.y - right.y)
+}
+let firstVector = Vector2D(x: 1.0, y: 2.0)
+let secondVector = Vector2D(x: 3.0, y: 4.0)
+let plusMinusVector = firstVector +- secondVector
+
+
+
+
+
+
+
+
+
+
 
