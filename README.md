@@ -4,6 +4,10 @@ Some experiments with Playgrounds in XCode 6 using the Swift programming languag
 
 I have been working through all the examples in the book Apple Inc. “The Swift Programming Language.” iBooks. https://itunes.apple.com/au/book/swift-programming-language/id881256329?mt=11. Each .playground file in the project relates to a chapter from the Swift Programming Language book.
 
+I have implemented this as a single XCode project that contains a playground file for each chapter of the language reference book. I'm finding it quite useful to have this project open when I am writing Swift code as I can use the project wide search functionality to lookup any Swift features or syntax that I am unsure about (so long as I can remember the words to look for)
+
+Below is a list of each of the files within the project (this is also a list of the chapters of the book that I have worked through).
+
 - **ASwiftTour.playground** contains the code from the "Swift Tour" chapter. This file has the most meat so far. It touches on most of the unusual features of the language and is easy to search through to find examples.
 
 Chapters from the Language guide. Each chapter goes into depth about its particular subject.
@@ -27,3 +31,14 @@ Chapters from the Language guide. Each chapter goes into depth about its particu
 - **OptionalChaining.playground**
 - **TypeCasting.playground**
 - **NestedTypes.playground**
+- **Extensions.playground**
+- **Protocols.playground**
+- **Generics.playground**
+- **AdvancedOperators.playground**
+
+That completes the Language Guide section of the book. I haven't decided if I will continue on with the Language reference section next or switch over to the "Using Swift with Cocoa and Objective-C" book. 
+
+
+
+
+
