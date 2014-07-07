@@ -32,6 +32,8 @@
 		E63CCE581941BB050087C852 /* TheBasics.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TheBasics.playground; sourceTree = "<group>"; };
 		E63F4F42196971AF00133672 /* AdvancedOperators.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = AdvancedOperators.playground; sourceTree = "<group>"; };
 		E6459C0B19470BD600C236CC /* CollectionTypes.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = CollectionTypes.playground; sourceTree = "<group>"; };
+		E6556B68196A9B6C00D5764D /* BasicSetup.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = BasicSetup.playground; path = "UsingSwiftWithCocoaAndObjective-C/BasicSetup.playground"; sourceTree = "<group>"; };
+		E6556B69196A9DAD00D5764D /* InteractingWithObjective-C-APIs.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = "InteractingWithObjective-C-APIs.playground"; path = "UsingSwiftWithCocoaAndObjective-C/InteractingWithObjective-C-APIs.playground"; sourceTree = "<group>"; };
 		E657B68619666895006AE171 /* Protocols.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Protocols.playground; sourceTree = "<group>"; };
 		E65A5CCF19617C1E006FFFC4 /* TypeCasting.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TypeCasting.playground; sourceTree = "<group>"; };
 		E684E7B11964D21C00DF5F3C /* Extensions.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Extensions.playground; sourceTree = "<group>"; };
@@ -72,28 +74,9 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E6E1BEC919401B3600DA4D53 = {
+		E6556B65196A90CB00D5764D /* Language Guide */ = {
 			isa = PBXGroup;
 			children = (
-				E6E1BED419401B3600DA4D53 /* Swift-Playgrounds */,
-				E6E1BEE719401B3600DA4D53 /* Swift-PlaygroundsTests */,
-				E6E1BED319401B3600DA4D53 /* Products */,
-			);
-			sourceTree = "<group>";
-		};
-		E6E1BED319401B3600DA4D53 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				E6E1BED219401B3600DA4D53 /* Swift-Playgrounds.app */,
-				E6E1BEE419401B3600DA4D53 /* Swift-PlaygroundsTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		E6E1BED419401B3600DA4D53 /* Swift-Playgrounds */ = {
-			isa = PBXGroup;
-			children = (
-				E6E1BEF419401C6000DA4D53 /* ASwiftTour.playground */,
 				E63CCE581941BB050087C852 /* TheBasics.playground */,
 				E6BD7A7D194529DA003B68CA /* BasicOperators.playground */,
 				E6BD7A7E19455C16003B68CA /* StringsAndCharacters.playground */,
@@ -117,6 +100,51 @@
 				E657B68619666895006AE171 /* Protocols.playground */,
 				E6D20A061968F035007667BA /* Generics.playground */,
 				E63F4F42196971AF00133672 /* AdvancedOperators.playground */,
+			);
+			name = "Language Guide";
+			sourceTree = "<group>";
+		};
+		E6556B66196A912E00D5764D /* The Swift Programming Language */ = {
+			isa = PBXGroup;
+			children = (
+				E6E1BEF419401C6000DA4D53 /* ASwiftTour.playground */,
+				E6556B65196A90CB00D5764D /* Language Guide */,
+			);
+			name = "The Swift Programming Language";
+			sourceTree = "<group>";
+		};
+		E6556B67196A916000D5764D /* Using Swift with Cocoa and Objective-C */ = {
+			isa = PBXGroup;
+			children = (
+				E6556B68196A9B6C00D5764D /* BasicSetup.playground */,
+				E6556B69196A9DAD00D5764D /* InteractingWithObjective-C-APIs.playground */,
+			);
+			name = "Using Swift with Cocoa and Objective-C";
+			sourceTree = "<group>";
+		};
+		E6E1BEC919401B3600DA4D53 = {
+			isa = PBXGroup;
+			children = (
+				E6E1BED419401B3600DA4D53 /* Swift-Playgrounds */,
+				E6E1BEE719401B3600DA4D53 /* Swift-PlaygroundsTests */,
+				E6E1BED319401B3600DA4D53 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E6E1BED319401B3600DA4D53 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E6E1BED219401B3600DA4D53 /* Swift-Playgrounds.app */,
+				E6E1BEE419401B3600DA4D53 /* Swift-PlaygroundsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E6E1BED419401B3600DA4D53 /* Swift-Playgrounds */ = {
+			isa = PBXGroup;
+			children = (
+				E6556B66196A912E00D5764D /* The Swift Programming Language */,
+				E6556B67196A916000D5764D /* Using Swift with Cocoa and Objective-C */,
 				E6E1BED519401B3600DA4D53 /* Supporting Files */,
 			);
 			path = "Swift-Playgrounds";
