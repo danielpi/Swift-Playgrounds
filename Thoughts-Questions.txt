@@ -14,4 +14,5 @@ let myLength = myObject.length?
 if let fifthCharacter = myObject.characterAtIndex(5) {
     println("Found \(fifthCharacter) at index 5")
 }
-
+- let squareRoot = Float(sqrt(3)) gives an "Ambiguous use of sqrt in Beta 3". It doesn't look like you can call sqrt() on an integer.
+- 

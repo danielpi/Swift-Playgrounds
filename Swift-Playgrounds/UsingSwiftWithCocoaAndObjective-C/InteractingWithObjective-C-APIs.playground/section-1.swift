@@ -1,6 +1,7 @@
 // Interacting with Objective-C APIs
 import UIKit
-import CoreGraphics
+//import CoreGraphics
+//import Foundation
 
 // Initialization
 
@@ -65,8 +66,9 @@ if let date = lastRefreshDate as? NSDate {
     println("\(date.timeIntervalSinceReferenceDate)")
 }
 
-let myDate = lastRefreshDate as NSDate
-let timeInterval = myDate.timeIntervalSinceReferenceDate
+// The following force unwraps the lastRefreshDate even though it is nil.
+//let myDate = lastRefreshDate as NSDate
+//let timeInterval = myDate.timeIntervalSinceReferenceDate
 
 
 // Working with nil
@@ -78,25 +80,67 @@ let timeInterval = myDate.timeIntervalSinceReferenceDate
 extension UIBezierPath {
     convenience init(triangleSideLength: Float, origin: CGPoint) {
         self.init()
-        let squareRoot = Float(sqrt(3))
+        let squareRoot = Float(sqrt(3.0))
         let altitude = (squareRoot * triangleSideLength) / 2
         moveToPoint(origin)
-        let point1 = CGPoint(triangleSideLength, origin.x)
-        addLineToPoint(CGPoint(triangleSideLength, origin.x))
-        addLineToPoint(CGPoint(triangleSideLength / 2, altitude))
+        let point1 = CGPoint(x: CGFloat(triangleSideLength), y: origin.x)
+        addLineToPoint(CGPoint(x: CGFloat(triangleSideLength), y: origin.x))
+        addLineToPoint(CGPoint(x: CGFloat(triangleSideLength / 2), y: CGFloat(altitude)))
         closePath()
     }
 }
+// ??? A bunch of explicit casting is required above when the docs indicate that they shouldn't be needed.
+
+//  You can use extensions to add properties (including class and static properties). However, these properties must be computed; extensions can’t add stored properties to classes, structures, or enumerations.
+extension CGRect {
+    var area: CGFloat {
+        return width * height
+    }
+}
+let rect = CGRect(x: 0.0, y: 0.0, width: 10.0, height: 50.0)
+let area = rect.area
 
 
+// Closures
+//  Objective-C blocks are automatically imported as Swift closures.
+
+// void (^completionBlock)(NSData *, NSError *) = ^(NSData *data, NSError *error) { /* ... */ }
+let completionBlock: (NSData, NSError) -> Void = { data, error in /* ... */ }
+//  Closures have similar capture semantics as blocks but differ in one key way: Variables are mutable rather than copied. In other words, the behavior of __block in Objective-C is the default behavior for variables in Swift.
 
 
+// Object Comparison
+//  Equality (==), compares the contents of the objects. 
+//  Identity (===), determines whether or not the constants or variables refer to the same object instance.
+//  Swift invokes the isEqual: method defined on the NSObject class. The NSObject class only performs an identity comparison, so you should implement your own isEqual: method in classes that derive from the NSObject class.
+//
+
+// Swift Type Compatibility
+//  The @objc attribute makes your Swift API available in Objective-C and the Objective-C runtime.
+@objc(Squirrel)
+class Белка {
+    @objc(initWithName:)
+    init(имя: String) { /* ... */ }
+    @objc(hideNuts:inTree:)
+    func прячьОрехи(Int, вДереве: Дерево) { /* ... */ }
+}
 
 
-
-
-
-
+// Objective-C Selectors
+//  An Objective-C selector is a type that refers to the name of an Objective-C method. In Swift, Objective-C selectors are represented by the Selector structure.
+//  In Swift string literals can be automatically converted to selectors
+class MyViewController: UIViewController {
+    let myButton = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
+    
+    init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!) {
+        super.init(nibName: nibName, bundle: dibBundle)
+        myButton.targetForAction("tappedButton:", withSender: self)
+    }
+    
+    func tappedButton(sender: UIButton!) {
+        println("tapped button")
+    }
+}
 
 
 

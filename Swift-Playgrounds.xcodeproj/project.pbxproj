@@ -27,6 +27,7 @@
 		E62A020219519B95007EE39F /* ClassesAndStructures.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ClassesAndStructures.playground; sourceTree = "<group>"; };
 		E62A02031951C686007EE39F /* Properties.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Properties.playground; sourceTree = "<group>"; };
 		E62B3AA91962426F00088655 /* NestedTypes.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = NestedTypes.playground; sourceTree = "<group>"; };
+		E62C22AD196C1D4F0005CA67 /* WritingSwiftClassesWithObjectiveCBehaviour.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = WritingSwiftClassesWithObjectiveCBehaviour.playground; sourceTree = "<group>"; };
 		E6391ECA1949410800FBA4C9 /* ControlFlow.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ControlFlow.playground; sourceTree = "<group>"; };
 		E63990941950566000412EC5 /* Functions.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Functions.playground; sourceTree = "<group>"; };
 		E63CCE581941BB050087C852 /* TheBasics.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TheBasics.playground; sourceTree = "<group>"; };
@@ -118,6 +119,7 @@
 			children = (
 				E6556B68196A9B6C00D5764D /* BasicSetup.playground */,
 				E6556B69196A9DAD00D5764D /* InteractingWithObjective-C-APIs.playground */,
+				E62C22AD196C1D4F0005CA67 /* WritingSwiftClassesWithObjectiveCBehaviour.playground */,
 			);
 			name = "Using Swift with Cocoa and Objective-C";
 			sourceTree = "<group>";
