@@ -57,7 +57,7 @@ for item in library {
 
 
 // Type Casting for Any and AnyObject
-let someObjects: AnyObject[] = [
+let someObjects: [AnyObject] = [
     Movie(name: "2001: A Space Odyssey", director: "Stanley Kubrick"),
     Movie(name: "Moon", director:"Duncan Jones"),
     Movie(name: "Alien", director: "Ridley Scott")
@@ -67,13 +67,13 @@ for object in someObjects {
     let movie = object as Movie
     println("Movie: '\(movie.name)', dir.\(movie.director)")
 }
-for movie in someObjects as Movie[] {
+for movie in someObjects as [Movie] {
     println("Movie: '\(movie.name)', dir. \(movie.director)")
 }
 
 
 // Any
-var things = Any[]()
+var things = [Any]()
 things.append(0)
 things.append(0.0)
 things.append(42)

@@ -42,7 +42,7 @@ occupations["Jayne"] = "Public Relations"
 occupations
 
 // Initialising an empty array or dict
-let emptyArray = String[]()
+let emptyArray = [String]()
 var emptyDictionary = Dictionary<String, Float>()
 
 shoppingList = []
@@ -129,7 +129,7 @@ m
 
 // Indexes in loops and the Range operators
 var firstForLoop = 0
-for i in 0..3 {
+for i in 0..<3 {
     firstForLoop += i
 }
 firstForLoop
@@ -195,7 +195,7 @@ func makeIncrementer() -> (Int -> Int) {
 var increment = makeIncrementer()
 increment(7)
 
-func hasAnyMatches(list: Int[], condition: Int -> Bool) -> Bool {
+func hasAnyMatches(list: [Int], condition: Int -> Bool) -> Bool {
     for item in list {
         if condition(item) {
             return true
@@ -229,7 +229,9 @@ numbers.map({
 numbers.map({ number in 3 * number})
 
 // A closure passed as the last argument to a function can appear immediately after the parentheses
-sort([1,5,3,12,2]){ $0 > $1 }
+var arrayToSort = [1, 5, 3, 12, 2]
+sort(arrayToSort){ $0 > $1 }
+sorted([1, 5, 3, 12, 2]){  $0 > $1 }
 
 
 // Objects and Classes
@@ -446,8 +448,8 @@ struct Card {
     var rank: Rank
     var suit: Suit
     
-    func createFullDeck() -> Card[] {
-        var deck: Card[] = []
+    func createFullDeck() -> [Card] {
+        var deck: [Card] = []
         
         func appendFullRank(suit: Suit) {
             for rawRank in 1...13 {
@@ -573,9 +575,9 @@ protocolValue.simpleDescription
 
 
 // Generics
-func repeat<ItemType>(item: ItemType, times: Int) -> ItemType[] {
-    var result = ItemType[]()
-    for i in 0..times {
+func repeat<ItemType>(item: ItemType, times: Int) -> [ItemType] {
+    var result = [ItemType]()
+    for i in 0..<times {
         result += item
     }
     return result
@@ -606,8 +608,8 @@ anyCommonElements([1,2,3], [6])
 anyCommonElements([1,2,3], [3.0])
 
 
-func returnAnyCommonElements <T, U where T: Sequence, U: Sequence, T.GeneratorType.Element: Equatable, T.GeneratorType.Element == U.GeneratorType.Element> (lhs: T, rhs: U) -> T.GeneratorType.Element[] {
-    var commonElements: T.GeneratorType.Element[] = []
+func returnAnyCommonElements <T, U where T: Sequence, U: Sequence, T.GeneratorType.Element: Equatable, T.GeneratorType.Element == U.GeneratorType.Element> (lhs: T, rhs: U) -> [T.GeneratorType.Element] {
+    var commonElements: [T.GeneratorType.Element] = []
     for lhsItem in lhs {
         for rhsItem in rhs {
             if lhsItem == rhsItem {

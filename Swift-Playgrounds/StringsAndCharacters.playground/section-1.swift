@@ -6,6 +6,8 @@ let wiseWords = "\"Imagination is more important than knowledge\" - Einstein"
 let dollarSign = "\x24"
 let blackHeart = "\u2665"
 let sparklingHeart = "\U0001F496"
+// let blah = "\u{123456}" // This doesn't seem to work yet
+
 
 // Empty Strings
 var emptyString = ""

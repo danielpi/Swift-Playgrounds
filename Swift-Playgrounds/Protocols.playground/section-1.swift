@@ -137,9 +137,9 @@ class SnakesAndLadders: DiceGame {
     let finalSquare = 25
     let dice = Dice(sides: 6, generator:LinearCongruentialGenerator())
     var square = 0
-    var board: Int[]
+    var board: [Int]
     init() {
-        board = Int[](count: finalSquare + 1, repeatedValue: 0)
+        board = [Int](count: finalSquare + 1, repeatedValue: 0)
         board[03] = +08; board[06] = +11; board[09] = +09; board[10] = +02; board[14] = -10; board[19] = -11; board[22] = -02; board[24] = -08
     }
     var delegate: DiceGameDelegate?
@@ -223,7 +223,7 @@ println(somethingTextRepresentable.asText())
 
 
 // Collections of Protocol Types
-let things: TextRepresentable[] = [game, d12, simonTheHamster]
+let things: [TextRepresentable] = [game, d12, simonTheHamster]
 for thing in things {
     println(thing.asText())
 }
@@ -299,7 +299,7 @@ class Animal {
     init(legs: Int) { self.legs = legs }
 }
 
-let objects: AnyObject[] = [
+let objects: [AnyObject] = [
     Circle(radius: 2.0),
     Country(area: 243_610),
     Animal(legs: 4)

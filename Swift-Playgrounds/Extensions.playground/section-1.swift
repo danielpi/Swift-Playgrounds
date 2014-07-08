@@ -56,7 +56,7 @@ let centerRect = Rect(center: Point(x: 4.0, y: 4.0), size: Size(width: 3.0, heig
 // Methods
 extension Int {
     func repetitions(task: () -> ()) {
-        for i in 0..self {
+        for i in 0..<self {
             task()
         }
     }

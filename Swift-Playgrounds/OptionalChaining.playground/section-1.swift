@@ -24,7 +24,7 @@ class Person2 {
 }
 
 class Residence2 {
-    var rooms = Room[]()
+    var rooms = [Room]()
     var numberOfRooms: Int {
     return rooms.count
     }

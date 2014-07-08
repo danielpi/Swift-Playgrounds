@@ -47,7 +47,7 @@ println("someString is now \(someString), and anotherString is now \(anotherStri
 // Generic Types
 // Non-generic version of a Stack first
 struct IntStack {
-    var items = Int[]()
+    var items = [Int]()
     mutating func push(item: Int) {
         items.append(item)
     }
@@ -58,7 +58,7 @@ struct IntStack {
 
 // Now a Generic version
 struct Stack<T> {
-    var items = T[]()
+    var items = [T]()
     mutating func push(item: T) {
         items.append(item)
     }
@@ -82,7 +82,7 @@ func someFunction<T: SomeClass, U: SomeProtocol>(someT: T, someU: U) {
     // function body goes here
 }
 */
-func findStringIndex(array: String[], valueToFind: String) -> Int? {
+func findStringIndex(array: [String], valueToFind: String) -> Int? {
     for (index, value) in enumerate(array) {
         if value == valueToFind {
             return index
@@ -95,7 +95,7 @@ if let foundIndex = findStringIndex(strings, "llama") {
     println("The index of llama is \(foundIndex)")
 }
 
-func findIndex<T:Equatable>(array: T[], valueToFind: T) -> Int? {
+func findIndex<T:Equatable>(array: [T], valueToFind: T) -> Int? {
     for (index, value) in enumerate(array) {
         if value == valueToFind {
             return index
@@ -117,7 +117,7 @@ protocol Container {
 
 struct IntStack2: Container {
     // original IntStack implementation
-    var items = Int[]()
+    var items = [Int]()
     mutating func push(item: Int) {
         items.append(item)
     }
@@ -139,7 +139,7 @@ struct IntStack2: Container {
 
 struct Stack2<T>: Container {
     // original Stack<T> implementation
-    var items = T[]()
+    var items = [T]()
     mutating func push(item: T) {
         items.append(item)
     }
@@ -172,7 +172,7 @@ func allItemsMatch<C1: Container, C2: Container where C1.ItemType == C2.ItemType
     }
     
     // check each pair of items it see if they are equivilent
-    for i in 0..someContainer.count {
+    for i in 0..<someContainer.count {
         if someContainer[i] != anotherContainer[i] {
             return false
         }

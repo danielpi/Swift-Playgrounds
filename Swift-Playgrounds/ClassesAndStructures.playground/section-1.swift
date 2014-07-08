@@ -79,6 +79,7 @@ var copiedAges = ages
 copiedAges["Peter"] = 24
 println(ages["Peter"])
 
+/*
 // Assignment and Copy Behaviour for Arrays
 var a = [1, 2, 3]
 var b = a
@@ -123,7 +124,7 @@ var names = ["Mohsen", "Hilary", "Justyn", "Amy", "Rich", "Graham", "Vic"]
 var copiedNames = names.copy()
 copiedNames[0] = "Mo"
 println(names[0])
-
+*/
 
 
 

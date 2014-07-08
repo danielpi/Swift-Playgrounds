@@ -211,8 +211,8 @@ class SomeClass {
 */
 //  Note that the closure’s end curly brace is followed by an empty pair of parentheses. This tells Swift to execute the closure immediately. If you omit these parentheses, you are trying to assign the closure itself to the property, and not the return value of the closure.
 struct Checkerboard {
-    let boardColors: Bool[] = {
-        var temporaryBoard = Bool[]()
+    let boardColors: [Bool] = {
+        var temporaryBoard = [Bool]()
         var isBlack = false
         for i in 1...10 {
             for j in 1...10 {

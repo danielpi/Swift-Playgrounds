@@ -1,9 +1,9 @@
 // Collection Types Chapter
 
 let longForm: Array<Int> = [1,2,3,4]
-let shortForm: Int[] = [5,6,7,8]
+let shortForm: [Int] = [5,6,7,8]
 
-var shoppingList: String[] = ["Eggs","Milk"]
+var shoppingList: [String] = ["Eggs","Milk"]
 
 // Accessing and Modifying an Array
 println("The shopping list contains \(shoppingList.count) items.")
@@ -40,20 +40,23 @@ for (index, value) in enumerate(shoppingList) {
 }
 
 // Creating and Initializing and Array
-var someInts = Int[]()
+var someInts = [Int]()
 println("someInts is of type Int[] with \(someInts.count) items.")
 
 someInts.append(3)
 someInts = []
 
-var threeDoubles = Double[](count: 3, repeatedValue: 0.0)
+var threeDoubles = [Double](count: 3, repeatedValue: 0.0)
 var anotherThreeDoubles = Array(count: 3, repeatedValue: 2.5)
 var sixDoubles = threeDoubles + anotherThreeDoubles
 
-// Dictionaries
-let aDict = Dictionary<String, Int>()
 
-var airports: Dictionary<String, String> = ["TYO":"Tokyo", "DUB":"Dublin"]
+// Dictionaries
+let alongFormDict = Dictionary<String, Int>()
+let shortFormDict = [String:Int]()
+
+//var airports: Dictionary<String, String> = ["TYO":"Tokyo", "DUB":"Dublin"]
+var airports: [String: String] = ["TYO":"Tokyo", "DUB":"Dublin"]
 
 // Accessing and Modifying a Dictionary
 println("The dictionary of airports contains \(airports.count) items.")
@@ -96,7 +99,8 @@ let airportCodes = Array(airports.keys)
 let airportNames = Array(airports.values)
 
 // Creating and Empty Dictionary
-var namesOfIntegers = Dictionary<Int, String>()
+//var namesOfIntegers = Dictionary<Int, String>()
+var namesOfIntegers = [Int:String]()
 namesOfIntegers[16] = "Sixteen"
 namesOfIntegers = [:]
 
