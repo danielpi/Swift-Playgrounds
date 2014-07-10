@@ -57,6 +57,8 @@
 		E6E1BEE919401B3600DA4D53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E6E1BEEA19401B3600DA4D53 /* Swift_PlaygroundsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_PlaygroundsTests.swift; sourceTree = "<group>"; };
 		E6E1BEF419401C6000DA4D53 /* ASwiftTour.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ASwiftTour.playground; sourceTree = "<group>"; };
+		E6F31F8A196E33440029E161 /* InteractingWithC-APIs.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = "InteractingWithC-APIs.playground"; path = "UsingSwiftWithCocoaAndObjective-C/InteractingWithC-APIs.playground"; sourceTree = "<group>"; };
+		E6F31F8B196E63A70029E161 /* Mix&Match.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = "Mix&Match.playground"; path = "UsingSwiftWithCocoaAndObjective-C/Mix&Match.playground"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,8 @@
 				E62C22AD196C1D4F0005CA67 /* WritingSwiftClassesWithObjectiveCBehaviour.playground */,
 				E69BC3A8196E06C40041EF0E /* WorkingWithCocoaDataTypes.playground */,
 				E69BC3A9196E117E0041EF0E /* Adopting Cocoa Design Patterns.playground */,
+				E6F31F8A196E33440029E161 /* InteractingWithC-APIs.playground */,
+				E6F31F8B196E63A70029E161 /* Mix&Match.playground */,
 			);
 			name = "Using Swift with Cocoa and Objective-C";
 			sourceTree = "<group>";
