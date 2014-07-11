@@ -2,6 +2,8 @@
 
 Some experiments with Playgrounds in XCode 6 using the Swift programming language.
 
+##The Swift Programming Language Book
+
 I have been working through all the examples in the book Apple Inc. “The Swift Programming Language.” iBooks. https://itunes.apple.com/au/book/swift-programming-language/id881256329?mt=11. Each .playground file in the project relates to a chapter from the Swift Programming Language book.
 
 I have implemented this as a single XCode project that contains a playground file for each chapter of the language reference book. I'm finding it quite useful to have this project open when I am writing Swift code as I can use the project wide search functionality to lookup any Swift features or syntax that I am unsure about (so long as I can remember the words to look for)
@@ -38,7 +40,15 @@ Chapters from the Language guide. Each chapter goes into depth about its particu
 
 That completes the Language Guide section of the book. I haven't decided if I will continue on with the Language reference section next or switch over to the "Using Swift with Cocoa and Objective-C" book. 
 
+##Using Swift with Cocoa and Objective-C Book
+There are six playground files that work through the code in the “Using Swift with Cocoa and Objective-C.” iBook. https://itunes.apple.com/au/book/using-swift-cocoa-objective/id888894773?mt=11. They are listed below. The example from this book didn't translate as well to the playgrounds as the previous book examples did. 
 
+- **BasicSetup.playground
+- **InteractingWithObjective-C-APIs.playground
+- **WritingClassesWithObjectiveCBehaviour.playground
+- **WorkingWithCocoaDataTypes.playground
+- **AdoptingCocoaDesignPatterns.playground
+- **InteractingWithC-APIs.playground
 
 
 

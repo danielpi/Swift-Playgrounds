@@ -41,8 +41,9 @@
 		E6904BAD19597E02008CF099 /* Deinitialization.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Deinitialization.playground; sourceTree = "<group>"; };
 		E6904BAE19598806008CF099 /* AutomaticReferenceCounting.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = AutomaticReferenceCounting.playground; sourceTree = "<group>"; };
 		E69BC3A8196E06C40041EF0E /* WorkingWithCocoaDataTypes.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = WorkingWithCocoaDataTypes.playground; path = "UsingSwiftWithCocoaAndObjective-C/WorkingWithCocoaDataTypes.playground"; sourceTree = "<group>"; };
-		E69BC3A9196E117E0041EF0E /* Adopting Cocoa Design Patterns.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = "Adopting Cocoa Design Patterns.playground"; path = "UsingSwiftWithCocoaAndObjective-C/Adopting Cocoa Design Patterns.playground"; sourceTree = "<group>"; };
+		E69BC3A9196E117E0041EF0E /* AdoptingCocoaDesignPatterns.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = AdoptingCocoaDesignPatterns.playground; path = "UsingSwiftWithCocoaAndObjective-C/AdoptingCocoaDesignPatterns.playground"; sourceTree = "<group>"; };
 		E69DFCFB19513D66006F065A /* Closures.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Closures.playground; sourceTree = "<group>"; };
+		E6B1D2D61970151C00647B94 /* GameDevUniversity.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = GameDevUniversity.playground; path = SpriteKit/GameDevUniversity.playground; sourceTree = "<group>"; };
 		E6BD7A7D194529DA003B68CA /* BasicOperators.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = BasicOperators.playground; sourceTree = "<group>"; };
 		E6BD7A7E19455C16003B68CA /* StringsAndCharacters.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = StringsAndCharacters.playground; sourceTree = "<group>"; };
 		E6D20A061968F035007667BA /* Generics.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Generics.playground; sourceTree = "<group>"; };
@@ -125,7 +126,7 @@
 				E6556B69196A9DAD00D5764D /* InteractingWithObjective-C-APIs.playground */,
 				E62C22AD196C1D4F0005CA67 /* WritingSwiftClassesWithObjectiveCBehaviour.playground */,
 				E69BC3A8196E06C40041EF0E /* WorkingWithCocoaDataTypes.playground */,
-				E69BC3A9196E117E0041EF0E /* Adopting Cocoa Design Patterns.playground */,
+				E69BC3A9196E117E0041EF0E /* AdoptingCocoaDesignPatterns.playground */,
 				E6F31F8A196E33440029E161 /* InteractingWithC-APIs.playground */,
 				E6F31F8B196E63A70029E161 /* Mix&Match.playground */,
 			);
@@ -153,6 +154,7 @@
 		E6E1BED419401B3600DA4D53 /* Swift-Playgrounds */ = {
 			isa = PBXGroup;
 			children = (
+				E6B1D2D61970151C00647B94 /* GameDevUniversity.playground */,
 				E6556B66196A912E00D5764D /* The Swift Programming Language */,
 				E6556B67196A916000D5764D /* Using Swift with Cocoa and Objective-C */,
 				E6E1BED519401B3600DA4D53 /* Supporting Files */,
