@@ -59,10 +59,27 @@ let string1 = "Hello world!"
 let string2 = "Hello" + " " + "world" + "!"
 let equality = string1 == string2
 
+// Less than <
+let stringGreater = "Number 3"
+let stringLesser = "Number 2"
+let resulNotLessThan = stringGreater < stringLesser
+let resultIsLessThan = stringLesser < stringGreater
 
 
 
+// What is missing from this chapter?
+// - How does the less than operator work?
+"abc" < "def"
+"def" < "abc"
+"Number 2" < "number 1"
+// It just looks at the ordinal valu of the first character???
 
+// - Does the greater than symbol work?
+"abc" > "def"
+"def" > "abc"
+"Number 2" > "number 1"
+
+// - How do you access the rodinal values of Characters?
 
 
 
