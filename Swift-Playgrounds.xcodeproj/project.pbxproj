@@ -60,6 +60,7 @@
 		E6E1BEE919401B3600DA4D53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E6E1BEEA19401B3600DA4D53 /* Swift_PlaygroundsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_PlaygroundsTests.swift; sourceTree = "<group>"; };
 		E6E1BEF419401C6000DA4D53 /* ASwiftTour.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ASwiftTour.playground; sourceTree = "<group>"; };
+		E6E54E701973F24E00F2FA6B /* Dictionary.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = Dictionary.playground; path = SwiftStanardLibrary/Dictionary.playground; sourceTree = "<group>"; };
 		E6F31F8A196E33440029E161 /* InteractingWithC-APIs.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = "InteractingWithC-APIs.playground"; path = "UsingSwiftWithCocoaAndObjective-C/InteractingWithC-APIs.playground"; sourceTree = "<group>"; };
 		E6F31F8B196E63A70029E161 /* Mix&Match.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = "Mix&Match.playground"; path = "UsingSwiftWithCocoaAndObjective-C/Mix&Match.playground"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -156,11 +157,10 @@
 		E6E1BED419401B3600DA4D53 /* Swift-Playgrounds */ = {
 			isa = PBXGroup;
 			children = (
-				E6A6D4771971689600332701 /* String.playground */,
-				E6A6D4781971F3AD00332701 /* Array.playground */,
 				E6B1D2D61970151C00647B94 /* GameDevUniversity.playground */,
 				E6556B66196A912E00D5764D /* The Swift Programming Language */,
 				E6556B67196A916000D5764D /* Using Swift with Cocoa and Objective-C */,
+				E6E54E711973F27700F2FA6B /* Swift Standard Library */,
 				E6E1BED519401B3600DA4D53 /* Supporting Files */,
 			);
 			path = "Swift-Playgrounds";
@@ -190,6 +190,16 @@
 				E6E1BEE919401B3600DA4D53 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E6E54E711973F27700F2FA6B /* Swift Standard Library */ = {
+			isa = PBXGroup;
+			children = (
+				E6A6D4771971689600332701 /* String.playground */,
+				E6A6D4781971F3AD00332701 /* Array.playground */,
+				E6E54E701973F24E00F2FA6B /* Dictionary.playground */,
+			);
+			name = "Swift Standard Library";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
