@@ -61,6 +61,9 @@
 		E6E1BEEA19401B3600DA4D53 /* Swift_PlaygroundsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_PlaygroundsTests.swift; sourceTree = "<group>"; };
 		E6E1BEF419401C6000DA4D53 /* ASwiftTour.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ASwiftTour.playground; sourceTree = "<group>"; };
 		E6E54E701973F24E00F2FA6B /* Dictionary.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = Dictionary.playground; path = SwiftStanardLibrary/Dictionary.playground; sourceTree = "<group>"; };
+		E6E54E7219752E8C00F2FA6B /* NumericTypes.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = NumericTypes.playground; path = SwiftStanardLibrary/NumericTypes.playground; sourceTree = "<group>"; };
+		E6E54E7319753FEB00F2FA6B /* Protocols.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = Protocols.playground; path = SwiftStanardLibrary/Protocols.playground; sourceTree = "<group>"; };
+		E6E54E741975452100F2FA6B /* FreeFunctions.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = FreeFunctions.playground; path = SwiftStanardLibrary/FreeFunctions.playground; sourceTree = "<group>"; };
 		E6F31F8A196E33440029E161 /* InteractingWithC-APIs.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = "InteractingWithC-APIs.playground"; path = "UsingSwiftWithCocoaAndObjective-C/InteractingWithC-APIs.playground"; sourceTree = "<group>"; };
 		E6F31F8B196E63A70029E161 /* Mix&Match.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = "Mix&Match.playground"; path = "UsingSwiftWithCocoaAndObjective-C/Mix&Match.playground"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -198,6 +201,9 @@
 				E6A6D4771971689600332701 /* String.playground */,
 				E6A6D4781971F3AD00332701 /* Array.playground */,
 				E6E54E701973F24E00F2FA6B /* Dictionary.playground */,
+				E6E54E7219752E8C00F2FA6B /* NumericTypes.playground */,
+				E6E54E7319753FEB00F2FA6B /* Protocols.playground */,
+				E6E54E741975452100F2FA6B /* FreeFunctions.playground */,
 			);
 			name = "Swift Standard Library";
 			sourceTree = "<group>";
