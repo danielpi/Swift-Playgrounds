@@ -46,6 +46,32 @@ dictionary
 
 
 // Querying a Dictionary
+dictionary = ["one": 1, "two": 2, "three": 3]
+let elementCount = dictionary.count
+
+for key in dictionary.keys {
+    println("Key: \(key)")
+}
+let keysArray = Array(dictionary.keys)
+
+for value in dictionary.values {
+    println("Value: \(value)")
+}
+let valuesArray = Array(dictionary.values)
+
+
+// Operators
+let dictionary1 = ["one": 1, "two": 2]
+var dictionary2 = ["one": 1]
+dictionary2["two"] = 2
+let result = dictionary1 == dictionary2
+
+dictionary2 = ["one": 1]
+let secondResult = dictionary1 != dictionary2
+
+
+
+
 
 
 
