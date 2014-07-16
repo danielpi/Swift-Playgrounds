@@ -52,5 +52,46 @@ let value = MyPrintableStruct()
 println("Created a \(value)") // Not working in Beta-3
 
 
+// Sequence Protocol
+// https://medium.com/swift-programming/sequence-beyond-primitive-iterations-in-swift-80bc2507d8cc
+class TodoItem {
+    var name:String
+    var priority:Int
+    
+    init(name:String, priority:Int) {
+        self.name = name
+        self.priority = priority
+    }
+}
+
+struct GenericGenerator<T>: Generator {
+    var items:[T]
+    mutating func next() -> T? {
+        return items.isEmpty ? .None : items.removeAtIndex(0)
+    }
+}
+
+class TodoItemRepository : Sequence {
+    var items:[TodoItem] = [];
+    func addItem(item:TodoItem) {
+        items += item
+    }
+    func generate() -> GenericGenerator<TodoItem> {
+        return GenericGenerator(items: items)
+    }
+}
+
+var repo = TodoItemRepository()
+repo.addItem(TodoItem(name: "One", priority: 5))
+repo.addItem(TodoItem(name: "Two", priority: 2))
+repo.addItem(TodoItem(name: "Three", priority: 6))
+repo.addItem(TodoItem(name: "Four", priority: 0))
+
+repo.items.count
+for item in repo {
+    println("\(item.name) has a priority of \(item.priority)")
+}
+repo.items.count
+
 
 
