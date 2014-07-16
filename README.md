@@ -40,15 +40,24 @@ Chapters from the Language guide. Each chapter goes into depth about its particu
 
 That completes the Language Guide section of the book. I haven't decided if I will continue on with the Language reference section next or switch over to the "Using Swift with Cocoa and Objective-C" book. 
 
-##Using Swift with Cocoa and Objective-C Book
+## Using Swift with Cocoa and Objective-C Book
 There are six playground files that work through the code in the “Using Swift with Cocoa and Objective-C.” iBook. https://itunes.apple.com/au/book/using-swift-cocoa-objective/id888894773?mt=11. They are listed below. The example from this book didn't translate as well to the playgrounds as the previous book examples did. 
 
-- **BasicSetup.playground
-- **InteractingWithObjective-C-APIs.playground
-- **WritingClassesWithObjectiveCBehaviour.playground
-- **WorkingWithCocoaDataTypes.playground
-- **AdoptingCocoaDesignPatterns.playground
-- **InteractingWithC-APIs.playground
+- **BasicSetup.playground**
+- **InteractingWithObjective-C-APIs.playground**
+- **WritingClassesWithObjectiveCBehaviour.playground**
+- **WorkingWithCocoaDataTypes.playground**
+- **AdoptingCocoaDesignPatterns.playground**
+- **InteractingWithC-APIs.playground**
 
 
+## Swift Standard Library
+The documentation for the Swift Standard Library can be found at the following link https://developer.apple.com/library/prerelease/ios/documentation/General/Reference/SwiftStandardLibraryReference/. There is a wealth of information contained in the standard library doc and it is nicely organised so that it is easy to experiment with in a playground environment. I have attempted to extend the examples somewhat to try and show off some of the other features of the standard library.
+
+- **String.playground**
+- **Array.playground**
+- **Dictionary.playground**
+- **NumericTypes.playground**
+- **Protocols.playground**
+- **FreeFunctions.playground**
 
