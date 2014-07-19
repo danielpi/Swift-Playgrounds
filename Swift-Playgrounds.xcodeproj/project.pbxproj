@@ -36,6 +36,7 @@
 		E6556B68196A9B6C00D5764D /* BasicSetup.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = BasicSetup.playground; path = "UsingSwiftWithCocoaAndObjective-C/BasicSetup.playground"; sourceTree = "<group>"; };
 		E6556B69196A9DAD00D5764D /* InteractingWithObjective-C-APIs.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = "InteractingWithObjective-C-APIs.playground"; path = "UsingSwiftWithCocoaAndObjective-C/InteractingWithObjective-C-APIs.playground"; sourceTree = "<group>"; };
 		E657B68619666895006AE171 /* Protocols.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Protocols.playground; sourceTree = "<group>"; };
+		E658F23D197A8DCC00B4C60F /* AdvancedSwift.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = AdvancedSwift.playground; path = WWDC2014/AdvancedSwift.playground; sourceTree = "<group>"; };
 		E65A5CCF19617C1E006FFFC4 /* TypeCasting.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TypeCasting.playground; sourceTree = "<group>"; };
 		E684E7B11964D21C00DF5F3C /* Extensions.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Extensions.playground; sourceTree = "<group>"; };
 		E6904BAD19597E02008CF099 /* Deinitialization.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Deinitialization.playground; sourceTree = "<group>"; };
@@ -161,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				E6B1D2D61970151C00647B94 /* GameDevUniversity.playground */,
+				E658F23D197A8DCC00B4C60F /* AdvancedSwift.playground */,
 				E6556B66196A912E00D5764D /* The Swift Programming Language */,
 				E6556B67196A916000D5764D /* Using Swift with Cocoa and Objective-C */,
 				E6E54E711973F27700F2FA6B /* Swift Standard Library */,
