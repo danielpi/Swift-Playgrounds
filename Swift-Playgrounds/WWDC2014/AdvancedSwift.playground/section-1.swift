@@ -10,6 +10,7 @@ class Thing {
     weak var location: Thing?
     var name: String
     var longDescription: String
+    
 }
 
 let westOfHouse = Thing(nil, "house", "West of House")
@@ -56,8 +57,10 @@ extension Thing {
 
 var object = Thing(westOfHouse, "wall", "The Plaster has crumbled away, leaving the wood beneath to rot.")
 
+// Printable doesn't work in a playground yet (Beta 3)
 println("You aren't sure how to pull \(object)")
-println("You aren't sure how to pull \(an ~ object)")
+//println("You aren't sure how to pull \(object.description)")
+//println("You aren't sure how to pull \(an ~ object)")
 
 /*
 // Special Protocols
@@ -75,8 +78,33 @@ protocol Printable {
 }
 */
 
+/*
+// Overloading an operator
+operator infix ~ {}  // Define the operator you want to use
+// infix, postfix and prefix are options
+func ~ (decorator: (Thing) -> String, object: Thing -> String {
+    return decorator(object)
+    })
 
+func an(object: Thing) -> String {
+    return object.nameWithArticle
+}
 
+let mud = Thing(westOfHouse, "mud", "I don't know")
 
+println("You aren't sure how to pull \(an ~ mud).")
+*/
+
+// Defining a Place
+enum Direction {
+    case North, South, East, West
+}
+
+class Place: Thing {
+    //init(_ name: String, _ longDescription: String) {
+    //    super.init(<#Thing?#>, <#String#>, <#String#>)
+    //}
+    //var exits: Dictionary<Direction, Place> = []
+}
 
 
