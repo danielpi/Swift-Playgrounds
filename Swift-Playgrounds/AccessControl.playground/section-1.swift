@@ -75,3 +75,47 @@ private enum CompassPoint {
 
 
 
+// Subclasses
+// A subclass cannot have a higher access level than its superclass.
+// An override can make an inherited class member more accessible than its superclass.
+public class A {
+    private func someMethod() {}
+}
+
+internal class B: A {
+    override internal func someMethod() {
+        super.someMethod()
+    }
+}
+
+
+// Constants, Variables, Properties and Subscripts
+// A constant, variable or property cannot be more public than its type.
+private var privateInstance = SomePrivateClass()
+
+// Getters and Setters
+// Below, we have a value string that is internal. We also have a numberOfEdits variable that tracks how many times value has been modified. numberOfEdits is effectively readonly from outside the class because its setter is marked as private.
+struct TrackedString {
+    private(set) var numberOfEdits = 0
+    var value: String = "" {
+    didSet {
+        numberOfEdits++
+    }
+    }
+}
+
+var stringToEdit = TrackedString()
+stringToEdit.value = "This string will be tracked."
+stringToEdit.value += " This edit will increment numberOfEdits."
+stringToEdit.value += " So will this one."
+println("The number of edits is \(stringToEdit.numberOfEdits)")
+stringToEdit.numberOfEdits
+
+
+// Initializers
+
+
+
+
+
+
