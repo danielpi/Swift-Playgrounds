@@ -3,11 +3,11 @@
 let someString = "Some tring literal value"
 
 let wiseWords = "\"Imagination is more important than knowledge\" - Einstein"
-let dollarSign = "\x24"
-let blackHeart = "\u2665"
-let sparklingHeart = "\U0001F496"
+let dollarSign = "\u{24}"
+let blackHeart = "\u{2665}"
+let sparklingHeart = "\u{0001F496}"
 // let blah = "\u{123456}" // This doesn't seem to work yet
-
+println(dollarSign + blackHeart + sparklingHeart)
 
 // Empty Strings
 var emptyString = ""
@@ -96,8 +96,8 @@ for scene in romeoAndJuliet {
 println("\(mansionCount) mansion scenes; \(cellCount) cell scenes")
 
 let normal = "Could you help me, please?"
-let shouty = normal.uppercaseString
-let whispered = normal.lowercaseString
+//let shouty = normal.uppercaseString
+//let whispered = normal.lowercaseString
 
 // Unicode
 let dogString = "Dog!🐶"

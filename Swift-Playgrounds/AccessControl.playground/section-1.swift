@@ -113,6 +113,9 @@ stringToEdit.numberOfEdits
 
 
 // Initializers
+// Default initialisers are given the same access level as their type except that public types get given internal initializers. You can provide a public initializer if you need one.
+
+
 
 
 

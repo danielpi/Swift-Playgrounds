@@ -34,8 +34,8 @@ class GameScene:SKScene {
             var monster = monsters[i]
             
             // Position the Sprite randomly
-            var xPos = CGFloat(arc4random()) % (500 - monster.size.width)  + (monster.size.width) / 2
-            var yPos = CGFloat(arc4random()) % (500 - monster.size.height)  + (monster.size.height) / 2
+            var xPos = CGFloat(UInt(arc4random()) % (500 - UInt(monster.size.width)) + UInt(monster.size.width) / 2)
+            var yPos = CGFloat(UInt(arc4random()) % (500 - UInt(monster.size.height)) + UInt(monster.size.height) / 2)
             
             monster.position = CGPoint(x: xPos, y: yPos)
             
