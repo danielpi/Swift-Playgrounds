@@ -47,9 +47,9 @@ class Address {
     var buildingNumber: String?
     var street: String?
     func buildingIdentifier() -> String? {
-        if buildingName {
+        if (buildingName != nil) {
             return buildingName
-        } else if buildingNumber {
+        } else if (buildingNumber != nil) {
             return buildingNumber
         } else {
             return nil
@@ -68,7 +68,7 @@ if let roomCount = john.residence?.numberOfRooms {
 
 
 // Calling Methods through Optional Chaining
-if jack.residence?.printNumberOfRooms() {
+if jack.residence?.printNumberOfRooms() != nil {
     println("It was possible to print the number of rooms.")
 } else {
     println("It was not possible to print the number of rooms.")
@@ -84,8 +84,8 @@ if let firstRoomName = jack.residence?[0].name {
 }
 
 let jacksHouse = Residence2()
-jacksHouse.rooms += Room(name: "Living Room")
-jacksHouse.rooms += Room(name: "Kitchen")
+jacksHouse.rooms += [Room(name: "Living Room")]
+jacksHouse.rooms += [Room(name: "Kitchen")]
 jack.residence = jacksHouse
 
 if let firstRoomName = jack.residence?[0].name {
@@ -119,8 +119,12 @@ if let buildingIdentifier = jack.residence?.address?.buildingIdentifier() {
     println("Jack's building identifier is \(buildingIdentifier).")
 }
 
-if let upper = jack.residence?.address?.buildingIdentifier()?.uppercaseString {
-    println("Jack's uppercase building identifier is \(upper).")
+if let beginsWithThe = jack.residence?.address?.buildingIdentifier()?.hasPrefix("The") {
+    if beginsWithThe {
+        println("Jack's building identifier begins with \"The\".")
+    } else {
+        println("Jack's building identifier does not begin with \"The\".")
+    }
 }
 
 

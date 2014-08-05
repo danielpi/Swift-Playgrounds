@@ -27,14 +27,14 @@ class DataImporter {
 }
 
 class DataManager {
-    @lazy var importer = DataImporter()
+    lazy var importer = DataImporter()
     var data = [String]()
     // the DataManager class would provide data management functionality here
 }
 
 let manager = DataManager()
-manager.data += "Some data"
-manager.data += "Some more data"
+manager.data += ["Some data"]
+manager.data += ["Some more data"]
 // the DataImporter instance for the importer property has not yet been created
 println(manager.importer.fileName)
 // the DataImporter instance for the importer property has now been created

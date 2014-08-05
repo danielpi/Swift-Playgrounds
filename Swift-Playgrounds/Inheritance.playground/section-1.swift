@@ -15,7 +15,7 @@ class Vehicle {
 let someVehicle = Vehicle()
 
 class Bicycle: Vehicle {
-    init() {
+    override init() {
         super.init()
         numberOfWheels = 2
     }
@@ -24,7 +24,7 @@ let bicycle = Bicycle()
 println("Bicycle: \(bicycle.description())")
 
 class Tandem: Bicycle {
-    init() {
+    override init() {
         super.init()
         maxPassengers = 2
     }
@@ -36,7 +36,7 @@ println("Tandem: \(tandem.description())")
 // Overriding
 class Car: Vehicle {
     var speed: Double = 0.0
-    init() {
+    override init() {
         super.init()
         maxPassengers = 5
         numberOfWheels = 4

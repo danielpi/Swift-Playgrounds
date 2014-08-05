@@ -15,7 +15,7 @@ if shoppingList.isEmpty {
 }
 
 shoppingList.append("Flour")
-shoppingList += "Baking Powder"
+shoppingList += ["Baking Powder"]
 
 shoppingList += ["Chocolate Spread", "Cheese", "Butter"]
 

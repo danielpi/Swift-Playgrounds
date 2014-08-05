@@ -43,22 +43,21 @@ printAndCount("hello, world")
 printWithoutCounting("hello, world")
 
 // Functions with Multiple Return Values
-func count(string: String) -> (vowels: Int, consonants: Int, others: Int) {
-    var vowels = 0, consonants = 0 , others = 0
-    for character in string {
-        switch String(character).lowercaseString {
-            case "a", "e", "i", "o", "u":
-                ++vowels
-            case "b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "y", "z":
-                ++consonants
-            default:
-                ++others
+func minMax(array: [Int]) -> (min: Int, max: Int) {
+    var currentMin = array[0]
+    var currentMax = array[0]
+    for value in array[1..<array.count] {
+        if value < currentMin {
+            currentMin = value
+        } else if value > currentMax {
+            currentMax = value
         }
     }
-    return (vowels, consonants, others)
+    return (currentMin, currentMax)
 }
-let total = count("some arbitrary string!")
-println("\(total.vowels) vowels and \(total.consonants) consonants")
+let bounds = minMax([8, -6, 2, 109, 3, 71])
+println("min is \(bounds.min) and max is \(bounds.max)")
+
 
 // Function Parameter Names
 // External Parameter Names

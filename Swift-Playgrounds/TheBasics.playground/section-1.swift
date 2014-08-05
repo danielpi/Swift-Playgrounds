@@ -149,7 +149,7 @@ let convertedNumber = possibleNumber.toInt()
 // convertedNumber is inferred to be ot type "Int?" (optional Int)
 
 // If statements and forced Unwrapping
-if convertedNumber {
+if (convertedNumber != nil) {
     println("\(possibleNumber) has an integer value of \(convertedNumber!)")
 } else {
     println("\(possibleNumber) could not be converted to an integer")

@@ -170,7 +170,7 @@ class RecipeIngredient: Food {
         self.quantity = quantity
         super.init(name: name)
     }
-    convenience init(name: String) {
+    convenience override init(name: String) {
         self.init(name: name, quantity: 1)
     }
 }
@@ -182,7 +182,7 @@ let oneMysteryItem = RecipeIngredient()
 class ShoppingListItem2: RecipeIngredient {
     var purchased = false
     var description: String {
-        var output = "\(quantity) x \(name.lowercaseString)"
+        var output = "\(quantity) x \(name)"
         output += purchased ? " √" : " ✘"
         return output
     }
