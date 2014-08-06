@@ -24,11 +24,6 @@ let hasSuffixSecondCheck = string.hasSuffix("World!")
 
 
 // Changing and Converting Strings
-let baseString = "Hello World"
-let uppercaseString = baseString.uppercaseString
-
-let lowercaseString = baseString.lowercaseString
-
 string = "42"
 if let number = string.toInt() {
     println("Got the number: \(number)")

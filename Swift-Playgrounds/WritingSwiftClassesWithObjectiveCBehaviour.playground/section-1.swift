@@ -33,7 +33,7 @@ class AnotherSwiftViewController: UIViewController, UITableViewDelegate, UITable
 //  The compiler replaces @IBOutlet var name: Type with @IBOutlet weak var name: Type! = nil. 
 //  The compiler converts the type to an implicitly unwrapped optional so that you aren’t required to assign a value in an initializer. It is implicitly unwrapped because after your class is initialized from a storyboard or xib file, you can assume that the outlet has been connected. Outlets are weak by default because the outlets you create usually have weak relationships.
 class YetAnotherSwiftViewController: UIViewController {
-    @IBOutlet var button: UIButton
+    @IBOutlet var button: UIButton!
     //@IBOutlet var textFields: [UITextField]
     @IBAction func buttonTapped(AnyObject) {
         println("button tapped!")

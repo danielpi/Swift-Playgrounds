@@ -64,17 +64,17 @@ class TodoItem {
     }
 }
 
-struct GenericGenerator<T>: Generator {
+struct GenericGenerator<T>: GeneratorType {
     var items:[T]
     mutating func next() -> T? {
         return items.isEmpty ? .None : items.removeAtIndex(0)
     }
 }
 
-class TodoItemRepository : Sequence {
+class TodoItemRepository : SequenceType {
     var items:[TodoItem] = [];
     func addItem(item:TodoItem) {
-        items += item
+        items += [item]
     }
     func generate() -> GenericGenerator<TodoItem> {
         return GenericGenerator(items: items)

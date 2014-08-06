@@ -7,8 +7,11 @@ import XCPlayground
 // Extend the SKScene to create a new Scene
 class GameScene:SKScene {
     
+    required init(coder: NSCoder!) {
+        super.init(coder: coder)
+    }
     
-    init(size: CGSize) {
+    override init(size: CGSize) {
         super.init(size: size)
     }
     

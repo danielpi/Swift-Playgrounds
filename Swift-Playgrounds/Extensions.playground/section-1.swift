@@ -80,14 +80,16 @@ someInt
 
 // Subscripts
 extension Int {
-    subscript(digitIndex: Int) -> Int {
+    subscript(var digitIndex: Int) -> Int {
         var decimalBase = 1
-        for _ in 1...digitIndex {
-            decimalBase *= 10
-        }
-        return (self / decimalBase) % 10
+            while digitIndex > 0 {
+                decimalBase *= 10
+                --digitIndex
+            }
+            return (self / decimalBase) % 10
     }
 }
+
 746381295[0]
 746381295[1]
 746381295[2]
@@ -96,36 +98,24 @@ extension Int {
 
 
 // Nested Types
-extension Character {
+extension Int {
     enum Kind {
-        case Vowel, Consonant, Other
+        case Negative, Zero, Positive
     }
     var kind: Kind {
-        switch String(self).lowercaseString {
-        case "a", "e", "i", "o", "u":
-            return .Vowel
-        case "b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "y", "z":
-            return .Consonant
+        switch self {
+        case 0:
+            return .Zero
+        case let x where x > 0:
+            return .Positive
         default:
-            return .Other
-        }
+            return .Negative
+            }
     }
 }
 
-func printLetterKinds(word: String) {
-    println("'\(word)' is made up of the following kinds of letters:")
-    for character in word {
-        switch character.kind {
-        case .Vowel:
-            print("vowel ")
-        case .Consonant:
-            print("consonant ")
-        case .Other:
-            print("other ")
-        }
-    }
-    print("\n")
+func printIntegerKinds(numbers: [Int]) {
+    
 }
-printLetterKinds("Hello")
 
 

@@ -6,7 +6,6 @@ aBool = true
 aBool = false
 !aBool
 aBool.description
-aBool.getLogicValue()
 aBool.getMirror()
 aBool.hashValue
 
@@ -19,10 +18,8 @@ anInt.advancedBy(3)
 anInt.advancedBy(5) // I don't understand this one
 anInt
 anInt = -10
-anInt.asUnsigned()
 anInt.distanceTo(20)
 anInt.encode()
-anInt.getArrayBoundValue()
 anInt.getMirror()
 anInt.predecessor()
 anInt.successor()

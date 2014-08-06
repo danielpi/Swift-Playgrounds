@@ -122,7 +122,7 @@ class Белка {
     @objc(initWithName:)
     init(имя: String) { /* ... */ }
     @objc(hideNuts:inTree:)
-    func прячьОрехи(Int, вДереве: Дерево) { /* ... */ }
+    func прячьОрехи(Int, вДереве: Dictionary<String, String>) { /* ... */ }
 }
 
 
@@ -132,8 +132,8 @@ class Белка {
 class MyViewController: UIViewController {
     let myButton = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
     
-    init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!) {
-        super.init(nibName: nibName, bundle: dibBundle)
+    override init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!) {
+        super.init(nibName: nibName, bundle: nibBundle)
         myButton.targetForAction("tappedButton:", withSender: self)
     }
     

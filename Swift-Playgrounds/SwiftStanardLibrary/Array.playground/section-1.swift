@@ -82,7 +82,7 @@ array.reserveCapacity(10)
 // Querying an array
 var arrayToCount = ["zero", "one", "two"]
 let firstCount = arrayToCount.count
-arrayToCount += "three"
+arrayToCount += ["three"]
 let secondCount = arrayToCount.count
 
 let firstIsEmpty = arrayToCount.isEmpty
@@ -131,7 +131,7 @@ multipliedResult
 
 // Operators
 var operatorArray = [0, 1, 2]
-operatorArray += 3
+operatorArray += [3]
 operatorArray += [4, 5, 6]
 // The type of elements must match
 // You can only add new elements to an array that has been declared with var
