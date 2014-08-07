@@ -132,6 +132,9 @@ class Белка {
 class MyViewController: UIViewController {
     let myButton = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
     
+    required init(coder aDecoder: NSCoder!) {
+        super.init(coder: aDecoder)
+    }
     override init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!) {
         super.init(nibName: nibName, bundle: nibBundle)
         myButton.targetForAction("tappedButton:", withSender: self)

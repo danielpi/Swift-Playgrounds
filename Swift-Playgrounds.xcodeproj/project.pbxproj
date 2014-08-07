@@ -40,6 +40,7 @@
 		E657B68619666895006AE171 /* Protocols.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Protocols.playground; sourceTree = "<group>"; };
 		E658F23D197A8DCC00B4C60F /* AdvancedSwift.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = AdvancedSwift.playground; path = WWDC2014/AdvancedSwift.playground; sourceTree = "<group>"; };
 		E65A5CCF19617C1E006FFFC4 /* TypeCasting.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TypeCasting.playground; sourceTree = "<group>"; };
+		E65F562D1993AE5A00BA3B03 /* 2014-07-28-InteractingWithCPointers.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = "2014-07-28-InteractingWithCPointers.playground"; path = "SwiftBlog/2014-07-28-InteractingWithCPointers.playground"; sourceTree = "<group>"; };
 		E684E7B11964D21C00DF5F3C /* Extensions.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Extensions.playground; sourceTree = "<group>"; };
 		E6904BAD19597E02008CF099 /* Deinitialization.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Deinitialization.playground; sourceTree = "<group>"; };
 		E6904BAE19598806008CF099 /* AutomaticReferenceCounting.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = AutomaticReferenceCounting.playground; sourceTree = "<group>"; };
@@ -94,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				E642112F19924A2A00EE7DC7 /* 2014-08-05-Boolean.playground */,
+				E65F562D1993AE5A00BA3B03 /* 2014-07-28-InteractingWithCPointers.playground */,
 			);
 			name = "Swift Blog";
 			sourceTree = "<group>";
