@@ -61,3 +61,9 @@ The documentation for the Swift Standard Library can be found at the following l
 - **Protocols.playground**
 - **FreeFunctions.playground**
 
+## Swift Blog
+The Swift blog contains several articles detailing interesting information about the developing language. 
+
+- **2014-08-05 Boolean**
+- **2014-07-28 Interacting with C Pointers
+- **2014-07-23 Access Control**
