@@ -30,6 +30,7 @@
 		E62C22AD196C1D4F0005CA67 /* WritingSwiftClassesWithObjectiveCBehaviour.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = WritingSwiftClassesWithObjectiveCBehaviour.playground; sourceTree = "<group>"; };
 		E6391ECA1949410800FBA4C9 /* ControlFlow.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ControlFlow.playground; sourceTree = "<group>"; };
 		E639499A1994DE440016ED46 /* 2014-07-23-AccessControl.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = "2014-07-23-AccessControl.playground"; path = "SwiftBlog/2014-07-23-AccessControl.playground"; sourceTree = "<group>"; };
+		E639499B19964C1F0016ED46 /* Undocumented.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = Undocumented.playground; path = SwiftStanardLibrary/Undocumented.playground; sourceTree = "<group>"; };
 		E63990941950566000412EC5 /* Functions.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Functions.playground; sourceTree = "<group>"; };
 		E63ACF47197E85F00066B3A1 /* AccessControl.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = AccessControl.playground; sourceTree = "<group>"; };
 		E63CCE581941BB050087C852 /* TheBasics.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TheBasics.playground; sourceTree = "<group>"; };
@@ -224,6 +225,7 @@
 				E6E54E7219752E8C00F2FA6B /* NumericTypes.playground */,
 				E6E54E7319753FEB00F2FA6B /* Protocols.playground */,
 				E6E54E741975452100F2FA6B /* FreeFunctions.playground */,
+				E639499B19964C1F0016ED46 /* Undocumented.playground */,
 			);
 			name = "Swift Standard Library";
 			sourceTree = "<group>";
