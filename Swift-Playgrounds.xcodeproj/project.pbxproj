@@ -55,6 +55,7 @@
 		E6BD7A7D194529DA003B68CA /* BasicOperators.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = BasicOperators.playground; sourceTree = "<group>"; };
 		E6BD7A7E19455C16003B68CA /* StringsAndCharacters.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = StringsAndCharacters.playground; sourceTree = "<group>"; };
 		E6BF9884197E804F00E31DD8 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
+		E6C981F2199AF14200084597 /* 2014-08-08-LockingInSwift.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = "2014-08-08-LockingInSwift.playground"; path = "untitled folder/2014-08-08-LockingInSwift.playground"; sourceTree = "<group>"; };
 		E6D20A061968F035007667BA /* Generics.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Generics.playground; sourceTree = "<group>"; };
 		E6D345471953EE7500423381 /* Methods.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Methods.playground; sourceTree = "<group>"; };
 		E6D34548195462DE00423381 /* Subscripts.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Subscripts.playground; sourceTree = "<group>"; };
@@ -185,6 +186,7 @@
 				E6E54E711973F27700F2FA6B /* Swift Standard Library */,
 				E64211301992518700EE7DC7 /* Swift Blog */,
 				E6BF9884197E804F00E31DD8 /* MyPlayground.playground */,
+				E6C981F2199AF14200084597 /* 2014-08-08-LockingInSwift.playground */,
 				E6E1BED519401B3600DA4D53 /* Supporting Files */,
 			);
 			path = "Swift-Playgrounds";
