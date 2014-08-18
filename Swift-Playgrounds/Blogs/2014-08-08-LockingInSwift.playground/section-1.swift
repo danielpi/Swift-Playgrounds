@@ -84,6 +84,11 @@ class ArrayTracker<T> {
 */
 
 
+let address = 0xFFFE
+address % 0xFFFF
+
+
+
 protocol ReadWriteLock {
     // Get a shared reader lock, run the given block, unlock, and return whatever the block returned
     mutating func withReadLock<T>(block: () -> T) -> T
@@ -91,7 +96,7 @@ protocol ReadWriteLock {
     // Get an exclusive writer lock, run the given block, unlock, and return whatever the block returned
     mutating func withWriteLock<T>(block: () -> T) -> T
 }
-
+/*
 struct MyLock: ReadWriteLock {
     let queue = dispatch_queue_create("readWriteLock", dispatch.DISPATCH_QUEUE_CONCURRENT)
     mutating func withReadLock<T>(block: () -> T) -> T {
@@ -132,7 +137,7 @@ class ArrayTracker<T> {
     }
 }
 
-
+*/
 
 
 
