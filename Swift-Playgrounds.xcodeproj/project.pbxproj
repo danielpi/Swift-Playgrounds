@@ -38,6 +38,7 @@
 		E63F4F42196971AF00133672 /* AdvancedOperators.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = AdvancedOperators.playground; sourceTree = "<group>"; };
 		E642112F19924A2A00EE7DC7 /* 2014-08-05-Boolean.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = "2014-08-05-Boolean.playground"; path = "SwiftBlog/2014-08-05-Boolean.playground"; sourceTree = "<group>"; };
 		E6459C0B19470BD600C236CC /* CollectionTypes.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = CollectionTypes.playground; sourceTree = "<group>"; };
+		E6517B3819A3693F009E4376 /* 2014-08-18-SwiftLiteralConvertibles.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = "2014-08-18-SwiftLiteralConvertibles.playground"; path = "Blogs/NSHipster/2014-08-18-SwiftLiteralConvertibles.playground"; sourceTree = "<group>"; };
 		E6556B68196A9B6C00D5764D /* BasicSetup.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = BasicSetup.playground; path = "UsingSwiftWithCocoaAndObjective-C/BasicSetup.playground"; sourceTree = "<group>"; };
 		E6556B69196A9DAD00D5764D /* InteractingWithObjective-C-APIs.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = "InteractingWithObjective-C-APIs.playground"; path = "UsingSwiftWithCocoaAndObjective-C/InteractingWithObjective-C-APIs.playground"; sourceTree = "<group>"; };
 		E657B68619666895006AE171 /* Protocols.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Protocols.playground; sourceTree = "<group>"; };
@@ -55,7 +56,6 @@
 		E6B1D2D61970151C00647B94 /* GameDevUniversity.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = GameDevUniversity.playground; path = SpriteKit/GameDevUniversity.playground; sourceTree = "<group>"; };
 		E6BD7A7D194529DA003B68CA /* BasicOperators.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = BasicOperators.playground; sourceTree = "<group>"; };
 		E6BD7A7E19455C16003B68CA /* StringsAndCharacters.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = StringsAndCharacters.playground; sourceTree = "<group>"; };
-		E6BF9884197E804F00E31DD8 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 		E6C08AA519A216C90058A533 /* 2014-08-15-ValueAndReferenceTypes.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = "2014-08-15-ValueAndReferenceTypes.playground"; path = "SwiftBlog/2014-08-15-ValueAndReferenceTypes.playground"; sourceTree = "<group>"; };
 		E6D20A061968F035007667BA /* Generics.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Generics.playground; sourceTree = "<group>"; };
 		E6D345471953EE7500423381 /* Methods.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Methods.playground; sourceTree = "<group>"; };
@@ -104,6 +104,14 @@
 				E6C08AA519A216C90058A533 /* 2014-08-15-ValueAndReferenceTypes.playground */,
 			);
 			name = "Swift Blog";
+			sourceTree = "<group>";
+		};
+		E6517B3919A3694E009E4376 /* NSHipster */ = {
+			isa = PBXGroup;
+			children = (
+				E6517B3819A3693F009E4376 /* 2014-08-18-SwiftLiteralConvertibles.playground */,
+			);
+			name = NSHipster;
 			sourceTree = "<group>";
 		};
 		E6556B65196A90CB00D5764D /* Language Guide */ = {
@@ -181,14 +189,14 @@
 		E6E1BED419401B3600DA4D53 /* Swift-Playgrounds */ = {
 			isa = PBXGroup;
 			children = (
-				E6B1D2D61970151C00647B94 /* GameDevUniversity.playground */,
 				E658F23D197A8DCC00B4C60F /* AdvancedSwift.playground */,
 				E6556B66196A912E00D5764D /* The Swift Programming Language */,
 				E6556B67196A916000D5764D /* Using Swift with Cocoa and Objective-C */,
 				E6E54E711973F27700F2FA6B /* Swift Standard Library */,
 				E64211301992518700EE7DC7 /* Swift Blog */,
-				E6BF9884197E804F00E31DD8 /* MyPlayground.playground */,
+				E6517B3919A3694E009E4376 /* NSHipster */,
 				E619A96D199CE6E000D63EA8 /* 2014-08-08-LockingInSwift.playground */,
+				E6B1D2D61970151C00647B94 /* GameDevUniversity.playground */,
 				E6E1BED519401B3600DA4D53 /* Supporting Files */,
 			);
 			path = "Swift-Playgrounds";
