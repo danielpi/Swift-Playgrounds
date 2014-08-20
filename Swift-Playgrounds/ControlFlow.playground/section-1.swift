@@ -189,7 +189,7 @@ for character in puzzleInput {
         case "a", "e", "i", "o", "u", " ":
             continue
     default:
-        puzzleOutput += character
+        puzzleOutput.append(character)
     }
 }
 puzzleOutput

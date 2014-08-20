@@ -34,11 +34,6 @@ struct Regex {
     }
 }
 
-let string: String = "foo bar baz"
-let regex: Regex = "foo"
-regex.match(string)
-
-
 extension Regex: StringLiteralConvertible {
     typealias ExtendedGraphemeClusterLiteralType = StringLiteralType
     
@@ -50,6 +45,10 @@ extension Regex: StringLiteralConvertible {
         return self(pattern: value)
     }
 }
+
+let string: String = "foo bar baz"
+let regex: Regex = "foo"
+regex.match(string)
 
 "foo".match(string)
 
@@ -90,7 +89,7 @@ struct Set<T: Hashable> {
     }
 }
 
-let basicSet: Set = Set()
+var basicSet: Set<Int> = Set()
 basicSet.put(1)
 basicSet.put(2)
 basicSet.put(3)

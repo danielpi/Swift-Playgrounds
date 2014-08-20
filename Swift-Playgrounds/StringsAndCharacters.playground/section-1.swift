@@ -37,20 +37,16 @@ println("unusualMenagerie has \(countElements(unusualMenagerie)) characters")
 // Note that countElements iterates over the full string because Unicode characters may take multiple bytes.
 
 // Concatenating Strings and Characters
-let string1 = "hello"
+var string1 = "hello"
 let string2 = " there"
-let character1: Character = "!"
-let character2: Character = "?"
-let stringPlusCharacter = string1 + character1
-let stringPlusString = string1 + string2
-let characterPlusString = character1 + string1
-let characterPlusCharacter = character1 + character2
 
+let character2: Character = "?"
+var welcome = string1 + string2
 var instruction = "look over"
 instruction += string2
 
-var welcome = "good morning"
-welcome += character1
+let exclamationMark: Character = "!"
+welcome.append(exclamationMark)
 
 // String Interpolation
 let multiplier = 3

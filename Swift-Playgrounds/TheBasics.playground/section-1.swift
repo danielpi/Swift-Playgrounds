@@ -178,7 +178,7 @@ println(possibleString!)
 let assumedString: String! = "An implicitly unwrapped optional string"
 println(assumedString)
 
-if assumedString {
+if assumedString != nil {
     println(assumedString)
 }
 
