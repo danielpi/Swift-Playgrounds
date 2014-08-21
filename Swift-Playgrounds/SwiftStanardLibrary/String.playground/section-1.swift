@@ -37,8 +37,10 @@ if let number = string.toInt() {
 let combination = "Hello " + "world"
 // You can use the + operator with two strings as shown in the combination example, or with a string and a character in either order:
 let exclamationPoint: Character = "!"
-let charCombo = combination + exclamationPoint
-let extremeCombo = exclamationPoint + charCombo
+var charCombo = combination
+charCombo.append(exclamationPoint)
+//var extremeCombo: String = exclamationPoint
+//extremeCombo.append(charCombo)
 
 let first: Character = "a"
 let second: Character = "b"
@@ -47,7 +49,8 @@ let result = first + second
 // Append +=
 string = "Hello "
 string += "world"
-string += exclamationPoint
+string.append(exclamationPoint)
+string
 
 // Equality ==
 let string1 = "Hello world!"

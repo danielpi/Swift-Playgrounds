@@ -101,9 +101,7 @@ SomeClass.someTypeMethod()
 struct LevelTracker {
     static var highestUnlockedLevel = 1
     static func unlockLevel(level: Int) {
-        if level > highestUnlockedLevel {
-            highestUnlockedLevel = level
-        }
+        if level > highestUnlockedLevel { highestUnlockedLevel = level }
     }
     static func levelIsUnlocked(level: Int) -> Bool {
         return level <= highestUnlockedLevel

@@ -137,7 +137,7 @@ println("\(country.name)'s capital city is called \(country.capitalCity.name)")
 class HTMLElement {
     let name: String
     let text: String?
-    @lazy var asHTML: () -> String = {
+    lazy var asHTML: () -> String = {
         if let text = self.text {
             return "<\(self.name)>\(text)</\(self.name)>"
         } else {
@@ -170,7 +170,7 @@ paragraph = nil
 class HTMLElement2 {
     let name: String
     let text: String?
-    @lazy var asHTML: () -> String = {
+    lazy var asHTML: () -> String = {
         [unowned self] in
         if let text = self.text {
             return "<\(self.name)>\(text)</\(self.name)>"

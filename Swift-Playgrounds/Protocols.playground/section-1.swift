@@ -49,7 +49,7 @@ class Starship: FullyNamed {
         self.prefix = prefix
     }
     var fullName: String {
-    return (prefix ? prefix! + " " : "") + name
+    return ((prefix != nil ? prefix! + " " : "") + name)
     }
 }
 var ncc1701 = Starship(name: "Enterprise", prefix: "USS")
