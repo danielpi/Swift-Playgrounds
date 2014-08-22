@@ -56,8 +56,8 @@ func <<<T> (inout left: [T], right: T) -> [T] {
     return left
 }
 
-[1,2,3,4]<<[5,6]
-[1,2,3,4]<<5
+//[1,2,3,4]<<[5,6]
+//[1,2,3,4]<<5
 
 
 // Custom Operators
