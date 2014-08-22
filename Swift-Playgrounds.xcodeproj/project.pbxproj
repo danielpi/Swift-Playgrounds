@@ -53,6 +53,7 @@
 		E69DFCFB19513D66006F065A /* Closures.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Closures.playground; sourceTree = "<group>"; };
 		E6A6D4771971689600332701 /* String.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = String.playground; path = SwiftStanardLibrary/String.playground; sourceTree = "<group>"; };
 		E6A6D4781971F3AD00332701 /* Array.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = Array.playground; path = SwiftStanardLibrary/Array.playground; sourceTree = "<group>"; };
+		E6ACE85A19A77D8C00AD6C00 /* 2014-08-11-SwiftOperators.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "2014-08-11-SwiftOperators.playground"; sourceTree = "<group>"; };
 		E6B1D2D61970151C00647B94 /* GameDevUniversity.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = GameDevUniversity.playground; path = SpriteKit/GameDevUniversity.playground; sourceTree = "<group>"; };
 		E6BD7A7D194529DA003B68CA /* BasicOperators.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = BasicOperators.playground; sourceTree = "<group>"; };
 		E6BD7A7E19455C16003B68CA /* StringsAndCharacters.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = StringsAndCharacters.playground; sourceTree = "<group>"; };
@@ -110,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				E6517B3819A3693F009E4376 /* 2014-08-18-SwiftLiteralConvertibles.playground */,
+				E6ACE85A19A77D8C00AD6C00 /* 2014-08-11-SwiftOperators.playground */,
 			);
 			name = NSHipster;
 			sourceTree = "<group>";

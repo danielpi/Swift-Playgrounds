@@ -60,10 +60,18 @@ The documentation for the Swift Standard Library can be found at the following l
 - **NumericTypes.playground**
 - **Protocols.playground**
 - **FreeFunctions.playground**
+- **Undocumented.playground**
 
 ## Swift Blog
 The Swift blog contains several articles detailing interesting information about the developing language. 
 
+- **2014-08-15 Value and Reference Types**
 - **2014-08-05 Boolean**
-- **2014-07-28 Interacting with C Pointers
+- **2014-07-28 Interacting with C Pointers**
 - **2014-07-23 Access Control**
+
+## NSHipster
+Lots of great articles delving into the finer points of Cocoa programming. The recent articles on Swift are always interesting to go through
+
+- **2014-08-08 Swift Literal Convertibles** Shows how you can create types of your own that can be written as literals when you use them. 
+
