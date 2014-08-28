@@ -48,6 +48,7 @@
 		E684E7B11964D21C00DF5F3C /* Extensions.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Extensions.playground; sourceTree = "<group>"; };
 		E6904BAD19597E02008CF099 /* Deinitialization.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Deinitialization.playground; sourceTree = "<group>"; };
 		E6904BAE19598806008CF099 /* AutomaticReferenceCounting.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = AutomaticReferenceCounting.playground; sourceTree = "<group>"; };
+		E69B0F2D19AF3FAB00861C9A /* 2014-08-27-OptionalCaseStudy-valuesForKeys.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = "2014-08-27-OptionalCaseStudy-valuesForKeys.playground"; path = "SwiftBlog/2014-08-27-OptionalCaseStudy-valuesForKeys.playground"; sourceTree = "<group>"; };
 		E69BC3A8196E06C40041EF0E /* WorkingWithCocoaDataTypes.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = WorkingWithCocoaDataTypes.playground; path = "UsingSwiftWithCocoaAndObjective-C/WorkingWithCocoaDataTypes.playground"; sourceTree = "<group>"; };
 		E69BC3A9196E117E0041EF0E /* AdoptingCocoaDesignPatterns.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = AdoptingCocoaDesignPatterns.playground; path = "UsingSwiftWithCocoaAndObjective-C/AdoptingCocoaDesignPatterns.playground"; sourceTree = "<group>"; };
 		E69DFCFB19513D66006F065A /* Closures.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Closures.playground; sourceTree = "<group>"; };
@@ -99,10 +100,11 @@
 		E64211301992518700EE7DC7 /* Swift Blog */ = {
 			isa = PBXGroup;
 			children = (
-				E642112F19924A2A00EE7DC7 /* 2014-08-05-Boolean.playground */,
-				E65F562D1993AE5A00BA3B03 /* 2014-07-28-InteractingWithCPointers.playground */,
 				E639499A1994DE440016ED46 /* 2014-07-23-AccessControl.playground */,
+				E65F562D1993AE5A00BA3B03 /* 2014-07-28-InteractingWithCPointers.playground */,
+				E642112F19924A2A00EE7DC7 /* 2014-08-05-Boolean.playground */,
 				E6C08AA519A216C90058A533 /* 2014-08-15-ValueAndReferenceTypes.playground */,
+				E69B0F2D19AF3FAB00861C9A /* 2014-08-27-OptionalCaseStudy-valuesForKeys.playground */,
 			);
 			name = "Swift Blog";
 			sourceTree = "<group>";
