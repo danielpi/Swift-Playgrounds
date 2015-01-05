@@ -10,7 +10,7 @@ I have implemented this as a single XCode project that contains a playground fil
 
 Below is a list of each of the files within the project (this is also a list of the chapters of the book that I have worked through).
 
-- **ASwiftTour.playground** contains the code from the "Swift Tour" chapter. This file has the most meat so far. It touches on most of the unusual features of the language and is easy to search through to find examples.
+- **ASwiftTour.playground** contains the code from the "Swift Tour" chapter. It touches on most of the unusual features of the language and is easy to search through to find examples. It is a large file and does tend to give the swift interpreter a rather hard time. Any syntax errors in the file are likely to crash SourceKit.
 
 Chapters from the Language guide. Each chapter goes into depth about its particular subject.
 

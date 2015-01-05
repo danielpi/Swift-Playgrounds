@@ -35,9 +35,9 @@ shoppingList[1] = "bottle of water"
 shoppingList
 
 var occupations = [
-"Malcom": "Captain",
-"Kaylee": "Mechanic",
-]
+    "Malcom": "Captain",
+    "Kaylee": "Mechanic",
+    ]
 occupations["Jayne"] = "Public Relations"
 occupations
 
@@ -229,9 +229,8 @@ numbers.map({
 numbers.map({ number in 3 * number})
 
 // A closure passed as the last argument to a function can appear immediately after the parentheses
-var arrayToSort = [1, 5, 3, 12, 2]
-sort(arrayToSort){ $0 > $1 }
-sorted([1, 5, 3, 12, 2]){  $0 > $1 }
+let sortedNumbers = sorted(numbers) { $0 > $1 }
+sortedNumbers
 
 
 // Objects and Classes
@@ -389,24 +388,24 @@ enum Rank: Int {
         case .King:
             return "king"
         default:
-            return String(self.toRaw())
+            return String(self.rawValue)
         }
     }
 }
 let ace = Rank.Ace
-let aceRawValue = ace.toRaw()
+let aceRawValue = ace.rawValue
 ace.simpleDescription()
 let two = Rank.Two
 two.simpleDescription()
-two.toRaw()
+two.rawValue
 
 func compare(rank: Rank, toRank: Rank) -> Bool {
-    return rank.toRaw() == toRank.toRaw()
+    return rank.rawValue == toRank.rawValue
 }
 compare(ace, two)
 compare(ace, ace)
 
-if let convertedRank = Rank.fromRaw(3) {
+if let convertedRank = Rank(rawValue: 3) {
     let threeDescription = convertedRank.simpleDescription()
 }
 
@@ -453,7 +452,7 @@ struct Card {
         
         func appendFullRank(suit: Suit) {
             for rawRank in 1...13 {
-                let card = Card(rank:Rank.fromRaw(rawRank)!, suit:suit)
+                let card = Card(rank:Rank(rawValue:rawRank)!, suit:suit)
                 deck.append(card)
             }
         }
@@ -524,11 +523,11 @@ enum SimpleEnum: Int, ExampleProtocol {
     
     var simpleDescription: String {
     get {
-        return "A simple enum \(self.toRaw())"
+        return "A simple enum \(self.rawValue)"
     }
     }
     mutating func adjust() {
-        self = SimpleEnum.fromRaw(self.toRaw() + 1)!
+        self = SimpleEnum(rawValue:(self.rawValue + 1))!
     }
 }
 var c = SimpleEnum.A
@@ -555,10 +554,6 @@ someInt
 
 extension Double {
     var absoluteValue: Double {
-        return copysign(self, 1.0)
-    }
-    
-    var absoluteValue2: Double {
         return self > 0 ? self : -self
     }
 }
@@ -568,6 +563,9 @@ aDouble.absoluteValue
 
 4.absoluteValue
 -6.0.absoluteValue // Not sure why this doesn't work
+let neg = -6.0
+neg.absoluteValue
+let absNeg = (-6.0.absoluteValue)
 
 let protocolValue: ExampleProtocol = a
 protocolValue.simpleDescription
@@ -578,7 +576,7 @@ protocolValue.simpleDescription
 func repeat<ItemType>(item: ItemType, times: Int) -> [ItemType] {
     var result = [ItemType]()
     for i in 0..<times {
-        result += item
+        result.append(item)
     }
     return result
 }
@@ -593,7 +591,7 @@ enum OptionalValue<T> {
 var possibleInteger: OptionalValue<Int> = .None
 possibleInteger = .Some(100)
 
-func anyCommonElements <T, U where T: Sequence, U: Sequence, T.GeneratorType.Element: Equatable, T.GeneratorType.Element == U.GeneratorType.Element> (lhs: T, rhs: U) -> Bool {
+func anyCommonElements <T, U where T: SequenceType, U: SequenceType, T.Generator.Element: Equatable, T.Generator.Element == U.Generator.Element> (lhs: T, rhs: U) -> Bool {
     for lhsItem in lhs {
         for rhsItem in rhs {
             if lhsItem == rhsItem {
@@ -608,8 +606,8 @@ anyCommonElements([1,2,3], [6])
 anyCommonElements([1,2,3], [3.0])
 
 
-func returnAnyCommonElements <T, U where T: Sequence, U: Sequence, T.GeneratorType.Element: Equatable, T.GeneratorType.Element == U.GeneratorType.Element> (lhs: T, rhs: U) -> [T.GeneratorType.Element] {
-    var commonElements: [T.GeneratorType.Element] = []
+func returnAnyCommonElements <T, U where T: SequenceType, U: SequenceType, T.Generator.Element: Equatable, T.Generator.Element == U.Generator.Element> (lhs: T, rhs: U) -> [T.Generator.Element] {
+    var commonElements: [T.Generator.Element] = []
     for lhsItem in lhs {
         for rhsItem in rhs {
             if lhsItem == rhsItem {
@@ -622,3 +620,4 @@ func returnAnyCommonElements <T, U where T: Sequence, U: Sequence, T.GeneratorTy
 returnAnyCommonElements([1,2,3], [3])
 returnAnyCommonElements([1,2,3], [6])
 returnAnyCommonElements([1,2,3], [3.0])
+
