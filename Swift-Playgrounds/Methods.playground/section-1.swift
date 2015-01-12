@@ -97,7 +97,7 @@ class SomeClass {
     }
 }
 SomeClass.someTypeMethod()
-/*
+
 struct LevelTracker {
     static var highestUnlockedLevel = 1
     static func unlockLevel(level: Int) {
@@ -116,7 +116,7 @@ struct LevelTracker {
         }
     }
 }
-*/
+
 class Player {
     var tracker = LevelTracker()
     let playerName: String

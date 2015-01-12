@@ -74,11 +74,11 @@ enum PlanetRaw: Int {
     case Mercury = 1, Venuc, Earth, Mars, Jupiter, Saturn, Uranus, Neptune
 }
 
-let earthsOrder = PlanetRaw.Earth.toRaw()
-let possiblePlanet = PlanetRaw.fromRaw(7)
+let earthsOrder = PlanetRaw.Earth.rawValue
+let possiblePlanet = PlanetRaw(rawValue: 7)
 
 let positionToFind = 9
-if let somePlanet = PlanetRaw.fromRaw(positionToFind) {
+if let somePlanet = PlanetRaw(rawValue: positionToFind) {
     switch somePlanet {
     case .Earth:
         println("Mostly harmless")

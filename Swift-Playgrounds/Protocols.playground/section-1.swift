@@ -1,5 +1,6 @@
 // Protocols
 
+import Foundation
 /*
 protocol SomeProtocol {
     // protocol definition goes here
@@ -317,8 +318,8 @@ for object in objects {
 // Optional Protocol Requirements
 //  Optional property requirements, and optional method requirements that return a value, will always return an optional value of the appropriate type when they are accessed or called, to reflect the fact that the optional requirement may not have been implemented.
 @objc protocol CounterDataSource {
-    @optional func incrementForCount(count: Int) -> Int
-    @optional var fixedIncrement: Int { get }
+    optional func incrementForCount(count: Int) -> Int
+    optional var fixedIncrement: Int { get }
 }
 
 @objc class Counter {

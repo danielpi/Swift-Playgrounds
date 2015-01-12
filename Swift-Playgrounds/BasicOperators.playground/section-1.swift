@@ -26,7 +26,9 @@ if x = y {
 
 let dog: Character = "🐶"
 let cow: Character = "🐮"
-let dogcow = dog + cow
+//let dogcow = dog + cow // This has been removed from the book.
+let dogcow = "🐶" + "🐮"
+
 
 // Remainder Operator
 9 % 4

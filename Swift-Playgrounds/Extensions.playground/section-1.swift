@@ -115,7 +115,18 @@ extension Int {
 }
 
 func printIntegerKinds(numbers: [Int]) {
-    
+    for number in numbers {
+        switch number.kind {
+        case .Negative:
+            print("- ")
+        case .Zero:
+            print("0 ")
+        case .Positive:
+            print("+ ")
+        }
+    }
+    print("\n")
 }
+printIntegerKinds([3, 19, -27, 0, -6, 0, 7])
 
 
