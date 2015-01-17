@@ -40,7 +40,9 @@ if let downcastedSwiftArray = swiftArray as? [UIView] {
     }
 }
 
-for aView: UIView! in foundationArray as UIView {
+
+//for aView: UIView! in foundationArray as [UIView] {
+for aView in foundationArray as [UIView] {
     // aView is of type UIView
     // Though I thought this would cause an error as foundation array objects are not UIViews
 }

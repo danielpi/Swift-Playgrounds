@@ -6,7 +6,7 @@ import UIKit
 // Initialization
 
 // UITableView *myTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
-let myTableView: UITableView = UITableView(frame: CGRectZero, style: .Grouped)
+let myTableView: UITableView = UITableView(frame: CGRectZero, style: .Grouped)!
 
 let myTextField = UITextField(frame: CGRect(x: 0.0, y: 0.0, width: 200.0, height: 40.0))
 
@@ -132,12 +132,13 @@ class Белка {
 class MyViewController: UIViewController {
     let myButton = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
     
-    required init(coder aDecoder: NSCoder!) {
-        super.init(coder: aDecoder)
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        myButton.addTarget(self, action: "tappedButton:", forControlEvents: .TouchUpInside)
     }
-    override init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!) {
-        super.init(nibName: nibName, bundle: nibBundle)
-        myButton.targetForAction("tappedButton:", withSender: self)
+
+    required init(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     func tappedButton(sender: UIButton!) {

@@ -42,10 +42,6 @@ charCombo.append(exclamationPoint)
 //var extremeCombo: String = exclamationPoint
 //extremeCombo.append(charCombo)
 
-let first: Character = "a"
-let second: Character = "b"
-let result = first + second
-
 // Append +=
 string = "Hello "
 string += "world"
