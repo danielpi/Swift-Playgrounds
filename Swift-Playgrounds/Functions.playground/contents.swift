@@ -34,7 +34,7 @@ sayGoodbye("Dave")
 
 func printAndCount(stringToPrint: String) -> Int {
     println(stringToPrint)
-    return countElements(stringToPrint)
+    return count(stringToPrint)
 }
 func printWithoutCounting(stringToPrint: String) {
     printAndCount(stringToPrint)
@@ -115,7 +115,7 @@ arithmeticMean(3, 8, 19)
 
 // Constant and Variable Parameters
 func alignRight(var string: String, count: Int, pad: Character) -> String {
-    let amountToPad = count - countElements(string)
+    let amountToPad = count - count(string)
     if amountToPad < 1 {
         return string
     }

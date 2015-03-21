@@ -33,7 +33,7 @@ println(yenSign)
 
 // Counting Characters
 let unusualMenagerie = "Koala 🐨, Snail 🐌, Penguin 🐧, Dromedary 🐪"
-println("unusualMenagerie has \(countElements(unusualMenagerie)) characters")
+println("unusualMenagerie has \(count(unusualMenagerie)) characters")
 // Note that countElements iterates over the full string because Unicode characters may take multiple bytes.
 
 // Concatenating Strings and Characters

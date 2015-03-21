@@ -48,8 +48,6 @@ negativeBits >> 5 // Doesn't overflow
 //  Overflow addition (&+)
 //  Overflow subtraction (&-)
 //  Overflow multiplication (&*)
-//  Overflow division (&/)
-//  Overflow remainder (&%)
 
 var potentialOverflow = Int16.max
 // potentialOverflow += 1 // This causes an error if it runs
@@ -64,14 +62,6 @@ willUnderflow = willUnderflow &- 1
 var signedUnderflow = Int8.min
 signedUnderflow = signedUnderflow &- 1
 
-
-// Division by Zero
-//  Dividing a number by zero (i / 0), or trying to calculate remainder by zero (i % 0), causes an error:
-let x = 1
-//let y = x / 0 // This causes an error
-
-//  However, the overflow versions of these operators (&/ and &%) return a value of zero if you divide by zero:
-let y = x &/ 0
 
 
 // Precedence and Associativity

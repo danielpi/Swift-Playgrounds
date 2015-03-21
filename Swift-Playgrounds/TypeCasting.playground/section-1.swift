@@ -64,10 +64,10 @@ let someObjects: [AnyObject] = [
 ]
 //  Because this array is known to contain only Movie instances, you can downcast and unwrap directly to a non-optional Movie with the forced version of the type cast operator (as):
 for object in someObjects {
-    let movie = object as Movie
+    let movie = object as! Movie
     println("Movie: '\(movie.name)', dir.\(movie.director)")
 }
-for movie in someObjects as [Movie] {
+for movie in someObjects as! [Movie] {
     println("Movie: '\(movie.name)', dir. \(movie.director)")
 }
 
