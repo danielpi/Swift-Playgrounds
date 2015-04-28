@@ -48,6 +48,7 @@
 		E684E7B11964D21C00DF5F3C /* Extensions.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Extensions.playground; sourceTree = "<group>"; };
 		E6904BAD19597E02008CF099 /* Deinitialization.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Deinitialization.playground; sourceTree = "<group>"; };
 		E6904BAE19598806008CF099 /* AutomaticReferenceCounting.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = AutomaticReferenceCounting.playground; sourceTree = "<group>"; };
+		E69570711AEFB100000FB500 /* SpriteKitTestbed.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = SpriteKitTestbed.playground; sourceTree = "<group>"; };
 		E69B0F2D19AF3FAB00861C9A /* 2014-08-27-OptionalCaseStudy-valuesForKeys.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = "2014-08-27-OptionalCaseStudy-valuesForKeys.playground"; path = "SwiftBlog/2014-08-27-OptionalCaseStudy-valuesForKeys.playground"; sourceTree = "<group>"; };
 		E69BC3A8196E06C40041EF0E /* WorkingWithCocoaDataTypes.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = WorkingWithCocoaDataTypes.playground; path = "UsingSwiftWithCocoaAndObjective-C/WorkingWithCocoaDataTypes.playground"; sourceTree = "<group>"; };
 		E69BC3A9196E117E0041EF0E /* AdoptingCocoaDesignPatterns.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = AdoptingCocoaDesignPatterns.playground; path = "UsingSwiftWithCocoaAndObjective-C/AdoptingCocoaDesignPatterns.playground"; sourceTree = "<group>"; };
@@ -204,6 +205,7 @@
 				E6B1D2D61970151C00647B94 /* GameDevUniversity.playground */,
 				E6E1BED519401B3600DA4D53 /* Supporting Files */,
 				E6D32F1E1AEE4F2100B7B0D9 /* Cheryls-Birthday.playground */,
+				E69570711AEFB100000FB500 /* SpriteKitTestbed.playground */,
 			);
 			path = "Swift-Playgrounds";
 			sourceTree = "<group>";
