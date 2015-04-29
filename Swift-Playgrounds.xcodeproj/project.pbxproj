@@ -29,6 +29,7 @@
 		E62A02031951C686007EE39F /* Properties.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Properties.playground; sourceTree = "<group>"; };
 		E62B3AA91962426F00088655 /* NestedTypes.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = NestedTypes.playground; sourceTree = "<group>"; };
 		E62C22AD196C1D4F0005CA67 /* WritingSwiftClassesWithObjectiveCBehaviour.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = WritingSwiftClassesWithObjectiveCBehaviour.playground; sourceTree = "<group>"; };
+		E62D22651AF05ABD0073FBD0 /* Cheryls-Birthday-Alternative-1.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "Cheryls-Birthday-Alternative-1.playground"; sourceTree = "<group>"; };
 		E6391ECA1949410800FBA4C9 /* ControlFlow.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ControlFlow.playground; sourceTree = "<group>"; };
 		E639499A1994DE440016ED46 /* 2014-07-23-AccessControl.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = "2014-07-23-AccessControl.playground"; path = "SwiftBlog/2014-07-23-AccessControl.playground"; sourceTree = "<group>"; };
 		E639499B19964C1F0016ED46 /* Undocumented.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = Undocumented.playground; path = SwiftStanardLibrary/Undocumented.playground; sourceTree = "<group>"; };
@@ -205,6 +206,7 @@
 				E6B1D2D61970151C00647B94 /* GameDevUniversity.playground */,
 				E6E1BED519401B3600DA4D53 /* Supporting Files */,
 				E6D32F1E1AEE4F2100B7B0D9 /* Cheryls-Birthday.playground */,
+				E62D22651AF05ABD0073FBD0 /* Cheryls-Birthday-Alternative-1.playground */,
 				E69570711AEFB100000FB500 /* SpriteKitTestbed.playground */,
 			);
 			path = "Swift-Playgrounds";
