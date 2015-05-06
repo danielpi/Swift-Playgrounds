@@ -75,3 +75,10 @@ Lots of great articles delving into the finer points of Cocoa programming. The r
 
 - **2014-08-08 Swift Literal Convertibles** Shows how you can create types of your own that can be written as literals when you use them. 
 
+# What next?
+Here are some links to other projects around the web that I would also like to implement
+- **Peter Norvig** has some great posts that delve into various programming topics. Mostly they are in Python though so it would be interesting to implement them in Swift.
+	- http://norvig.com/spell-correct.html http://airspeedvelocity.net/2015/05/02/spelling/
+	- http://nbviewer.ipython.org/url/norvig.com/ipython/TSPv3.ipynb
+- **Erica Sandun** Has a book out and also publishes a lot of information about Swift Playgrounds. In particular she is able to get impressive graphics, windows and user inputs to work, which is something that I haven't figured out yet.
+	- http://ericasadun.com/2015/05/04/swift-using-functions-to-initialize-view-types/
