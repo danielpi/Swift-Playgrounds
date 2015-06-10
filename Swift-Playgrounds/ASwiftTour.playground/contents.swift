@@ -13,18 +13,21 @@ let myConstant = 42
 let implicitInteger = 70
 let implicitDouble = 70.0
 let explicitDouble: Double = 70
+// Experiment - Create a constant with an explicit type of Float and a value of 4.
 let explicitFloat: Float = 4
 
 // Values are never implicitly converted to another type.
 let label = "The width is "
 let width = 94
 let widthLabel = label + String(width)
-//let widthLabel = label + width // Could not find an overload for + that accepts the provided arguments
+// Experiment - Try removing the conversion to String from the last line. What error do you get?
+let widthLabel2 = label + width // Binary operation '+' cannot be applied to operands of type 'String and 'Int'
 
 let apples = 3
 let oranges = 5
-let appleSummary = "I have \(apples + oranges) pieces of fruit"
-
+let appleSummary = "I have \(apples) apples"
+let fruitSummary = "I have \(apples + oranges) pieces of fruit"
+// Experiment - Use \() to include a floating-point calculation in a string and to include someone’s name in a greeting.
 let π: Float = 3.14
 let name = "Peter Pie"
 let piePy = "\(name) likes the number \(π)"
@@ -43,10 +46,11 @@ occupations
 
 // Initialising an empty array or dict
 let emptyArray = [String]()
-var emptyDictionary = Dictionary<String, Float>()
+var emptyDictionary = [String: Float]()
 
 shoppingList = []
 emptyDictionary = [:]
+
 
 // Control Flow
 let individualScores = [75,43,103,87,12]
@@ -60,16 +64,17 @@ for score in individualScores {
 }
 teamScore
 
+
 // Optionals
 // Normal values cannot be nil. They must have a valid value. Sometimes you may not have
 // a valid value. In this case you can use an optional type. They are values that can either
 // hold a valid value or nil.
 var optionalString: String? = "Hello"
-optionalString = nil
+optionalString == nil
 
 var optionalName: String? = "John Appleseed"
 //optionalName = nil
-var greeting = "Hello"
+var greeting = "Hello!"
 if let name = optionalName {
     greeting += ", \(name)"
 } else {
@@ -129,13 +134,13 @@ m
 
 // Indexes in loops and the Range operators
 var firstForLoop = 0
-for i in 0..<3 {
+for i in 0..<4 {
     firstForLoop += i
 }
 firstForLoop
 
 var secondForLoop = 0
-for var i = 0; i < 3; ++i {
+for var i = 0; i < 4; ++i {
     secondForLoop += 1
 }
 secondForLoop
@@ -147,10 +152,32 @@ func greet(name: String, day: String) -> String {
 }
 greet("Bob", day: "Tuesday")
 
-func getGasPrices() -> (Double, Double, Double) {
-    return (3.59, 3.69, 3.79)
+//Experiment - Remove the day parameter. Add a parameter to include today’s lunch special in the greeting.
+func greet(name: String, special: String) -> String {
+    return "Hello \(name), todays lunch special is: \(special)"
 }
-getGasPrices()
+greet("Bob", special:"Chicken Parmigiana")
+
+
+// Use a tuple to make a compound value - for example, to return multiple values from a function. The elements of a tuple can be referred to either by name or by number
+func calculateStatistics(scores: [Int]) -> (min: Int, max: Int, sum: Int) {
+    var min = scores[0]
+    var max = scores[0]
+    var sum = 0
+    
+    for score in scores {
+        if score > max {
+            max = score
+        } else if score < min {
+            min = score
+        }
+        sum += score
+    }
+    return (min, max, sum)
+}
+let statistics = calculateStatistics([5, 3, 100, 3, 9])
+statistics.sum
+statistics.2
 
 // A variable number of arguments can be accepted by a function. They are collected into an array for use within the function.
 func sumOf(numbers: Int...) -> Int {
@@ -163,6 +190,7 @@ func sumOf(numbers: Int...) -> Int {
 sumOf()
 sumOf(42, 597, 12)
 
+// Experiment - Write a function that calculates the average of its arguments.
 func meanOf(numbers: Int...) -> Double {
     var sum = 0
     for number in numbers {
@@ -173,6 +201,7 @@ func meanOf(numbers: Int...) -> Double {
 }
 meanOf(42, 597, 12)
 // This is a bit poor. The variable number of arguments being converted into an array means that you can't pass them onto another function. In meanOf above I was unable to reuse sumOf because numbers was an array and sumOf can't accept an array input
+
 
 // Nested functions
 func returnFifteen() -> Int {
@@ -195,6 +224,7 @@ func makeIncrementer() -> (Int -> Int) {
 var increment = makeIncrementer()
 increment(7)
 
+// A function can take another function as one of its arguments.
 func hasAnyMatches(list: [Int], condition: Int -> Bool) -> Bool {
     for item in list {
         if condition(item) {
@@ -206,8 +236,9 @@ func hasAnyMatches(list: [Int], condition: Int -> Bool) -> Bool {
 func lessThanTen(number: Int) -> Bool {
     return number < 10
 }
-var numbers = [20,19,7,12]
+var numbers = [20, 19, 7, 12]
 hasAnyMatches(numbers, condition: lessThanTen)
+
 
 // Closures
 // Use the keyword "in" to seperate the parameters from the body
@@ -216,7 +247,7 @@ numbers.map({
     let result = 3 * number
     return result
 })
-
+// Experiment - Reqrite the closure to return zero for all odd numbers.
 numbers.map({
     (number:Int) -> Int in
     if number % 2 == 1 {
@@ -226,7 +257,8 @@ numbers.map({
 })
 
 // Single statement closures implicitly return the value of their only statement
-numbers.map({ number in 3 * number})
+let mappedNumbers = numbers.map({ number in 3 * number})
+mappedNumbers
 
 // A closure passed as the last argument to a function can appear immediately after the parentheses
 let sortedNumbers = numbers.sort { $0 > $1 }
@@ -244,6 +276,15 @@ class Shape {
 var shape = Shape()
 shape.numberOfSides = 7
 var shapeDescription = shape.simpleDescription()
+
+//Experiment - Add a constant property with let, and add another method that takes an argument.
+extension Shape {
+    //let solid = true
+    func blah(a: Int) -> Int {
+        return a * numberOfSides
+    }
+}
+
 
 class NamedShape {
     var numberOfSides: Int = 0
@@ -280,6 +321,7 @@ let test = Square(sideLength:5.2, name:"My test square")
 test.area()
 test.simpleDescription()
 
+// Experiment - Make another subclass of NamedShape called Circle that takes a radius and a name as arguments to its initializer. Implement an area() and a simpleDescription() method on the Circle class.
 class Circle: NamedShape {
     var radius: Double
     
@@ -311,12 +353,12 @@ class EquilateralTriangle: NamedShape {
     }
     
     var perimeter: Double {
-    get {
-        return 3.0 * sideLength
-    }
-    set (newPerimeter){
-        sideLength = newPerimeter / 3.0
-    }
+        get {
+            return 3.0 * sideLength
+        }
+        set (newPerimeter){
+            sideLength = newPerimeter / 3.0
+        }
     }
     
     override func simpleDescription() -> String {
@@ -331,15 +373,15 @@ triangle.sideLength
 
 class TriangleAndSquare {
     var triangle:EquilateralTriangle {
-    willSet {
-        square.sideLength = newValue.sideLength
-    }
+        willSet {
+            square.sideLength = newValue.sideLength
+        }
     }
     
     var square: Square {
-    willSet {
-        triangle.sideLength = newValue.sideLength
-    }
+        willSet {
+            triangle.sideLength = newValue.sideLength
+        }
     }
     
     init(size: Double, name: String) {
@@ -362,6 +404,8 @@ class Counter {
 }
 var counter = Counter()
 counter.incrementBy(2, numberOfTimes:7)
+counter.count
+
 
 // Optionals
 // For methods, properties and subscripts you can write a ? afterwards and everything after the question mark will be ignored if the object is nil.
@@ -399,6 +443,7 @@ let two = Rank.Two
 two.simpleDescription()
 two.rawValue
 
+// Experiment - Write a function that compares two Rank values by comparing their raw values.
 func compare(rank: Rank, toRank: Rank) -> Bool {
     return rank.rawValue == toRank.rawValue
 }
@@ -447,6 +492,13 @@ struct Card {
     var rank: Rank
     var suit: Suit
     
+    func simpleDescription() -> String {
+        return "The \(rank.simpleDescription()) of \(suit.simpleDescription())"
+    }
+}
+
+// Experiment - Add a method to Card that creates a full deck of cards, with one card of each combination of rank and suit
+extension Card {
     func createFullDeck() -> [Card] {
         var deck: [Card] = []
         
@@ -463,16 +515,13 @@ struct Card {
         
         return deck
     }
-    
-    func simpleDescription() -> String {
-        return "The \(rank.simpleDescription()) of \(suit.simpleDescription())"
-    }
 }
 let threeOfSpades = Card(rank: .Three, suit:.Spades)
 let threeOfSpadesDescription = threeOfSpades.simpleDescription()
 
 let aFullDeck = threeOfSpades.createFullDeck()
 aFullDeck.map({ card in card.simpleDescription() })
+
 
 // Enumerations
 enum ServerResponse {
@@ -489,6 +538,7 @@ case let .Result(sunrise, sunset):
 case let .Error(error):
     let serverResponse = "Failure... \(error)"
 }
+// Experiment - Add a third case to ServerResponse and to the switch
 
 
 // Protocols and Extensions
@@ -518,6 +568,7 @@ var b = SimpleStructure()
 b.adjust()
 let bDescription = b.simpleDescription
 
+// Experiment - Write an enumeration that conforms to this protocol
 enum SimpleEnum: Int, ExampleProtocol {
     case A = 1, B, C, D, E
     
@@ -552,6 +603,7 @@ var someInt = 4
 someInt.adjust()
 someInt
 
+// Experiment - Write an extension for the Double type that adds an absoluteValue property.
 extension Double {
     var absoluteValue: Double {
         return self > 0 ? self : -self
@@ -567,14 +619,15 @@ let neg = -6.0
 neg.absoluteValue
 let absNeg = (-6.0.absoluteValue)
 
+
 let protocolValue: ExampleProtocol = a
 protocolValue.simpleDescription
 // protocolValue.anotherProperty // Uncomment to see the error
 
 
 // Generics
-func `repeat`<ItemType>(item: ItemType, times: Int) -> [ItemType] {
-    var result = [ItemType]()
+func `repeat`<Item>(item: Item, times: Int) -> [Item] {
+    var result = [Item]()
     for _ in 0..<times {
         result.append(item)
     }
@@ -591,7 +644,7 @@ enum OptionalValue<T> {
 var possibleInteger: OptionalValue<Int> = .None
 possibleInteger = .Some(100)
 
-func anyCommonElements <T, U where T: SequenceType, U: SequenceType, T.Generator.Element: Equatable, T.Generator.Element == U.Generator.Element> (lhs: T, rhs: U) -> Bool {
+func anyCommonElements <T, U where T: SequenceType, U: SequenceType, T.Generator.Element: Equatable, T.Generator.Element == U.Generator.Element> (lhs: T, _ rhs: U) -> Bool {
     for lhsItem in lhs {
         for rhsItem in rhs {
             if lhsItem == rhsItem {
@@ -601,11 +654,11 @@ func anyCommonElements <T, U where T: SequenceType, U: SequenceType, T.Generator
     }
     return false
 }
-anyCommonElements([1,2,3], rhs: [3])
-anyCommonElements([1,2,3], rhs: [6])
-anyCommonElements([1,2,3], rhs: [3.0])
+anyCommonElements([1,2,3], [3])
+anyCommonElements([1,2,3], [6])
+anyCommonElements([1,2,3], [3.0])
 
-
+// Experiment - Modify the anyCommonElements(_:_:) function to make a function that returns an array of the elements that any two sequences have in common.
 func returnAnyCommonElements <T, U where T: SequenceType, U: SequenceType, T.Generator.Element: Equatable, T.Generator.Element == U.Generator.Element> (lhs: T, rhs: U) -> [T.Generator.Element] {
     var commonElements: [T.Generator.Element] = []
     for lhsItem in lhs {
@@ -617,5 +670,5 @@ func returnAnyCommonElements <T, U where T: SequenceType, U: SequenceType, T.Gen
     }
     return commonElements
 }
-returnAnyCommonElements([1,2,3], rhs: [3])
-returnAnyCommon
+returnAnyCommonElements([1,2,3], rhs: [2])
+//returnAnyCommon
