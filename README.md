@@ -2,6 +2,8 @@
 
 Some experiments with Playgrounds in XCode 6 using the Swift programming language.
 
+I've started the process of converting everything over to Swift 2.0 and XCode7. I'll leave this in a separate branch for now until the new playgrounds stabilise.
+
 ##The Swift Programming Language Book
 
 I have been working through all the examples in the book Apple Inc. “The Swift Programming Language.” iBooks. https://itunes.apple.com/au/book/swift-programming-language/id881256329?mt=11. Each .playground file in the project relates to a chapter from the Swift Programming Language book.
