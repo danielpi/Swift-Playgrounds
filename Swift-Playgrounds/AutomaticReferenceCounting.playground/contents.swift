@@ -4,10 +4,10 @@ class Person {
     let name: String
     init(name: String) {
         self.name = name
-        println("\(name) is being initialized")
+        print("\(name) is being initialized")
     }
     deinit {
-        println("\(name) is being deinitialized")
+        print("\(name) is being deinitialized")
     }
 }
 
@@ -29,14 +29,14 @@ class Person2 {
     let name: String
     init(name: String) { self.name = name }
     var apartment: Apartment?
-    deinit { println("\(name) is being deinitialized") }
+    deinit { print("\(name) is being deinitialized") }
 }
 
 class Apartment {
     let number: Int
     init(number: Int) { self.number = number }
     var tenant: Person2?
-    deinit { println("Apartment #\(number) is being deinitialized") }
+    deinit { print("Apartment #\(number) is being deinitialized") }
 }
 
 var john: Person2?
@@ -62,14 +62,14 @@ class Person3 {
     let name: String
     init(name: String) { self.name = name }
     var apartment: Apartment3?
-    deinit { println("\(name) is being deinitialized") }
+    deinit { print("\(name) is being deinitialized") }
 }
 
 class Apartment3 {
     let number: Int
     init(number: Int) { self.number = number }
     weak var tenant: Person3?
-    deinit { println("Apartment #\(number) is being deinitialized") }
+    deinit { print("Apartment #\(number) is being deinitialized") }
 }
 
 var james: Person3?
@@ -89,7 +89,7 @@ class Customer {
     let name: String
     var card: CreditCard?
     init(name: String) { self.name = name }
-    deinit { println("\(name) is being deinitialized") }
+    deinit { print("\(name) is being deinitialized") }
 }
 
 class CreditCard {
@@ -99,7 +99,7 @@ class CreditCard {
         self.number = number
         self.customer = customer
     }
-    deinit { println("Card #\(number) is being deinitialized") }
+    deinit { print("Card #\(number) is being deinitialized") }
 }
 
 var justin: Customer?
@@ -130,7 +130,7 @@ class City {
 }
 //  The initializer for City is called from within the initializer for Country. However, the initializer for Country cannot pass self to the City initializer until a new Country instance is fully initialized, as described in Two-Phase Initialization. To cope with this requirement, you declare the capitalCity property of Country as an implicitly unwrapped optional property, indicated by the exclamation mark at the end of its type annotation (City!). This means that the capitalCity property has a default value of nil, like any other optional, but can be accessed without the need to unwrap its value.
 var country = Country(name: "Canada", capitalName: "Ottawa")
-println("\(country.name)'s capital city is called \(country.capitalCity.name)")
+print("\(country.name)'s capital city is called \(country.capitalCity.name)")
 
 
 // Strong Reference Cycles for Closures
@@ -149,12 +149,12 @@ class HTMLElement {
         self.text = text
     }
     deinit {
-        println("\(name) is being deinitialized")
+        print("\(name) is being deinitialized")
     }
 }
 
 var paragraph: HTMLElement? = HTMLElement(name: "p", text: "hello, world")
-println(paragraph!.asHTML())
+print(paragraph!.asHTML())
 //  Unfortunately, the HTMLElement class, as written above, creates a strong reference cycle between an HTMLElement instance and the closure used for its default asHTML value. 
 paragraph = nil
 //  Note that the message in the HTMLElement deinitializer is not printed, which shows that the HTMLElement instance is not deallocated.
@@ -183,11 +183,11 @@ class HTMLElement2 {
         self.text = text
     }
     deinit {
-        println("\(name) is being deinitialized")
+        print("\(name) is being deinitialized")
     }
 }
 var paragraph2: HTMLElement2? = HTMLElement2(name: "p", text: "hello, world")
-println(paragraph2!.asHTML())
+print(paragraph2!.asHTML())
 
 paragraph2 = nil
 // prints "p is being deinitialized"

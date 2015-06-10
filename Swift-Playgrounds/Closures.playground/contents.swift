@@ -9,22 +9,22 @@ let names = ["Chris", "Alex", "Ewa", "Barry", "Daniella"]
 func backwards(s1: String, s2: String) -> Bool {
     return s1 > s2
 }
-var reversed = sorted(names, backwards)
+var reversed = names.sort(backwards)
 
 // Closure Expression Syntax
-reversed = sorted(names, { (s1:String, s2: String) -> Bool in return s1 > s2 })
+reversed = names.sort({ (s1:String, s2: String) -> Bool in return s1 > s2 })
 
 // Inferring Type from from Context
-reversed = sorted(names, { s1, s2 in return s1 > s2 })
+reversed = names.sort({ s1, s2 in return s1 > s2 })
 
 // Implicit returns from Single-Expression Closures
-reversed = sorted(names, { s1, s2 in s1 > s2 })
+reversed = names.sort({ s1, s2 in s1 > s2 })
 
 // Shorthand Argument Names
-reversed = sorted(names, { $0 > $1 })
+reversed = names.sort({ $0 > $1 })
 
 // Operator Functions
-reversed = sorted(names, >)
+reversed = names.sort(>)
 
 
 // Trailing Closures
@@ -36,7 +36,7 @@ someFunctionThatTakesAClosure() {
     
 }
 
-reversed = sorted(names) { $0 > $1 }
+reversed = names.sort { $0 > $1 }
 
 let digitNames = [0: "Zero", 1: "One", 2: "Two", 3: "Three", 4:"Four", 5: "Five", 6:"Six", 7: "Seven", 8: "Eight", 9: "Nine"]
 let numbers = [16, 58, 510]

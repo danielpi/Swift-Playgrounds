@@ -7,13 +7,13 @@ let dollarSign = "\u{24}"
 let blackHeart = "\u{2665}"
 let sparklingHeart = "\u{0001F496}"
 // let blah = "\u{123456}" // This doesn't seem to work yet
-println(dollarSign + blackHeart + sparklingHeart)
+print(dollarSign + blackHeart + sparklingHeart)
 
 // Empty Strings
 var emptyString = ""
 var anotherEmpyString = String()
 if emptyString.isEmpty {
-    println("Nothing to see here")
+    print("Nothing to see here")
 }
 
 // String mutability
@@ -24,16 +24,16 @@ let constantString = "Highlander"
 // constantString += " and another Highlander" // There can be only one
 
 // Working with Characters
-for character in "Dog!🐶" {
-    println(character)
+for character in "Dog!🐶".characters {
+    print(character)
 }
 
 let yenSign: Character = "¥"
-println(yenSign)
+print(yenSign)
 
 // Counting Characters
 let unusualMenagerie = "Koala 🐨, Snail 🐌, Penguin 🐧, Dromedary 🐪"
-println("unusualMenagerie has \(count(unusualMenagerie)) characters")
+print("unusualMenagerie has \(unusualMenagerie.characters.count) characters")
 // Note that countElements iterates over the full string because Unicode characters may take multiple bytes.
 
 // Concatenating Strings and Characters
@@ -56,7 +56,7 @@ let message = "\(multiplier) times 2.5 is \(Double(multiplier) * 2.5)"
 let quotation = "We're a lot alike, you and I."
 let sameQuotation = "We're a lot alike, you and I."
 if quotation == sameQuotation {
-    println("These two strings are considered equal")
+    print("These two strings are considered equal")
 }
 
 let romeoAndJuliet = [
@@ -78,7 +78,7 @@ for scene in romeoAndJuliet {
         ++act1SceneCount
     }
 }
-println("There are \(act1SceneCount) scenes in Act 1")
+print("There are \(act1SceneCount) scenes in Act 1")
 
 var mansionCount = 0
 var cellCount = 0
@@ -89,7 +89,7 @@ for scene in romeoAndJuliet {
         ++cellCount
     }
 }
-println("\(mansionCount) mansion scenes; \(cellCount) cell scenes")
+print("\(mansionCount) mansion scenes; \(cellCount) cell scenes")
 
 let normal = "Could you help me, please?"
 //let shouty = normal.uppercaseString
@@ -98,23 +98,14 @@ let normal = "Could you help me, please?"
 // Unicode
 let dogString = "Dog!🐶"
 for codeUnit in dogString.utf8 {
-    print("\(codeUnit) ")
+    print("\(codeUnit) ", appendNewline: false)
 }
-print("\n")
+print("\n", appendNewline: false)
 
 for codeUnit in dogString.utf16 {
-    print("\(codeUnit) ")
+    print("\(codeUnit) ", appendNewline: false)
 }
-print("\n")
+print("\n", appendNewline: false)
 
 for scalar in dogString.unicodeScalars {
-    print("\(scalar.value)")
-}
-print("\n")
-
-for scalar in dogString.unicodeScalars {
-    println("\(scalar)")
-}
-
-
-
+    print("\(scalar.va

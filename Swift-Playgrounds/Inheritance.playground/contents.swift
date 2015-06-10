@@ -21,7 +21,7 @@ class Bicycle: Vehicle {
     }
 }
 let bicycle = Bicycle()
-println("Bicycle: \(bicycle.description())")
+print("Bicycle: \(bicycle.description())")
 
 class Tandem: Bicycle {
     override init() {
@@ -30,7 +30,7 @@ class Tandem: Bicycle {
     }
 }
 let tandem = Tandem()
-println("Tandem: \(tandem.description())")
+print("Tandem: \(tandem.description())")
 
 
 // Overriding
@@ -47,7 +47,7 @@ class Car: Vehicle {
     }
 }
 let car = Car()
-println("Car: \(car.description())")
+print("Car: \(car.description())")
 
 class SpeedLimitedCar: Car {
     override var speed: Double {
@@ -61,7 +61,7 @@ class SpeedLimitedCar: Car {
 }
 let limitedCar = SpeedLimitedCar()
 limitedCar.speed = 60.0
-println("SpeedLimitedCar: \(limitedCar.description())")
+print("SpeedLimitedCar: \(limitedCar.description())")
 
 class AutomaticCar: Car {
     var gear = 1
@@ -76,7 +76,7 @@ class AutomaticCar: Car {
 }
 let automatic = AutomaticCar()
 automatic.speed = 35.0
-println("utomaticCar: \(automatic.description())")
+print("utomaticCar: \(automatic.description())")
 
 
 

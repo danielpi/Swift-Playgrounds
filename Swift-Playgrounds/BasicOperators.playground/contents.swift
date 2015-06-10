@@ -74,9 +74,9 @@ aaa += 2
 
 let name = "world"
 if name == "world" {
-    println("hello, world")
+    print("hello, world")
 } else {
-    println("I'm sorry \(name), but I don't recognize you")
+    print("I'm sorry \(name), but I don't recognize you")
 }
 
 // Identity operators
@@ -90,48 +90,48 @@ let rowHeight = contentHeight + (hasHeader ? 50 : 20)
 // Range Operators
 // The Closed Range Operator
 for index in 1...5 {
-    println("\(index) times 5 is \(index * 5)")
+    print("\(index) times 5 is \(index * 5)")
 }
 
 // The Half-Closed range operator
 let names = ["Anna", "Alex", "Brian", "Jack"]
 let count = names.count
 for i in 0..<count {
-    println("Person \(i + 1) is called \(names[i])")
+    print("Person \(i + 1) is called \(names[i])")
 }
 
 // Logical Operators
 let allowedEntry = false
 if !allowedEntry {
-    println("ACCESS DENIED")
+    print("ACCESS DENIED")
 }
 
 let enteredDoorCode = true
 let passedRetinaScan = false
 if enteredDoorCode && passedRetinaScan {
-    println("Welcome!")
+    print("Welcome!")
 } else {
-    println("ACCESS DENIED")
+    print("ACCESS DENIED")
 }
 
 let hasDoorKey = false
 let knowsOverridePassword = true
 if hasDoorKey || knowsOverridePassword {
-    println("Welcome")
+    print("Welcome")
 } else {
-    println("ACCESS DENIED")
+    print("ACCESS DENIED")
 }
 
 if enteredDoorCode && passedRetinaScan || hasDoorKey || knowsOverridePassword {
-    println("Welcome!")
+    print("Welcome!")
 } else {
-    println("ACCESS DENIED")
+    print("ACCESS DENIED")
 }
 
 if (enteredDoorCode && passedRetinaScan) || hasDoorKey || knowsOverridePassword {
-    println("Welcome!")
+    print("Welcome!")
 } else {
-    println("ACCESS DENIED")
+    print("ACCESS DENIED")
 }
 
 

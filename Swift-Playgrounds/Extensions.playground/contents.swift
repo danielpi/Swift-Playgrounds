@@ -19,13 +19,13 @@ extension Double {
     var ft: Double { return self / 3.28084 }
 }
 let oneInch = 25.4.mm
-println("One inch is \(oneInch) meters")
+print("One inch is \(oneInch) meters")
 
 let threeFeet = 3.ft
-println("Three feet is \(threeFeet) meters")
+print("Three feet is \(threeFeet) meters")
 
 let aMarathon = 42.km + 195.m
-println("A marathon is \(aMarathon) meters long")
+print("A marathon is \(aMarathon) meters long")
 //  Extensions can add new computed properties, but they cannot add stored properties, or add property observers to existing properties.
 
 
@@ -62,8 +62,8 @@ extension Int {
     }
 }
 
-3.repetitions({ println("Hello!") })
-3.repetitions { println("Goodbye!") }
+3.repetitions({ print("Hello!") })
+3.repetitions { print("Goodbye!") }
 
 
 // Mutating Instance Methods
@@ -118,15 +118,11 @@ func printIntegerKinds(numbers: [Int]) {
     for number in numbers {
         switch number.kind {
         case .Negative:
-            print("- ")
+            print("- ", appendNewline: false)
         case .Zero:
-            print("0 ")
+            print("0 ", appendNewline: false)
         case .Positive:
-            print("+ ")
+            print("+ ", appendNewline: false)
         }
     }
-    print("\n")
-}
-printIntegerKinds([3, 19, -27, 0, -6, 0, 7])
-
-
+    print

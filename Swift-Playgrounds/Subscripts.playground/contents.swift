@@ -18,7 +18,7 @@ struct TimesTable {
     }
 }
 let threeTimesTable = TimesTable(multiplier: 3)
-println("six times three is \(threeTimesTable[6])")
+print("six times three is \(threeTimesTable[6])")
 
 // Subscript Usage
 var numberOfLegs = ["spider": 8, "ant": 6, "cat": 4]

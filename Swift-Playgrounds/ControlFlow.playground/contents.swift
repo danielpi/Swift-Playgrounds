@@ -1,7 +1,7 @@
 // Control Flow Chapter
 
 for index in 1...5 {
-    println("\(index) times 5 is \(index * 5)")
+    print("\(index) times 5 is \(index * 5)")
 }
 
 let base = 3
@@ -13,27 +13,27 @@ for _ in 1...power {
 
 let names = ["Anna", "Alex", "Brian", "Jack"]
 for name in names {
-    println("Hello, \(name)!")
+    print("Hello, \(name)!")
 }
 
 let numberOfLegs = ["spider": 8, "ant": 6, "cat": 4]
 for (animalName, legCount) in numberOfLegs {
-    println("\(animalName)s have \(legCount) legs")
+    print("\(animalName)s have \(legCount) legs")
 }
 
-for character in "Hello" {
-    println(character)
+for character in "Hello".characters {
+    print(character)
 }
 
 for var index = 0; index < 3; ++index {
-    println("index = \(index)")
+    print("index = \(index)")
 }
 
 var index: Int
 for index = 0; index < 3; ++index {
-    println("index is \(index)")
+    print("index is \(index)")
 }
-println("The loop statements were executed \(index) times")
+print("The loop statements were executed \(index) times")
 
 
 let finalSquare = 25
@@ -53,11 +53,11 @@ while square < finalSquare {
         square += board[square]
     }
 }
-println("Game over!")
+print("Game over!")
 
 square = 0
 diceRoll = 0
-do {
+repeat {
     // move up or down for a snake or ladder
     square += board[square]
     // roll the dice
@@ -65,35 +65,35 @@ do {
     // move by the rolled amount
     square += diceRoll
 } while square < finalSquare
-println("Game over!")
+print("Game over!")
 
 // If
 var temperatureInFarenheit = 30
 if temperatureInFarenheit <= 32 {
-    println("It's very cold. Consider wearing a scarf")
+    print("It's very cold. Consider wearing a scarf")
 }
 
 temperatureInFarenheit = 40
 if temperatureInFarenheit <= 32 {
-    println("It's very cold. Consider wearing a scarf")
+    print("It's very cold. Consider wearing a scarf")
 } else {
-    println("It's not that cold. wear a t-shirt.")
+    print("It's not that cold. wear a t-shirt.")
 }
 
 temperatureInFarenheit = 90
 if temperatureInFarenheit <= 32 {
-    println("It's very cold. Consider wearing a scarf")
+    print("It's very cold. Consider wearing a scarf")
 } else if temperatureInFarenheit >= 86 {
-    println("It's really warm. Don't forget to wear sunscreen.")
+    print("It's really warm. Don't forget to wear sunscreen.")
 } else {
-    println("It's not that cold. wear a t-shirt.")
+    print("It's not that cold. wear a t-shirt.")
 }
 
 temperatureInFarenheit = 72
 if temperatureInFarenheit <= 32 {
-    println("It's very cold. Consider wearing a scarf")
+    print("It's very cold. Consider wearing a scarf")
 } else if temperatureInFarenheit >= 86 {
-    println("It's really warm. Don't forget to wear sunscreen.")
+    print("It's really warm. Don't forget to wear sunscreen.")
 }
 
 
@@ -101,20 +101,20 @@ if temperatureInFarenheit <= 32 {
 let someCharacter: Character = "e"
 switch someCharacter {
     case "a", "e", "i", "o", "u":
-        println("\(someCharacter) is a vowel")
+        print("\(someCharacter) is a vowel")
     case "b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "y", "z":
-        println("\(someCharacter) is a consonant")
+        print("\(someCharacter) is a consonant")
     default:
-        println("\(someCharacter) is not a vowel or consonant")
+        print("\(someCharacter) is not a vowel or consonant")
 }
 
 let anotherCharacter: Character = "a"
 switch anotherCharacter {
     //case "a": // Not valid if this line is in place as no executble line for this case statement.
     case "A":
-        println("The letter A")
+        print("The letter A")
     default:
-        println("Not the letter A")
+        print("Not the letter A")
 }
 
 
@@ -138,22 +138,22 @@ case 1000...999_999:
 default:
     naturalCount = "millions and millions of"
 }
-println("There are \(naturalCount) \(countedThings).")
+print("There are \(naturalCount) \(countedThings).")
 
 
 // Tuples
 let somePoint = (1,1)
 switch somePoint {
 case (0, 0):
-    println("(0,0) is at the origin")
+    print("(0,0) is at the origin")
 case (_, 0):
-    println("\(somePoint.0),0) is on the x-axis")
+    print("\(somePoint.0),0) is on the x-axis")
 case (0, _):
-    println("(0, \(somePoint.1)) is on the y-axis")
+    print("(0, \(somePoint.1)) is on the y-axis")
 case (-2...2, -2...2):
-    println("(\(somePoint.0, somePoint.1)) is inside the box")
+    print("(\(somePoint.0, somePoint.1)) is inside the box")
 default:
-    println("(\(somePoint.0, somePoint.1)) is outside of the box")
+    print("(\(somePoint.0, somePoint.1)) is outside of the box")
 }
 
 
@@ -161,11 +161,11 @@ default:
 let anotherPoint = (2, 0)
 switch anotherPoint {
 case (let x, 0):
-    println("on the x-axis with an x value of \(x)")
+    print("on the x-axis with an x value of \(x)")
 case (0, let y):
-    println("on the y-axis with a y value of \(y)")
+    print("on the y-axis with a y value of \(y)")
 case let (x, y):
-    println("somewhare else at (\(x), \(y))")
+    print("somewhare else at (\(x), \(y))")
 }
 
 
@@ -173,18 +173,18 @@ case let (x, y):
 let yetAnotherPoint = (1, -1)
 switch yetAnotherPoint {
 case let (x, y) where x == y:
-    println("(\(x), \(y)) is on the line x == y")
+    print("(\(x), \(y)) is on the line x == y")
 case let (x, y) where x == -y:
-    println("(\(x), \(y)) is on the line x == -y")
+    print("(\(x), \(y)) is on the line x == -y")
 case let (x, y):
-    println("(\(x), \(y)) is just some arbitrary point")
+    print("(\(x), \(y)) is just some arbitrary point")
 }
 
 // Control Transfer Statements
 // Continue
 let puzzleInput = "great minds think alike"
 var puzzleOutput = ""
-for character in puzzleInput {
+for character in puzzleInput.characters {
     switch character {
         case "a", "e", "i", "o", "u", " ":
             continue
@@ -211,9 +211,9 @@ default:
 
 }
 if let integerValue = possibleIntegerValue {
-    println("The integer value of \(numberSymbol) is \(integerValue).")
+    print("The integer value of \(numberSymbol) is \(integerValue).")
 } else {
-    println("An integer value could not be found for \(numberSymbol).")
+    print("An integer value could not be found for \(numberSymbol).")
 }
 
 // Fallthrough
@@ -226,7 +226,7 @@ case 2, 3, 5, 7, 11, 13, 17, 19:
 default:
     description += " an integer."
 }
-println(description)
+print(description)
 
 
 // Labelled Statements
@@ -248,7 +248,7 @@ gameLoop: while square != finalSquare {
         square += board[square]
     }
 }
-println("Game over!")
+print("Game over!")
 
 
 

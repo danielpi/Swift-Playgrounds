@@ -22,11 +22,11 @@ class VideoMode {
 
 let someResolution = Resolution()
 let someVideoMode = VideoMode()
-println("The width of someResolution is \(someResolution.width)")
-println("The width of someVideoMode is \(someVideoMode.resolution.width)")
+print("The width of someResolution is \(someResolution.width)")
+print("The width of someVideoMode is \(someVideoMode.resolution.width)")
 
 someVideoMode.resolution.width = 1280
-println("The width of someVideoMode is now \(someVideoMode.resolution.width)")
+print("The width of someVideoMode is now \(someVideoMode.resolution.width)")
 
 // Memberwise Initializers for Structure Types
 //  All structures have an automatically-generated memberwise initializer, which you can use to initialize the member properties of new structure instances.
@@ -38,8 +38,8 @@ let vga = Resolution(width: 640, height: 480)
 let hd = Resolution(width: 1920, height: 1080)
 var cinema = hd
 cinema.width = 2048
-println("cinema is now \(cinema.width) pixels wide")
-println("hd is still \(hd.width) pixels wide")
+print("cinema is now \(cinema.width) pixels wide")
+print("hd is still \(hd.width) pixels wide")
 
 enum CompassPoint {
     case Noth, South, East, West
@@ -48,7 +48,7 @@ var currentDirection = CompassPoint.West
 let rememberedDirection = currentDirection
 currentDirection = .East
 if rememberedDirection == .West {
-    println("The remembered direction is still .West")
+    print("The remembered direction is still .West")
 }
 
 
@@ -63,11 +63,11 @@ tenEighty.frameRate = 25.0
 
 let alsoTenEighty = tenEighty
 alsoTenEighty.frameRate = 30.0
-println("The frameRate property of tenEighty is now \(tenEighty.frameRate)")
+print("The frameRate property of tenEighty is now \(tenEighty.frameRate)")
 
 // Identity Operators
 if tenEighty === alsoTenEighty {
-    println("tenEighty and alsoTenEighty refer to the same VideoMode instance.")
+    print("tenEighty and alsoTenEighty refer to the same VideoMode instance.")
 }
 //  Note that “identical to” (represented by three equals signs, or ===) does not mean the same thing as “equal to” (represented by two equals signs, or ==):
 
@@ -77,7 +77,7 @@ var ages = ["Peter": 23, "Wei": 35, "Anish": 65, "Katya": 19]
 var copiedAges = ages
 
 copiedAges["Peter"] = 24
-println(ages["Peter"])
+print(ages["Peter"])
 
 /*
 // Assignment and Copy Behaviour for Arrays

@@ -122,7 +122,7 @@ while n < 100 {
 n
 
 var m = 2
-do {
+repeat {
     m = m * 2
 } while m < 100
 m
@@ -145,7 +145,7 @@ secondForLoop
 func greet(name: String, day: String) -> String {
     return "Hello \(name), today is \(day)."
 }
-greet("Bob", "Tuesday")
+greet("Bob", day: "Tuesday")
 
 func getGasPrices() -> (Double, Double, Double) {
     return (3.59, 3.69, 3.79)
@@ -207,7 +207,7 @@ func lessThanTen(number: Int) -> Bool {
     return number < 10
 }
 var numbers = [20,19,7,12]
-hasAnyMatches(numbers, lessThanTen)
+hasAnyMatches(numbers, condition: lessThanTen)
 
 // Closures
 // Use the keyword "in" to seperate the parameters from the body
@@ -229,7 +229,7 @@ numbers.map({
 numbers.map({ number in 3 * number})
 
 // A closure passed as the last argument to a function can appear immediately after the parentheses
-let sortedNumbers = sorted(numbers) { $0 > $1 }
+let sortedNumbers = numbers.sort { $0 > $1 }
 sortedNumbers
 
 
@@ -402,8 +402,8 @@ two.rawValue
 func compare(rank: Rank, toRank: Rank) -> Bool {
     return rank.rawValue == toRank.rawValue
 }
-compare(ace, two)
-compare(ace, ace)
+compare(ace, toRank: two)
+compare(ace, toRank: ace)
 
 if let convertedRank = Rank(rawValue: 3) {
     let threeDescription = convertedRank.simpleDescription()
@@ -573,14 +573,14 @@ protocolValue.simpleDescription
 
 
 // Generics
-func repeat<ItemType>(item: ItemType, times: Int) -> [ItemType] {
+func `repeat`<ItemType>(item: ItemType, times: Int) -> [ItemType] {
     var result = [ItemType]()
-    for i in 0..<times {
+    for _ in 0..<times {
         result.append(item)
     }
     return result
 }
-repeat("knock", 4)
+`repeat`("knock", times: 4)
 
 // Reimplement the Swift standard library's optional type
 enum OptionalValue<T> {
@@ -601,9 +601,9 @@ func anyCommonElements <T, U where T: SequenceType, U: SequenceType, T.Generator
     }
     return false
 }
-anyCommonElements([1,2,3], [3])
-anyCommonElements([1,2,3], [6])
-anyCommonElements([1,2,3], [3.0])
+anyCommonElements([1,2,3], rhs: [3])
+anyCommonElements([1,2,3], rhs: [6])
+anyCommonElements([1,2,3], rhs: [3.0])
 
 
 func returnAnyCommonElements <T, U where T: SequenceType, U: SequenceType, T.Generator.Element: Equatable, T.Generator.Element == U.Generator.Element> (lhs: T, rhs: U) -> [T.Generator.Element] {
@@ -617,7 +617,5 @@ func returnAnyCommonElements <T, U where T: SequenceType, U: SequenceType, T.Gen
     }
     return commonElements
 }
-returnAnyCommonElements([1,2,3], [3])
-returnAnyCommonElements([1,2,3], [6])
-returnAnyCommonElements([1,2,3], [3.0])
-
+returnAnyCommonElements([1,2,3], rhs: [3])
+returnAnyCommon

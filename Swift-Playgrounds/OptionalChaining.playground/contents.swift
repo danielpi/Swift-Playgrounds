@@ -13,9 +13,9 @@ let john = Person()
 // This triggers a runtime error
 
 if let roomCount = john.residence?.numberOfRooms {
-    println("John's residence has \(roomCount) room(s).")
+    print("John's residence has \(roomCount) room(s).")
 } else {
-    println("Unable to retreive the number of rooms.")
+    print("Unable to retreive the number of rooms.")
 }
 
 // Defining Model Classes for Optional Chaining
@@ -32,7 +32,7 @@ class Residence2 {
         return rooms[i]
     }
     func printNumberOfRooms() {
-        println("The number of rooms is \(numberOfRooms)")
+        print("The number of rooms is \(numberOfRooms)")
     }
     var address: Address?
 }
@@ -61,26 +61,26 @@ class Address {
 // Calling Properties Through Optional Chaining
 let jack = Person2()
 if let roomCount = john.residence?.numberOfRooms {
-    println("John's residence has \(roomCount) room(s).")
+    print("John's residence has \(roomCount) room(s).")
 } else {
-    println("Unable to retreive the number of rooms.")
+    print("Unable to retreive the number of rooms.")
 }
 
 
 // Calling Methods through Optional Chaining
 if jack.residence?.printNumberOfRooms() != nil {
-    println("It was possible to print the number of rooms.")
+    print("It was possible to print the number of rooms.")
 } else {
-    println("It was not possible to print the number of rooms.")
+    print("It was not possible to print the number of rooms.")
 }
 // printNumberOfRooms returns Void? if called on an optional parent value
 
 
 // Calling Subscripts Through Optional Chaining
 if let firstRoomName = jack.residence?[0].name {
-    println("The first room name is \(firstRoomName).")
+    print("The first room name is \(firstRoomName).")
 } else {
-    println("Unable to retrieve the first room name.")
+    print("Unable to retrieve the first room name.")
 }
 
 let jacksHouse = Residence2()
@@ -89,17 +89,17 @@ jacksHouse.rooms += [Room(name: "Kitchen")]
 jack.residence = jacksHouse
 
 if let firstRoomName = jack.residence?[0].name {
-    println("The first room name is \(firstRoomName).")
+    print("The first room name is \(firstRoomName).")
 } else {
-    println("Unable to retrieve the first room name.")
+    print("Unable to retrieve the first room name.")
 }
 
 
 // Linking Multiple levels of Chaining
 if let jacksStreet = jack.residence?.address?.street {
-    println("Jack's street name is \(jacksStreet).")
+    print("Jack's street name is \(jacksStreet).")
 } else {
-    println("Unable to retrieve the address.")
+    print("Unable to retrieve the address.")
 }
 
 let jacksAddress = Address()
@@ -108,22 +108,22 @@ jacksAddress.street = "Laurel Street"
 jack.residence!.address = jacksAddress
 
 if let jacksStreet = jack.residence?.address?.street {
-    println("Jack's street name is \(jacksStreet).")
+    print("Jack's street name is \(jacksStreet).")
 } else {
-    println("Unable to retrieve the address.")
+    print("Unable to retrieve the address.")
 }
 
 
 // Chaining on Methods With Optional Return Values
 if let buildingIdentifier = jack.residence?.address?.buildingIdentifier() {
-    println("Jack's building identifier is \(buildingIdentifier).")
+    print("Jack's building identifier is \(buildingIdentifier).")
 }
 
 if let beginsWithThe = jack.residence?.address?.buildingIdentifier()?.hasPrefix("The") {
     if beginsWithThe {
-        println("Jack's building identifier begins with \"The\".")
+        print("Jack's building identifier begins with \"The\".")
     } else {
-        println("Jack's building identifier does not begin with \"The\".")
+        print("Jack's building identifier does not begin with \"The\".")
     }
 }
 

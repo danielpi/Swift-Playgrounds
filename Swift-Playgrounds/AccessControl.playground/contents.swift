@@ -108,7 +108,7 @@ var stringToEdit = TrackedString()
 stringToEdit.value = "This string will be tracked."
 stringToEdit.value += " This edit will increment numberOfEdits."
 stringToEdit.value += " So will this one."
-println("The number of edits is \(stringToEdit.numberOfEdits)")
+print("The number of edits is \(stringToEdit.numberOfEdits)")
 stringToEdit.numberOfEdits
 
 

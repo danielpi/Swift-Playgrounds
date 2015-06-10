@@ -7,7 +7,7 @@ struct Fahrenheit {
     }
 }
 var f = Fahrenheit()
-println("The default temperature is \(f.temperature)° Fahrenheit")
+print("The default temperature is \(f.temperature)° Fahrenheit")
 
 
 // Customizing Initialization
@@ -45,7 +45,7 @@ class SurveyQuestion {
         self.text = text
     }
     func ask() {
-        println(text)
+        print(text)
     }
 }
 let cheeseQuestion = SurveyQuestion(text: "Do you like cheese?")
@@ -61,7 +61,7 @@ class SurveyQuestion2 {
         self.text = text
     }
     func ask() {
-        println(text)
+        print(text)
     }
 }
 let beetsQuestion = SurveyQuestion2(text: "How about beets?")
@@ -196,7 +196,7 @@ var breakfastList = [
 breakfastList[0].name = "Orange juice"
 breakfastList[0].purchased = true
 for item in breakfastList {
-    println(item.description)
+    print(item.description)
 }
 
 // Setting a default Property Value with a Closure or Function
@@ -228,8 +228,8 @@ struct Checkerboard {
     }
 }
 let board = Checkerboard()
-println(board.squareIsBlackAtRow(0, column: 1))
-println(board.squareIsBlackAtRow(9, column: 9))
+print(board.squareIsBlackAtRow(0, column: 1))
+print(board.squareIsBlackAtRow(9, column: 9))
 
 
 

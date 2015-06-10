@@ -10,8 +10,8 @@ func swapTwoInts(inout a: Int, inout b: Int) {
 
 var someInt = 3
 var anotherInt = 107
-swapTwoInts(&someInt, &anotherInt)
-println("someInt is now \(someInt), and anotherInt is now \(anotherInt)")
+swapTwoInts(&someInt, b: &anotherInt)
+print("someInt is now \(someInt), and anotherInt is now \(anotherInt)")
 
 //  The swapTwoInts function is useful, but it can only be used with Int values. If you want to swap two String values, or two Double values, you have to write more functions, such as the swapTwoStrings and swapTwoDoubles functions shown below
 
@@ -35,13 +35,13 @@ func swapTwoValues<T>(inout a: T, inout b: T) {
     b = temporaryA
 }
 
-swapTwoValues(&someInt, &anotherInt)
-println("someInt is now \(someInt), and anotherInt is now \(anotherInt)")
+swapTwoValues(&someInt, b: &anotherInt)
+print("someInt is now \(someInt), and anotherInt is now \(anotherInt)")
 
 var someString = "hello"
 var anotherString = "world"
-swapTwoValues(&someString, &anotherString)
-println("someString is now \(someString), and anotherString is now \(anotherString)")
+swapTwoValues(&someString, b: &anotherString)
+print("someString is now \(someString), and anotherString is now \(anotherString)")
 
 
 // Generic Types
@@ -83,7 +83,7 @@ func someFunction<T: SomeClass, U: SomeProtocol>(someT: T, someU: U) {
 }
 */
 func findStringIndex(array: [String], valueToFind: String) -> Int? {
-    for (index, value) in enumerate(array) {
+    for (index, value) in array.enumerate() {
         if value == valueToFind {
             return index
         }
@@ -91,20 +91,20 @@ func findStringIndex(array: [String], valueToFind: String) -> Int? {
     return nil
 }
 let strings = ["cat", "dog", "llama", "parakeet", "terrapin"]
-if let foundIndex = findStringIndex(strings, "llama") {
-    println("The index of llama is \(foundIndex)")
+if let foundIndex = findStringIndex(strings, valueToFind: "llama") {
+    print("The index of llama is \(foundIndex)")
 }
 
 func findIndex<T:Equatable>(array: [T], valueToFind: T) -> Int? {
-    for (index, value) in enumerate(array) {
+    for (index, value) in array.enumerate() {
         if value == valueToFind {
             return index
         }
     }
     return nil
 }
-let doubleIndex = findIndex([3.14159, 0.1, 0.25], 9.3)
-let stringIndex = findIndex(["Mike", "Malcolm", "Andrea"], "Andrea")
+let doubleIndex = findIndex([3.14159, 0.1, 0.25], valueToFind: 9.3)
+let stringIndex = findIndex(["Mike", "Malcolm", "Andrea"], valueToFind: "Andrea")
 
 
 // Associated Types
@@ -188,14 +188,5 @@ stackOfStrings2.push("tres")
 
 var arrayOfStrings = ["uno", "dos", "tres"]
 
-if allItemsMatch(stackOfStrings2, arrayOfStrings) {
-    println("All items match.")
-} else {
-    println("Not all items match.")
-}
-
-
-
-
-
-
+if allItemsMatch(stackOfStrings2, anotherContainer: arrayOfStrings) {
+    print("All items matc

@@ -24,10 +24,10 @@ protocol Pullable {
 class Boards: Thing, Pullable {
     func pull() {
         if location === westWallOfHouse {
-            println("They come off with little effort.")
+            print("They come off with little effort.")
             location = westOfHouse
         } else {
-            println("Think of the splinters!")
+            print("Think of the splinters!")
         }
     }
 }
@@ -45,7 +45,7 @@ func performPull(object: Thing) {
 }
 */
 
-extension Thing: Printable {
+extension Thing: CustomStringConvertible {
     var description: String { return name }
 }
 
@@ -58,7 +58,7 @@ extension Thing {
 var object = Thing(westOfHouse, "wall", "The Plaster has crumbled away, leaving the wood beneath to rot.")
 
 // Printable doesn't work in a playground yet (Beta 3)
-println("You aren't sure how to pull \(object)")
+print("You aren't sure how to pull \(object)")
 //println("You aren't sure how to pull \(object.description)")
 //println("You aren't sure how to pull \(an ~ object)")
 
@@ -104,7 +104,4 @@ class Place: Thing {
     //init(_ name: String, _ longDescription: String) {
     //    super.init(<#Thing?#>, <#String#>, <#String#>)
     //}
-    //var exits: Dictionary<Direction, Place> = []
-}
-
-
+    //var exits: Dictionary<Direction, Place> =

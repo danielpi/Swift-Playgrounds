@@ -4,13 +4,13 @@ func sayHello(personName: String) -> String {
     let greeting = "Hello, " + personName + "!"
     return greeting
 }
-println(sayHello("Anna"))
-println(sayHello("Brian"))
+print(sayHello("Anna"))
+print(sayHello("Brian"))
 
 func sayHelloAgain(personName: String) -> String {
     return "Hello, " + personName + "!"
 }
-println(sayHelloAgain("Anna"))
+print(sayHelloAgain("Anna"))
 
 
 // Function Parameters and Return Values
@@ -18,23 +18,23 @@ println(sayHelloAgain("Anna"))
 func halfOpenRangeLength(start: Int, end: Int) -> Int {
     return end - start
 }
-println(halfOpenRangeLength(1, 10))
+print(halfOpenRangeLength(1, end: 10))
 
 // Functions Without Parameters
 func sayHelloWorld() -> String {
     return "hello, world"
 }
-println(sayHelloWorld())
+print(sayHelloWorld())
 
 // Functions Without Return Values
 func sayGoodbye(personName: String) {
-    println("Goodbye, \(personName)!")
+    print("Goodbye, \(personName)!")
 }
 sayGoodbye("Dave")
 
 func printAndCount(stringToPrint: String) -> Int {
-    println(stringToPrint)
-    return count(stringToPrint)
+    print(stringToPrint)
+    return stringToPrint.characters.count
 }
 func printWithoutCounting(stringToPrint: String) {
     printAndCount(stringToPrint)
@@ -56,7 +56,7 @@ func minMax(array: [Int]) -> (min: Int, max: Int) {
     return (currentMin, currentMax)
 }
 let bounds = minMax([8, -6, 2, 109, 3, 71])
-println("min is \(bounds.min) and max is \(bounds.max)")
+print("min is \(bounds.min) and max is \(bounds.max)")
 
 
 // Function Parameter Names
@@ -68,7 +68,7 @@ func someFunction(externalParameterName localParameterName: Int) -> Int {
 func join(s1: String, s2: String, joiner: String) -> String {
     return s1 + joiner + s2
 }
-join("hello", "world", ", ") // Parameter meanings are not clear
+join("hello", s2: "world", joiner: ", ") // Parameter meanings are not clear
 
 func join(string s1: String, toString s2: String, withJoiner joiner: String) -> String {
     return s1 + joiner + s2
@@ -76,8 +76,8 @@ func join(string s1: String, toString s2: String, withJoiner joiner: String) -> 
 join(string: "Hello", toString: "World", withJoiner: ", ")
 
 // Shorthand External Parameter Names
-func containsCharacter(#string: String, #characterToFind: Character) -> Bool {
-    for character in string {
+func containsCharacter(string string: String, characterToFind: Character) -> Bool {
+    for character in string.characters {
         if character == characterToFind {
             return true
         }
@@ -99,7 +99,7 @@ joinAgain(string: "hello", toString: "world")
 func joinOnceMore(s1: String, s2: String, joiner: String = " ") -> String {
     return s1 + joiner + s2
 }
-joinOnceMore("hello", "world", joiner: "-")
+joinOnceMore("hello", s2: "world", joiner: "-")
 
 // Variadic Parameters
 func arithmeticMean(numbers: Double...) -> Double {
@@ -126,7 +126,7 @@ func alignRight(var string: String, count: Int, pad: Character) -> String {
     return string
 }
 let originalString = "hello"
-let paddedString = alignRight(originalString, 10, "-")
+let paddedString = alignRight(originalString, count: 10, pad: "-")
 
 
 // In-Out Parameters
@@ -137,8 +137,8 @@ func swapTwoInts(inout a: Int, inout b: Int) {
 }
 var someInt = 3
 var anotherInt = 107
-swapTwoInts(&someInt, &anotherInt)
-println("someInt is now \(someInt), and anotherInt is now \(anotherInt)")
+swapTwoInts(&someInt, b: &anotherInt)
+print("someInt is now \(someInt), and anotherInt is now \(anotherInt)")
 
 
 // Function Types
@@ -151,23 +151,23 @@ func multiplyTwoInts(a: Int, b: Int) -> Int {
 }
 
 func printHelloWorld() {
-    println("hello, world")
+    print("hello, world")
 }
 
 //  you can define a constant or variable to be of a function type and assign an appropriate function to that variable:
 var mathFunction: (Int, Int) -> Int = addTwoInts
-println("Result: \(mathFunction(2, 3))")
+print("Result: \(mathFunction(2, 3))")
 
 mathFunction = multiplyTwoInts
-println("Result: \(mathFunction(2, 3))")
+print("Result: \(mathFunction(2, 3))")
 
 let anotherMathFunction = addTwoInts
 
 // Function Types as Parameter Types
 func printMathResult(mathFunction: (Int, Int) -> Int, a: Int, b: Int) {
-    println("Result: \(mathFunction(a, b))")
+    print("Result: \(mathFunction(a, b))")
 }
-printMathResult(addTwoInts, 3, 5)
+printMathResult(addTwoInts, a: 3, b: 5)
 
 // Function Types as Return Types
 func stepForward(input: Int) -> Int {
@@ -184,12 +184,12 @@ func chooseStepFunction(backwards: Bool) -> (Int) -> Int {
 var currentValue = 3
 let moveNearerToZero = chooseStepFunction(currentValue > 0)
 
-println("Counting to zero:")
+print("Counting to zero:")
 while currentValue != 0 {
-    println("\(currentValue)... ")
+    print("\(currentValue)... ")
     currentValue = moveNearerToZero(currentValue)
 }
-println("zero!")
+print("zero!")
 
 
 // Nested Functions
@@ -201,11 +201,5 @@ func chooseAnotherStepFunction(backwards: Bool) -> (Int) -> Int {
 currentValue = -4
 let moveNearerToZeroAgain = chooseAnotherStepFunction(currentValue > 0)
 while currentValue != 0 {
-    println("\(currentValue)... ")
-    currentValue = moveNearerToZeroAgain(currentValue)
-}
-println("zero!")
-
-
-
-
+    print("\(currentValue)... ")
+    currentValue = moveNearerToZeroAgain(cur

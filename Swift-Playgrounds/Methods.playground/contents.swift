@@ -41,7 +41,7 @@ struct Point {
 }
 let somePoint = Point(x: 4.0, y: 5.0)
 if somePoint.isToTheRightOfX(1.0) {
-    println("This point is to the right of the line where x == 1.0")
+    print("This point is to the right of the line where x == 1.0")
 }
 
 
@@ -57,7 +57,7 @@ struct Point2 {
 }
 var somePoint2 = Point2(x: 1.0, y: 1.0)
 somePoint2.moveByX(2.0, y:3.0)
-println("The point is now at (\(somePoint2.x), \(somePoint2.y))")
+print("The point is now at (\(somePoint2.x), \(somePoint2.y))")
 
 let fixedPoint = Point2(x: 3.0, y: 3.0)
 //fixedPoint.moveByX(2.0, y: 3.0)
@@ -131,13 +131,13 @@ class Player {
 
 var player = Player(name: "Argyrios")
 player.completedLevel(1)
-println("highest unlocked level is now \(LevelTracker.highestUnlockedLevel)")
+print("highest unlocked level is now \(LevelTracker.highestUnlockedLevel)")
 
 player = Player(name: "Beto")
 if player.tracker.advanceToLevel(6) {
-    println("player is now on level 6")
+    print("player is now on level 6")
 } else {
-    println("level 6 has not yet been unlocked")
+    print("level 6 has not yet been unlocked")
 }
 
 

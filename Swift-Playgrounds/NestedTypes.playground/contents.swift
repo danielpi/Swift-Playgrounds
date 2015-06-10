@@ -39,10 +39,10 @@ struct BlackjackCard {
 }
 
 let theAceOfSpades = BlackjackCard(rank: .Ace, suit: .Spades)
-println("theAceOfSpades: \(theAceOfSpades.description)")
+print("theAceOfSpades: \(theAceOfSpades.description)")
 
 
 // Referring to Nested Types
 let heartsSymbol = BlackjackCard.Suit.Hearts.rawValue
-println("heartsSymbol is \(heartsSymbol)")
+print("heartsSymbol is \(heartsSymbol)")
 
