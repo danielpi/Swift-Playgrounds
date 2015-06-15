@@ -39,6 +39,7 @@
 		E63F4F42196971AF00133672 /* AdvancedOperators.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = AdvancedOperators.playground; sourceTree = "<group>"; };
 		E642112F19924A2A00EE7DC7 /* 2014-08-05-Boolean.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = "2014-08-05-Boolean.playground"; path = "SwiftBlog/2014-08-05-Boolean.playground"; sourceTree = "<group>"; };
 		E6459C0B19470BD600C236CC /* CollectionTypes.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = CollectionTypes.playground; sourceTree = "<group>"; };
+		E64681671B2E59280072F1E5 /* ErrorHandling.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ErrorHandling.playground; sourceTree = "<group>"; };
 		E6517B3819A3693F009E4376 /* 2014-08-18-SwiftLiteralConvertibles.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = "2014-08-18-SwiftLiteralConvertibles.playground"; path = "Blogs/NSHipster/2014-08-18-SwiftLiteralConvertibles.playground"; sourceTree = "<group>"; };
 		E6556B68196A9B6C00D5764D /* BasicSetup.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = BasicSetup.playground; path = "UsingSwiftWithCocoaAndObjective-C/BasicSetup.playground"; sourceTree = "<group>"; };
 		E6556B69196A9DAD00D5764D /* InteractingWithObjective-C-APIs.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = "InteractingWithObjective-C-APIs.playground"; path = "UsingSwiftWithCocoaAndObjective-C/InteractingWithObjective-C-APIs.playground"; sourceTree = "<group>"; };
@@ -141,6 +142,7 @@
 				E6904BAD19597E02008CF099 /* Deinitialization.playground */,
 				E6904BAE19598806008CF099 /* AutomaticReferenceCounting.playground */,
 				E61A5FDC195C4E2600821435 /* OptionalChaining.playground */,
+				E64681671B2E59280072F1E5 /* ErrorHandling.playground */,
 				E65A5CCF19617C1E006FFFC4 /* TypeCasting.playground */,
 				E62B3AA91962426F00088655 /* NestedTypes.playground */,
 				E684E7B11964D21C00DF5F3C /* Extensions.playground */,
