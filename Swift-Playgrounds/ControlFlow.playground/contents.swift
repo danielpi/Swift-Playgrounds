@@ -1,5 +1,7 @@
 // Control Flow Chapter
 
+// For Loops
+// For-In
 for index in 1...5 {
     print("\(index) times 5 is \(index * 5)")
 }
@@ -20,11 +22,13 @@ let numberOfLegs = ["spider": 8, "ant": 6, "cat": 4]
 for (animalName, legCount) in numberOfLegs {
     print("\(animalName)s have \(legCount) legs")
 }
-
+/*
 for character in "Hello".characters {
     print(character)
 }
+*/
 
+// For
 for var index = 0; index < 3; ++index {
     print("index = \(index)")
 }
@@ -36,6 +40,8 @@ for index = 0; index < 3; ++index {
 print("The loop statements were executed \(index) times")
 
 
+// While Loops
+// While
 let finalSquare = 25
 var board = [Int](count: finalSquare + 1, repeatedValue: 0)
 board[03] = +08; board[06] = +11; board[09] = +09; board[10] = +02
@@ -55,6 +61,7 @@ while square < finalSquare {
 }
 print("Game over!")
 
+// Repeat-While
 square = 0
 diceRoll = 0
 repeat {
@@ -67,6 +74,8 @@ repeat {
 } while square < finalSquare
 print("Game over!")
 
+
+// Conditional Statements
 // If
 var temperatureInFarenheit = 30
 if temperatureInFarenheit <= 32 {
@@ -108,6 +117,7 @@ switch someCharacter {
         print("\(someCharacter) is not a vowel or consonant")
 }
 
+// No Implicit Fallthrough
 let anotherCharacter: Character = "a"
 switch anotherCharacter {
     //case "a": // Not valid if this line is in place as no executble line for this case statement.
@@ -118,27 +128,26 @@ switch anotherCharacter {
 }
 
 
-// Range Matching
-let count = 3_000_000_000_000
-let countedThings = "stars in the Milky Way"
+// Interval Matching
+let approximateCount = 62
+let countedThings = "moons orbitiy Saturn"
 var naturalCount: String
-switch count {
+switch approximateCount {
 case 0:
     naturalCount = "no"
-case 1...3:
+case 1..<5:
     naturalCount = "a few"
-case 4...9:
+case 5..<12:
     naturalCount = "several"
-case 10...99:
-    naturalCount = "tens of"
-case 100...999:
+case 12..<100:
+    naturalCount = "dozens of"
+case 100..<1000:
     naturalCount = "hundreds of"
-case 1000...999_999:
-    naturalCount = "thousands of"
 default:
-    naturalCount = "millions and millions of"
+    naturalCount = "manu"
 }
 print("There are \(naturalCount) \(countedThings).")
+// Note: Both the closed range operator (...) and half-open range operator (..<) functions are overloaded to return either an IntervalType or Range. An interval can determine whether it contains a particular element, such as when matching a switch statement case. A range is a collecton of consecutive values, which can be iterated on in a for-in statement.
 
 
 // Tuples
@@ -179,6 +188,7 @@ case let (x, y) where x == -y:
 case let (x, y):
     print("(\(x), \(y)) is just some arbitrary point")
 }
+
 
 // Control Transfer Statements
 // Continue
@@ -230,11 +240,11 @@ print(description)
 
 
 // Labelled Statements
-square = 0
-diceRoll = 0
 board = [Int](count: finalSquare + 1, repeatedValue: 0)
 board[03] = +08; board[06] = +11; board[09] = +09; board[10] = +02
 board[14] = -10; board[19] = -11; board[22] = -02; board[24] = -08
+square = 0
+diceRoll = 0
 
 gameLoop: while square != finalSquare {
     if ++diceRoll == 7 { diceRoll = 1}
@@ -251,6 +261,32 @@ gameLoop: while square != finalSquare {
 print("Game over!")
 
 
+// Early Exit
+// Guard
+func greet(person: [String: String]) {
+    guard let name = person["name"] else {
+        return
+    }
+    
+    print("Hello \(name)!")
+    
+    guard let location = person["location"] else {
+        print("I hope the weather is nice near you.")
+        return
+    }
+    
+    print("I hope the weather is nice in \(location).")
+}
+greet([:])
+greet(["name": "John"])
+greet(["name":"Jane", "location": "Cupertino"])
 
+
+// Checking API Availability
+if #available(iOS 9, OSX 10.12, *) {
+    print("Use iOS 9 APIs on iOS, and use OS X v10.10 APIs on OS X")
+} else {
+    print("Fall back to earlier iOS and OSX APIs")
+}
 
 
