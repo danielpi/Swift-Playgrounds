@@ -97,19 +97,31 @@ try! willOnlyThrowIfTrue(false)
 // Deferred statements may not contain any code that would transfer control out of the statements, such as a break or return statement, or by throwing an error. 
 // Deferred actions are executed in reverse order of how they are specified.
 
+enum FileError: ErrorType {
+    case endOfFile
+    case fileClosed
+}
 
 func exists(filename: String) -> Bool { return true }
 class FakeFile {
     var isOpen = false
     var filename = ""
+    var lines = 100
     func readline() throws -> String? {
         if self.isOpen {
-            return "A line of text\n"
+            if lines > 0 {
+                lines -= 1
+                return "line number \(lines) of text\n"
+            } else {
+                throw FileError.endOfFile
+                //return nil
+            }
         } else {
-            throw GeneralError.someError
+            throw FileError.fileClosed
         }
     }
 }
+
 func open(filename: String) -> FakeFile {
     let file = FakeFile()
     file.filename = filename
@@ -117,10 +129,12 @@ func open(filename: String) -> FakeFile {
     print("\(file.filename) has been opened")
     return file
 }
+
 func close(file: FakeFile) {
     file.isOpen = false
     print("\(file.filename) has been closed")
 }
+
 func processFile(filename: String) throws {
     if exists(filename) {
         let file = open(filename)
@@ -134,7 +148,14 @@ func processFile(filename: String) throws {
         // close(file) is called here, at the end of the scope.
     }
 }
-try processFile("myFakeFile")
+
+do {
+    try processFile("myFakeFile")
+} catch FileError.endOfFile {
+    print("Reached the end of the file")
+} catch FileError.fileClosed {
+    print("The file isn't open")
+}
 
 
 

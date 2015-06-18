@@ -26,13 +26,13 @@ protocol SomeProtocol {
     var doesNotNeedToBeSettable: Int { get }
 }
 
-//  Always prefix type property requirements with the class keyword when you define them in a protocol. This is true even though type property requirements are prefixed with the static keyword when implemented by a structure or enumeration:
+//  Always prefix type property requirements with the static keyword when you define them in a protocol. This is true even though type property requirements can be prefixed with the static or class keyword when implemented by a class:
 
 protocol AnotherProtocol {
-    class var someTypeProperty: Int { get set }
+    static var someTypeProperty: Int { get set }
 }
 
-
+// Here's an example of a protocol with a single instance property requirement:
 protocol FullyNamed {
     var fullName: String { get }
 }
@@ -59,7 +59,7 @@ var ncc1701 = Starship(name: "Enterprise", prefix: "USS")
 // Method Requirements
 /*
 protocol SomeProtocol {
-    class func someTypeMethod()
+    static func someTypeMethod()
 }
 */
 
@@ -79,8 +79,8 @@ class LinearCongruentialGenerator: RandomNumberGenerator {
     }
 }
 let generator = LinearCongruentialGenerator()
-println("Here's a random number: \(generator.random())")
-println("And another one: \(generator.random())")
+print("Here's a random number: \(generator.random())")
+print("And another one: \(generator.random())")
 
 
 // Mutating Method Requirements
@@ -104,6 +104,48 @@ lightSwitch.toggle()
 lightSwitch
 
 
+// Initializer Requirements
+// Protocols can require specific initializers to be implemented by conforming types.
+/*
+protocol SomeProtocol {
+    init(someParameter: Int)
+}
+*/
+
+// Class Implementations of Protocol Initializer Requirements
+// You can implement a protocol initializer requirement on a conforming class as either a designated initializer or a convenience initializer. In both cases, you must mark the initializer implementation with the required modifier
+/*
+class SomeClass: SomeProtocol {
+    required init(someParameter: Int) {
+        // initializer implementation goes here
+    }
+{
+*/
+
+// If a subclass overrides a designated initializer from a superclass, and also implements a matching initializer requirement from a protocol, mark the initializer implementation with both the required and override modifiers
+/*
+protocol SomeProtocol {
+    init()
+}
+
+class SomeSuperClass {
+    init() {
+        // initializer implementation goes here
+    }
+}
+
+class SomeSubClass: SomeSuperClass, SomeProtocol {
+    // "required" from SomeProtocol conformance; "override" from SomeSuperClass
+    required override init() {
+        // initializer implementation goes here
+    }
+}
+*/
+
+// Failable Initializer Requirements
+
+
+
 // Protocols as Types
 //  Protocols do not actually implement any functionality themselves. Nonetheless, any protocol you create will become a fully-fledged type for use
 class Dice {
@@ -119,7 +161,7 @@ class Dice {
 }
 var d6 = Dice(sides: 6, generator: LinearCongruentialGenerator())
 for _ in 1...5 {
-    println("Random dice roll is \(d6.roll())")
+    print("Random dice roll is \(d6.roll())")
 }
 
 
@@ -141,7 +183,8 @@ class SnakesAndLadders: DiceGame {
     var board: [Int]
     init() {
         board = [Int](count: finalSquare + 1, repeatedValue: 0)
-        board[03] = +08; board[06] = +11; board[09] = +09; board[10] = +02; board[14] = -10; board[19] = -11; board[22] = -02; board[24] = -08
+        board[03] = +08; board[06] = +11; board[09] = +09; board[10] = +02
+        board[14] = -10; board[19] = -11; board[22] = -02; board[24] = -08
     }
     var delegate: DiceGameDelegate?
     func play() {
@@ -169,16 +212,16 @@ class DiceGameTracker: DiceGameDelegate {
     func gameDidStart(game: DiceGame) {
         numberOfTurns = 0
         if game is SnakesAndLadders {
-            println("Started a new game of Snakes and Ladders")
+            print("Started a new game of Snakes and Ladders")
         }
-        println("The game is using a \(game.dice.sides)-sided dice")
+        print("The game is using a \(game.dice.sides)-sided dice")
     }
     func game(game: DiceGame, didStartNewTurnWithDiceRoll diceRoll: Int) {
         ++numberOfTurns
-        println("Rolled a \(diceRoll)")
+        print("Rolled a \(diceRoll)")
     }
     func gameDidEnd(game: DiceGame) {
-        println("The game lasted for \(numberOfTurns) turns")
+        print("The game lasted for \(numberOfTurns) turns")
     }
 }
 let tracker = DiceGameTracker()
@@ -197,7 +240,7 @@ extension Dice: TextRepresentable {
     }
 }
 let d12 = Dice(sides: 12, generator: LinearCongruentialGenerator())
-println(d12.asText())
+print(d12.asText())
 d6.asText()
 
 extension SnakesAndLadders: TextRepresentable {
@@ -205,7 +248,7 @@ extension SnakesAndLadders: TextRepresentable {
         return "A game of Snakes and Ladders with \(finalSquare) squares"
     }
 }
-println(game.asText())
+print(game.asText())
 
 
 // Declaring Protocol Adoption with an Extension
@@ -220,13 +263,13 @@ extension Hamster: TextRepresentable {}
 
 let simonTheHamster = Hamster(name: "Simon")
 let somethingTextRepresentable: TextRepresentable = simonTheHamster
-println(somethingTextRepresentable.asText())
+print(somethingTextRepresentable.asText())
 
 
 // Collections of Protocol Types
 let things: [TextRepresentable] = [game, d12, simonTheHamster]
 for thing in things {
-    println(thing.asText())
+    print(thing.asText())
 }
 //  Note that the thing constant is of type TextRepresentable. It is not of type Dice, or DiceGame, or Hamster, even if the actual instance behind the scenes is of one of those types.
 
@@ -259,7 +302,17 @@ extension SnakesAndLadders: PrettyTextRepresentable {
         return output
     }
 }
-println(game.asPrettyText())
+print(game.asPrettyText())
+
+
+// Class-Only Protocols
+// You can limit protocol adoption to class types by adding the class keyword.
+/*
+protocol SomeClassOnlyProtocol: class, SomeInheritedProtocol {
+    // class-only protocol definition goes here
+}
+*/
+// Note: Use a class-only protocol when the behaviour defined by that protocol's requirements assumes or requires that a conforming type has reference semantics rather than value semantics.
 
 
 // Protocol Composition
@@ -274,14 +327,15 @@ struct Person2: Named, Aged {
     var age: Int
 }
 func wishHappyBirthday(celebrator: protocol<Named, Aged>) {
-    println("Happy birthday \(celebrator.name) - you're \(celebrator.age)!")
+    print("Happy birthday \(celebrator.name) - you're \(celebrator.age)!")
 }
 let birthdayPerson = Person2(name:"Malcom", age: 21)
 wishHappyBirthday(birthdayPerson)
+// Note: Protocol compositions do not define a new, permanent protocol type. Rather they define a temporary local protocol that has the combined requirements of all protocols in the composition.
 
 
 // Checking for Protocol Conformance
-@objc protocol HasArea {
+protocol HasArea {
     var area: Double { get }
 }
 //  You can check for protocol conformance only if your protocol is marked with the @objc attribute
@@ -295,6 +349,7 @@ class Country: HasArea {
     var area: Double
     init(area: Double) { self.area = area }
 }
+
 class Animal {
     var legs: Int
     init(legs: Int) { self.legs = legs }
@@ -307,9 +362,9 @@ let objects: [AnyObject] = [
 ]
 for object in objects {
     if let objectWithArea = object as? HasArea {
-        println("Area is \(objectWithArea.area)")
+        print("Area is \(objectWithArea.area)")
     } else {
-        println("Something that doesn't have an area")
+        print("Something that doesn't have an area")
     }
 }
 //  Note that the underlying objects are not changed by the casting process. They continue to be a Circle, a Country and an Animal. However, at the point that they are stored in the objectWithArea constant, they are only known to be of type HasArea, and so only their area property can be accessed.
@@ -328,13 +383,13 @@ for object in objects {
     func increment() {
         if let amount = dataSource?.incrementForCount?(count) {
             count += amount
-        } else if let amount = dataSource?.fixedIncrement? {
+        } else if let amount = dataSource?.fixedIncrement {
             count += amount
         }
     }
 }
 
-class ThreeSource: CounterDataSource {
+@objc class ThreeSource: CounterDataSource {
     let fixedIncrement = 3
 }
 
@@ -342,10 +397,10 @@ var counter = Counter()
 counter.dataSource = ThreeSource()
 for _ in 1...4 {
     counter.increment()
-    println(counter.count)
+    print(counter.count)
 }
 
-class TowardsZeroSource: CounterDataSource {
+@objc class TowardsZeroSource: CounterDataSource {
     func incrementForCount(count: Int) -> Int {
         if count == 0 {
             return 0
@@ -361,9 +416,58 @@ counter.count = -4
 counter.dataSource = TowardsZeroSource()
 for _ in 1...5 {
     counter.increment()
-    println(counter.count)
+    print(counter.count)
 }
 
 
+// Protocol Extensions
+// Protocols can be extended to procide method and property implementations to conforming types. This allows you to define behaviour on protocols themselves, rather than in each type's individual conformance or in a global function.
+// For example, the RandomNumberGenerator protocol can be extended to provide a randomBool() method, which uses the result of the required random() method to return a random Bool value:
+
+extension RandomNumberGenerator {
+    func randomBool() -> Bool {
+        return random() > 0.5
+    }
+}
+
+// By creating an extension on the protocol, all conforming types automatically gain this method implementation without and additional modification.
+
+//let generator2 = LinearCongruentialGenerator()
+//print("Here's a random number: \(generator2.random())")
+print("Here's a random Boolean: \(generator.randomBool())")
+
+
+// Providing Default Implementations
+// Protocol extensions can provide default implementations to any method or property requirement
+// If a conforming type provides its own implementation that is used instead.
+
+extension PrettyTextRepresentable {
+    func asPrettyText() -> String {
+        return asText()
+    }
+}
+
+extension Hamster: PrettyTextRepresentable { }
+print(simonTheHamster.asPrettyText())
+
+
+// Adding Constraints to Protocol Extensions
+// You can specify constraints that conforming types must satisfy before methods and properties of an extension are available.
+// You use the where clause after the name of the protocol you are extending.
+
+extension CollectionType where Generator.Element : TextRepresentable {
+    func asList() -> String {
+        return "(" + ", ".join(map({$0.asText()})) + ")"
+    }
+}
+
+let murrayTheHamster = Hamster(name: "Murray")
+let morganTheHamster = Hamster(name: "Morgan")
+let mauriceTheHamster = Hamster(name: "Maurice")
+let hamsters = [murrayTheHamster, morganTheHamster, mauriceTheHamster]
+
+// Because Array conforms to CollectionType, and the array's elements conform to the TextRepresentable protocol, the array can use the asList() method to get a textual representation of its contents:
+
+print(hamsters.asList())
 
 
