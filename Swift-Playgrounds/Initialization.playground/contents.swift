@@ -24,20 +24,42 @@ struct Celsius {
 let boilingPointOfWater = Celsius(fromFahrenheit: 212.0)
 let freezingPointOfWater = Celsius(fromKelvin: 273.15)
 
+// Local and External Parameter Names
 struct Color {
-    let red = 0.0, green = 0.0, blue = 0.0
+    let red, green, blue: Double
     init(red: Double, green: Double, blue: Double) {
         self.red   = red
         self.green = green
         self.blue  = blue
     }
+    init(white: Double) {
+        red     = white
+        green   = white
+        blue    = white
+    }
 }
 let magenta = Color(red: 1.0, green: 0.0, blue: 1.0)
+let halfGray = Color(white: 0.5)
 //let verGreen = Color(0.0, 1.0, 0.0)
 // Compile time error because external names for parameters were omitted
 
+// Initializer Parameters Without External Names
+struct Celsius2 {
+    var temperatureInCelsius: Double = 0.0
+    init(fromFahrenheit fahrenheit: Double) {
+        temperatureInCelsius = (fahrenheit - 32) / 1.8
+    }
+    init(fromKelvin kelvin: Double) {
+        temperatureInCelsius = kelvin - 273.15
+    }
+    init(_ celsius: Double) {
+        temperatureInCelsius = celsius
+    }
+}
+let bodyTemperature = Celsius2(37.0)
 
-// Optinoal Property Types
+
+// Optional Property Types
 class SurveyQuestion {
     var text: String
     var response: String?
@@ -53,7 +75,7 @@ cheeseQuestion.ask()
 cheeseQuestion.response = "Yes, I do like cheese."
 
 
-// Modifying Constant Properties during Initialization
+// Assigning Constant Properties during Initialization
 class SurveyQuestion2 {
     let text: String
     var response: String?
@@ -144,6 +166,28 @@ let centerRect = Rect(center: Point(x: 4.0, y: 4.0), size: Size2(width: 3.0, hei
 // - Working back down from the top of the chain, each designated initializer in the chain has the option to customize the instance further. Initializers are now able to access self and can modify its properties, call its instance methods, and so on.
 // - Finally, any convenience initializers in the chain have the option to customize the instance and to work with self.
 
+// Initializer Inheritance and Overriding
+class Vehicle {
+    var numberOfWheels = 0
+    var description: String {
+        return "\(numberOfWheels) wheel(s)"
+    }
+}
+
+let vehicle = Vehicle()
+print("Vehicle: \(vehicle.description)")
+
+class Bicycle: Vehicle {
+    override init() {
+        super.init()
+        numberOfWheels = 2
+    }
+}
+
+let bicycle = Bicycle()
+print("Bicycle: \(bicycle.description)")
+
+
 // Automatic Initializers
 // Rule 1
 //   If your subclass doesn't define any designated initializers, it automatically inherits all of its superclass designated initializers
@@ -170,14 +214,17 @@ class RecipeIngredient: Food {
         self.quantity = quantity
         super.init(name: name)
     }
-    convenience override init(name: String) {
+    override convenience init(name: String) {
         self.init(name: name, quantity: 1)
     }
 }
+
+let oneMysteryItem = RecipeIngredient()
 let oneBacon = RecipeIngredient(name: "Bacon")
 let sixEggs = RecipeIngredient(name: "Eggs", quantity: 6)
+
 //  In this example, the superclass for RecipeIngredient is Food, which has a single convenience initializer called init(). This initializer is therefore inherited by RecipeIngredient. The inherited version of init() functions in exactly the same way as the Food version, except that it delegates to the RecipeIngredient version of init(name: String) rather than the Food version.
-let oneMysteryItem = RecipeIngredient()
+
 
 class ShoppingListItem2: RecipeIngredient {
     var purchased = false
@@ -187,6 +234,7 @@ class ShoppingListItem2: RecipeIngredient {
         return output
     }
 }
+
 //  Because ShoppingListItem2 provides a default value for all of the properties it introduces and does not define any initializers itself, ShoppingListItem automatically inherits all of the designated and convenience initializers from its superclass. ShoppingListItem2(name: "Eggs, quantity: 6),
 var breakfastList = [
     ShoppingListItem2(),
@@ -199,17 +247,159 @@ for item in breakfastList {
     print(item.description)
 }
 
+
+// Failable Initializers
+struct Animal {
+    let species: String
+    init?(species: String) {
+        if species.isEmpty { return nil }
+        self.species = species
+    }
+}
+
+let someCreature = Animal(species: "Giraffe")
+// is of type Animal?, not Animal
+
+if let giraffe = someCreature {
+    print("An animal was initialized with a species of \(giraffe.species)")
+}
+
+let anonymousCreature = Animal(species: "")
+
+if anonymousCreature == nil {
+    print("The anonymous creature could not be initialized")
+}
+
+// Failable Initializers for Enumerations
+
+enum TemperatureUnit {
+    case Kelvin, Celsius, Fahrenheit
+    init?(symbol: Character) {
+        switch symbol {
+        case "K":
+            self = .Kelvin
+        case "C":
+            self = .Celsius
+        case "F":
+            self = .Fahrenheit
+        default:
+            return nil
+        }
+    }
+}
+
+let fahrenheitUnit = TemperatureUnit(symbol: "F")
+if fahrenheitUnit != nil {
+    print("This is a defined temperature unit, so initialization succeeded.")
+}
+
+let unknownUnit = TemperatureUnit(symbol: "X")
+if unknownUnit == nil {
+    print("This is not a defined temperature unit, so initialization failed.")
+}
+
+// Failable Initializers for Enumerations with Raw Values
+enum TempUnit: Character {
+    case Kelvin = "K", Celsius = "C", Fahrenheit = "F"
+}
+
+let fahrUnit = TempUnit(rawValue:"F")
+if fahrUnit != nil {
+    print("This is a defined temperature unit, so initialization succeeded.")
+}
+
+let unknownUnit2 = TempUnit(rawValue: "X")
+if unknownUnit2 == nil {
+    print("This is not a defined temperature unit, so initialization failed.")
+}
+
+// Failable Initializers for Classes
+// Failable initializers for value types can trigger failure at any point. For classes, however a failable initializer can trigger an initialization failure only after all stored properties introduced by that class have been set to an initial value.
+class Product {
+    let name: String!
+    init?(name: String) {
+        self.name = name
+        if name.isEmpty { return nil }
+    }
+}
+
+if let bowTie = Product(name: "bow tie") {
+    // no need to check if bowTie.name == nil
+    print("The product's name is \(bowTie.name)")
+}
+
+
+// Propagation of Initialization Failure
+class CartItem: Product {
+    let quantity: Int!
+    init?(name: String, quantity: Int) {
+        self.quantity = quantity
+        super.init(name: name)
+        if quantity < 1 { return nil }
+    }
+}
+
+if let twoSocks = CartItem(name: "sock", quantity: 2) {
+    print("Item: \(twoSocks.name), quantity: \(twoSocks.quantity)")
+}
+
+if let zeroShirts = CartItem(name: "shirt", quantity: 0) {
+    print("Item: \(zeroShirts.name), quantity: \(zeroShirts.quantity)")
+} else {
+    print("Unable to initialize zero shirts")
+}
+
+if let oneUnnamed = CartItem(name: "", quantity: 1) {
+    print("Item: \(oneUnnamed.name), quantity: \(oneUnnamed.quantity)")
+} else {
+    print("Unable to initialize one unnamed product")
+}
+
+
+// Overriding a Failable Initializer
+class Document {
+    var name: String?
+    // this initializer creates a document with a nil name value
+    init() {}
+    // this initializer creates a document with a non-empty name value
+    init?(name: String) {
+        self.name = name
+        if name.isEmpty { return nil }
+    }
+}
+
+class AutomaticallyNamedDocument: Document {
+    override init() {
+        super.init()
+        self.name = "[Untitled]"
+    }
+    override init(name: String) {
+        super.init()
+        if name.isEmpty {
+            self.name = "[Untitled]"
+        } else {
+            self.name = name
+        }
+    }
+}
+
+
+// The init! Failable Initializer
+
+
+// Required Initializers
+
+
 // Setting a default Property Value with a Closure or Function
-/*
 class SomeClass {
-    let someProperty: SomeType = {
+    let someProperty: Int = {
         // create a default value for someProperty inside this closure
         // someValue must be of the same type as SomeType
-        return someValue
-    }()
+        return 1234
+        }()
 }
-*/
 //  Note that the closure’s end curly brace is followed by an empty pair of parentheses. This tells Swift to execute the closure immediately. If you omit these parentheses, you are trying to assign the closure itself to the property, and not the return value of the closure.
+
 struct Checkerboard {
     let boardColors: [Bool] = {
         var temporaryBoard = [Bool]()

@@ -114,8 +114,8 @@ arithmeticMean(3, 8, 19)
 
 
 // Constant and Variable Parameters
-func alignRight(var string: String, count: Int, pad: Character) -> String {
-    let amountToPad = count - count(string)
+func alignRight(var string: String, totalLength: Int, pad: Character) -> String {
+    let amountToPad = totalLength - string.characters.count
     if amountToPad < 1 {
         return string
     }
@@ -126,7 +126,7 @@ func alignRight(var string: String, count: Int, pad: Character) -> String {
     return string
 }
 let originalString = "hello"
-let paddedString = alignRight(originalString, count: 10, pad: "-")
+let paddedString = alignRight(originalString, totalLength: 10, pad: "-")
 
 
 // In-Out Parameters
@@ -202,4 +202,8 @@ currentValue = -4
 let moveNearerToZeroAgain = chooseAnotherStepFunction(currentValue > 0)
 while currentValue != 0 {
     print("\(currentValue)... ")
-    currentValue = moveNearerToZeroAgain(cur
+    currentValue = moveNearerToZeroAgain(currentValue)
+}
+print("zero!")
+
+

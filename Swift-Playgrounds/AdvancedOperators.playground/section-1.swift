@@ -122,7 +122,7 @@ func != (left: Vector2D, right: Vector2D) -> Bool {
 let twoThree = Vector2D(x: 2.0, y: 3.0)
 let anotherTwoThree = Vector2D(x: 2.0, y: 3.0)
 if twoThree == anotherTwoThree {
-    println("These two vectors are equivilent.")
+    print("These two vectors are equivilent.")
 }
 
 

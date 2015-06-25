@@ -129,36 +129,41 @@ struct SomeStructure {
 enum SomeEnumeration {
     static var storedTypeProperty = "Some value."
     static var computedTypeProperty: Int {
-        return 1
+        return 6
     }
 }
 
 class SomeClass {
-    class var computedTypeProperty: Int {
-        return 1
+    static var storedTypeProperty = "Some value."
+    static var computedTypeProperty: Int {
+        return 27
+    }
+    class var overrideableComputedTypeProperty: Int {
+        return 107
     }
 }
 
 // Querying and setting Type Properties
-print(SomeClass.computedTypeProperty)
-print(SomeStructure.storedTypeProperty)
+print(SomeStructure.storedTypeProperty)             // prints "Some value."
 SomeStructure.storedTypeProperty = "Another value."
-print(SomeStructure.storedTypeProperty)
+print(SomeStructure.storedTypeProperty)             // prints "Another value."
+print(SomeEnumeration.computedTypeProperty)         // prints "6"
+print(SomeClass.computedTypeProperty)               // prints "27"
 
 struct AudioChannel {
     static let thresholdLevel = 10
     static var maxInputLevelForAllChannels = 0
     var currentLevel: Int = 0 {
-    didSet {
-        // cap the new audio level to the threshold level
-        if currentLevel > AudioChannel.thresholdLevel {
-            currentLevel = AudioChannel.thresholdLevel
+        didSet {
+            if currentLevel > AudioChannel.thresholdLevel {
+                // cap the new audio level to the threshold level
+                currentLevel = AudioChannel.thresholdLevel
+            }
+            if currentLevel > AudioChannel.maxInputLevelForAllChannels {
+                // store this as the new overall maximum input level
+                AudioChannel.maxInputLevelForAllChannels = currentLevel
+            }
         }
-        if currentLevel > AudioChannel.maxInputLevelForAllChannels {
-            // store this as the new overall maximum input level
-            AudioChannel.maxInputLevelForAllChannels = currentLevel
-        }
-    }
     }
 }
 var leftChannel = AudioChannel()

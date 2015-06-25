@@ -20,6 +20,7 @@ class VideoMode {
     var name: String?
 }
 
+// Class and Structure Instances
 let someResolution = Resolution()
 let someVideoMode = VideoMode()
 print("The width of someResolution is \(someResolution.width)")
@@ -71,68 +72,9 @@ if tenEighty === alsoTenEighty {
 }
 //  Note that “identical to” (represented by three equals signs, or ===) does not mean the same thing as “equal to” (represented by two equals signs, or ==):
 
+// Pointers
+// A Swift constant or variable that refers to an instance of some reference type is similar to a pointer in C, but is not a direct pointer to an address in memory.
 
+
+// Choosing Between Classes and Structures
 // Assignment and Copy Behaviour for Dictionaries
-var ages = ["Peter": 23, "Wei": 35, "Anish": 65, "Katya": 19]
-var copiedAges = ages
-
-copiedAges["Peter"] = 24
-print(ages["Peter"])
-
-/*
-// Assignment and Copy Behaviour for Arrays
-var a = [1, 2, 3]
-var b = a
-var c = a
-println(a[0])
-println(b[0])
-println(c[0])
-//  If you set an item in the array to a new value with subscript syntax, all three of a, b, and c will return the new value.
-a[0] = 42
-println(a[0])
-println(b[0])
-println(c[0])
-//  However, if you append a new item to a, you do modify the array’s length. This prompts Swift to create a new copy of the array at the point that you append the new value. Henceforth, a is a separate, independent copy of the array.
-a.append(4)
-a[0] = 777
-println(a[0])
-println(b[0])
-println(c[0])
-
-// Ensuring that an Array is Unique
-b.unshare()
-b[0] = -105
-println(a[0])
-println(b[0])
-println(c[0])
-
-// Checking whether Two Arrays Share the same Elements
-if b === c {
-    println("b and c still share the same array elements.")
-} else {
-    println("b and c now refer to two independent sets of array elements.")
-}
-
-if b[0...1] === b [0...1] {
-    println("These two subarrays share the same elements.")
-} else {
-    println("These two subarrays do not share the same elements.")
-}
-
-// Forcing a Copy of an Array
-var names = ["Mohsen", "Hilary", "Justyn", "Amy", "Rich", "Graham", "Vic"]
-var copiedNames = names.copy()
-copiedNames[0] = "Mo"
-println(names[0])
-*/
-
-
-
-
-
-
-
-
-
-
-
