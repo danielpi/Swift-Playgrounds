@@ -21,7 +21,7 @@ let label = "The width is "
 let width = 94
 let widthLabel = label + String(width)
 // Experiment - Try removing the conversion to String from the last line. What error do you get?
-let widthLabel2 = label + width // Binary operation '+' cannot be applied to operands of type 'String and 'Int'
+// let widthLabel2 = label + width // Binary operation '+' cannot be applied to operands of type 'String and 'Int'
 
 let apples = 3
 let oranges = 5

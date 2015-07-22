@@ -70,11 +70,22 @@ enum ASCIIControlCharacter: Character {
     case CarriageReturn = "\r"
 }
 
+// Implicitly Assigned Raw Values
 enum PlanetRaw: Int {
     case Mercury = 1, Venuc, Earth, Mars, Jupiter, Saturn, Uranus, Neptune
 }
 
 let earthsOrder = PlanetRaw.Earth.rawValue
+// earthsOrder is 3
+
+enum CompassPointRaw: String {
+    case North, South, East, West
+}
+let sunsetDirection = CompassPointRaw.West.rawValue
+// sunsetDirection is "West"
+
+
+// Initializing from a Raw Value
 let possiblePlanet = PlanetRaw(rawValue: 7)
 
 let positionToFind = 9
@@ -90,5 +101,34 @@ if let somePlanet = PlanetRaw(rawValue: positionToFind) {
 }
 
 
+// Recursive Enumerations
+enum ArithmeticExpression {
+    case Number(Int)
+    indirect case Addition(ArithmeticExpression, ArithmeticExpression)
+    indirect case Multiplication(ArithmeticExpression, ArithmeticExpression)
+}
+
+indirect enum ArithmeticExpression2 {
+    case Number(Int)
+    case Addition(ArithmeticExpression2, ArithmeticExpression2)
+    case Multiplication(ArithmeticExpression2, ArithmeticExpression2)
+}
+
+func evaluate(expression: ArithmeticExpression) -> Int {
+    switch expression {
+    case .Number(let value):
+        return value
+    case let .Addition(lhs, rhs):
+        return evaluate(lhs) + evaluate(rhs)
+    case let .Multiplication(lhs, rhs):
+        return evaluate(lhs) * evaluate(rhs)
+    }
+}
+
+let five = ArithmeticExpression.Number(5)
+let four = ArithmeticExpression.Number(4)
+let sum = ArithmeticExpression.Addition(five, four)
+let product = ArithmeticExpression.Multiplication(sum, ArithmeticExpression.Number(2))
+print(evaluate(product))
 
 
