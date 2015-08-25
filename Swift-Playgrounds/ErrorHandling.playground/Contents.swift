@@ -1,50 +1,60 @@
 import Cocoa
 
-// Error Handling
-// Swift provides first-class support for throwing, catching, propagating, and manipulating recoverable errors at runtime (NOTE: recoverable).
-
-// Representing Errors
+//: # Error Handling
+//: Swift provides first-class support for throwing, catching, propagating, and manipulating recoverable errors at runtime (NOTE: recoverable).
+//:
+//: ## Representing and Throwing Errors
 enum VendingMachineError: ErrorType {
     case InvalidSelection
-    case InsufficientFunds(required: Double)
+    case InsufficientFunds(required: Int)
     case OutOfStock
 }
 
-// Throwing Errors
+// throw VendingMachineError.InsufficientFunds(required: 5)
+
+//: ## Handling Errors
+//: ### Propagating Errors using Throwing Functions
 func canThrowErrors() throws -> String { return "" }
 func cannotThrowErrors() -> String { return "" }
 
 struct Item {
-    var price: Double
+    var price: Int
     var count: Int
 }
 
-var inventory = [
-    "Candy Bar": Item(price: 1.25, count: 7),
-    "Chips": Item(price: 1.00, count: 4),
-    "Pretzels": Item(price: 0.75, count: 11)
-]
-var amountDeposited = 1.00
-
-func vend(itemNamed name: String) throws {
-    guard var item = inventory[name] else {
-        throw VendingMachineError.InvalidSelection
+class VendingMachine {
+    var inventory = [
+        "Candy Bar": Item(price: 12, count: 7),
+        "Chips": Item(price: 10, count: 4),
+        "Pretzels": Item(price: 7, count: 11)
+    ]
+    var coinsDeposited = 0
+    
+    func dispenseSnack(snack: String) {
+        print("Dispensing \(snack)")
     }
     
-    guard item.count > 0 else {
-        throw VendingMachineError.OutOfStock
-    }
-    
-    if amountDeposited >= item.price {
-        // Dispence the snack
-        amountDeposited -= item.price
+    func vend(itemNamed name: String) throws {
+        guard var item = inventory[name] else {
+            throw VendingMachineError.InvalidSelection
+        }
+        
+        guard item.count > 0 else {
+            throw VendingMachineError.OutOfStock
+        }
+        
+        guard item.price <= coinsDeposited else {
+            throw VendingMachineError.InsufficientFunds(required: item.price - coinsDeposited)
+        }
+        
+        coinsDeposited -= item.price
         --item.count
         inventory[name] = item
-    } else {
-        let amountRequired = item.price - amountDeposited
-        throw VendingMachineError.InsufficientFunds(required: amountRequired)
+        dispenseSnack(name)
     }
+
 }
+
 
 let favoriteSnacks = [
     "Alice": "Chips",
@@ -52,16 +62,19 @@ let favoriteSnacks = [
     "Eve": "Pretzels",
 ]
 
-func buyFavoriteSnack(person: String) throws {
+func buyFavoriteSnack(person: String, vendingMachine: VendingMachine) throws {
     let snackName = favoriteSnacks[person] ?? "Candy Bar"
-    try vend(itemNamed: snackName)
+    try vendingMachine.vend(itemNamed: snackName)
 }
-// Note that vend() must be marked with the try keyword. Also because the errors are not handled here the error is propagated up to buyFavoriteSnack() as noted by the throws keyword.
+//: Note that vend() must be marked with the try keyword. Also because the errors are not handled here the error is propagated up to buyFavoriteSnack() as noted by the throws keyword.
 
 
-// Catching and Handling Errors
+//: ## Handling Errors Using Do-Catch
+var vendingMachine = VendingMachine()
+vendingMachine.coinsDeposited = 8
+
 do {
-    try vend(itemNamed: "Candy Bar")
+    try buyFavoriteSnack("Alice", vendingMachine: vendingMachine)
     // Enjoy delicious snack
 } catch VendingMachineError.InvalidSelection {
     print("Invalid Selection")
@@ -71,31 +84,56 @@ do {
     print("Insufficient funds. Please insert an additional $\(amountRequired).")
 }
 
-
-// Disabling Error Propagation
-// Calling a throwing function or method with try! disables error propagation and wraps the call in a run-time assertion that no error will be thrown. If an error actually is thrown, you'll get a runtime error.
-
-enum GeneralError: ErrorType {
-    case someError
+//: ## Converting Errors to Optional Values
+//: If an error is thrown while evaluating the try? expression, the value of the expression is nil
+enum Error: ErrorType { case Unlucky }
+func someThrowingFunction() throws -> Int {
+    let success = arc4random_uniform(5)
+    if success == 0 { throw Error.Unlucky }
+    return Int(success)
 }
 
-func willOnlyThrowIfTrue(value: Bool) throws {
-    if value { throw GeneralError.someError }
-}
+let x = try? someThrowingFunction()
 
+let y: Int?
 do {
-    try willOnlyThrowIfTrue(false)
+    y = try someThrowingFunction()
 } catch {
-    // Handle Error
+    y = nil
 }
 
-try! willOnlyThrowIfTrue(false)
+//: Try? lets you write concise error handling code when you want to handle all errors the same way.
+
+struct Data { }
+func fetchDataFromDisk() throws -> Data {
+    let success = arc4random_uniform(5)
+    if success == 0 { throw Error.Unlucky }
+    return Data()
+}
+func fetchDataFromServer() throws -> Data {
+    let success = arc4random_uniform(5)
+    if success == 0 { throw Error.Unlucky }
+    return Data()
+}
+
+func fetchData() -> Data? {
+    if let data = try? fetchDataFromDisk() { return data }
+    if let data = try? fetchDataFromServer() { return data }
+    return nil
+}
+fetchData()
 
 
-// Specifying Clean-Up Actions
-// A defer statement defers execution until the current scope is exited.
-// Deferred statements may not contain any code that would transfer control out of the statements, such as a break or return statement, or by throwing an error. 
-// Deferred actions are executed in reverse order of how they are specified.
+//: ## Disabling Error Propagation
+//: Calling a throwing function or method with try! disables error propagation and wraps the call in a run-time assertion that no error will be thrown. If an error actually is thrown, you'll get a runtime error.
+
+//let photo = try! loadImage("./Resources/John Appleseed.jpg")
+
+
+//: ## Specifying Clean-Up Actions
+//: A defer statement defers execution until the current scope is exited.
+//: Deferred statements may not contain any code that would transfer control out of the statements, such as a break or return statement, or by throwing an error.
+//: Deferred actions are executed in reverse order of how they are specified.
 
 enum FileError: ErrorType {
     case endOfFile
