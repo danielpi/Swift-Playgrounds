@@ -1,13 +1,19 @@
 // The Basics Chapter of “The Swift Programming Language.” iBooks. https://itun.es/au/jEUH0.l
 
+//: # The Basics
+//: ## Constants and Variables
+//: ### Declaring Constants and Variables
+
 let maximumNumberOfLoginAttempts = 10
 var currentLoginAttempt = 0
 
 var x = 0.0, y = 0.0, z = 0.0
 
+//: ### Type Annotations
 var welcomeMessage: String
 welcomeMessage = "Hello"
 
+//: ### Naming Constants and Variables
 let π = 3.14159
 let 你好 = "你好世界"
 let 🐶🐮 = "dogcow"
@@ -18,10 +24,14 @@ friendlyWelcome = "Bonjour!"
 let languageName = "Swift"
 //languageName = "Swift++" // Compile time error
 
+//: Printing Constants and Variables
 print(friendlyWelcome)
+
+print(π, 你好, 🐶🐮, separator: ", ", terminator: "")
 
 print("The current value of friendlyWelcome is \(friendlyWelcome)")
 
+//: ## Comments
 // this is a comment
 
 /* this is also a comment,
@@ -31,17 +41,19 @@ but written over multiple lines*/
 /* this is the second, nested multiline comment */
 this is the end of the first multiline comment */
 
+//: ## Semicolons
 let cat = "🐱"; print(cat)
 
-// Integers
+//: ## Integers
+//: ### Integer Bounds
 let minValue = UInt8.min
 let maxValue = UInt8.max
 
-// Floating Point
+//: ## Floating-Point Numbers
 var w = [1, 1.2]
 
 
-// Type Safety and Type Inference
+//: ## Type Safety and Type Inference
 var meaningOfLife = 42
 // inferred to be of type Int
 // meaningOfLife = 35.0 //Type Error
@@ -50,7 +62,7 @@ let  pi = 3.14159
 let anotherPi = 3 + 0.14159
 
 
-// Numeric Literals
+//: ## Numeric Literals
 let descimalInteger = 17
 let binaryInteger = 0b10001
 let octalInteger = 0o21
@@ -72,14 +84,15 @@ let paddedDouble = 000123.456
 let oneMillion = 1_000_000
 let justOverOneMillion = 1_000_000.000_000_1
 
-// Integer Conversion
+//: ## Numeric Conversion
+//: ### Integer Conversion
 //let cannotBeNegative: UInt8 = -1
 //let tooBig: Int8 = Int8.max + 1
 let twoThousand: UInt16 = 2_000
 let one: UInt8 = 1
 let twoThousandAndOne = twoThousand + UInt16(one)
 
-// Integer and Floating Point Conversion
+//: ### Integer and Floating Point Conversion
 let three = 3
 let pointOneFourOneFiveNine = 0.14159
 let pi2 = Double(three) + pointOneFourOneFiveNine
@@ -92,14 +105,14 @@ let integerNegativeThreePointNine = Int(-3.9)
 3 + 0.14159
 
 
-// Type Aliases
+//: ## Type Aliases
 // Type aliases are useful when you want to refer to an existing type by a name that is contextually more appropriate, such as when working with data of a specific size from an external source:
 
 typealias AudioSample = UInt16
 var macAmplitudeFound = AudioSample.min
 
 
-// Booleans
+//: ## Booleans
 let orangesAreOrange = true
 let turnipsAreDelicious = false
 
@@ -121,7 +134,7 @@ if i == 1 {
 }
 
 
-// Tuples
+//: ## Tuples
 let http404Error = (404, "Not Found")
 
 let (statusCode, statusMessage) = http404Error
@@ -143,7 +156,7 @@ print("The status message is \(http200Status.description)")
 // “Tuples are useful for temporary groups of related values. They are not suited to the creation of complex data structures. If your data structure is likely to persist beyond a temporary scope, model it as a class or structure, rather than as a tuple. For more information”
 
 
-// Optionals
+//: ## Optionals
 let possibleNumber = "123"
 let convertedNumber = Int(possibleNumber)
 // convertedNumber is inferred to be ot type "Int?" (optional Int)
@@ -162,12 +175,15 @@ if let actualNumber = Int(possibleNumber) {
     print("\(possibleNumber) could not be converted to an integer")
 }
 
-//actualNumber // THis brings up an error as the unwrapped value is only available within the if statement
+//actualNumber // This brings up an error as the unwrapped value is only available within the if statement
 
+//: ### nil
 var serverResponseCode: Int? = 404
 serverResponseCode = nil
 
 var surveyAnswer: String?
+
+//: ### If statements and Conditional Unwrapping
 
 
 // Implicitly Unwrapped Optionals
