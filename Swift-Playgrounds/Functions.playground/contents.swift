@@ -1,4 +1,4 @@
-// Functions Chapter
+//: # Functions Chapter
 
 func sayHello(personName: String) -> String {
     let greeting = "Hello, " + personName + "!"

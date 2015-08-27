@@ -183,16 +183,54 @@ serverResponseCode = nil
 
 var surveyAnswer: String?
 
-//: ### If statements and Conditional Unwrapping
+//: ### If statements and Forced Unwrapping
+if convertedNumber != nil {
+    print("converted number contains some integer value")
+}
 
+if convertedNumber != nil {
+    print("converted number contains \(convertedNumber!)")
+}
 
-// Implicitly Unwrapped Optionals
-// Implicitly unwrapped optionals are useful when an optional’s value is confirmed to exist immediately after the optional is first defined and can definitely be assumed to exist at every point thereafter. The primary use of implicitly unwrapped optionals in Swift is during class initialization
+//: ### Optional Binding
+
+if let actualNumber = Int(possibleNumber) {
+    print("\'\(possibleNumber)\' has a value of \(actualNumber)")
+} else {
+    print("\'\(possibleNumber)\' could not be converted to an Int")
+}
+
+//: You can use both contants and variables with optional binding
+
+if var actualNumber = Int(possibleNumber) {
+    actualNumber++
+    print("\'\(possibleNumber)\'s has been retreived and then incremented to give a value of \(actualNumber)")
+}
+
+//: Multiple optional bindings can be unwrapped in a single if statement by separating them with commas
+
+let a: Int? = 4
+let b: Int? = nil
+let c: Int? = 8
+
+if let A = a, B = b, C = c {
+    print(A, B, C)
+} else {
+    print("One of the optionals was nil so none of the optionals were unwrapped")
+}
+
+if let A = a, C = c {
+    print(A, C)
+}
+
+//: ### Implicitly Unwrapped Optionals
+//: Implicitly unwrapped optionals are useful when an optional’s value is confirmed to exist immediately after the optional is first defined and can definitely be assumed to exist at every point thereafter. The primary use of implicitly unwrapped optionals in Swift is during class initialization
 
 let possibleString: String? = "An optional string."
-print(possibleString!)
+let forcedString: String = possibleString!
+
 let assumedString: String! = "An implicitly unwrapped optional string"
-print(assumedString)
+let implicitString: String = assumedString
 
 if assumedString != nil {
     print(assumedString)
@@ -201,19 +239,44 @@ if assumedString != nil {
 if let definiteString = assumedString {
     print(definiteString)
 }
-//  Implicitly unwrapped optionals should not be used when there is a possibility of a variable becoming nil at a later point. Always use a normal optional type if you need to check for a nil value during the lifetime of a variable.
+//:  Implicitly unwrapped optionals should not be used when there is a possibility of a variable becoming nil at a later point. Always use a normal optional type if you need to check for a nil value during the lifetime of a variable.
 
+//: ## Error Handling
+//: In contrast to optionals, which can use the presence or absence of a value to signify success or failure of a function, error handling allows you to determine the underlying cause of failure and if necessary propagate the error to another part of your program. 
 
-// Assertions
+func canThrowError() throws {
+    // This function may or may not throw an error.
+}
+
+do {
+    try canThrowError()
+    // no error was thrown
+} catch {
+    // an error was thrown
+}
+
+enum Error: ErrorType {
+    case OutOfCleanDishes
+    case MissingIngredients([String])
+}
+
+func makeASandwich() throws { throw Error.MissingIngredients(["butter","ham","bread"]) }
+func eatASandwich() {print("yum yum yum") }
+func washDishes() { print("Wash the dishes") }
+func buyGroceries(ingredients: [String]) { ingredients.forEach{ i in print(i) }}
+
+do {
+    try makeASandwich()
+    eatASandwich()
+} catch Error.OutOfCleanDishes {
+    washDishes()
+} catch Error.MissingIngredients(let ingredients) {
+    buyGroceries(ingredients)
+} catch {
+    print("Why did I fail")
+}
+
+//: ## Assertions
 let age = -3
 //assert(age >= 0, "A person's age cannot be less than zero")
 // Left this out as it stops the REPL from continuing
-
-
-
-
-
-
-
-
-
