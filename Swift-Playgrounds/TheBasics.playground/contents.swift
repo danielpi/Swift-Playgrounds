@@ -177,6 +177,10 @@ if let actualNumber = Int(possibleNumber) {
 
 //actualNumber // This brings up an error as the unwrapped value is only available within the if statement
 
+if let firstNumber = Int("4"), secondNumber = Int("42") where firstNumber < secondNumber {
+    print("\(firstNumber) < \(secondNumber)")
+}
+
 //: ### nil
 var serverResponseCode: Int? = 404
 serverResponseCode = nil
@@ -277,6 +281,9 @@ do {
 }
 
 //: ## Assertions
+//: ### Debugging with Assertions
+//: Use an assertion whenever a condition has the potential to be false, but must definitely be true in order for your code to continue execution.
 let age = -3
 //assert(age >= 0, "A person's age cannot be less than zero")
 // Left this out as it stops the REPL from continuing
+

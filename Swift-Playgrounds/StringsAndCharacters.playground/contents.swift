@@ -97,17 +97,17 @@ print("the number of characters in \(word) is \(word.characters.count)")
 // String Indices
 // Different characters can require different amounts of memory to store, so in order to determine which Character is at a particular position, you must iterate over each Unicode scalar from the start or end of that String. For this reaason, Swift strings cannot be indexed by integer values.
 
-let greeting = "Guten Tag"
+let greeting = "Guten Tag!"
 greeting[greeting.startIndex]               // G
 greeting[greeting.endIndex.predecessor()]   // g
 greeting[greeting.startIndex.successor()]   // u
-let index = advance(greeting.startIndex, 7)
+let index = greeting.startIndex.advancedBy(7)
 greeting[index]                             // a
 // greeting[greeting.endIndex]                 // error
 // greeting.endIndex.successor()               // error
 
 for index in greeting.characters.indices {
-    print("\(greeting[index]) ", appendNewline: false)
+    print("\(greeting[index]) ", terminator: "")
 }
 // prints "G u t e n  T a g !"
 
@@ -118,14 +118,14 @@ var welcome2 = "hello"
 welcome2.insert("!", atIndex: welcome2.endIndex)
 
 // To insert another string at a specified index
-welcome2.splice(" there".characters, atIndex: welcome2.endIndex.predecessor())
+welcome2.insertContentsOf(" there".characters, at: welcome2.endIndex.predecessor())
 
 // To remove a character at a specified index
 welcome2.removeAtIndex(welcome2.endIndex.predecessor())
 welcome2
 
 // To remove a substring
-let range = advance(welcome2.endIndex, -6)..<welcome2.endIndex
+let range = welcome2.endIndex.advancedBy(-6)..<welcome2.endIndex
 welcome2.removeRange(range)
 
 
@@ -191,22 +191,23 @@ print("\(mansionCount) mansion scenes; \(cellCount) cell scenes")
 
 
 // Unicode Representations of Strings
+let dogString = "Dog!!🐶"
+
 // UTF-8 Representation
-let dogString = "Dog!🐶"
 for codeUnit in dogString.utf8 {
-    print("\(codeUnit) ", appendNewline: false)
+    print("\(codeUnit) ", terminator: "")
 }
-print("\n", appendNewline: false)
+print("")
 
 // UTF-16 Representation
 for codeUnit in dogString.utf16 {
-    print("\(codeUnit) ", appendNewline: false)
+    print("\(codeUnit) ", terminator: "")
 }
-print("\n", appendNewline: false)
+print("")
 
 // Unicode Scalar Representation
 for scalar in dogString.unicodeScalars {
-    print("\(scalar.value) ", appendNewline: false)
+    print("\(scalar.value) ", terminator: "")
 }
 print("")
 

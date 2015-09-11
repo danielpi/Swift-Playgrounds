@@ -73,6 +73,46 @@ incrementByTen()
 let alsoIncrementByTen = incrementByTen
 alsoIncrementByTen()
 
+//: ## Autoclosures
+
+var customersInLine = ["Chris", "Alex", "Ewa", "Barry", "Daniella"]
+let nextCustomer = { customersInLine.removeAtIndex(0) }
+print(customersInLine.count)
+
+print("Now serving \(nextCustomer())!")
+print(customersInLine.count)
+
+//: Even though the first element of the customersInLine array is removed as part of the closure, that operation isn't carried out until the closure is actually called. If the closure is never called, the expression inside the closure is never evaluated. Note that the type of nextCustomer is not String but () -> String - a function that takes no arguments and returns a string.
+
+func serveNextCustomer(customer: () -> String) {
+    print("Now serving \(customer())!")
+}
+serveNextCustomer( { customersInLine.removeAtIndex(0) } )
+
+//: The serveNextCustomer function above takes an explicit closure that returns the next customer's name. The version below performs the same operation but, instead uses an autoclosure. Now you can call the function as if it took a String argument instead of a closure.
+
+func serveNextCustomer2(@autoclosure customer: () -> String) {
+    print("Now serving \(customer())!")
+}
+
+serveNextCustomer2(customersInLine.removeAtIndex(0))
+
+//: ### @autoclosure(escaping)
+
+var customerClosures: [() -> String] = []
+func collectCustomerClosures(@autoclosure(escaping) customer: () -> String) {
+    customerClosures.append(customer)
+}
+collectCustomerClosures(customersInLine.removeAtIndex(0))
+collectCustomerClosures(customersInLine.removeAtIndex(0))
+
+print("Collected \(customerClosures.count) closures.")
+for customerClosure in customerClosures {
+    print("Now serving \(customerClosure())!")
+}
+
+
+
 
 
 
