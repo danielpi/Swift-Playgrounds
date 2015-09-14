@@ -35,8 +35,8 @@ class AnotherSwiftViewController: UIViewController, UITableViewDelegate, UITable
 class YetAnotherSwiftViewController: UIViewController {
     @IBOutlet var button: UIButton!
     //@IBOutlet var textFields: [UITextField]
-    @IBAction func buttonTapped(AnyObject) {
-        println("button tapped!")
+    @IBAction func buttonTapped(_: AnyObject) {
+        print("button tapped!")
     }
 }
 

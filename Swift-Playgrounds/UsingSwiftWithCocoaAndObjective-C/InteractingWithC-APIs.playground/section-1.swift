@@ -105,14 +105,20 @@ var b: [Int] = [1, 2, 3]
 //  - An in-out expression whose operand is an lvalue of type Type, which is passed as the address of the lvalue
 //  - A Type[] value, which is passed as a pointer to the start of the array, and lifetime-extended for the duration of the call
 
-func takesAConstPointer(x:ConstUnsafePointer<Float>) {
+func takesAMutableVoidPointer(x:UnsafeMutablePointer<Void>) {
     
 }
-var q: ConstUnsafePointer<Float> = nil
-takesAConstPointer(nil)
-takesAConstPointer(q)
-takesAConstPointer(&x)
-takesAConstPointer([1.0, 2.0, 3.0])
+var x2: Float = 0.0, y2: Int = 0
+var p2: UnsafeMutablePointer<Float> = nil, q2: UnsafeMutablePointer<Int> = nil
+var a2: [Float] = [1.0, 2.0, 3.0], b2: [Int] = [1,2,3]
+takesAMutableVoidPointer(nil)
+takesAMutableVoidPointer(p2)
+takesAMutableVoidPointer(p2)
+takesAMutableVoidPointer(&x2)
+takesAMutableVoidPointer(&y2)
+takesAMutableVoidPointer(&a2)
+takesAMutableVoidPointer(&b2)
+
 
 
 // AutoreleasingUnsafePointer
@@ -120,11 +126,11 @@ takesAConstPointer([1.0, 2.0, 3.0])
 //  - nil, which is passed as a null pointer
 //  - An AutoreleasingUnsafePointer<Type> value
 //  - An in-out expression, whose operand is primitive-copied to a temporary nonowning buffer. The address of that buffer is passed to the callee, and on return, the value in the buffer is loaded, retained, and reassigned into the operand.
-func takesAnAutoreleasingPointer(x: AutoreleasingUnsafePointer<NSDate?>) {
+func takesAnAutoreleasingPointer(x: AutoreleasingUnsafeMutablePointer<NSDate?>) {
     /* ... */
 }
 var z: NSDate? = nil
-var r: AutoreleasingUnsafePointer<NSDate?> = nil
+var r: AutoreleasingUnsafeMutablePointer<NSDate?> = nil
 takesAnAutoreleasingPointer(nil)
 takesAnAutoreleasingPointer(r)
 takesAnAutoreleasingPointer(&z)

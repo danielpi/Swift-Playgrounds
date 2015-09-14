@@ -29,21 +29,6 @@ if !written {
 }
 */
 
-func contentsForType(typeName: String!, error: NSErrorPointer) -> AnyObject! {
-    let errorOccured = true
-    //if cannotProduceContentsForType(typeName) {
-    if errorOccured {
-        if error {
-            error.memory = NSError(domain: NSPOSIXErrorDomain, code: 1, userInfo: [:])
-        }
-        return nil
-    }
-}
-
-var errorPointer: NSErrorPointer = NSErrorPointer()
-let typeName = "JPEG"
-contentsForType(typeName, errorPointer)
-
 
 // Target-Action
 // Basically the same as in Objective-C

@@ -12,8 +12,8 @@ let greeting = "hello, world!"
 let capitalizedGreeting = greeting.capitalizedString
 
 let myString: NSString = "123"
-if let integerValue = (myString as String).toInt() {
-    println("\(myString) is the integer \(integerValue)")
+if let integerValue = Int(myString as String) {
+    print("\(myString) is the integer \(integerValue)")
     integerValue
 }
 
@@ -36,16 +36,16 @@ let foundationArray: NSArray = NSArray(array: [1,2,3])
 let swiftArray = foundationArray as [AnyObject]
 if let downcastedSwiftArray = swiftArray as? [UIView] {
     for object in downcastedSwiftArray {
-        println("\(object)")
+        print("\(object)")
     }
 }
 
 
-//for aView: UIView! in foundationArray as [UIView] {
-for aView in foundationArray as [UIView] {
+//for aView: UIView! in foundation Array as [UIView] {
+//for aView in foundationArray as! [UIView] {
     // aView is of type UIView
     // Though I thought this would cause an error as foundation array objects are not UIViews
-}
+//}
 
 let schoolSupplies: NSArray = ["Pencil", "Eraser", "Notebook"]
 
