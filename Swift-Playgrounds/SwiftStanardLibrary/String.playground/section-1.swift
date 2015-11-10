@@ -25,10 +25,10 @@ let hasSuffixSecondCheck = string.hasSuffix("World!")
 
 // Changing and Converting Strings
 string = "42"
-if let number = string.toInt() {
-    println("Got the number: \(number)")
+if let number = Int(string) {
+    print("Got the number: \(number)")
 } else {
-    println("Couldn't convert to a number")
+    print("Couldn't convert to a number")
 }
 
 
