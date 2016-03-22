@@ -113,22 +113,6 @@ arithmeticMean(1, 2, 3, 4, 5)
 arithmeticMean(3, 8, 19)
 
 
-// Constant and Variable Parameters
-func alignRight(var string: String, totalLength: Int, pad: Character) -> String {
-    let amountToPad = totalLength - string.characters.count
-    if amountToPad < 1 {
-        return string
-    }
-    let padString = String(pad)
-    for _ in 1...amountToPad {
-        string = padString + string
-    }
-    return string
-}
-let originalString = "hello"
-let paddedString = alignRight(originalString, totalLength: 10, pad: "-")
-
-
 // In-Out Parameters
 func swapTwoInts(inout a: Int, inout b: Int) {
     let temporaryA = a

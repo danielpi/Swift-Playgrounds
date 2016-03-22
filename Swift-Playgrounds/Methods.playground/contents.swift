@@ -4,7 +4,7 @@
 class Counter {
     var count = 0
     func increment() {
-        count++
+        count += 1
     }
     func incrementBy(amount: Int) {
         count += amount

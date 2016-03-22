@@ -40,16 +40,6 @@ let dogcow = "🐶" + "🐮"
 
 8 % 2.5
 
-// Increment and Decrement Operators
-var i = 0
-++i
-
-var aa = 0
-let bb = ++aa
-
-let c = aa++
-aa
-
 // Unary Minus Operator
 let three = 3
 let minusThree = -three

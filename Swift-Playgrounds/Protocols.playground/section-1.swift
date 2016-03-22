@@ -217,7 +217,7 @@ class DiceGameTracker: DiceGameDelegate {
         print("The game is using a \(game.dice.sides)-sided dice")
     }
     func game(game: DiceGame, didStartNewTurnWithDiceRoll diceRoll: Int) {
-        ++numberOfTurns
+        numberOfTurns += 1
         print("Rolled a \(diceRoll)")
     }
     func gameDidEnd(game: DiceGame) {
@@ -232,30 +232,30 @@ game.play()
 
 // Adding Protocol Conformance with an Extension
 protocol TextRepresentable {
-    func asText() -> String
+    var textualDescription: String { get }
 }
 extension Dice: TextRepresentable {
-    func asText() -> String {
+    var textualDescription: String {
         return "A \(sides)-sided dice"
     }
 }
 let d12 = Dice(sides: 12, generator: LinearCongruentialGenerator())
-print(d12.asText())
-d6.asText()
+print(d12.textualDescription)
+d6.textualDescription
 
 extension SnakesAndLadders: TextRepresentable {
-    func asText() -> String {
+    var textualDescription: String {
         return "A game of Snakes and Ladders with \(finalSquare) squares"
     }
 }
-print(game.asText())
+print(game.textualDescription)
 
 
 // Declaring Protocol Adoption with an Extension
 //  If a type already conforms to all of the requirements of a protocol, but has not yet stated that it adopts that protocol, you can make it adopt the protocol with an empty extension:
 struct Hamster {
     var name: String
-    func asText() -> String {
+    var textualDescription: String {
         return "A hamster named \(name)"
     }
 }
@@ -263,13 +263,13 @@ extension Hamster: TextRepresentable {}
 
 let simonTheHamster = Hamster(name: "Simon")
 let somethingTextRepresentable: TextRepresentable = simonTheHamster
-print(somethingTextRepresentable.asText())
+print(somethingTextRepresentable.textualDescription)
 
 
 // Collections of Protocol Types
 let things: [TextRepresentable] = [game, d12, simonTheHamster]
 for thing in things {
-    print(thing.asText())
+    print(thing.textualDescription)
 }
 //  Note that the thing constant is of type TextRepresentable. It is not of type Dice, or DiceGame, or Hamster, even if the actual instance behind the scenes is of one of those types.
 
@@ -282,13 +282,13 @@ protocol InheritingProtocol: SomeProtocol, Another Protocol {
 */
 
 protocol PrettyTextRepresentable: TextRepresentable {
-    func asPrettyText() -> String
+    var prettyTextualDescription: String { get }
 }
 //  PrettyTextRepresentable must satisfy all of the requirements enforced by TextRepresentable, plus the additional requirements enforced by PrettyTextRepresentable.
 
 extension SnakesAndLadders: PrettyTextRepresentable {
-    func asPrettyText() -> String {
-        var output = asText() + ":\n"
+    var prettyTextualDescription: String {
+        var output = textualDescription + ":\n"
         for index in 1...finalSquare {
             switch board[index] {
             case let ladder where ladder > 0:
@@ -302,7 +302,7 @@ extension SnakesAndLadders: PrettyTextRepresentable {
         return output
     }
 }
-print(game.asPrettyText())
+print(game.prettyTextualDescription)
 
 
 // Class-Only Protocols
@@ -377,7 +377,7 @@ for object in objects {
     optional var fixedIncrement: Int { get }
 }
 
-@objc class Counter {
+class Counter {
     var count = 0
     var dataSource: CounterDataSource?
     func increment() {
@@ -389,7 +389,7 @@ for object in objects {
     }
 }
 
-@objc class ThreeSource: CounterDataSource {
+class ThreeSource: NSObject, CounterDataSource {
     let fixedIncrement = 3
 }
 
@@ -400,7 +400,7 @@ for _ in 1...4 {
     print(counter.count)
 }
 
-@objc class TowardsZeroSource: CounterDataSource {
+@objc class TowardsZeroSource: NSObject, CounterDataSource {
     func incrementForCount(count: Int) -> Int {
         if count == 0 {
             return 0
@@ -442,13 +442,13 @@ print("Here's a random Boolean: \(generator.randomBool())")
 // If a conforming type provides its own implementation that is used instead.
 
 extension PrettyTextRepresentable {
-    func asPrettyText() -> String {
-        return asText()
+    var prettyTextualDescription: String {
+        return textualDescription
     }
 }
 
 extension Hamster: PrettyTextRepresentable { }
-print(simonTheHamster.asPrettyText())
+print(simonTheHamster.prettyTextualDescription)
 
 
 // Adding Constraints to Protocol Extensions
@@ -456,8 +456,9 @@ print(simonTheHamster.asPrettyText())
 // You use the where clause after the name of the protocol you are extending.
 
 extension CollectionType where Generator.Element : TextRepresentable {
-    func asList() -> String {
-        return "(" + ", ".join(map({$0.asText()})) + ")"
+    var textualDescription: String {
+        let itemsAsText = self.map { $0.textualDescription }
+        return "[" + itemsAsText.joinWithSeparator(", ") + "]"
     }
 }
 
@@ -468,6 +469,6 @@ let hamsters = [murrayTheHamster, morganTheHamster, mauriceTheHamster]
 
 // Because Array conforms to CollectionType, and the array's elements conform to the TextRepresentable protocol, the array can use the asList() method to get a textual representation of its contents:
 
-print(hamsters.asList())
+print(hamsters.textualDescription)
 
 

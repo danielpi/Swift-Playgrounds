@@ -22,22 +22,6 @@ let numberOfLegs = ["spider": 8, "ant": 6, "cat": 4]
 for (animalName, legCount) in numberOfLegs {
     print("\(animalName)s have \(legCount) legs")
 }
-/*
-for character in "Hello".characters {
-    print(character)
-}
-*/
-
-// For
-for var index = 0; index < 3; ++index {
-    print("index = \(index)")
-}
-
-var index: Int
-for index = 0; index < 3; ++index {
-    print("index is \(index)")
-}
-print("The loop statements were executed \(index) times")
 
 
 // While Loops
@@ -51,7 +35,8 @@ var square = 0
 var diceRoll = 0
 while square < finalSquare {
     // roll the dice
-    if ++diceRoll == 7 { diceRoll = 1 }
+    diceRoll += 1
+    if diceRoll == 7 { diceRoll = 1 }
     // move by the rolled amount
     square += diceRoll
     if square < board.count {
@@ -68,7 +53,8 @@ repeat {
     // move up or down for a snake or ladder
     square += board[square]
     // roll the dice
-    if ++diceRoll == 7 { diceRoll = 1 }
+    diceRoll += 1
+    if diceRoll == 7 { diceRoll = 1 }
     // move by the rolled amount
     square += diceRoll
 } while square < finalSquare
@@ -247,7 +233,8 @@ square = 0
 diceRoll = 0
 
 gameLoop: while square != finalSquare {
-    if ++diceRoll == 7 { diceRoll = 1}
+    diceRoll += 1
+    if diceRoll == 7 { diceRoll = 1}
     switch square + diceRoll {
     case finalSquare:
         break gameLoop

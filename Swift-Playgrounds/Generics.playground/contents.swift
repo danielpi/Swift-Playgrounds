@@ -109,7 +109,7 @@ let stringIndex = findIndex(["Mike", "Malcolm", "Andrea"], valueToFind: "Andrea"
 
 // Associated Types
 protocol Container {
-    typealias ItemType
+    associatedtype ItemType
     mutating func append(item: ItemType)
     var count: Int { get }
     subscript(i: Int) -> ItemType {get }
@@ -189,4 +189,7 @@ stackOfStrings2.push("tres")
 var arrayOfStrings = ["uno", "dos", "tres"]
 
 if allItemsMatch(stackOfStrings2, anotherContainer: arrayOfStrings) {
-    print("All items matc
+    print("All items match.")
+} else {
+    print("Not all items match.")
+}

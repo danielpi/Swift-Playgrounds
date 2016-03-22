@@ -133,17 +133,12 @@ repeat {
 m
 
 // Indexes in loops and the Range operators
-var firstForLoop = 0
+var total = 0
 for i in 0..<4 {
-    firstForLoop += i
+    total += i
 }
-firstForLoop
+total
 
-var secondForLoop = 0
-for var i = 0; i < 4; ++i {
-    secondForLoop += 1
-}
-secondForLoop
 
 
 // Functions and Closures
