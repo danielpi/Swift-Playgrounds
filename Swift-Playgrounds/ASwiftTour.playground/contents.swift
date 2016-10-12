@@ -53,7 +53,7 @@ emptyDictionary = [:]
 
 
 // Control Flow
-let individualScores = [75,43,103,87,12]
+let individualScores = [75, 43, 103, 87, 12]
 var teamScore = 0
 for score in individualScores {
     if score > 50 {
@@ -80,6 +80,10 @@ if let name = optionalName {
 } else {
     greeting
 }
+
+let nickName: String? = nil
+let fullName: String = "John Appleseed"
+let informalGreeting: String = "Hi \(nickName ?? fullName)"
 
 
 // Switches
@@ -142,16 +146,21 @@ total
 
 
 // Functions and Closures
-func greet(name: String, day: String) -> String {
+func greet(person: String, day: String) -> String {
     return "Hello \(name), today is \(day)."
 }
-greet("Bob", day: "Tuesday")
+greet(person: "Bob", day: "Tuesday")
 
 //Experiment - Remove the day parameter. Add a parameter to include today’s lunch special in the greeting.
-func greet(name: String, special: String) -> String {
+func greet(person: String, special: String) -> String {
     return "Hello \(name), todays lunch special is: \(special)"
 }
-greet("Bob", special:"Chicken Parmigiana")
+greet(person: "Bob", special:"Chicken Parmigiana")
+
+func greet(_ person: String, on day: String) -> String {
+    return "Hello \(person), today is \(day)."
+}
+greet("John", on: "Wednesday")
 
 
 // Use a tuple to make a compound value - for example, to return multiple values from a function. The elements of a tuple can be referred to either by name or by number
@@ -170,7 +179,7 @@ func calculateStatistics(scores: [Int]) -> (min: Int, max: Int, sum: Int) {
     }
     return (min, max, sum)
 }
-let statistics = calculateStatistics([5, 3, 100, 3, 9])
+let statistics = calculateStatistics(scores: [5, 3, 100, 3, 9])
 statistics.sum
 statistics.2
 
@@ -183,7 +192,7 @@ func sumOf(numbers: Int...) -> Int {
     return sum
 }
 sumOf()
-sumOf(42, 597, 12)
+sumOf(numbers: 42, 597, 12)
 
 // Experiment - Write a function that calculates the average of its arguments.
 func meanOf(numbers: Int...) -> Double {
@@ -194,7 +203,7 @@ func meanOf(numbers: Int...) -> Double {
     let mean = Double(sum) / Double(numbers.count)
     return mean
 }
-meanOf(42, 597, 12)
+meanOf(numbers: 42, 597, 12)
 // This is a bit poor. The variable number of arguments being converted into an array means that you can't pass them onto another function. In meanOf above I was unable to reuse sumOf because numbers was an array and sumOf can't accept an array input
 
 
@@ -210,7 +219,7 @@ func returnFifteen() -> Int {
 returnFifteen()
 
 //  Functions are a first-class type. This means that a function can return another function as its value.
-func makeIncrementer() -> (Int -> Int) {
+func makeIncrementer() -> ((Int) -> Int) {
     func addOne(number: Int) -> Int {
         return 1 + number
     }
@@ -220,7 +229,7 @@ var increment = makeIncrementer()
 increment(7)
 
 // A function can take another function as one of its arguments.
-func hasAnyMatches(list: [Int], condition: Int -> Bool) -> Bool {
+func hasAnyMatches(list: [Int], condition: (Int) -> Bool) -> Bool {
     for item in list {
         if condition(item) {
             return true
@@ -232,7 +241,7 @@ func lessThanTen(number: Int) -> Bool {
     return number < 10
 }
 var numbers = [20, 19, 7, 12]
-hasAnyMatches(numbers, condition: lessThanTen)
+hasAnyMatches(list: numbers, condition: lessThanTen)
 
 
 // Closures
@@ -242,7 +251,7 @@ numbers.map({
     let result = 3 * number
     return result
 })
-// Experiment - Reqrite the closure to return zero for all odd numbers.
+// Experiment - Rewrite the closure to return zero for all odd numbers.
 numbers.map({
     (number:Int) -> Int in
     if number % 2 == 1 {
@@ -256,7 +265,7 @@ let mappedNumbers = numbers.map({ number in 3 * number})
 mappedNumbers
 
 // A closure passed as the last argument to a function can appear immediately after the parentheses
-let sortedNumbers = numbers.sort { $0 > $1 }
+let sortedNumbers = numbers.sorted { $0 > $1 }
 sortedNumbers
 
 
@@ -360,9 +369,9 @@ class EquilateralTriangle: NamedShape {
         return "An equilateral tringle with sides of length \(sideLength)."
     }
 }
-var triangle = EquilateralTriangle(sideLength:3.3, name:"my test triangle")
+var triangle = EquilateralTriangle(sideLength:3.1, name:"my test triangle")
 triangle.perimeter
-triangle.perimeter = 1.0
+triangle.perimeter = 9.9
 triangle.sideLength
 
 
@@ -390,17 +399,6 @@ triangleAndSquare.triangle.sideLength
 triangleAndSquare.square = Square(sideLength:50, name:"larger square")
 triangleAndSquare.triangle.sideLength
 
-// You can specify a second parameter name within a method on a class so that the parameter can be refered to by different names when used within the method or outside the method
-class Counter {
-    var count: Int = 0
-    func incrementBy(amount:Int, numberOfTimes times:Int) {
-        count += amount * times
-    }
-}
-var counter = Counter()
-counter.incrementBy(2, numberOfTimes:7)
-counter.count
-
 
 // Optionals
 // For methods, properties and subscripts you can write a ? afterwards and everything after the question mark will be ignored if the object is nil.
@@ -413,28 +411,28 @@ sideLength = optionalSquare?.sideLength
 
 // Enumerations and Structures
 enum Rank: Int {
-    case Ace = 1
-    case Two, Three, Four, Fice, Six, Seven, Eight, Nine, Ten
-    case Jack, Queen, King
+    case ace = 1
+    case two, three, four, five, six, seven, eight, nine, ten
+    case jack, queen, king
     func simpleDescription() -> String {
         switch self {
-        case .Ace:
+        case .ace:
             return "ace"
-        case .Jack:
+        case .jack:
             return "jack"
-        case .Queen:
+        case .queen:
             return "queen"
-        case .King:
+        case .king:
             return "king"
         default:
             return String(self.rawValue)
         }
     }
 }
-let ace = Rank.Ace
+let ace = Rank.ace
 let aceRawValue = ace.rawValue
 ace.simpleDescription()
-let two = Rank.Two
+let two = Rank.two
 two.simpleDescription()
 two.rawValue
 
@@ -442,8 +440,8 @@ two.rawValue
 func compare(rank: Rank, toRank: Rank) -> Bool {
     return rank.rawValue == toRank.rawValue
 }
-compare(ace, toRank: two)
-compare(ace, toRank: ace)
+compare(rank: ace, toRank: two)
+compare(rank: ace, toRank: ace)
 
 if let convertedRank = Rank(rawValue: 3) {
     let threeDescription = convertedRank.simpleDescription()
@@ -451,31 +449,34 @@ if let convertedRank = Rank(rawValue: 3) {
 
 // enums don't need to be backed by a raw value if they don't make sense. You can also use Int, Double or String as the raw backing type
 enum Suit {
-    case Spades, Hearts, Diamonds, Clubs
-    
-    func color() -> String {
-        switch self {
-        case .Spades, .Clubs:
-            return "black"
-        case .Hearts, .Diamonds:
-            return "red"
-        }
-    }
+    case spades, hearts, diamonds, clubs
     
     func simpleDescription() -> String {
         switch self {
-        case .Spades:
+        case .spades:
             return "spades"
-        case .Hearts:
+        case .hearts:
             return "hearts"
-        case .Diamonds:
+        case .diamonds:
             return "diamonds"
-        case .Clubs:
+        case .clubs:
             return "clubs"
         }
     }
 }
-let hearts = Suit.Hearts
+
+extension Suit {
+    func color() -> String {
+        switch self {
+        case .spades, .clubs:
+            return "black"
+        case .hearts, .diamonds:
+            return "red"
+        }
+    }
+}
+
+let hearts = Suit.hearts
 let heartsDescription = hearts.simpleDescription()
 // hearts.toRaw() // This is an error because Suit doesnt have a raw backing type.
 let heartsColor = hearts.color()
@@ -504,14 +505,14 @@ extension Card {
             }
         }
         
-        for suit in [Suit.Hearts, Suit.Diamonds, Suit.Spades, Suit.Clubs] {
-            appendFullRank(suit)
+        for suit in [Suit.hearts, Suit.diamonds, Suit.spades, Suit.clubs] {
+            appendFullRank(suit: suit)
         }
         
         return deck
     }
 }
-let threeOfSpades = Card(rank: .Three, suit:.Spades)
+let threeOfSpades = Card(rank: .three, suit:.spades)
 let threeOfSpadesDescription = threeOfSpades.simpleDescription()
 
 let aFullDeck = threeOfSpades.createFullDeck()
@@ -609,7 +610,7 @@ var aDouble = -7.0
 aDouble.absoluteValue
 
 4.absoluteValue
--6.0.absoluteValue // Not sure why this doesn't work
+// -6.0.absoluteValue // Not sure why this doesn't work
 let neg = -6.0
 neg.absoluteValue
 let absNeg = (-6.0.absoluteValue)
@@ -620,26 +621,92 @@ protocolValue.simpleDescription
 // protocolValue.anotherProperty // Uncomment to see the error
 
 
+// Error Handling
+// You represent errors using any type that adopts the Error protocol
+enum PrinterError: Error {
+    case outOfPaper
+    case noToner
+    case onFire
+}
+
+func send(job: Int, toPrinter printerName: String) throws -> String {
+    if printerName == "Never Has Toner" {
+        throw PrinterError.noToner
+    }
+    return "Job sent"
+}
+
+do {
+    let printerResponse = try send(job: 1040, toPrinter: "Bi Sheng")
+    printerResponse
+} catch {
+    error
+}
+
+// Experiment
+do {
+    let printerResponse2 = try send(job: 1040, toPrinter: "Never Has Toner")
+    printerResponse2
+} catch {
+    error
+}
+
+// You can provide multiple catch blocks to handle specific errors
+do {
+    let printerResponse = try send(job: 1440, toPrinter: "Gutenberg")
+    printerResponse
+} catch PrinterError.onFire {
+    print("I'll just put this over here, with the rest of the fire")
+} catch let printerError as PrinterError {
+    print("Printer error: \(printerError).")
+} catch {
+    print(error)
+}
+
+// Experiment
+
+
+let printerSuccess = try? send(job: 1884, toPrinter: "Mergenthaler")
+let printerFailure = try? send(job: 1885, toPrinter: "Never Has Toner")
+
+// Defer
+var fridgeIsOpen: Bool = false
+let fridgeContent = ["milk", "eggs", "leftovers"]
+
+func fridgeContains(_ food: String) -> Bool {
+    fridgeIsOpen = true
+    defer {
+        fridgeIsOpen = false
+    }
+    
+    let result = fridgeContent.contains(food)
+    return result
+}
+fridgeContains("banana")
+fridgeIsOpen
+
+
 // Generics
-func `repeat`<Item>(item: Item, times: Int) -> [Item] {
+func makeArray<Item>(repeating item: Item, numberOfTimes: Int) -> [Item] {
     var result = [Item]()
-    for _ in 0..<times {
+    for _ in 0..<numberOfTimes {
         result.append(item)
     }
     return result
 }
-`repeat`("knock", times: 4)
+makeArray(repeating: "knock", numberOfTimes: 4)
 
 // Reimplement the Swift standard library's optional type
-enum OptionalValue<T> {
-    case None
-    case Some(T)
+enum OptionalValue<Wrapped> {
+    case none
+    case some(Wrapped)
 }
 
-var possibleInteger: OptionalValue<Int> = .None
-possibleInteger = .Some(100)
+var possibleInteger: OptionalValue<Int> = .none
+possibleInteger = .some(100)
 
-func anyCommonElements <T, U where T: SequenceType, U: SequenceType, T.Generator.Element: Equatable, T.Generator.Element == U.Generator.Element> (lhs: T, _ rhs: U) -> Bool {
+func anyCommonElements <T: Sequence, U: Sequence>(_ lhs: T, _ rhs: U) -> Bool
+    where T.Iterator.Element: Equatable, T.Iterator.Element == U.Iterator.Element {
     for lhsItem in lhs {
         for rhsItem in rhs {
             if lhsItem == rhsItem {
@@ -654,8 +721,9 @@ anyCommonElements([1,2,3], [6])
 anyCommonElements([1,2,3], [3.0])
 
 // Experiment - Modify the anyCommonElements(_:_:) function to make a function that returns an array of the elements that any two sequences have in common.
-func returnAnyCommonElements <T, U where T: SequenceType, U: SequenceType, T.Generator.Element: Equatable, T.Generator.Element == U.Generator.Element> (lhs: T, rhs: U) -> [T.Generator.Element] {
-    var commonElements: [T.Generator.Element] = []
+func returnAnyCommonElements <T: Sequence, U: Sequence>(_ lhs: T, _ rhs: U) -> [T.Iterator.Element]
+    where T.Iterator.Element: Equatable, T.Iterator.Element == U.Iterator.Element {
+    var commonElements: [T.Iterator.Element] = []
     for lhsItem in lhs {
         for rhsItem in rhs {
             if lhsItem == rhsItem {
@@ -665,5 +733,5 @@ func returnAnyCommonElements <T, U where T: SequenceType, U: SequenceType, T.Gen
     }
     return commonElements
 }
-returnAnyCommonElements([1,2,3], rhs: [2])
+returnAnyCommonElements([1, 2, 3], [2, 3, 4])
 //returnAnyCommon
