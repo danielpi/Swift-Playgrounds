@@ -13,6 +13,8 @@ var x = 0.0, y = 0.0, z = 0.0
 var welcomeMessage: String
 welcomeMessage = "Hello"
 
+var red, green, blue: Double
+
 //: ### Naming Constants and Variables
 let π = 3.14159
 let 你好 = "你好世界"
@@ -161,40 +163,22 @@ let possibleNumber = "123"
 let convertedNumber = Int(possibleNumber)
 // convertedNumber is inferred to be ot type "Int?" (optional Int)
 
-// If statements and forced Unwrapping
-if (convertedNumber != nil) {
-    print("\(possibleNumber) has an integer value of \(convertedNumber!)")
-} else {
-    print("\(possibleNumber) could not be converted to an integer")
-}
-// Using ! on a non-existent value triggers a runtime error
-
-if let actualNumber = Int(possibleNumber) {
-    print("\(possibleNumber) has an integer value of \(actualNumber)")
-} else {
-    print("\(possibleNumber) could not be converted to an integer")
-}
-
-//actualNumber // This brings up an error as the unwrapped value is only available within the if statement
-
-if let firstNumber = Int("4"), secondNumber = Int("42") where firstNumber < secondNumber {
-    print("\(firstNumber) < \(secondNumber)")
-}
-
-//: ### nil
+// nil
 var serverResponseCode: Int? = 404
 serverResponseCode = nil
 
 var surveyAnswer: String?
+// surveyAnswer is automatically set to nil
 
-//: ### If statements and Forced Unwrapping
+// If statements and forced Unwrapping
 if convertedNumber != nil {
-    print("converted number contains some integer value")
+    print("convertedNumber contains some integer value.")
 }
 
 if convertedNumber != nil {
-    print("converted number contains \(convertedNumber!)")
+    print("convertedNumber has an integer value of \(convertedNumber!)")
 }
+
 
 //: ### Optional Binding
 
@@ -204,28 +188,18 @@ if let actualNumber = Int(possibleNumber) {
     print("\'\(possibleNumber)\' could not be converted to an Int")
 }
 
-//: You can use both contants and variables with optional binding
-
-if var actualNumber = Int(possibleNumber) {
-    actualNumber++
-    print("\'\(possibleNumber)\'s has been retreived and then incremented to give a value of \(actualNumber)")
+if let firstNumber = Int("4"), let secondNumber = Int("42"), firstNumber < secondNumber && secondNumber < 100 {
+    print("\(firstNumber) < \(secondNumber) < 100")
 }
 
-//: Multiple optional bindings can be unwrapped in a single if statement by separating them with commas
-
-let a: Int? = 4
-let b: Int? = nil
-let c: Int? = 8
-
-if let A = a, B = b, C = c {
-    print(A, B, C)
-} else {
-    print("One of the optionals was nil so none of the optionals were unwrapped")
+if let firstNumber = Int("4") {
+    if let secondNumber = Int("42") {
+        if firstNumber < secondNumber && secondNumber < 100 {
+            print("\(firstNumber) < \(secondNumber) < 100")
+        }
+    }
 }
 
-if let A = a, C = c {
-    print(A, C)
-}
 
 //: ### Implicitly Unwrapped Optionals
 //: Implicitly unwrapped optionals are useful when an optional’s value is confirmed to exist immediately after the optional is first defined and can definitely be assumed to exist at every point thereafter. The primary use of implicitly unwrapped optionals in Swift is during class initialization
@@ -259,23 +233,31 @@ do {
     // an error was thrown
 }
 
-enum Error: ErrorType {
+enum SandwichError: Error {
     case OutOfCleanDishes
     case MissingIngredients([String])
 }
 
-func makeASandwich() throws { throw Error.MissingIngredients(["butter","ham","bread"]) }
-func eatASandwich() {print("yum yum yum") }
-func washDishes() { print("Wash the dishes") }
-func buyGroceries(ingredients: [String]) { ingredients.forEach{ i in print(i) }}
+func makeASandwich() throws {
+    throw SandwichError.MissingIngredients(["butter","ham","bread"])
+}
+func eatASandwich() {
+    print("yum yum yum")
+}
+func washDishes() {
+    print("Wash the dishes")
+}
+func buyGroceries(ingredients: [String]) {
+    ingredients.forEach{ i in print(i) }
+}
 
 do {
     try makeASandwich()
     eatASandwich()
-} catch Error.OutOfCleanDishes {
+} catch SandwichError.OutOfCleanDishes {
     washDishes()
-} catch Error.MissingIngredients(let ingredients) {
-    buyGroceries(ingredients)
+} catch SandwichError.MissingIngredients(let ingredients) {
+    buyGroceries(ingredients: ingredients)
 } catch {
     print("Why did I fail")
 }
