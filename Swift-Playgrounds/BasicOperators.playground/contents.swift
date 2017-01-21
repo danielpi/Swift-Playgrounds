@@ -38,8 +38,6 @@ let dogcow = "🐶" + "🐮"
 9 % -4
 -9 % -4
 
-8 % 2.5
-
 // Unary Minus Operator
 let three = 3
 let minusThree = -three

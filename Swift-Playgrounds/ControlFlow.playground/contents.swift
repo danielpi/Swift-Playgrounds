@@ -27,7 +27,7 @@ for (animalName, legCount) in numberOfLegs {
 // While Loops
 // While
 let finalSquare = 25
-var board = [Int](count: finalSquare + 1, repeatedValue: 0)
+var board = [Int](repeating: 0, count: finalSquare + 1)
 board[03] = +08; board[06] = +11; board[09] = +09; board[10] = +02
 board[14] = -10; board[19] = -11; board[22] = -02; board[24] = -08
 
@@ -226,7 +226,7 @@ print(description)
 
 
 // Labelled Statements
-board = [Int](count: finalSquare + 1, repeatedValue: 0)
+board = [Int](repeating: 0, count: finalSquare + 1)
 board[03] = +08; board[06] = +11; board[09] = +09; board[10] = +02
 board[14] = -10; board[19] = -11; board[22] = -02; board[24] = -08
 square = 0
@@ -264,9 +264,9 @@ func greet(person: [String: String]) {
     
     print("I hope the weather is nice in \(location).")
 }
-greet([:])
-greet(["name": "John"])
-greet(["name":"Jane", "location": "Cupertino"])
+greet(person: [:])
+greet(person: ["name": "John"])
+greet(person: ["name":"Jane", "location": "Cupertino"])
 
 
 // Checking API Availability

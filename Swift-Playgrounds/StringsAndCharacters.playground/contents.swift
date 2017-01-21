@@ -98,13 +98,13 @@ print("the number of characters in \(word) is \(word.characters.count)")
 // Different characters can require different amounts of memory to store, so in order to determine which Character is at a particular position, you must iterate over each Unicode scalar from the start or end of that String. For this reaason, Swift strings cannot be indexed by integer values.
 
 let greeting = "Guten Tag!"
-greeting[greeting.startIndex]               // G
-greeting[greeting.endIndex.predecessor()]   // g
-greeting[greeting.startIndex.successor()]   // u
-let index = greeting.startIndex.advancedBy(7)
-greeting[index]                             // a
-// greeting[greeting.endIndex]                 // error
-// greeting.endIndex.successor()               // error
+greeting[greeting.startIndex]                               // G
+greeting[greeting.index(before: greeting.endIndex)]         // !
+greeting[greeting.index(after: greeting.startIndex)]        // u
+let index = greeting.index(greeting.startIndex, offsetBy: 7)
+greeting[index]                                             // a
+// greeting[greeting.endIndex]                              // error
+// greeting.endIndex.successor()                            // error
 
 for index in greeting.characters.indices {
     print("\(greeting[index]) ", terminator: "")
@@ -115,18 +115,18 @@ for index in greeting.characters.indices {
 // Inserting and Removing
 // To insert a character at a specified index.
 var welcome2 = "hello"
-welcome2.insert("!", atIndex: welcome2.endIndex)
+welcome2.insert("!", at: welcome2.endIndex)
 
 // To insert another string at a specified index
-welcome2.insertContentsOf(" there".characters, at: welcome2.endIndex.predecessor())
+welcome2.insert(contentsOf:" there".characters, at: welcome2.index(before: welcome2.endIndex))
 
 // To remove a character at a specified index
-welcome2.removeAtIndex(welcome2.endIndex.predecessor())
+welcome2.remove(at: welcome2.index(before: welcome2.endIndex))
 welcome2
 
 // To remove a substring
-let range = welcome2.endIndex.advancedBy(-6)..<welcome2.endIndex
-welcome2.removeRange(range)
+let range = welcome2.index(welcome2.endIndex, offsetBy: -6)..<welcome2.endIndex
+welcome2.removeSubrange(range)
 
 
 // Comparing Strings

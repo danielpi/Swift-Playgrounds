@@ -6,10 +6,10 @@ var someInts = [Int]()
 print("someInts is of type [Int] with \(someInts.count) items.")
 
 // Creating an Array with a Default Value
-var threeDoubles = [Double](count: 3, repeatedValue: 0.0)
+var threeDoubles = Array(repeating: 0.0, count: 3)
 
 // Creating an Array by Adding Two Arrays Together
-var anotherThreeDoubles = [Double](count: 3, repeatedValue: 2.5)
+var anotherThreeDoubles = Array(repeating: 2.5, count: 3)
 var sixDoubles = threeDoubles + anotherThreeDoubles
 
 // Creating an Array with an Array Literal
@@ -35,9 +35,9 @@ shoppingList[0] = "Six eggs"
 
 shoppingList[4...6] = ["Bananas", "Apples"]
 
-shoppingList.insert("Maple Syrup", atIndex: 0)
+shoppingList.insert("Maple Syrup", at: 0)
 
-let mapleSyrup = shoppingList.removeAtIndex(0)
+let mapleSyrup = shoppingList.remove(at: 0)
 firstItem = shoppingList[0]
 
 let apples = shoppingList.removeLast()
@@ -48,7 +48,7 @@ for item in shoppingList {
     print(item)
 }
 
-for (index, value) in shoppingList.enumerate() {
+for (index, value) in shoppingList.enumerated() {
     print("Item \(index + 1): \(value)")
 }
 
@@ -98,15 +98,15 @@ for genre in favoriteGenres {
     print("\(genre)")
 }
 
-for genre in favoriteGenres.sort() {
+for genre in favoriteGenres.sorted() {
     print("\(genre)")
 }
 
-for genre in favoriteGenres.sort({ $0[$0.endIndex.predecessor()] > $1[$1.endIndex.predecessor()] }) {
-    print("\(genre)")
-}
+//for genre in favoriteGenres.sorted({ $0[$0.endIndex.predecessor()] > $1[$1.endIndex.predecessor()] }) {
+//    print("\(genre)")
+//}
 
-for genre in favoriteGenres.sort().reverse() {
+for genre in favoriteGenres.sorted().reversed() {
     print("\(genre)")
 }
 
@@ -115,10 +115,10 @@ let oddDigits: Set = [1,3,5,7,9]
 let evenDigits: Set = [0,2,4,6,8]
 let singleDigitPrimeNumbers: Set = [2,3,5,7]
 
-oddDigits.union(evenDigits).sort()
-oddDigits.intersect(evenDigits).sort()
-oddDigits.subtract(singleDigitPrimeNumbers).sort()
-oddDigits.exclusiveOr(singleDigitPrimeNumbers).sort()
+oddDigits.union(evenDigits).sorted()
+oddDigits.intersection(evenDigits).sorted()
+oddDigits.subtracting(singleDigitPrimeNumbers).sorted()
+oddDigits.symmetricDifference(singleDigitPrimeNumbers).sorted()
 
 // Set Membership and Equality
 // Set a is a superset of set b, because a contains all elements of b
@@ -129,9 +129,9 @@ let houseAnimals: Set = ["🐶", "🐱"]
 let farmAnimals: Set = ["🐮", "🐔", "🐑", "🐶", "🐱"]
 let cityAnimals: Set = ["🐦", "🐭"]
 
-houseAnimals.isSubsetOf(farmAnimals)
-farmAnimals.isSupersetOf(houseAnimals)
-farmAnimals.isDisjointWith(cityAnimals)
+houseAnimals.isSubset(of: farmAnimals)
+farmAnimals.isSuperset(of: houseAnimals)
+farmAnimals.isDisjoint(with: cityAnimals)
 
 
 
@@ -174,7 +174,7 @@ if let airportName = airports["DUB"] {
 airports["APL"] = "Apple International"
 airports["APL"] = nil
 
-if let removedValue = airports.removeValueForKey("DUB") {
+if let removedValue = airports.removeValue(forKey: "DUB") {
     print("The removed airport's name is \(removedValue).")
 } else {
     print("The airports dictionary does not contain a value for DUB.")
