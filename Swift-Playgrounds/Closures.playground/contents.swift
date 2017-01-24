@@ -6,37 +6,38 @@
 // The Sort Function
 let names = ["Chris", "Alex", "Ewa", "Barry", "Daniella"]
 
-func backwards(s1: String, s2: String) -> Bool {
+func backward(s1: String, s2: String) -> Bool {
     return s1 > s2
 }
-var reversed = names.sort(backwards)
+var reversedNames = names.sorted(by: backward)
 
 // Closure Expression Syntax
-reversed = names.sort({ (s1:String, s2: String) -> Bool in return s1 > s2 })
+reversedNames = names.sorted(by: { (s1:String, s2: String) -> Bool in return s1 > s2 })
 
 // Inferring Type from from Context
-reversed = names.sort({ s1, s2 in return s1 > s2 })
+reversedNames = names.sorted(by: { s1, s2 in return s1 > s2 })
 
 // Implicit returns from Single-Expression Closures
-reversed = names.sort({ s1, s2 in s1 > s2 })
+reversedNames = names.sorted(by: { s1, s2 in s1 > s2 })
 
 // Shorthand Argument Names
-reversed = names.sort({ $0 > $1 })
+reversedNames = names.sorted(by: { $0 > $1 })
 
 // Operator Functions
-reversed = names.sort(>)
+reversedNames = names.sorted(by: >)
 
 
 // Trailing Closures
 func someFunctionThatTakesAClosure(closure: () -> ()) {
     
 }
-someFunctionThatTakesAClosure({})
+someFunctionThatTakesAClosure(closure: {})
 someFunctionThatTakesAClosure() {
     
 }
 
-reversed = names.sort { $0 > $1 }
+reversedNames = names.sorted() { $0 > $1 }
+reversedNames = names.sorted { $0 > $1 }
 
 let digitNames = [
     0: "Zero", 1: "One", 2: "Two", 3: "Three", 4:"Four",
@@ -48,29 +49,29 @@ let strings = numbers.map {
     (number) -> String in
     var number = number
     var output = ""
-    while number > 0 {
+    repeat {
         output = digitNames[number % 10]! + output
         number /= 10
-    }
+    } while number > 0
     return output
 }
 strings
 
 
 // Capturing Values
-func makeIncrementor(forIncrement amount: Int) -> () -> Int {
+func makeIncrementer(forIncrement amount: Int) -> () -> Int {
     var runningTotal = 0
-    func incrementor() -> Int {
+    func incrementer() -> Int {
         runningTotal += amount
         return runningTotal
     }
-    return incrementor
+    return incrementer
 }
-let incrementByTen = makeIncrementor(forIncrement: 10)
+let incrementByTen = makeIncrementer(forIncrement: 10)
 incrementByTen()
 incrementByTen()
 incrementByTen()
-let incrementBySeven = makeIncrementor(forIncrement: 7)
+let incrementBySeven = makeIncrementer(forIncrement: 7)
 incrementBySeven()
 incrementByTen()
 
@@ -78,42 +79,65 @@ incrementByTen()
 let alsoIncrementByTen = incrementByTen
 alsoIncrementByTen()
 
+// Escaping Closures
+var completionHandlers: [() -> Void] = []
+func soneFunctionWithEscapingClosure(completionHandler: @escaping () -> Void) {
+    completionHandlers.append(completionHandler)
+}
+
+func someFunctionWithNonescapingClosure(closure: () -> Void) {
+    closure()
+}
+
+class SomeClass {
+    var x = 10
+    func doSomething() {
+        soneFunctionWithEscapingClosure { self.x = 100 }
+        someFunctionWithNonescapingClosure { x = 200 }
+    }
+}
+
+let instance = SomeClass()
+instance.doSomething()
+print(instance.x) // Prints "200"
+
 //: ## Autoclosures
-
 var customersInLine = ["Chris", "Alex", "Ewa", "Barry", "Daniella"]
-let nextCustomer = { customersInLine.removeAtIndex(0) }
 print(customersInLine.count)
 
-print("Now serving \(nextCustomer())!")
+let customerProvider = { customersInLine.remove(at: 0) }
 print(customersInLine.count)
+
+print("Now serving \(customerProvider())!")
+print(customersInLine.count)
+
+func serve(customer customerProvider: () -> String) {
+    print("Now serving \(customerProvider())!")
+}
+serve(customer: { customersInLine.remove(at: 0) } )
 
 //: Even though the first element of the customersInLine array is removed as part of the closure, that operation isn't carried out until the closure is actually called. If the closure is never called, the expression inside the closure is never evaluated. Note that the type of nextCustomer is not String but () -> String - a function that takes no arguments and returns a string.
 
-func serveNextCustomer(customer: () -> String) {
-    print("Now serving \(customer())!")
+func serve(customer customerProvider: @autoclosure () -> String) {
+    print("Now serving \(customerProvider())!")
 }
-serveNextCustomer( { customersInLine.removeAtIndex(0) } )
+serve(customer: customersInLine.remove(at: 0) )
 
 //: The serveNextCustomer function above takes an explicit closure that returns the next customer's name. The version below performs the same operation but, instead uses an autoclosure. Now you can call the function as if it took a String argument instead of a closure.
 
-func serveNextCustomer2(@autoclosure customer: () -> String) {
-    print("Now serving \(customer())!")
-}
-
-serveNextCustomer2(customersInLine.removeAtIndex(0))
 
 //: ### @autoclosure(escaping)
 
-var customerClosures: [() -> String] = []
-func collectCustomerClosures(@autoclosure(escaping) customer: () -> String) {
-    customerClosures.append(customer)
+var customerProviders: [() -> String] = []
+func collectCustomerProviders(_ customerProvider: @autoclosure @escaping () -> String) {
+    customerProviders.append(customerProvider)
 }
-collectCustomerClosures(customersInLine.removeAtIndex(0))
-collectCustomerClosures(customersInLine.removeAtIndex(0))
+collectCustomerProviders(customersInLine.remove(at: 0))
+collectCustomerProviders(customersInLine.remove(at: 0))
 
-print("Collected \(customerClosures.count) closures.")
-for customerClosure in customerClosures {
-    print("Now serving \(customerClosure())!")
+print("Collected \(customerProviders.count) closures.")
+for customerProvider in customerProviders {
+    print("Now serving \(customerProvider())!")
 }
 
 
