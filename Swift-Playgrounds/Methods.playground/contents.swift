@@ -6,7 +6,7 @@ class Counter {
     func increment() {
         count += 1
     }
-    func incrementBy(amount: Int) {
+    func increment(by amount: Int) {
         count += amount
     }
     func reset() {
@@ -15,32 +15,20 @@ class Counter {
 }
 let counter = Counter()
 counter.increment()
-counter.incrementBy(5)
+counter.increment(by:5)
 counter.reset()
-
-// amount is a local name only.
-// numberOfTimes is both a local and external name
-class CounterTwo {
-    var count: Int = 0
-    func incrementBy(amount: Int, numberOfTimes: Int) {
-        count += amount * numberOfTimes
-    }
-}
-let counter2 = CounterTwo()
-counter2.incrementBy(5, numberOfTimes:3)
-//  You don’t need to define an external parameter name for the first argument value, because its purpose is clear from the function name incrementBy. The second argument, however, is qualified by an external parameter name to make its purpose clear when the method is called.
 
 
 // The self Property
 //  Every instance of a type has an implicit property called self, which is exactly equivalent to the instance itself. You use this implicit self property to refer to the current instance within its own instance methods.
 struct Point {
     var x = 0.0, y = 0.0
-    func isToTheRightOfX(x: Double) -> Bool {
+    func isToTheRightOf(x: Double) -> Bool {
         return self.x > x
     }
 }
 let somePoint = Point(x: 4.0, y: 5.0)
-if somePoint.isToTheRightOfX(1.0) {
+if somePoint.isToTheRightOf(x: 1.0) {
     print("This point is to the right of the line where x == 1.0")
 }
 
@@ -50,13 +38,13 @@ if somePoint.isToTheRightOfX(1.0) {
 //  if you need to modify the properties of your structure or enumeration within a particular method, you can opt in to mutating behavior for that method.
 struct Point2 {
     var x = 0.0, y = 0.0
-    mutating func moveByX(deltaX: Double, y deltaY:Double) {
+    mutating func moveBy(x deltaX: Double, y deltaY:Double) {
         x += deltaX
         y += deltaY
     }
 }
 var somePoint2 = Point2(x: 1.0, y: 1.0)
-somePoint2.moveByX(2.0, y:3.0)
+somePoint2.moveBy(x:2.0, y:3.0)
 print("The point is now at (\(somePoint2.x), \(somePoint2.y))")
 
 let fixedPoint = Point2(x: 3.0, y: 3.0)
@@ -73,19 +61,19 @@ struct Point3 {
 
 //  Mutating methods for enumerations can set the implicit self parameter to be a different member from the same enumeration:
 enum TriStateSwitch {
-    case Off, Low, High
+    case off, low, high
     mutating func next() {
         switch self {
-        case Off:
-            self = Low
-        case Low:
-            self = High
-        case High:
-            self = Off
+        case .off:
+            self = .low
+        case .low:
+            self = .high
+        case .high:
+            self = .off
         }
     }
 }
-var ovenLight = TriStateSwitch.Low
+var ovenLight = TriStateSwitch.low
 ovenLight.next()
 ovenLight.next()
 
@@ -100,15 +88,19 @@ SomeClass.someTypeMethod()
 
 struct LevelTracker {
     static var highestUnlockedLevel = 1
-    static func unlockLevel(level: Int) {
+    var currentLevel = 1
+    
+    static func unlock(_ level: Int) {
         if level > highestUnlockedLevel { highestUnlockedLevel = level }
     }
-    static func levelIsUnlocked(level: Int) -> Bool {
+    
+    static func isUnlocked(_ level: Int) -> Bool {
         return level <= highestUnlockedLevel
     }
-    var currentLevel = 1
-    mutating func advanceToLevel(level: Int) -> Bool {
-        if LevelTracker.levelIsUnlocked(level) {
+    
+    @discardableResult
+    mutating func advance(to level: Int) -> Bool {
+        if LevelTracker.isUnlocked(level) {
             currentLevel = level
             return true
         } else {
@@ -120,9 +112,9 @@ struct LevelTracker {
 class Player {
     var tracker = LevelTracker()
     let playerName: String
-    func completedLevel(level: Int) {
-        LevelTracker.unlockLevel(level + 1)
-        tracker.advanceToLevel(level + 1)
+    func complete(level: Int) {
+        LevelTracker.unlock(level + 1)
+        tracker.advance(to: level + 1)
     }
     init(name: String) {
         playerName = name
@@ -130,11 +122,11 @@ class Player {
 }
 
 var player = Player(name: "Argyrios")
-player.completedLevel(1)
+player.complete(level: 1)
 print("highest unlocked level is now \(LevelTracker.highestUnlockedLevel)")
 
 player = Player(name: "Beto")
-if player.tracker.advanceToLevel(6) {
+if player.tracker.advance(to: 6) {
     print("player is now on level 6")
 } else {
     print("level 6 has not yet been unlocked")

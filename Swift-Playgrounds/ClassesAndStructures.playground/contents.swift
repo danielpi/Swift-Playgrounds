@@ -43,13 +43,13 @@ print("cinema is now \(cinema.width) pixels wide")
 print("hd is still \(hd.width) pixels wide")
 
 enum CompassPoint {
-    case Noth, South, East, West
+    case noth, south, east, west
 }
-var currentDirection = CompassPoint.West
+var currentDirection = CompassPoint.west
 let rememberedDirection = currentDirection
-currentDirection = .East
-if rememberedDirection == .West {
-    print("The remembered direction is still .West")
+currentDirection = .east
+if rememberedDirection == .west {
+    print("The remembered direction is still .west")
 }
 
 
