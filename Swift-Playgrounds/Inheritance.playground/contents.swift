@@ -2,85 +2,72 @@
 
 // Base Class
 class Vehicle {
-    var numberOfWheels: Int
-    var maxPassengers: Int
-    func description() -> String {
-        return "\(numberOfWheels) wheels up to \(maxPassengers) passengers"
+    var currentSpeed = 0.0
+    var description: String {
+        return "traveling at \(currentSpeed) miles per hour"
     }
-    init() {
-        numberOfWheels = 0
-        maxPassengers = 1
+    func makeNoise() {
+        // do nothing - an arbitrary vehicle doesn't necessarily make a noise
     }
 }
 let someVehicle = Vehicle()
+print("Vehicle: \(someVehicle.description)")
 
 class Bicycle: Vehicle {
-    override init() {
-        super.init()
-        numberOfWheels = 2
-    }
+    var hasBasket = false
 }
 let bicycle = Bicycle()
-print("Bicycle: \(bicycle.description())")
+bicycle.hasBasket = true
+
+bicycle.currentSpeed = 15.0
+print("Bicycle: \(bicycle.description)")
+
 
 class Tandem: Bicycle {
-    override init() {
-        super.init()
-        maxPassengers = 2
-    }
+    var currentNumberOfPassengers = 0
 }
+
 let tandem = Tandem()
-print("Tandem: \(tandem.description())")
+tandem.hasBasket = true
+tandem.currentNumberOfPassengers = 2
+tandem.currentSpeed = 22.0
+print("Tandem: \(tandem.description)")
 
 
 // Overriding
-class Car: Vehicle {
-    var speed: Double = 0.0
-    override init() {
-        super.init()
-        maxPassengers = 5
-        numberOfWheels = 4
+// Overriding methods
+class Train: Vehicle {
+    override func makeNoise() {
+        print("Choo Choo")
     }
-    override func description() -> String
-    {
-        return super.description() + "; " + "traveling at \(speed) mph"
+}
+let train = Train()
+train.makeNoise()
+
+//Overriding Properties
+
+class Car: Vehicle {
+    var gear = 1
+    override var description: String {
+        return super.description + " in gear \(gear)"
     }
 }
 let car = Car()
-print("Car: \(car.description())")
+car.currentSpeed = 25.0
+car.gear = 3
+print("Car: \(car.description)")
 
-class SpeedLimitedCar: Car {
-    override var speed: Double {
-    get {
-        return super.speed
-    }
-    set {
-        super.speed = min(newValue, 40.0)
-    }
-    }
-}
-let limitedCar = SpeedLimitedCar()
-limitedCar.speed = 60.0
-print("SpeedLimitedCar: \(limitedCar.description())")
-
+// Overriding Property Observers
 class AutomaticCar: Car {
-    var gear = 1
-    override var speed: Double {
-    didSet {
-        gear = Int(speed / 10.0) + 1
-    }
-    }
-    override func description() -> String {
-        return super.description() + " in gear \(gear)"
+    override var currentSpeed: Double {
+        didSet{
+            gear = Int(currentSpeed / 10.0) + 1
+        }
     }
 }
 let automatic = AutomaticCar()
-automatic.speed = 35.0
-print("utomaticCar: \(automatic.description())")
-
-
-
-
+automatic.currentSpeed = 35.0
+print("AutomaticCar: \(automatic.description)")
 
 
 

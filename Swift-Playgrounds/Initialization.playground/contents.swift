@@ -13,7 +13,7 @@ print("The default temperature is \(f.temperature)° Fahrenheit")
 // Customizing Initialization
 // Initialization Parameters
 struct Celsius {
-    var temperatureInCelsius: Double = 0.0
+    var temperatureInCelsius: Double
     init(fromFahrenheit fahrenheit: Double) {
         temperatureInCelsius = (fahrenheit - 32) / 1.8
     }
@@ -24,7 +24,7 @@ struct Celsius {
 let boilingPointOfWater = Celsius(fromFahrenheit: 212.0)
 let freezingPointOfWater = Celsius(fromKelvin: 273.15)
 
-// Local and External Parameter Names
+// Parameter names and Argument Labels
 struct Color {
     let red, green, blue: Double
     init(red: Double, green: Double, blue: Double) {
@@ -43,9 +43,9 @@ let halfGray = Color(white: 0.5)
 //let verGreen = Color(0.0, 1.0, 0.0)
 // Compile time error because external names for parameters were omitted
 
-// Initializer Parameters Without External Names
+// Initializer Parameters Without Argument Labels
 struct Celsius2 {
-    var temperatureInCelsius: Double = 0.0
+    var temperatureInCelsius: Double
     init(fromFahrenheit fahrenheit: Double) {
         temperatureInCelsius = (fahrenheit - 32) / 1.8
     }
@@ -109,29 +109,29 @@ let twoByTwo = Size(width: 2.0, height: 2.0)
 
 
 // Initializer Delegation for Value Types
-struct Size2 {
-    var width = 0.0, height = 0.0
-}
+//struct Size2 {
+//    var width = 0.0, height = 0.0
+//}
 struct Point {
     var x = 0.0, y = 0.0
 }
 struct Rect {
     var origin = Point()
-    var size = Size2()
+    var size = Size()
     init() {}
-    init(origin: Point, size: Size2) {
+    init(origin: Point, size: Size) {
         self.origin = origin
         self.size = size
     }
-    init(center: Point, size: Size2) {
+    init(center: Point, size: Size) {
         let originX = center.x - (size.width / 2)
         let originY = center.y - (size.height / 2)
         self.init(origin: Point(x: originX, y: originY), size: size)
     }
 }
 let basicRect = Rect()
-let originRect = Rect(origin: Point(x: 2.0, y: 2.0), size: Size2(width: 5.0, height: 5.0))
-let centerRect = Rect(center: Point(x: 4.0, y: 4.0), size: Size2(width: 3.0, height: 3.0))
+let originRect = Rect(origin: Point(x: 2.0, y: 2.0), size: Size(width: 5.0, height: 5.0))
+let centerRect = Rect(center: Point(x: 4.0, y: 4.0), size: Size(width: 3.0, height: 3.0))
 
 
 // Class Inheritance and Initialization
@@ -313,29 +313,22 @@ if unknownUnit2 == nil {
     print("This is not a defined temperature unit, so initialization failed.")
 }
 
-// Failable Initializers for Classes
+// Propagation of Initialization Failure
 // Failable initializers for value types can trigger failure at any point. For classes, however a failable initializer can trigger an initialization failure only after all stored properties introduced by that class have been set to an initial value.
 class Product {
     let name: String!
     init?(name: String) {
-        self.name = name
         if name.isEmpty { return nil }
+        self.name = name
     }
 }
 
-if let bowTie = Product(name: "bow tie") {
-    // no need to check if bowTie.name == nil
-    print("The product's name is \(bowTie.name)")
-}
-
-
-// Propagation of Initialization Failure
 class CartItem: Product {
-    let quantity: Int!
+    let quantity: Int
     init?(name: String, quantity: Int) {
+        if quantity < 1 { return nil }
         self.quantity = quantity
         super.init(name: name)
-        if quantity < 1 { return nil }
     }
 }
 
@@ -363,8 +356,8 @@ class Document {
     init() {}
     // this initializer creates a document with a non-empty name value
     init?(name: String) {
-        self.name = name
         if name.isEmpty { return nil }
+        self.name = name
     }
 }
 
@@ -383,15 +376,31 @@ class AutomaticallyNamedDocument: Document {
     }
 }
 
+class UntitledDocument: Document {
+    override init() {
+        super.init(name: "[Untitled]")!
+    }
+}
+
 
 // The init! Failable Initializer
 
 
 // Required Initializers
+class SomeClass {
+    required init() {
+        // Initializer implementation goes here
+    }
+}
 
+class SomeSubclass: SomeClass {
+    required init() {
+        // subclass implementation of the required initializer goes here
+    }
+}
 
 // Setting a default Property Value with a Closure or Function
-class SomeClass {
+class SomeOtherClass {
     let someProperty: Int = {
         // create a default value for someProperty inside this closure
         // someValue must be of the same type as SomeType
@@ -400,12 +409,12 @@ class SomeClass {
 }
 //  Note that the closure’s end curly brace is followed by an empty pair of parentheses. This tells Swift to execute the closure immediately. If you omit these parentheses, you are trying to assign the closure itself to the property, and not the return value of the closure.
 
-struct Checkerboard {
+struct Chessboard {
     let boardColors: [Bool] = {
         var temporaryBoard = [Bool]()
         var isBlack = false
-        for i in 1...10 {
-            for j in 1...10 {
+        for i in 1...8 {
+            for j in 1...8 {
                 temporaryBoard.append(isBlack)
                 isBlack = !isBlack
             }
@@ -413,17 +422,11 @@ struct Checkerboard {
         }
         return temporaryBoard
     }()
-    func squareIsBlackAtRow(row: Int, column: Int) -> Bool {
-        return boardColors[(row * 10) + column]
+    func squareIsBlackAt(row: Int, column: Int) -> Bool {
+        return boardColors[(row * 8) + column]
     }
 }
-let board = Checkerboard()
-print(board.squareIsBlackAtRow(0, column: 1))
-print(board.squareIsBlackAtRow(9, column: 9))
-
-
-
-
-
-
+let board = Chessboard()
+print(board.squareIsBlackAt(row: 0, column: 1))
+print(board.squareIsBlackAt(row: 7, column: 7))
 
