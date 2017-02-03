@@ -33,25 +33,25 @@ class Person2 {
 }
 
 class Apartment {
-    let number: Int
-    init(number: Int) { self.number = number }
+    let unit: String
+    init(unit: String) { self.unit = unit }
     var tenant: Person2?
-    deinit { print("Apartment #\(number) is being deinitialized") }
+    deinit { print("Apartment #\(unit) is being deinitialized") }
 }
 
 var john: Person2?
-var number73: Apartment?
+var unit4A: Apartment?
 
 john = Person2(name: "John Appleseed")
-number73 = Apartment(number: 73)
+unit4A = Apartment(unit: "4A")
 
-john!.apartment = number73
-number73!.tenant = john
+john!.apartment = unit4A
+unit4A!.tenant = john
 
 //  Unfortunately, linking these two instances creates a strong reference cycle between them. The Person instance now has a strong reference to the Apartment instance, and the Apartment instance has a strong reference to the Person instance. Therefore, when you break the strong references held by the john and number73 variables, the reference counts do not drop to zero, and the instances are not deallocated by ARC:
 
 john = nil
-number73 = nil
+unit4A = nil
 // We have now leaked memory
 
 // Resolving Strong Reference Cycles between Class Instances
@@ -66,17 +66,17 @@ class Person3 {
 }
 
 class Apartment3 {
-    let number: Int
-    init(number: Int) { self.number = number }
+    let unit: String
+    init(unit: String) { self.unit = unit }
     weak var tenant: Person3?
-    deinit { print("Apartment #\(number) is being deinitialized") }
+    deinit { print("Apartment #\(unit) is being deinitialized") }
 }
 
 var james: Person3?
 var number74: Apartment3?
 
 james = Person3(name: "James Appleseed")
-number74 = Apartment3(number: 74)
+number74 = Apartment3(unit: "74")
 
 james!.apartment = number74
 number74!.tenant = james
@@ -93,9 +93,9 @@ class Customer {
 }
 
 class CreditCard {
-    let number: Int
+    let number: UInt64
     unowned let customer: Customer
-    init(number: Int, customer: Customer) {
+    init(number: UInt64, customer: Customer) {
         self.number = number
         self.customer = customer
     }
@@ -152,6 +152,14 @@ class HTMLElement {
         print("\(name) is being deinitialized")
     }
 }
+
+let heading = HTMLElement(name: "h1")
+let defaultText = "some default text"
+heading.asHTML = {
+    return "<\(heading.name)>\(heading.text ?? defaultText)</\(heading.name)>"
+}
+print(heading.asHTML())
+
 
 var paragraph: HTMLElement? = HTMLElement(name: "p", text: "hello, world")
 print(paragraph!.asHTML())
