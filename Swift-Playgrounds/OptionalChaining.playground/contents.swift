@@ -26,7 +26,7 @@ class Person2 {
 class Residence2 {
     var rooms = [Room]()
     var numberOfRooms: Int {
-    return rooms.count
+        return rooms.count
     }
     subscript(i: Int) -> Room {
         return rooms[i]
@@ -58,7 +58,7 @@ class Address {
 }
 
 
-// Calling Properties Through Optional Chaining
+// Accessing Properties Through Optional Chaining
 let jack = Person2()
 if let roomCount = john.residence?.numberOfRooms {
     print("John's residence has \(roomCount) room(s).")
@@ -66,6 +66,20 @@ if let roomCount = john.residence?.numberOfRooms {
     print("Unable to retreive the number of rooms.")
 }
 
+let someAddress = Address()
+someAddress.buildingNumber = "29"
+someAddress.street = "Acacia Road"
+jack.residence?.address = someAddress
+
+func createAddress() -> Address {
+    print("Function was called.")
+    
+    let someAddress = Address()
+    someAddress.buildingNumber = "29"
+    someAddress.street = "Acacia Road"
+    
+    return someAddress
+}
 
 // Calling Methods through Optional Chaining
 if jack.residence?.printNumberOfRooms() != nil {
@@ -75,17 +89,28 @@ if jack.residence?.printNumberOfRooms() != nil {
 }
 // printNumberOfRooms returns Void? if called on an optional parent value
 
+if (jack.residence?.address = someAddress) != nil {
+    print("It was possible to set the address.")
+} else {
+    print("It was not possible to set the address.")
+}
+// Prints "It was not possible to set the address."
 
-// Calling Subscripts Through Optional Chaining
+
+// Accessing Subscripts Through Optional Chaining
 if let firstRoomName = jack.residence?[0].name {
     print("The first room name is \(firstRoomName).")
 } else {
     print("Unable to retrieve the first room name.")
 }
 
+//jack.residence?[0] = Room(name: "Bathroom")
+//This subscript setting attempt also fails, because residence is currently nil.
+
+
 let jacksHouse = Residence2()
-jacksHouse.rooms += [Room(name: "Living Room")]
-jacksHouse.rooms += [Room(name: "Kitchen")]
+jacksHouse.rooms.append(Room(name: "Living Room"))
+jacksHouse.rooms.append(Room(name: "Kitchen"))
 jack.residence = jacksHouse
 
 if let firstRoomName = jack.residence?[0].name {
@@ -93,6 +118,13 @@ if let firstRoomName = jack.residence?[0].name {
 } else {
     print("Unable to retrieve the first room name.")
 }
+
+// Accessing Subscripts of Optional Type
+var testScores = ["Dave": [86, 82, 84], "Bev": [79, 94, 81]]
+testScores["Dave"]?[0] = 91
+testScores["Bev"]?[0] += 1
+testScores["Brian"]?[0] = 72 // Fails as no Brian
+testScores
 
 
 // Linking Multiple levels of Chaining
