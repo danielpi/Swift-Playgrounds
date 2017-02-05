@@ -4,10 +4,10 @@ import Cocoa
 //: Swift provides first-class support for throwing, catching, propagating, and manipulating recoverable errors at runtime (NOTE: recoverable).
 //:
 //: ## Representing and Throwing Errors
-enum VendingMachineError: ErrorType {
-    case InvalidSelection
-    case InsufficientFunds(required: Int)
-    case OutOfStock
+enum VendingMachineError: Error {
+    case invalidSelection
+    case insufficientFunds(coinsNeeded: Int)
+    case outOfStock
 }
 
 // throw VendingMachineError.InsufficientFunds(required: 5)
@@ -30,29 +30,27 @@ class VendingMachine {
     ]
     var coinsDeposited = 0
     
-    func dispenseSnack(snack: String) {
-        print("Dispensing \(snack)")
-    }
-    
     func vend(itemNamed name: String) throws {
-        guard var item = inventory[name] else {
-            throw VendingMachineError.InvalidSelection
+        guard let item = inventory[name] else {
+            throw VendingMachineError.invalidSelection
         }
         
         guard item.count > 0 else {
-            throw VendingMachineError.OutOfStock
+            throw VendingMachineError.outOfStock
         }
         
         guard item.price <= coinsDeposited else {
-            throw VendingMachineError.InsufficientFunds(required: item.price - coinsDeposited)
+            throw VendingMachineError.insufficientFunds(coinsNeeded: item.price - coinsDeposited)
         }
         
         coinsDeposited -= item.price
-        --item.count
-        inventory[name] = item
-        dispenseSnack(name)
+        
+        var newItem = item
+        newItem.count -= 1
+        inventory[name] = newItem
+        
+        print("Dispensing \(name)")
     }
-
 }
 
 
@@ -68,28 +66,35 @@ func buyFavoriteSnack(person: String, vendingMachine: VendingMachine) throws {
 }
 //: Note that vend() must be marked with the try keyword. Also because the errors are not handled here the error is propagated up to buyFavoriteSnack() as noted by the throws keyword.
 
+struct PurchasedSnack {
+    let name: String
+    init(name: String, vendingMachine: VendingMachine) throws {
+        try vendingMachine.vend(itemNamed: name)
+        self.name = name
+    }
+}
 
 //: ## Handling Errors Using Do-Catch
 var vendingMachine = VendingMachine()
 vendingMachine.coinsDeposited = 8
 
 do {
-    try buyFavoriteSnack("Alice", vendingMachine: vendingMachine)
+    try buyFavoriteSnack(person: "Alice", vendingMachine: vendingMachine)
     // Enjoy delicious snack
-} catch VendingMachineError.InvalidSelection {
+} catch VendingMachineError.invalidSelection {
     print("Invalid Selection")
-} catch VendingMachineError.OutOfStock {
+} catch VendingMachineError.outOfStock {
     print("Out of Stock")
-} catch VendingMachineError.InsufficientFunds(let amountRequired) {
-    print("Insufficient funds. Please insert an additional $\(amountRequired).")
+} catch VendingMachineError.insufficientFunds(let coinsNeeded) {
+    print("Insufficient funds. Please insert an additional $\(coinsNeeded).")
 }
 
 //: ## Converting Errors to Optional Values
 //: If an error is thrown while evaluating the try? expression, the value of the expression is nil
-enum Error: ErrorType { case Unlucky }
+enum UnluckyError: Error { case unlucky }
 func someThrowingFunction() throws -> Int {
     let success = arc4random_uniform(5)
-    if success == 0 { throw Error.Unlucky }
+    if success == 0 { throw UnluckyError.unlucky }
     return Int(success)
 }
 
@@ -107,12 +112,12 @@ do {
 struct Data { }
 func fetchDataFromDisk() throws -> Data {
     let success = arc4random_uniform(5)
-    if success == 0 { throw Error.Unlucky }
+    if success == 0 { throw UnluckyError.unlucky }
     return Data()
 }
 func fetchDataFromServer() throws -> Data {
     let success = arc4random_uniform(5)
-    if success == 0 { throw Error.Unlucky }
+    if success == 0 { throw UnluckyError.unlucky }
     return Data()
 }
 
@@ -135,12 +140,12 @@ fetchData()
 //: Deferred statements may not contain any code that would transfer control out of the statements, such as a break or return statement, or by throwing an error.
 //: Deferred actions are executed in reverse order of how they are specified.
 
-enum FileError: ErrorType {
+enum FileError: Error {
     case endOfFile
     case fileClosed
 }
 
-func exists(filename: String) -> Bool { return true }
+func exists(_ filename: String) -> Bool { return true }
 class FakeFile {
     var isOpen = false
     var filename = ""
@@ -160,9 +165,9 @@ class FakeFile {
     }
 }
 
-func open(filename: String) -> FakeFile {
+func open(fileNamed: String) -> FakeFile {
     let file = FakeFile()
-    file.filename = filename
+    file.filename = fileNamed
     file.isOpen = true
     print("\(file.filename) has been opened")
     return file
@@ -173,11 +178,11 @@ func close(file: FakeFile) {
     print("\(file.filename) has been closed")
 }
 
-func processFile(filename: String) throws {
-    if exists(filename) {
-        let file = open(filename)
+func processFile(named: String) throws {
+    if exists(named) {
+        let file = open(fileNamed: named)
         defer {
-            close(file)
+            close(file: file)
         }
         while let line = try file.readline() {
             // Work with the file
@@ -188,7 +193,7 @@ func processFile(filename: String) throws {
 }
 
 do {
-    try processFile("myFakeFile")
+    try processFile(named: "myFakeFile")
 } catch FileError.endOfFile {
     print("Reached the end of the file")
 } catch FileError.fileClosed {
