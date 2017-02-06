@@ -55,15 +55,16 @@ let centerRect = Rect(center: Point(x: 4.0, y: 4.0), size: Size(width: 3.0, heig
 
 // Methods
 extension Int {
-    func repetitions(task: () -> ()) {
+    func repetitions(task: () -> Void) {
         for _ in 0..<self {
             task()
         }
     }
 }
 
-3.repetitions({ print("Hello!") })
-3.repetitions { print("Goodbye!") }
+3.repetitions {
+    print("Hello!")
+}
 
 
 // Mutating Instance Methods
@@ -79,6 +80,7 @@ someInt
 
 
 // Subscripts
+// This example adds an integer subscript to Swift’s built-in Int type. This subscript [n] returns the decimal digit n places in from the right of the number:
 extension Int {
     subscript(digitIndex: Int) -> Int {
         var decimalBase = 1
@@ -93,38 +95,41 @@ extension Int {
 746381295[1]
 746381295[2]
 746381295[8]
+
+// If the Int value does not have enough digits for the requested index, the subscript implementation returns 0, as if the number had been padded with zeros to the left:
+
 746381295[9]
 
 
 // Nested Types
 extension Int {
     enum Kind {
-        case Negative, Zero, Positive
+        case negative, zero, positive
     }
     
     var kind: Kind {
         switch self {
         case 0:
-            return .Zero
+            return .zero
         case let x where x > 0:
-            return .Positive
+            return .positive
         default:
-            return .Negative
+            return .negative
         }
     }
 }
 
 
-func printIntegerKinds(numbers: [Int]) {
+func printIntegerKinds(_ numbers: [Int]) {
     for number in numbers {
         switch number.kind {
-        case .Negative:
+        case .negative:
             print("-")
             //print("- ", terminator: false)
-        case .Zero:
+        case .zero:
             print("0")
             //print("0 ", terminator: false)
-        case .Positive:
+        case .positive:
             print("+")
             //print("+ ", terminator: false)
         }
