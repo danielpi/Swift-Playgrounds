@@ -36,6 +36,7 @@ let library = [
 // Checking Type
 var movieCount = 0
 var songCount = 0
+
 for item in library {
     if item is Movie {
         movieCount += 1
@@ -57,23 +58,8 @@ for item in library {
 
 
 // Type Casting for Any and AnyObject
-let someObjects: [AnyObject] = [
-    Movie(name: "2001: A Space Odyssey", director: "Stanley Kubrick"),
-    Movie(name: "Moon", director:"Duncan Jones"),
-    Movie(name: "Alien", director: "Ridley Scott")
-]
-//  Because this array is known to contain only Movie instances, you can downcast and unwrap directly to a non-optional Movie with the forced version of the type cast operator (as):
-for object in someObjects {
-    let movie = object as! Movie
-    print("Movie: '\(movie.name)', dir.\(movie.director)")
-}
-for movie in someObjects as! [Movie] {
-    print("Movie: '\(movie.name)', dir. \(movie.director)")
-}
-
-
-// Any
 var things = [Any]()
+
 things.append(0)
 things.append(0.0)
 things.append(42)
@@ -81,6 +67,7 @@ things.append(3.1459)
 things.append("hello")
 things.append((3.0, 5.0))
 things.append(Movie(name: "Ghostbusters", director: "Ivan Reitman"))
+things.append({ (name: String) -> String in "Hello, \(name)" })
 
 for thing in things {
     switch thing {
