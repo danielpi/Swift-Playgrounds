@@ -50,7 +50,7 @@ class Starship: FullyNamed {
         self.prefix = prefix
     }
     var fullName: String {
-    return ((prefix != nil ? prefix! + " " : "") + name)
+        return ((prefix != nil ? prefix! + " " : "") + name)
     }
 }
 var ncc1701 = Starship(name: "Enterprise", prefix: "USS")
@@ -74,7 +74,7 @@ class LinearCongruentialGenerator: RandomNumberGenerator {
     let a = 3877.0
     let c = 29573.0
     func random() -> Double {
-        lastRandom = ((lastRandom * a + c) % m)
+        lastRandom = ((lastRandom * a + c).truncatingRemainder(dividingBy:m))
         return lastRandom / m
     }
 }
@@ -89,17 +89,17 @@ protocol Togglable {
 }
 
 enum OnOffSwitch: Togglable {
-    case Off, On
+    case off, on
     mutating func toggle() {
         switch self {
-        case Off:
-            self = On
-        case On:
-            self = Off
+        case .off:
+            self = .on
+        case .on:
+            self = .off
         }
     }
 }
-var lightSwitch = OnOffSwitch.Off
+var lightSwitch = OnOffSwitch.off
 lightSwitch.toggle()
 lightSwitch
 
@@ -171,9 +171,9 @@ protocol DiceGame {
     func play()
 }
 protocol DiceGameDelegate {
-    func gameDidStart(game: DiceGame)
-    func game(game: DiceGame, didStartNewTurnWithDiceRoll diceRoll: Int)
-    func gameDidEnd(game: DiceGame)
+    func gameDidStart(_ game: DiceGame)
+    func game(_ game: DiceGame, didStartNewTurnWithDiceRoll diceRoll: Int)
+    func gameDidEnd(_ game: DiceGame)
 }
 
 class SnakesAndLadders: DiceGame {
@@ -182,7 +182,7 @@ class SnakesAndLadders: DiceGame {
     var square = 0
     var board: [Int]
     init() {
-        board = [Int](count: finalSquare + 1, repeatedValue: 0)
+        board = [Int](repeating: 0, count: finalSquare + 1)
         board[03] = +08; board[06] = +11; board[09] = +09; board[10] = +02
         board[14] = -10; board[19] = -11; board[22] = -02; board[24] = -08
     }
@@ -209,18 +209,18 @@ class SnakesAndLadders: DiceGame {
 
 class DiceGameTracker: DiceGameDelegate {
     var numberOfTurns = 0
-    func gameDidStart(game: DiceGame) {
+    func gameDidStart(_ game: DiceGame) {
         numberOfTurns = 0
         if game is SnakesAndLadders {
             print("Started a new game of Snakes and Ladders")
         }
         print("The game is using a \(game.dice.sides)-sided dice")
     }
-    func game(game: DiceGame, didStartNewTurnWithDiceRoll diceRoll: Int) {
+    func game(_ game: DiceGame, didStartNewTurnWithDiceRoll diceRoll: Int) {
         numberOfTurns += 1
         print("Rolled a \(diceRoll)")
     }
-    func gameDidEnd(game: DiceGame) {
+    func gameDidEnd(_ game: DiceGame) {
         print("The game lasted for \(numberOfTurns) turns")
     }
 }
@@ -326,11 +326,11 @@ struct Person2: Named, Aged {
     var name: String
     var age: Int
 }
-func wishHappyBirthday(celebrator: protocol<Named, Aged>) {
-    print("Happy birthday \(celebrator.name) - you're \(celebrator.age)!")
+func wishHappyBirthday(to celebrator: Named & Aged) {
+    print("Happy birthday, \(celebrator.name), you're \(celebrator.age)!")
 }
 let birthdayPerson = Person2(name:"Malcom", age: 21)
-wishHappyBirthday(birthdayPerson)
+wishHappyBirthday(to: birthdayPerson)
 // Note: Protocol compositions do not define a new, permanent protocol type. Rather they define a temporary local protocol that has the combined requirements of all protocols in the composition.
 
 
@@ -373,15 +373,15 @@ for object in objects {
 // Optional Protocol Requirements
 //  Optional property requirements, and optional method requirements that return a value, will always return an optional value of the appropriate type when they are accessed or called, to reflect the fact that the optional requirement may not have been implemented.
 @objc protocol CounterDataSource {
-    optional func incrementForCount(count: Int) -> Int
-    optional var fixedIncrement: Int { get }
+    @objc optional func increment(forCount count: Int) -> Int
+    @objc optional var fixedIncrement: Int { get }
 }
 
 class Counter {
     var count = 0
     var dataSource: CounterDataSource?
     func increment() {
-        if let amount = dataSource?.incrementForCount?(count) {
+        if let amount = dataSource?.increment?(forCount: count) {
             count += amount
         } else if let amount = dataSource?.fixedIncrement {
             count += amount
@@ -401,7 +401,7 @@ for _ in 1...4 {
 }
 
 @objc class TowardsZeroSource: NSObject, CounterDataSource {
-    func incrementForCount(count: Int) -> Int {
+    func increment(forCount count: Int) -> Int {
         if count == 0 {
             return 0
         } else if count < 0 {
@@ -455,10 +455,10 @@ print(simonTheHamster.prettyTextualDescription)
 // You can specify constraints that conforming types must satisfy before methods and properties of an extension are available.
 // You use the where clause after the name of the protocol you are extending.
 
-extension CollectionType where Generator.Element : TextRepresentable {
+extension Collection where Iterator.Element : TextRepresentable {
     var textualDescription: String {
         let itemsAsText = self.map { $0.textualDescription }
-        return "[" + itemsAsText.joinWithSeparator(", ") + "]"
+        return "[" + itemsAsText.joined(separator: ", ") + "]"
     }
 }
 
