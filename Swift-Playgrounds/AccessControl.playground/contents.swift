@@ -22,11 +22,17 @@
 // Access Control Syntax
 public class SomePublicClass {}
 internal class SomeInternalClass {}
+fileprivate class SomeFilePrivateClass {}
 private class SomePrivateClass {}
 
 public var somePublicVariable = 0
 internal let someInternalConstant = 0
+fileprivate func someFilePrivateFunction() {}
 private func somePriviateFunction() {}
+
+class SomeImplicitlyInternalClass {}        // implicitly internal
+let someImplicitlyInternalConstant = 0      // implicitly internal
+
 
 public class AnotherPublicClass {           // explicitly public class
     public var somePublicProperty = 0       // explicitly public class member
@@ -37,6 +43,11 @@ public class AnotherPublicClass {           // explicitly public class
 class AnotherInternalClass {                // implicitly internal class
     var someInternalProperty = 0            // implicitly internal class member
     private func somePrivateMethod() {}     // explicitly private class member
+}
+
+fileprivate class AnotherFilePrivateClass { // explicitly file-private class
+    func someFilePrivateMethod() {}         // inplicitly file-private method
+    private func somePrivateMethod() {}     // explicitly file-private method
 }
 
 private class AnotherPrivateClass {         // explicitly private class
@@ -67,9 +78,9 @@ private func someFunction() -> (SomeInternalClass, SomePrivateClass) {
 // Enumeration Types
 // The individual cases of an enumeration have the same access level as the enum
 private enum CompassPoint {
-    case North
-    case South
-    case East
+    case north
+    case south
+    case east
     case west
 }
 
@@ -79,10 +90,17 @@ private enum CompassPoint {
 // A subclass cannot have a higher access level than its superclass.
 // An override can make an inherited class member more accessible than its superclass.
 public class A {
-    private func someMethod() {}
+    fileprivate func someMethod() {}
 }
 
 internal class B: A {
+    override internal func someMethod() {}
+}
+
+public class C {
+    fileprivate func someMethod() {}
+}
+internal class D: C {
     override internal func someMethod() {
         super.someMethod()
     }
@@ -98,9 +116,9 @@ private var privateInstance = SomePrivateClass()
 struct TrackedString {
     private(set) var numberOfEdits = 0
     var value: String = "" {
-    didSet {
-        numberOfEdits += 1
-    }
+        didSet {
+            numberOfEdits += 1
+        }
     }
 }
 
