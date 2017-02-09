@@ -249,6 +249,21 @@ for item in breakfastList {
 
 
 // Failable Initializers
+#if swift(>=3.1)
+let wholeNumber: Double = 12345.0
+let pi = 3.14159
+
+if let valueMaintained = Int(exactly: wholeNumber) {
+    print("\(wholeNumber) conversion to int maintains value")
+}
+
+let valueChanged = Int(exactly: pi)
+
+if valueChanged == nil {
+    print("\(pi) conversion to int does not maintain value")
+}
+#endif
+
 struct Animal {
     let species: String
     init?(species: String) {
