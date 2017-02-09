@@ -6,7 +6,7 @@ import UIKit
 //: ## Initialization
 
 // UITableView *myTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
-let myTableView: UITableView = UITableView(frame: CGRectZero, style: .Grouped)
+let myTableView: UITableView = UITableView(frame: CGRect.zero, style: .grouped)
 
 let myTextField = UITextField(frame: CGRect(x: 0.0, y: 0.0, width: 200.0, height: 40.0))
 
@@ -23,11 +23,8 @@ if let image = UIImage(contentsOfFile: "MyImage.png") {
 
 
 //: ## Accessing Properties
-myTextField.textColor = UIColor.darkGrayColor()
+myTextField.textColor = UIColor.darkGray
 myTextField.text = "Hello world"
-if myTextField.editing {
-    //myTextField.editing = false
-}
 
 //:  In Objective-C, a method that returns a value and takes no arguments can be treated as an implicit getter—and be called using the same syntax as a getter for a property. This is not the case in Swift. In Swift, only properties that are written using the @property syntax in Objective-C are imported as properties.
 
@@ -41,62 +38,81 @@ if myTextField.editing {
 
 let mySubview = UIView()
 // [myTableView insertSubview:mySubview atIndex:2];
-myTableView.insertSubview(mySubview, atIndex: 2)
+myTableView.insertSubview(mySubview, at: 2)
 myTableView.layoutIfNeeded() // Parenthesis still required despite lack of arguments
 
 
 //: ## id Compatibility
 //:  AnyObject is a protocol type.
 //:  The AnyObject protocol allows you to write type-safe Swift code while maintaining the flexibility of an untyped object. Because of the additional safety provided by the AnyObject protocol, Swift imports id as AnyObject.
-var myObject: AnyObject = UITableViewCell()
-myObject = NSDate()
 
-//:  You can also call any Objective-C method and access any property without casting to a more specific class type.
-let futureDate = myObject.dateByAddingTimeInterval(10)
-let timeSinceNow = myObject.timeIntervalSinceNow
+var x: Any = "hello" as String
+x as? String
+x as? NSString
 
-//:  In contrast with Objective-C, if you invoke a method or access a property that does not exist on an AnyObject typed object, it is a runtime error. For example, the following code compiles without complaint and then causes an unrecognized selector error at runtime:
-// myObject.characterAtIndex(5) // This causes a runtime error
+x = "goodbye" as NSString
+x as? String
+x as? NSString
 
-//:  When you call an Objective-C method on an AnyObject type object, the method call actually behaves like an implicitly unwrapped optional. You can use the same optional chaining syntax you would use for optional methods in protocols to optionally invoke a method on AnyObject.
-//let myLength = myObject.length?
-//let myChar = myObject.characterAtIndex?(5)
-/*
-if let fifthCharacter = myObject.characterAtIndex(5) {
-    println("Found \(fifthCharacter) at index 5")
-}
-*/
-
-let userDefaults = NSUserDefaults.standardUserDefaults()
-let lastRefreshDate: AnyObject? = userDefaults.objectForKey("LastRefreshDate")
-if let date = lastRefreshDate as? NSDate {
+// Downcasting Any
+let userDefaults = UserDefaults.standard
+let lastRefreshDate = userDefaults.object(forKey: "LastRefreshDate") // lastRefreshDate is of type Any?
+if let date = lastRefreshDate as? Date {
     print("\(date.timeIntervalSinceReferenceDate)")
 }
 
-// The following force unwraps the lastRefreshDate even though it is nil.
-//let myDate = lastRefreshDate as NSDate
-//let timeInterval = myDate.timeIntervalSinceReferenceDate
+// If you are cetain of the type of the object, you can use the forced downcast operator
+
+// let myDate = lastRefreshDate as! Date
+// let timeInterval = myDate.timeIntervalSinceReferenceDate
+
+
+// Dynamic Method Lookup
+var myObject: AnyObject = UITableViewCell()
+myObject = NSDate()
+let futureDate = myObject.addingTimeInterval(10)
+let timeSinceNow = myObject.timeIntervalSinceNow
+
+
+// Unrecognized Selectors and Optional Chaining
+// myObject.character(at: 5) // crash, myObject doesn't respond to that method
+
+let myCount = myObject.count                // Int? type and nil value
+let myChar = myObject.character?(at: 5)     // unichar? type and nil value
+if let fifthCharacter = myObject.character?(at: 5) {
+    print("Found \(fifthCharacter) at index 5")
+}
 
 
 //: ## Nullability and Optionals
 //:  Swift makes all classes in argument types and return types optional in imported Objective-C APIs.
 //:  Swift imports object types as implicitly unwrapped optionals.
+var nulableProperty: Any?
+var nonNullProperty: Any
+var unannotatedProperty: Any!
+
+func returnsNonNullValue() -> Any { return false }
+func takesNonNullParameter(value: Any) {}
+
+func returnsNullableValue() -> Any? { return nil }
+func takesNullableParameter(value: Any?) {}
+
+func returnsUnannotatedValue() -> Any! { return false }
+func takesUnannotatedParameter(value: Any!) {}
 
 
 // Extensions
 extension UIBezierPath {
-    convenience init(triangleSideLength: Float, origin: CGPoint) {
+    convenience init(triangleSideLength: CGFloat, origin: CGPoint) {
         self.init()
-        let squareRoot = Float(sqrt(3.0))
+        let squareRoot = CGFloat(sqrt(3.0))
         let altitude = (squareRoot * triangleSideLength) / 2
-        moveToPoint(origin)
-        _ = CGPoint(x: CGFloat(triangleSideLength), y: origin.x)
-        addLineToPoint(CGPoint(x: CGFloat(triangleSideLength), y: origin.x))
-        addLineToPoint(CGPoint(x: CGFloat(triangleSideLength / 2), y: CGFloat(altitude)))
-        closePath()
+        move(to: origin)
+        addLine(to: CGPoint(x: origin.x + triangleSideLength, y: origin.x))
+        addLine(to: CGPoint(x: origin.x + triangleSideLength / 2, y: origin.y + altitude))
+        close()
     }
 }
-// ??? A bunch of explicit casting is required above when the docs indicate that they shouldn't be needed.
 
 //  You can use extensions to add properties (including class and static properties). However, these properties must be computed; extensions can’t add stored properties to classes, structures, or enumerations.
 extension CGRect {
@@ -112,9 +128,16 @@ let area = rect.area
 //  Objective-C blocks are automatically imported as Swift closures.
 
 // void (^completionBlock)(NSData *, NSError *) = ^(NSData *data, NSError *error) { /* ... */ }
-let completionBlock: (NSData, NSError) -> Void = { data, error in /* ... */ }
-//  Closures have similar capture semantics as blocks but differ in one key way: Variables are mutable rather than copied. In other words, the behavior of __block in Objective-C is the default behavior for variables in Swift.
+let completionBlock: (Data) -> Void = { data in
+    /* ... */
+}
 
+// Avoiding String Reference Cycles When Capturing self
+/*
+self.closure = { [unowned self] in
+    self.doSomething()
+}
+*/
 
 // Object Comparison
 //  Equality (==), compares the contents of the objects. 
@@ -124,45 +147,117 @@ let completionBlock: (NSData, NSError) -> Void = { data, error in /* ... */ }
 
 // Swift Type Compatibility
 //  The @objc attribute makes your Swift API available in Objective-C and the Objective-C runtime.
-typealias Дерево = String
+/*
+class Jukebox: NSObject {
+    var library: Set<String>
+    var nowPlaying: String?
+    
+    var isCurrentlyPlaying: Bool {
+        return nowPlaying != nil
+    }
+    
+    static var favoritesPlaylist: [String] {
+        // return an array of song names
+    }
+    
+    init(songs: String...) {
+        self.library = Set<String>(songs)
+    }
+    
+    func playSong(named name: String) throws {
+        // play song or throw and error if unavailable
+    }
+}
+*/
+
+// Configuring Swift Interfaces in Objective-C
+@objc(Color)
+enum Цвет: Int {
+    @objc(Red)
+    case Красный
+    
+    @objc(Black)
+    case Черный
+}
 
 @objc(Squirrel)
 class Белка: NSObject {
+    @objc(color)
+    var цвет: Цвет = .Красный
+    
     @objc(initWithName:)
     init(имя: String) {
         // ...
     }
     @objc(hideNuts:inTree:)
-    func прячьОрехи(kоличество: Int, вДереве дерево: Дерево) {
+    func прячьОрехи(количество: Int, вДереве дерево: Цвет) { // Error
         // ...
     }
 }
 
 
-// Objective-C Selectors
+// Requiring Dynamic Dispatch
+// Selectors
 //  An Objective-C selector is a type that refers to the name of an Objective-C method. In Swift, Objective-C selectors are represented by the Selector structure.
 //  In Swift string literals can be automatically converted to selectors
 class MyViewController: UIViewController {
     let myButton = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
     
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        myButton.addTarget(self, action: "tappedButton:", forControlEvents: .TouchUpInside)
-    }
-
-    required init(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        let action = #selector(MyViewController.tappedButton)
+        myButton.addTarget(self, action: action, for: .touchUpInside)
     }
     
     func tappedButton(sender: UIButton!) {
         print("tapped button")
     }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
 }
 
 
+// Unsafe Invocation of Objective-C Methods
+let string: NSString = "Hello, Cocoa!"
+let selector = #selector(NSString.lowercased(with:))
+let locale = Locale.current
+if let result = string.perform(selector, with: locale) {
+    print(result.takeUnretainedValue())
+}
+
+let array: NSArray = ["delta", "alpha", "zulu"]
+let anotherSelector = #selector(getter: NSDictionary.allKeys)
+// array.perform(selector) // Raises an exception because NSArray does not respond to this selector
 
 
+// Keys and Key Paths
+class Person: NSObject {
+    var name: String
+    var friends: [Person] = []
+    var bestFriend: Person? = nil
+    
+    init(name: String) {
+        self.name = name
+    }
+}
 
+let gabrielle = Person(name: "Gabrielle")
+let jim = Person(name: "Jim")
+let yuanyuan = Person(name: "Yuanyuan")
+gabrielle.friends = [jim, yuanyuan]
+gabrielle.bestFriend = yuanyuan
+
+#keyPath(Person.name)
+gabrielle.value(forKey: #keyPath(Person.name))
+#keyPath(Person.bestFriend.name)
+gabrielle.value(forKeyPath: #keyPath(Person.bestFriend.name))
+#keyPath(Person.friends.name)
+gabrielle.value(forKeyPath: #keyPath(Person.friends.name))
+
+let personNameKeyPath = #keyPath(Person.name)
+yuanyuan.value(forKeyPath: personNameKeyPath)
 
 
 
