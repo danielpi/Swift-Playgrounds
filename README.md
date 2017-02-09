@@ -1,8 +1,6 @@
 # Swift Playgrounds
 
-Some experiments with Playgrounds in XCode 6 using the Swift programming language.
-
-I've started the process of converting everything over to Swift 2.0 and XCode7. I'll leave this in a separate branch for now until the new playgrounds stabilise.
+Some experiments with Playgrounds in XCode 8.2 using the Swift programming language.
 
 ##The Swift Programming Language Book
 
@@ -12,57 +10,56 @@ I have implemented this as a single XCode project that contains a playground fil
 
 Below is a list of each of the files within the project (this is also a list of the chapters of the book that I have worked through).
 
-- **ASwiftTour.playground** contains the code from the "Swift Tour" chapter. It touches on most of the unusual features of the language and is easy to search through to find examples. It is a large file and does tend to give the swift interpreter a rather hard time. Any syntax errors in the file are likely to crash SourceKit.
+- **A Swift Tour** contains the code from the "Swift Tour" chapter. It touches on most of the unusual features of the language and is easy to search through to find examples. It is a large file and does tend to give the swift interpreter a rather hard time.
 
 Chapters from the Language guide. Each chapter goes into depth about its particular subject.
 
-- **TheBasics.playground** This chapter covers basic value types like Strings, Ints, Bools and floats. The notation for exponent values in float literals is interesting. Comments are covered (nested /* */ comment blocks). TypeAlias is covered as are tuples. Optionals are touched on and assertions are mentioned.
-- **BasicOperators.playground** Arithmetic, remainder, increment, decrement, comparison, unary, ternary, range (closed and half-closed) and logical operators. There are examples of all of them.
-- **StringsAndCharacters.playground** Some details about Unicode literals (multi-byte characters). The countElements() function for finding the length of a string. Concatenating strings, Comparing strings and Interpolating strings (not much on splitting or parsing strings). 
-- **CollectionTypes.playground**
-- **ControlFlow.playground**
-- **Functions.playground**
-- **Closures.playground**
-- **Enumerations.playground**
-- **ClassesAndStructures.playground**
-- **Properties.playground**
-- **Methods.playground**
-- **Subscripts.playground**
-- **Inheritance.playground**
-- **Initialization.playgroung**
-- **Deinitialization.playground**
-- **AutomaticReferenceCounting.playground**
-- **OptionalChaining.playground**
-- **TypeCasting.playground**
-- **NestedTypes.playground**
-- **Extensions.playground**
-- **Protocols.playground**
-- **Generics.playground**
-- **AdvancedOperators.playground**
+- **The Basics** This chapter covers basic value types like Strings, Ints, Bools and floats. The notation for exponent values in float literals is interesting. Comments are covered (nested /* */ comment blocks). TypeAlias is covered as are tuples. Optionals are touched on and assertions are mentioned.
+- **Basic Operators** Arithmetic, remainder, increment, decrement, comparison, unary, ternary, range (closed and half-closed) and logical operators. There are examples of all of them.
+- **Strings And Characters** Some details about Unicode literals (multi-byte characters). The countElements() function for finding the length of a string. Concatenating strings, Comparing strings and Interpolating strings (not much on splitting or parsing strings). 
+- **Collection Types**
+- **ControlFlow**
+- **Functions**
+- **Closures**
+- **Enumerations**
+- **Classes And Structures**
+- **Properties**
+- **Methods**
+- **Subscripts**
+- **Inheritance**
+- **Initialization**
+- **Deinitialization**
+- **Automatic Reference Counting**
+- **Optional Chaining**
+- **Type Casting**
+- **Nested Types**
+- **Extensions**
+- **Protocols**
+- **Generics**
+- **Advanced Operators**
 
-That completes the Language Guide section of the book. I haven't decided if I will continue on with the Language reference section next or switch over to the "Using Swift with Cocoa and Objective-C" book. 
 
 ## Using Swift with Cocoa and Objective-C Book
 There are six playground files that work through the code in the “Using Swift with Cocoa and Objective-C.” iBook. https://itunes.apple.com/au/book/using-swift-cocoa-objective/id888894773?mt=11. They are listed below. The example from this book didn't translate as well to the playgrounds as the previous book examples did. 
 
-- **BasicSetup.playground**
-- **InteractingWithObjective-C-APIs.playground**
-- **WritingClassesWithObjectiveCBehaviour.playground**
-- **WorkingWithCocoaDataTypes.playground**
-- **AdoptingCocoaDesignPatterns.playground**
-- **InteractingWithC-APIs.playground**
+- **Basic Setup**
+- **Interacting With Objective-C-**
+- **Writing Classes With Objective C Behaviour**
+- **Working With Cocoa Data Types**
+- **Adopting Cocoa Design Patterns**
+- **InteractingWith C**
 
 
 ## Swift Standard Library
 The documentation for the Swift Standard Library can be found at the following link https://developer.apple.com/library/prerelease/ios/documentation/General/Reference/SwiftStandardLibraryReference/. There is a wealth of information contained in the standard library doc and it is nicely organised so that it is easy to experiment with in a playground environment. I have attempted to extend the examples somewhat to try and show off some of the other features of the standard library.
 
-- **String.playground**
-- **Array.playground**
-- **Dictionary.playground**
-- **NumericTypes.playground**
-- **Protocols.playground**
-- **FreeFunctions.playground**
-- **Undocumented.playground**
+- **String**
+- **Array**
+- **Dictionary**
+- **NumericTypes**
+- **Protocols**
+- **FreeFunctions**
+- **Undocumented**
 
 ## Swift Blog
 The Swift blog contains several articles detailing interesting information about the developing language. 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E66B1CC01E4C183C00B6593E /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = E66B1CBF1E4C183C00B6593E /* README.md */; };
 		E6C330A81E4C00CD0000AA37 /* icon_56811.png in Resources */ = {isa = PBXBuildFile; fileRef = E6C330A61E4C00CD0000AA37 /* icon_56811.png */; };
 		E6E1BED819401B3600DA4D53 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E1BED719401B3600DA4D53 /* main.swift */; };
 /* End PBXBuildFile section */
@@ -48,6 +49,7 @@
 		E61C4B7A1E4BFC0300E4E565 /* 23-Generics.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "23-Generics.playground"; sourceTree = "<group>"; };
 		E61C4B7B1E4BFC0300E4E565 /* 24-AccessControl.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "24-AccessControl.playground"; sourceTree = "<group>"; };
 		E61C4B7C1E4BFC0300E4E565 /* 25-AdvancedOperators.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "25-AdvancedOperators.playground"; sourceTree = "<group>"; };
+		E66B1CBF1E4C183C00B6593E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		E6C3307F1E4BFCCF0000AA37 /* Swift-Playgrounds.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swift-Playgrounds.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6C330801E4BFCCF0000AA37 /* Swift-PlaygroundsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Swift-PlaygroundsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6C330831E4C008E0000AA37 /* AdoptingCocoaDesignPatterns.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = AdoptingCocoaDesignPatterns.playground; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 		E6E1BEC919401B3600DA4D53 = {
 			isa = PBXGroup;
 			children = (
+				E66B1CBF1E4C183C00B6593E /* README.md */,
 				E6E1BED419401B3600DA4D53 /* Swift-Playgrounds */,
 				E6C3307F1E4BFCCF0000AA37 /* Swift-Playgrounds.app */,
 				E6C330801E4BFCCF0000AA37 /* Swift-PlaygroundsTests.xctest */,
@@ -377,6 +380,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E66B1CC01E4C183C00B6593E /* README.md in Sources */,
 				E6E1BED819401B3600DA4D53 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
