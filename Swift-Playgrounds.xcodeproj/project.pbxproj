@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E6C330A81E4C00CD0000AA37 /* icon_56811.png in Resources */ = {isa = PBXBuildFile; fileRef = E6C330A61E4C00CD0000AA37 /* icon_56811.png */; };
 		E6E1BED819401B3600DA4D53 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E1BED719401B3600DA4D53 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -21,7 +22,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E619A96D199CE6E000D63EA8 /* 2014-08-08-LockingInSwift.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = "2014-08-08-LockingInSwift.playground"; path = "Blogs/2014-08-08-LockingInSwift.playground"; sourceTree = "<group>"; };
 		E61C4B621E4BFC0200E4E565 /* ASwiftTour.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ASwiftTour.playground; sourceTree = "<group>"; };
 		E61C4B641E4BFC0200E4E565 /* 01-TheBasics.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "01-TheBasics.playground"; sourceTree = "<group>"; };
 		E61C4B651E4BFC0200E4E565 /* 02-BasicOperators.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "02-BasicOperators.playground"; sourceTree = "<group>"; };
@@ -48,36 +48,38 @@
 		E61C4B7A1E4BFC0300E4E565 /* 23-Generics.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "23-Generics.playground"; sourceTree = "<group>"; };
 		E61C4B7B1E4BFC0300E4E565 /* 24-AccessControl.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "24-AccessControl.playground"; sourceTree = "<group>"; };
 		E61C4B7C1E4BFC0300E4E565 /* 25-AdvancedOperators.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "25-AdvancedOperators.playground"; sourceTree = "<group>"; };
-		E62C22AD196C1D4F0005CA67 /* WritingSwiftClassesWithObjectiveCBehaviour.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = WritingSwiftClassesWithObjectiveCBehaviour.playground; sourceTree = "<group>"; };
-		E62D22651AF05ABD0073FBD0 /* Cheryls-Birthday-Alternative-1.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "Cheryls-Birthday-Alternative-1.playground"; sourceTree = "<group>"; };
-		E639499A1994DE440016ED46 /* 2014-07-23-AccessControl.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = "2014-07-23-AccessControl.playground"; path = "SwiftBlog/2014-07-23-AccessControl.playground"; sourceTree = "<group>"; };
-		E639499B19964C1F0016ED46 /* Undocumented.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = Undocumented.playground; path = SwiftStanardLibrary/Undocumented.playground; sourceTree = "<group>"; };
-		E642112F19924A2A00EE7DC7 /* 2014-08-05-Boolean.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = "2014-08-05-Boolean.playground"; path = "SwiftBlog/2014-08-05-Boolean.playground"; sourceTree = "<group>"; };
-		E6517B3819A3693F009E4376 /* 2014-08-18-SwiftLiteralConvertibles.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = "2014-08-18-SwiftLiteralConvertibles.playground"; path = "Blogs/NSHipster/2014-08-18-SwiftLiteralConvertibles.playground"; sourceTree = "<group>"; };
-		E6556B68196A9B6C00D5764D /* BasicSetup.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = BasicSetup.playground; path = "UsingSwiftWithCocoaAndObjective-C/BasicSetup.playground"; sourceTree = "<group>"; };
-		E6556B69196A9DAD00D5764D /* InteractingWithObjective-C-APIs.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = "InteractingWithObjective-C-APIs.playground"; path = "UsingSwiftWithCocoaAndObjective-C/InteractingWithObjective-C-APIs.playground"; sourceTree = "<group>"; };
-		E658F23D197A8DCC00B4C60F /* AdvancedSwift.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = AdvancedSwift.playground; path = WWDC2014/AdvancedSwift.playground; sourceTree = "<group>"; };
-		E65F562D1993AE5A00BA3B03 /* 2014-07-28-InteractingWithCPointers.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = "2014-07-28-InteractingWithCPointers.playground"; path = "SwiftBlog/2014-07-28-InteractingWithCPointers.playground"; sourceTree = "<group>"; };
-		E69570711AEFB100000FB500 /* SpriteKitTestbed.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = SpriteKitTestbed.playground; sourceTree = "<group>"; };
-		E69B0F2D19AF3FAB00861C9A /* 2014-08-27-OptionalCaseStudy-valuesForKeys.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = "2014-08-27-OptionalCaseStudy-valuesForKeys.playground"; path = "SwiftBlog/2014-08-27-OptionalCaseStudy-valuesForKeys.playground"; sourceTree = "<group>"; };
-		E69BC3A8196E06C40041EF0E /* WorkingWithCocoaDataTypes.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = WorkingWithCocoaDataTypes.playground; path = "UsingSwiftWithCocoaAndObjective-C/WorkingWithCocoaDataTypes.playground"; sourceTree = "<group>"; };
-		E69BC3A9196E117E0041EF0E /* AdoptingCocoaDesignPatterns.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = AdoptingCocoaDesignPatterns.playground; path = "UsingSwiftWithCocoaAndObjective-C/AdoptingCocoaDesignPatterns.playground"; sourceTree = "<group>"; };
-		E6A6D4771971689600332701 /* String.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = String.playground; path = SwiftStanardLibrary/String.playground; sourceTree = "<group>"; };
-		E6A6D4781971F3AD00332701 /* Array.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = Array.playground; path = SwiftStanardLibrary/Array.playground; sourceTree = "<group>"; };
-		E6ACE85A19A77D8C00AD6C00 /* 2014-08-11-SwiftOperators.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "2014-08-11-SwiftOperators.playground"; sourceTree = "<group>"; };
-		E6B1D2D61970151C00647B94 /* GameDevUniversity.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = GameDevUniversity.playground; path = SpriteKit/GameDevUniversity.playground; sourceTree = "<group>"; };
-		E6C08AA519A216C90058A533 /* 2014-08-15-ValueAndReferenceTypes.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = "2014-08-15-ValueAndReferenceTypes.playground"; path = "SwiftBlog/2014-08-15-ValueAndReferenceTypes.playground"; sourceTree = "<group>"; };
-		E6D32F1E1AEE4F2100B7B0D9 /* Cheryls-Birthday.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "Cheryls-Birthday.playground"; sourceTree = "<group>"; };
-		E6E1BED219401B3600DA4D53 /* Swift-Playgrounds.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "Swift-Playgrounds.app"; path = "/Users/danielpi/repos/Swift-Playgrounds/build/Debug/Swift-Playgrounds.app"; sourceTree = "<absolute>"; };
+		E6C3307F1E4BFCCF0000AA37 /* Swift-Playgrounds.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swift-Playgrounds.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6C330801E4BFCCF0000AA37 /* Swift-PlaygroundsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Swift-PlaygroundsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6C330831E4C008E0000AA37 /* AdoptingCocoaDesignPatterns.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = AdoptingCocoaDesignPatterns.playground; sourceTree = "<group>"; };
+		E6C330841E4C008E0000AA37 /* BasicSetup.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = BasicSetup.playground; sourceTree = "<group>"; };
+		E6C330851E4C008E0000AA37 /* InteractingWithC-APIs.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "InteractingWithC-APIs.playground"; sourceTree = "<group>"; };
+		E6C330861E4C008E0000AA37 /* InteractingWithObjective-C-APIs.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "InteractingWithObjective-C-APIs.playground"; sourceTree = "<group>"; };
+		E6C330871E4C008E0000AA37 /* Mix&Match.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "Mix&Match.playground"; sourceTree = "<group>"; };
+		E6C330881E4C008E0000AA37 /* WorkingWithCocoaDataTypes.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = WorkingWithCocoaDataTypes.playground; sourceTree = "<group>"; };
+		E6C3308A1E4C00A50000AA37 /* Array.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Array.playground; sourceTree = "<group>"; };
+		E6C3308B1E4C00A50000AA37 /* Dictionary.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Dictionary.playground; sourceTree = "<group>"; };
+		E6C3308C1E4C00A50000AA37 /* FreeFunctions.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = FreeFunctions.playground; sourceTree = "<group>"; };
+		E6C3308D1E4C00A50000AA37 /* NumericTypes.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = NumericTypes.playground; sourceTree = "<group>"; };
+		E6C3308E1E4C00A50000AA37 /* Protocols.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Protocols.playground; sourceTree = "<group>"; };
+		E6C3308F1E4C00A50000AA37 /* String.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = String.playground; sourceTree = "<group>"; };
+		E6C330901E4C00A50000AA37 /* Undocumented.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Undocumented.playground; sourceTree = "<group>"; };
+		E6C330921E4C00CD0000AA37 /* 2014-08-11-SwiftOperators.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "2014-08-11-SwiftOperators.playground"; sourceTree = "<group>"; };
+		E6C330931E4C00CD0000AA37 /* Cheryls-Birthday-Alternative-1.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "Cheryls-Birthday-Alternative-1.playground"; sourceTree = "<group>"; };
+		E6C330941E4C00CD0000AA37 /* Cheryls-Birthday.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "Cheryls-Birthday.playground"; sourceTree = "<group>"; };
+		E6C330951E4C00CD0000AA37 /* WritingSwiftClassesWithObjectiveCBehaviour.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = WritingSwiftClassesWithObjectiveCBehaviour.playground; sourceTree = "<group>"; };
+		E6C330971E4C00CD0000AA37 /* 2014-08-08-LockingInSwift.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "2014-08-08-LockingInSwift.playground"; sourceTree = "<group>"; };
+		E6C330991E4C00CD0000AA37 /* 2014-08-18-SwiftLiteralConvertibles.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "2014-08-18-SwiftLiteralConvertibles.playground"; sourceTree = "<group>"; };
+		E6C3309B1E4C00CD0000AA37 /* 2014-07-23-AccessControl.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "2014-07-23-AccessControl.playground"; sourceTree = "<group>"; };
+		E6C3309C1E4C00CD0000AA37 /* 2014-07-28-InteractingWithCPointers.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "2014-07-28-InteractingWithCPointers.playground"; sourceTree = "<group>"; };
+		E6C3309D1E4C00CD0000AA37 /* 2014-08-05-Boolean.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "2014-08-05-Boolean.playground"; sourceTree = "<group>"; };
+		E6C3309E1E4C00CD0000AA37 /* 2014-08-15-ValueAndReferenceTypes.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "2014-08-15-ValueAndReferenceTypes.playground"; sourceTree = "<group>"; };
+		E6C3309F1E4C00CD0000AA37 /* 2014-08-27-OptionalCaseStudy-valuesForKeys.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "2014-08-27-OptionalCaseStudy-valuesForKeys.playground"; sourceTree = "<group>"; };
+		E6C330A21E4C00CD0000AA37 /* AdvancedSwift.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = AdvancedSwift.playground; sourceTree = "<group>"; };
+		E6C330A51E4C00CD0000AA37 /* GameDevUniversity.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = GameDevUniversity.playground; sourceTree = "<group>"; };
+		E6C330A61E4C00CD0000AA37 /* icon_56811.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_56811.png; sourceTree = "<group>"; };
+		E6C330A71E4C00CD0000AA37 /* SpriteKitTestbed.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = SpriteKitTestbed.playground; sourceTree = "<group>"; };
 		E6E1BED619401B3600DA4D53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E6E1BED719401B3600DA4D53 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		E6E1BEE419401B3600DA4D53 /* Swift-PlaygroundsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "Swift-PlaygroundsTests.xctest"; path = "/Users/danielpi/repos/Swift-Playgrounds/build/Debug/Swift-PlaygroundsTests.xctest"; sourceTree = "<absolute>"; };
-		E6E54E701973F24E00F2FA6B /* Dictionary.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = Dictionary.playground; path = SwiftStanardLibrary/Dictionary.playground; sourceTree = "<group>"; };
-		E6E54E7219752E8C00F2FA6B /* NumericTypes.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = NumericTypes.playground; path = SwiftStanardLibrary/NumericTypes.playground; sourceTree = "<group>"; };
-		E6E54E7319753FEB00F2FA6B /* Protocols.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = Protocols.playground; path = SwiftStanardLibrary/Protocols.playground; sourceTree = "<group>"; };
-		E6E54E741975452100F2FA6B /* FreeFunctions.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = FreeFunctions.playground; path = SwiftStanardLibrary/FreeFunctions.playground; sourceTree = "<group>"; };
-		E6F31F8A196E33440029E161 /* InteractingWithC-APIs.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = "InteractingWithC-APIs.playground"; path = "UsingSwiftWithCocoaAndObjective-C/InteractingWithC-APIs.playground"; sourceTree = "<group>"; };
-		E6F31F8B196E63A70029E161 /* Mix&Match.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = "Mix&Match.playground"; path = "UsingSwiftWithCocoaAndObjective-C/Mix&Match.playground"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,45 +141,114 @@
 			path = LanguageGuide;
 			sourceTree = "<group>";
 		};
-		E64211301992518700EE7DC7 /* Swift Blog */ = {
+		E6C330821E4C008E0000AA37 /* Using Swift With Cocoa And Objective-C */ = {
 			isa = PBXGroup;
 			children = (
-				E639499A1994DE440016ED46 /* 2014-07-23-AccessControl.playground */,
-				E65F562D1993AE5A00BA3B03 /* 2014-07-28-InteractingWithCPointers.playground */,
-				E642112F19924A2A00EE7DC7 /* 2014-08-05-Boolean.playground */,
-				E6C08AA519A216C90058A533 /* 2014-08-15-ValueAndReferenceTypes.playground */,
-				E69B0F2D19AF3FAB00861C9A /* 2014-08-27-OptionalCaseStudy-valuesForKeys.playground */,
+				E6C330831E4C008E0000AA37 /* AdoptingCocoaDesignPatterns.playground */,
+				E6C330841E4C008E0000AA37 /* BasicSetup.playground */,
+				E6C330851E4C008E0000AA37 /* InteractingWithC-APIs.playground */,
+				E6C330861E4C008E0000AA37 /* InteractingWithObjective-C-APIs.playground */,
+				E6C330871E4C008E0000AA37 /* Mix&Match.playground */,
+				E6C330881E4C008E0000AA37 /* WorkingWithCocoaDataTypes.playground */,
 			);
-			name = "Swift Blog";
+			path = "Using Swift With Cocoa And Objective-C";
 			sourceTree = "<group>";
 		};
-		E6517B3919A3694E009E4376 /* NSHipster */ = {
+		E6C330891E4C00A50000AA37 /* Swift Stanard Library */ = {
 			isa = PBXGroup;
 			children = (
-				E6517B3819A3693F009E4376 /* 2014-08-18-SwiftLiteralConvertibles.playground */,
-				E6ACE85A19A77D8C00AD6C00 /* 2014-08-11-SwiftOperators.playground */,
+				E6C3308A1E4C00A50000AA37 /* Array.playground */,
+				E6C3308B1E4C00A50000AA37 /* Dictionary.playground */,
+				E6C3308C1E4C00A50000AA37 /* FreeFunctions.playground */,
+				E6C3308D1E4C00A50000AA37 /* NumericTypes.playground */,
+				E6C3308E1E4C00A50000AA37 /* Protocols.playground */,
+				E6C3308F1E4C00A50000AA37 /* String.playground */,
+				E6C330901E4C00A50000AA37 /* Undocumented.playground */,
 			);
-			name = NSHipster;
+			path = "Swift Stanard Library";
 			sourceTree = "<group>";
 		};
-		E6556B67196A916000D5764D /* Using Swift with Cocoa and Objective-C */ = {
+		E6C330911E4C00CD0000AA37 /* Others */ = {
 			isa = PBXGroup;
 			children = (
-				E6556B68196A9B6C00D5764D /* BasicSetup.playground */,
-				E6556B69196A9DAD00D5764D /* InteractingWithObjective-C-APIs.playground */,
-				E62C22AD196C1D4F0005CA67 /* WritingSwiftClassesWithObjectiveCBehaviour.playground */,
-				E69BC3A8196E06C40041EF0E /* WorkingWithCocoaDataTypes.playground */,
-				E69BC3A9196E117E0041EF0E /* AdoptingCocoaDesignPatterns.playground */,
-				E6F31F8A196E33440029E161 /* InteractingWithC-APIs.playground */,
-				E6F31F8B196E63A70029E161 /* Mix&Match.playground */,
+				E6C330921E4C00CD0000AA37 /* 2014-08-11-SwiftOperators.playground */,
+				E6C330931E4C00CD0000AA37 /* Cheryls-Birthday-Alternative-1.playground */,
+				E6C330941E4C00CD0000AA37 /* Cheryls-Birthday.playground */,
+				E6C330951E4C00CD0000AA37 /* WritingSwiftClassesWithObjectiveCBehaviour.playground */,
 			);
-			name = "Using Swift with Cocoa and Objective-C";
+			path = Others;
+			sourceTree = "<group>";
+		};
+		E6C330961E4C00CD0000AA37 /* Blogs */ = {
+			isa = PBXGroup;
+			children = (
+				E6C330971E4C00CD0000AA37 /* 2014-08-08-LockingInSwift.playground */,
+				E6C330981E4C00CD0000AA37 /* NSHipster */,
+				E6C3309A1E4C00CD0000AA37 /* Swift Blog */,
+			);
+			path = Blogs;
+			sourceTree = "<group>";
+		};
+		E6C330981E4C00CD0000AA37 /* NSHipster */ = {
+			isa = PBXGroup;
+			children = (
+				E6C330991E4C00CD0000AA37 /* 2014-08-18-SwiftLiteralConvertibles.playground */,
+			);
+			path = NSHipster;
+			sourceTree = "<group>";
+		};
+		E6C3309A1E4C00CD0000AA37 /* Swift Blog */ = {
+			isa = PBXGroup;
+			children = (
+				E6C3309B1E4C00CD0000AA37 /* 2014-07-23-AccessControl.playground */,
+				E6C3309C1E4C00CD0000AA37 /* 2014-07-28-InteractingWithCPointers.playground */,
+				E6C3309D1E4C00CD0000AA37 /* 2014-08-05-Boolean.playground */,
+				E6C3309E1E4C00CD0000AA37 /* 2014-08-15-ValueAndReferenceTypes.playground */,
+				E6C3309F1E4C00CD0000AA37 /* 2014-08-27-OptionalCaseStudy-valuesForKeys.playground */,
+			);
+			path = "Swift Blog";
+			sourceTree = "<group>";
+		};
+		E6C330A01E4C00CD0000AA37 /* WWDC */ = {
+			isa = PBXGroup;
+			children = (
+				E6C330A11E4C00CD0000AA37 /* 2014 */,
+			);
+			path = WWDC;
+			sourceTree = "<group>";
+		};
+		E6C330A11E4C00CD0000AA37 /* 2014 */ = {
+			isa = PBXGroup;
+			children = (
+				E6C330A21E4C00CD0000AA37 /* AdvancedSwift.playground */,
+			);
+			path = 2014;
+			sourceTree = "<group>";
+		};
+		E6C330A31E4C00CD0000AA37 /* Specific Technologies */ = {
+			isa = PBXGroup;
+			children = (
+				E6C330A41E4C00CD0000AA37 /* SpriteKit */,
+			);
+			path = "Specific Technologies";
+			sourceTree = "<group>";
+		};
+		E6C330A41E4C00CD0000AA37 /* SpriteKit */ = {
+			isa = PBXGroup;
+			children = (
+				E6C330A51E4C00CD0000AA37 /* GameDevUniversity.playground */,
+				E6C330A61E4C00CD0000AA37 /* icon_56811.png */,
+				E6C330A71E4C00CD0000AA37 /* SpriteKitTestbed.playground */,
+			);
+			path = SpriteKit;
 			sourceTree = "<group>";
 		};
 		E6E1BEC919401B3600DA4D53 = {
 			isa = PBXGroup;
 			children = (
 				E6E1BED419401B3600DA4D53 /* Swift-Playgrounds */,
+				E6C3307F1E4BFCCF0000AA37 /* Swift-Playgrounds.app */,
+				E6C330801E4BFCCF0000AA37 /* Swift-PlaygroundsTests.xctest */,
 			);
 			sourceTree = "<group>";
 		};
@@ -185,17 +256,13 @@
 			isa = PBXGroup;
 			children = (
 				E61C4B611E4BFC0200E4E565 /* The Swift Programming Language */,
-				E658F23D197A8DCC00B4C60F /* AdvancedSwift.playground */,
-				E6556B67196A916000D5764D /* Using Swift with Cocoa and Objective-C */,
-				E6E54E711973F27700F2FA6B /* Swift Standard Library */,
-				E64211301992518700EE7DC7 /* Swift Blog */,
-				E6517B3919A3694E009E4376 /* NSHipster */,
-				E619A96D199CE6E000D63EA8 /* 2014-08-08-LockingInSwift.playground */,
-				E6B1D2D61970151C00647B94 /* GameDevUniversity.playground */,
+				E6C330821E4C008E0000AA37 /* Using Swift With Cocoa And Objective-C */,
+				E6C330891E4C00A50000AA37 /* Swift Stanard Library */,
+				E6C330911E4C00CD0000AA37 /* Others */,
+				E6C330961E4C00CD0000AA37 /* Blogs */,
+				E6C330A01E4C00CD0000AA37 /* WWDC */,
+				E6C330A31E4C00CD0000AA37 /* Specific Technologies */,
 				E6E1BED519401B3600DA4D53 /* Supporting Files */,
-				E6D32F1E1AEE4F2100B7B0D9 /* Cheryls-Birthday.playground */,
-				E62D22651AF05ABD0073FBD0 /* Cheryls-Birthday-Alternative-1.playground */,
-				E69570711AEFB100000FB500 /* SpriteKitTestbed.playground */,
 			);
 			path = "Swift-Playgrounds";
 			sourceTree = "<group>";
@@ -207,20 +274,6 @@
 				E6E1BED719401B3600DA4D53 /* main.swift */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		E6E54E711973F27700F2FA6B /* Swift Standard Library */ = {
-			isa = PBXGroup;
-			children = (
-				E6A6D4771971689600332701 /* String.playground */,
-				E6A6D4781971F3AD00332701 /* Array.playground */,
-				E6E54E701973F24E00F2FA6B /* Dictionary.playground */,
-				E6E54E7219752E8C00F2FA6B /* NumericTypes.playground */,
-				E6E54E7319753FEB00F2FA6B /* Protocols.playground */,
-				E6E54E741975452100F2FA6B /* FreeFunctions.playground */,
-				E639499B19964C1F0016ED46 /* Undocumented.playground */,
-			);
-			name = "Swift Standard Library";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,7 +293,7 @@
 			);
 			name = "Swift-Playgrounds";
 			productName = "Swift-Playgrounds";
-			productReference = E6E1BED219401B3600DA4D53 /* Swift-Playgrounds.app */;
+			productReference = E6C3307F1E4BFCCF0000AA37 /* Swift-Playgrounds.app */;
 			productType = "com.apple.product-type.application";
 		};
 		E6E1BEE319401B3600DA4D53 /* Swift-PlaygroundsTests */ = {
@@ -258,7 +311,7 @@
 			);
 			name = "Swift-PlaygroundsTests";
 			productName = "Swift-PlaygroundsTests";
-			productReference = E6E1BEE419401B3600DA4D53 /* Swift-PlaygroundsTests.xctest */;
+			productReference = E6C330801E4BFCCF0000AA37 /* Swift-PlaygroundsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -306,6 +359,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6C330A81E4C00CD0000AA37 /* icon_56811.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

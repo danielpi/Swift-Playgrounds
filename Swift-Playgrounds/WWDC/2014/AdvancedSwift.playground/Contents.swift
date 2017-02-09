@@ -100,8 +100,10 @@ enum Direction {
     case North, South, East, West
 }
 
+/*
 class Place: Thing {
     //init(_ name: String, _ longDescription: String) {
     //    super.init(<#Thing?#>, <#String#>, <#String#>)
     //}
     //var exits: Dictionary<Direction, Place> =
+*/
