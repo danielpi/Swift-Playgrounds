@@ -56,12 +56,14 @@ var willOverflow = UInt8.max
 willOverflow = willOverflow &+ 1
 
 // Value Underflow
-var willUnderflow = UInt8.min
-willUnderflow = willUnderflow &- 1
+var unsignedOverflow = UInt8.min
+unsignedOverflow = unsignedOverflow &+ 1
 
-var signedUnderflow = Int8.min
-signedUnderflow = signedUnderflow &- 1
+unsignedOverflow = UInt8.min
+unsignedOverflow = unsignedOverflow &- 1
 
+var signedOverflow = Int8.min
+signedOverflow = signedOverflow &- 1
 
 
 // Precedence and Associativity
@@ -77,16 +79,20 @@ signedUnderflow = signedUnderflow &- 1
 struct Vector2D {
     var x = 0.0, y = 0.0
 }
-func + (left: Vector2D, right: Vector2D) -> Vector2D {
-    return Vector2D(x: left.x + right.x, y: left.y + right.y)
+extension Vector2D {
+    static func + (left: Vector2D, right: Vector2D) -> Vector2D {
+        return Vector2D(x: left.x + right.x, y: left.y + right.y)
+    }
 }
 let vector = Vector2D(x: 3.0, y: 1.0)
 let anotherVector = Vector2D(x: 2.0, y:4.0)
 let combinedVector = vector + anotherVector
 
 // Prefix and Postfix Operators
-prefix func - (vector: Vector2D) -> Vector2D {
-    return Vector2D(x: -vector.x, y: -vector.y)
+extension Vector2D {
+    static prefix func - (vector: Vector2D) -> Vector2D {
+        return Vector2D(x: -vector.x, y: -vector.y)
+    }
 }
 let positive = Vector2D(x: 3.0, y: 4.0)
 let negative = -positive
@@ -94,30 +100,27 @@ let alsoPositive = -negative
 
 
 // Compound Assignment Operators
-func += (inout left: Vector2D, right: Vector2D) {
-    left = left + right
+extension Vector2D {
+    static func += (left: inout Vector2D, right: Vector2D) {
+        left = left + right
+    }
 }
 var original = Vector2D(x: 1.0, y: 2.0)
 let vectorToAdd = Vector2D(x: 3.0, y: 4.0)
 original += vectorToAdd
-
-prefix func ++ (inout vector: Vector2D) -> Vector2D {
-    vector += Vector2D(x: 1.0, y: 1.0)
-    return vector
-}
-var toIncrement = Vector2D(x: 3.0, y: 4.0)
-let afterIncrement = ++toIncrement
 
 //  It is not possible to overload the default assignment operator (=). Only the compound assignment operators can be overloaded. Similarly, the ternary conditional operator (a ? b : c) cannot be overloaded.
 
 
 // Equivalence Operators
 //  Custom classes and structures do not receive a default implementation of the equivalence operators, known as the “equal to” operator (==) and “not equal to” operator (!=).
-func == (left: Vector2D, right: Vector2D) -> Bool {
-    return (left.x == right.x) && (left.y == right.y)
-}
-func != (left: Vector2D, right: Vector2D) -> Bool {
-    return !(left == right)
+extension Vector2D {
+    static func == (left: Vector2D, right: Vector2D) -> Bool {
+        return (left.x == right.x) && (left.y == right.y)
+    }
+    static func != (left: Vector2D, right: Vector2D) -> Bool {
+        return !(left == right)
+    }
 }
 let twoThree = Vector2D(x: 2.0, y: 3.0)
 let anotherTwoThree = Vector2D(x: 2.0, y: 3.0)
@@ -130,19 +133,23 @@ if twoThree == anotherTwoThree {
 //  Custom operators can be defined only with the characters / = - + * % < > ! & | ^ . ~
 
 // +++ prefix doubling incrementer
-prefix operator +++ {}
-prefix func +++ (inout vector: Vector2D) -> Vector2D {
-    vector += vector
-    return vector
+prefix operator +++
+extension Vector2D {
+    static prefix func +++ (vector: inout Vector2D) -> Vector2D {
+        vector += vector
+        return vector
+    }
 }
 var toBeDoubled = Vector2D(x: 1.0, y: 4.0)
 let afterDoubling = +++toBeDoubled
 
 
 // Precedence and Associativity for Custom Infix Operators
-infix operator +- { associativity left precedence 140 }
-func +- (left: Vector2D, right: Vector2D) -> Vector2D {
-    return Vector2D(x: left.x + right.x, y: left.y - right.y)
+infix operator +-: AdditionPrecedence
+extension Vector2D {
+    static func +- (left: Vector2D, right: Vector2D) -> Vector2D {
+        return Vector2D(x: left.x + right.x, y: left.y - right.y)
+    }
 }
 let firstVector = Vector2D(x: 1.0, y: 2.0)
 let secondVector = Vector2D(x: 3.0, y: 4.0)
