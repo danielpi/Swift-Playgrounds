@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		E6E1BED819401B3600DA4D53 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E1BED719401B3600DA4D53 /* main.swift */; };
-		E6E1BEEB19401B3600DA4D53 /* Swift_PlaygroundsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E1BEEA19401B3600DA4D53 /* Swift_PlaygroundsTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,58 +22,56 @@
 
 /* Begin PBXFileReference section */
 		E619A96D199CE6E000D63EA8 /* 2014-08-08-LockingInSwift.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = "2014-08-08-LockingInSwift.playground"; path = "Blogs/2014-08-08-LockingInSwift.playground"; sourceTree = "<group>"; };
-		E61A5FDC195C4E2600821435 /* OptionalChaining.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = OptionalChaining.playground; sourceTree = "<group>"; };
-		E62A02011951909B007EE39F /* Enumerations.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Enumerations.playground; sourceTree = "<group>"; };
-		E62A020219519B95007EE39F /* ClassesAndStructures.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ClassesAndStructures.playground; sourceTree = "<group>"; };
-		E62A02031951C686007EE39F /* Properties.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Properties.playground; sourceTree = "<group>"; };
-		E62B3AA91962426F00088655 /* NestedTypes.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = NestedTypes.playground; sourceTree = "<group>"; };
+		E61C4B621E4BFC0200E4E565 /* ASwiftTour.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ASwiftTour.playground; sourceTree = "<group>"; };
+		E61C4B641E4BFC0200E4E565 /* 01-TheBasics.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "01-TheBasics.playground"; sourceTree = "<group>"; };
+		E61C4B651E4BFC0200E4E565 /* 02-BasicOperators.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "02-BasicOperators.playground"; sourceTree = "<group>"; };
+		E61C4B661E4BFC0200E4E565 /* 03-StringsAndCharacters.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "03-StringsAndCharacters.playground"; sourceTree = "<group>"; };
+		E61C4B671E4BFC0200E4E565 /* 04-CollectionTypes.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "04-CollectionTypes.playground"; sourceTree = "<group>"; };
+		E61C4B681E4BFC0200E4E565 /* 05-ControlFlow.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "05-ControlFlow.playground"; sourceTree = "<group>"; };
+		E61C4B691E4BFC0200E4E565 /* 06-Functions.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "06-Functions.playground"; sourceTree = "<group>"; };
+		E61C4B6A1E4BFC0200E4E565 /* 07-Closures.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "07-Closures.playground"; sourceTree = "<group>"; };
+		E61C4B6B1E4BFC0200E4E565 /* 08-Enumerations.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "08-Enumerations.playground"; sourceTree = "<group>"; };
+		E61C4B6C1E4BFC0200E4E565 /* 09-ClassesAndStructures.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "09-ClassesAndStructures.playground"; sourceTree = "<group>"; };
+		E61C4B6D1E4BFC0200E4E565 /* 10-Properties.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "10-Properties.playground"; sourceTree = "<group>"; };
+		E61C4B6E1E4BFC0200E4E565 /* 11-Methods.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "11-Methods.playground"; sourceTree = "<group>"; };
+		E61C4B6F1E4BFC0200E4E565 /* 12-Subscripts.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "12-Subscripts.playground"; sourceTree = "<group>"; };
+		E61C4B701E4BFC0200E4E565 /* 13-Inheritance.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "13-Inheritance.playground"; sourceTree = "<group>"; };
+		E61C4B711E4BFC0200E4E565 /* 14-Initialization.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "14-Initialization.playground"; sourceTree = "<group>"; };
+		E61C4B721E4BFC0200E4E565 /* 15-Deinitialization.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "15-Deinitialization.playground"; sourceTree = "<group>"; };
+		E61C4B731E4BFC0200E4E565 /* 16-AutomaticReferenceCounting.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "16-AutomaticReferenceCounting.playground"; sourceTree = "<group>"; };
+		E61C4B741E4BFC0200E4E565 /* 17-OptionalChaining.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "17-OptionalChaining.playground"; sourceTree = "<group>"; };
+		E61C4B751E4BFC0200E4E565 /* 18-ErrorHandling.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "18-ErrorHandling.playground"; sourceTree = "<group>"; };
+		E61C4B761E4BFC0200E4E565 /* 19-TypeCasting.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "19-TypeCasting.playground"; sourceTree = "<group>"; };
+		E61C4B771E4BFC0200E4E565 /* 20-NestedTypes.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "20-NestedTypes.playground"; sourceTree = "<group>"; };
+		E61C4B781E4BFC0200E4E565 /* 21-Extensions.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "21-Extensions.playground"; sourceTree = "<group>"; };
+		E61C4B791E4BFC0200E4E565 /* 22-Protocols.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "22-Protocols.playground"; sourceTree = "<group>"; };
+		E61C4B7A1E4BFC0300E4E565 /* 23-Generics.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "23-Generics.playground"; sourceTree = "<group>"; };
+		E61C4B7B1E4BFC0300E4E565 /* 24-AccessControl.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "24-AccessControl.playground"; sourceTree = "<group>"; };
+		E61C4B7C1E4BFC0300E4E565 /* 25-AdvancedOperators.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "25-AdvancedOperators.playground"; sourceTree = "<group>"; };
 		E62C22AD196C1D4F0005CA67 /* WritingSwiftClassesWithObjectiveCBehaviour.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = WritingSwiftClassesWithObjectiveCBehaviour.playground; sourceTree = "<group>"; };
 		E62D22651AF05ABD0073FBD0 /* Cheryls-Birthday-Alternative-1.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "Cheryls-Birthday-Alternative-1.playground"; sourceTree = "<group>"; };
-		E6391ECA1949410800FBA4C9 /* ControlFlow.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ControlFlow.playground; sourceTree = "<group>"; };
 		E639499A1994DE440016ED46 /* 2014-07-23-AccessControl.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = "2014-07-23-AccessControl.playground"; path = "SwiftBlog/2014-07-23-AccessControl.playground"; sourceTree = "<group>"; };
 		E639499B19964C1F0016ED46 /* Undocumented.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = Undocumented.playground; path = SwiftStanardLibrary/Undocumented.playground; sourceTree = "<group>"; };
-		E63990941950566000412EC5 /* Functions.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Functions.playground; sourceTree = "<group>"; };
-		E63ACF47197E85F00066B3A1 /* AccessControl.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = AccessControl.playground; sourceTree = "<group>"; };
-		E63CCE581941BB050087C852 /* TheBasics.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TheBasics.playground; sourceTree = "<group>"; };
-		E63F4F42196971AF00133672 /* AdvancedOperators.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = AdvancedOperators.playground; sourceTree = "<group>"; };
 		E642112F19924A2A00EE7DC7 /* 2014-08-05-Boolean.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = "2014-08-05-Boolean.playground"; path = "SwiftBlog/2014-08-05-Boolean.playground"; sourceTree = "<group>"; };
-		E6459C0B19470BD600C236CC /* CollectionTypes.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = CollectionTypes.playground; sourceTree = "<group>"; };
-		E64681671B2E59280072F1E5 /* ErrorHandling.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ErrorHandling.playground; sourceTree = "<group>"; };
 		E6517B3819A3693F009E4376 /* 2014-08-18-SwiftLiteralConvertibles.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = "2014-08-18-SwiftLiteralConvertibles.playground"; path = "Blogs/NSHipster/2014-08-18-SwiftLiteralConvertibles.playground"; sourceTree = "<group>"; };
 		E6556B68196A9B6C00D5764D /* BasicSetup.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = BasicSetup.playground; path = "UsingSwiftWithCocoaAndObjective-C/BasicSetup.playground"; sourceTree = "<group>"; };
 		E6556B69196A9DAD00D5764D /* InteractingWithObjective-C-APIs.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = "InteractingWithObjective-C-APIs.playground"; path = "UsingSwiftWithCocoaAndObjective-C/InteractingWithObjective-C-APIs.playground"; sourceTree = "<group>"; };
-		E657B68619666895006AE171 /* Protocols.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Protocols.playground; sourceTree = "<group>"; };
 		E658F23D197A8DCC00B4C60F /* AdvancedSwift.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = AdvancedSwift.playground; path = WWDC2014/AdvancedSwift.playground; sourceTree = "<group>"; };
-		E65A5CCF19617C1E006FFFC4 /* TypeCasting.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TypeCasting.playground; sourceTree = "<group>"; };
 		E65F562D1993AE5A00BA3B03 /* 2014-07-28-InteractingWithCPointers.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = "2014-07-28-InteractingWithCPointers.playground"; path = "SwiftBlog/2014-07-28-InteractingWithCPointers.playground"; sourceTree = "<group>"; };
-		E684E7B11964D21C00DF5F3C /* Extensions.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Extensions.playground; sourceTree = "<group>"; };
-		E6904BAD19597E02008CF099 /* Deinitialization.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Deinitialization.playground; sourceTree = "<group>"; };
-		E6904BAE19598806008CF099 /* AutomaticReferenceCounting.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = AutomaticReferenceCounting.playground; sourceTree = "<group>"; };
 		E69570711AEFB100000FB500 /* SpriteKitTestbed.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = SpriteKitTestbed.playground; sourceTree = "<group>"; };
 		E69B0F2D19AF3FAB00861C9A /* 2014-08-27-OptionalCaseStudy-valuesForKeys.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = "2014-08-27-OptionalCaseStudy-valuesForKeys.playground"; path = "SwiftBlog/2014-08-27-OptionalCaseStudy-valuesForKeys.playground"; sourceTree = "<group>"; };
 		E69BC3A8196E06C40041EF0E /* WorkingWithCocoaDataTypes.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = WorkingWithCocoaDataTypes.playground; path = "UsingSwiftWithCocoaAndObjective-C/WorkingWithCocoaDataTypes.playground"; sourceTree = "<group>"; };
 		E69BC3A9196E117E0041EF0E /* AdoptingCocoaDesignPatterns.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = AdoptingCocoaDesignPatterns.playground; path = "UsingSwiftWithCocoaAndObjective-C/AdoptingCocoaDesignPatterns.playground"; sourceTree = "<group>"; };
-		E69DFCFB19513D66006F065A /* Closures.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Closures.playground; sourceTree = "<group>"; };
 		E6A6D4771971689600332701 /* String.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = String.playground; path = SwiftStanardLibrary/String.playground; sourceTree = "<group>"; };
 		E6A6D4781971F3AD00332701 /* Array.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = Array.playground; path = SwiftStanardLibrary/Array.playground; sourceTree = "<group>"; };
 		E6ACE85A19A77D8C00AD6C00 /* 2014-08-11-SwiftOperators.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "2014-08-11-SwiftOperators.playground"; sourceTree = "<group>"; };
 		E6B1D2D61970151C00647B94 /* GameDevUniversity.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = GameDevUniversity.playground; path = SpriteKit/GameDevUniversity.playground; sourceTree = "<group>"; };
-		E6BD7A7D194529DA003B68CA /* BasicOperators.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = BasicOperators.playground; sourceTree = "<group>"; };
-		E6BD7A7E19455C16003B68CA /* StringsAndCharacters.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = StringsAndCharacters.playground; sourceTree = "<group>"; };
 		E6C08AA519A216C90058A533 /* 2014-08-15-ValueAndReferenceTypes.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = "2014-08-15-ValueAndReferenceTypes.playground"; path = "SwiftBlog/2014-08-15-ValueAndReferenceTypes.playground"; sourceTree = "<group>"; };
-		E6D20A061968F035007667BA /* Generics.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Generics.playground; sourceTree = "<group>"; };
 		E6D32F1E1AEE4F2100B7B0D9 /* Cheryls-Birthday.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "Cheryls-Birthday.playground"; sourceTree = "<group>"; };
-		E6D345471953EE7500423381 /* Methods.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Methods.playground; sourceTree = "<group>"; };
-		E6D34548195462DE00423381 /* Subscripts.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Subscripts.playground; sourceTree = "<group>"; };
-		E6D345491954DE2600423381 /* Inheritance.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Inheritance.playground; sourceTree = "<group>"; };
-		E6D3454A19552CE700423381 /* Initialization.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Initialization.playground; sourceTree = "<group>"; };
-		E6E1BED219401B3600DA4D53 /* Swift-Playgrounds.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swift-Playgrounds.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6E1BED219401B3600DA4D53 /* Swift-Playgrounds.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "Swift-Playgrounds.app"; path = "/Users/danielpi/repos/Swift-Playgrounds/build/Debug/Swift-Playgrounds.app"; sourceTree = "<absolute>"; };
 		E6E1BED619401B3600DA4D53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E6E1BED719401B3600DA4D53 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		E6E1BEE419401B3600DA4D53 /* Swift-PlaygroundsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Swift-PlaygroundsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E6E1BEE919401B3600DA4D53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E6E1BEEA19401B3600DA4D53 /* Swift_PlaygroundsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_PlaygroundsTests.swift; sourceTree = "<group>"; };
-		E6E1BEF419401C6000DA4D53 /* ASwiftTour.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ASwiftTour.playground; sourceTree = "<group>"; };
+		E6E1BEE419401B3600DA4D53 /* Swift-PlaygroundsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "Swift-PlaygroundsTests.xctest"; path = "/Users/danielpi/repos/Swift-Playgrounds/build/Debug/Swift-PlaygroundsTests.xctest"; sourceTree = "<absolute>"; };
 		E6E54E701973F24E00F2FA6B /* Dictionary.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = Dictionary.playground; path = SwiftStanardLibrary/Dictionary.playground; sourceTree = "<group>"; };
 		E6E54E7219752E8C00F2FA6B /* NumericTypes.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = NumericTypes.playground; path = SwiftStanardLibrary/NumericTypes.playground; sourceTree = "<group>"; };
 		E6E54E7319753FEB00F2FA6B /* Protocols.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = Protocols.playground; path = SwiftStanardLibrary/Protocols.playground; sourceTree = "<group>"; };
@@ -101,6 +98,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E61C4B611E4BFC0200E4E565 /* The Swift Programming Language */ = {
+			isa = PBXGroup;
+			children = (
+				E61C4B621E4BFC0200E4E565 /* ASwiftTour.playground */,
+				E61C4B631E4BFC0200E4E565 /* LanguageGuide */,
+			);
+			path = "The Swift Programming Language";
+			sourceTree = "<group>";
+		};
+		E61C4B631E4BFC0200E4E565 /* LanguageGuide */ = {
+			isa = PBXGroup;
+			children = (
+				E61C4B641E4BFC0200E4E565 /* 01-TheBasics.playground */,
+				E61C4B651E4BFC0200E4E565 /* 02-BasicOperators.playground */,
+				E61C4B661E4BFC0200E4E565 /* 03-StringsAndCharacters.playground */,
+				E61C4B671E4BFC0200E4E565 /* 04-CollectionTypes.playground */,
+				E61C4B681E4BFC0200E4E565 /* 05-ControlFlow.playground */,
+				E61C4B691E4BFC0200E4E565 /* 06-Functions.playground */,
+				E61C4B6A1E4BFC0200E4E565 /* 07-Closures.playground */,
+				E61C4B6B1E4BFC0200E4E565 /* 08-Enumerations.playground */,
+				E61C4B6C1E4BFC0200E4E565 /* 09-ClassesAndStructures.playground */,
+				E61C4B6D1E4BFC0200E4E565 /* 10-Properties.playground */,
+				E61C4B6E1E4BFC0200E4E565 /* 11-Methods.playground */,
+				E61C4B6F1E4BFC0200E4E565 /* 12-Subscripts.playground */,
+				E61C4B701E4BFC0200E4E565 /* 13-Inheritance.playground */,
+				E61C4B711E4BFC0200E4E565 /* 14-Initialization.playground */,
+				E61C4B721E4BFC0200E4E565 /* 15-Deinitialization.playground */,
+				E61C4B731E4BFC0200E4E565 /* 16-AutomaticReferenceCounting.playground */,
+				E61C4B741E4BFC0200E4E565 /* 17-OptionalChaining.playground */,
+				E61C4B751E4BFC0200E4E565 /* 18-ErrorHandling.playground */,
+				E61C4B761E4BFC0200E4E565 /* 19-TypeCasting.playground */,
+				E61C4B771E4BFC0200E4E565 /* 20-NestedTypes.playground */,
+				E61C4B781E4BFC0200E4E565 /* 21-Extensions.playground */,
+				E61C4B791E4BFC0200E4E565 /* 22-Protocols.playground */,
+				E61C4B7A1E4BFC0300E4E565 /* 23-Generics.playground */,
+				E61C4B7B1E4BFC0300E4E565 /* 24-AccessControl.playground */,
+				E61C4B7C1E4BFC0300E4E565 /* 25-AdvancedOperators.playground */,
+			);
+			path = LanguageGuide;
+			sourceTree = "<group>";
+		};
 		E64211301992518700EE7DC7 /* Swift Blog */ = {
 			isa = PBXGroup;
 			children = (
@@ -122,47 +160,6 @@
 			name = NSHipster;
 			sourceTree = "<group>";
 		};
-		E6556B65196A90CB00D5764D /* Language Guide */ = {
-			isa = PBXGroup;
-			children = (
-				E63CCE581941BB050087C852 /* TheBasics.playground */,
-				E6BD7A7D194529DA003B68CA /* BasicOperators.playground */,
-				E6BD7A7E19455C16003B68CA /* StringsAndCharacters.playground */,
-				E6459C0B19470BD600C236CC /* CollectionTypes.playground */,
-				E6391ECA1949410800FBA4C9 /* ControlFlow.playground */,
-				E63990941950566000412EC5 /* Functions.playground */,
-				E69DFCFB19513D66006F065A /* Closures.playground */,
-				E62A02011951909B007EE39F /* Enumerations.playground */,
-				E62A020219519B95007EE39F /* ClassesAndStructures.playground */,
-				E62A02031951C686007EE39F /* Properties.playground */,
-				E6D345471953EE7500423381 /* Methods.playground */,
-				E6D34548195462DE00423381 /* Subscripts.playground */,
-				E6D345491954DE2600423381 /* Inheritance.playground */,
-				E6D3454A19552CE700423381 /* Initialization.playground */,
-				E6904BAD19597E02008CF099 /* Deinitialization.playground */,
-				E6904BAE19598806008CF099 /* AutomaticReferenceCounting.playground */,
-				E61A5FDC195C4E2600821435 /* OptionalChaining.playground */,
-				E64681671B2E59280072F1E5 /* ErrorHandling.playground */,
-				E65A5CCF19617C1E006FFFC4 /* TypeCasting.playground */,
-				E62B3AA91962426F00088655 /* NestedTypes.playground */,
-				E684E7B11964D21C00DF5F3C /* Extensions.playground */,
-				E657B68619666895006AE171 /* Protocols.playground */,
-				E6D20A061968F035007667BA /* Generics.playground */,
-				E63ACF47197E85F00066B3A1 /* AccessControl.playground */,
-				E63F4F42196971AF00133672 /* AdvancedOperators.playground */,
-			);
-			name = "Language Guide";
-			sourceTree = "<group>";
-		};
-		E6556B66196A912E00D5764D /* The Swift Programming Language */ = {
-			isa = PBXGroup;
-			children = (
-				E6E1BEF419401C6000DA4D53 /* ASwiftTour.playground */,
-				E6556B65196A90CB00D5764D /* Language Guide */,
-			);
-			name = "The Swift Programming Language";
-			sourceTree = "<group>";
-		};
 		E6556B67196A916000D5764D /* Using Swift with Cocoa and Objective-C */ = {
 			isa = PBXGroup;
 			children = (
@@ -181,25 +178,14 @@
 			isa = PBXGroup;
 			children = (
 				E6E1BED419401B3600DA4D53 /* Swift-Playgrounds */,
-				E6E1BEE719401B3600DA4D53 /* Swift-PlaygroundsTests */,
-				E6E1BED319401B3600DA4D53 /* Products */,
 			);
-			sourceTree = "<group>";
-		};
-		E6E1BED319401B3600DA4D53 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				E6E1BED219401B3600DA4D53 /* Swift-Playgrounds.app */,
-				E6E1BEE419401B3600DA4D53 /* Swift-PlaygroundsTests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		E6E1BED419401B3600DA4D53 /* Swift-Playgrounds */ = {
 			isa = PBXGroup;
 			children = (
+				E61C4B611E4BFC0200E4E565 /* The Swift Programming Language */,
 				E658F23D197A8DCC00B4C60F /* AdvancedSwift.playground */,
-				E6556B66196A912E00D5764D /* The Swift Programming Language */,
 				E6556B67196A916000D5764D /* Using Swift with Cocoa and Objective-C */,
 				E6E54E711973F27700F2FA6B /* Swift Standard Library */,
 				E64211301992518700EE7DC7 /* Swift Blog */,
@@ -219,23 +205,6 @@
 			children = (
 				E6E1BED619401B3600DA4D53 /* Info.plist */,
 				E6E1BED719401B3600DA4D53 /* main.swift */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		E6E1BEE719401B3600DA4D53 /* Swift-PlaygroundsTests */ = {
-			isa = PBXGroup;
-			children = (
-				E6E1BEEA19401B3600DA4D53 /* Swift_PlaygroundsTests.swift */,
-				E6E1BEE819401B3600DA4D53 /* Supporting Files */,
-			);
-			path = "Swift-PlaygroundsTests";
-			sourceTree = "<group>";
-		};
-		E6E1BEE819401B3600DA4D53 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				E6E1BEE919401B3600DA4D53 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -304,9 +273,11 @@
 				TargetAttributes = {
 					E6E1BED119401B3600DA4D53 = {
 						CreatedOnToolsVersion = 6.0;
+						LastSwiftMigration = 0820;
 					};
 					E6E1BEE319401B3600DA4D53 = {
 						CreatedOnToolsVersion = 6.0;
+						LastSwiftMigration = 0820;
 						TestTargetID = E6E1BED119401B3600DA4D53;
 					};
 				};
@@ -320,7 +291,7 @@
 				Base,
 			);
 			mainGroup = E6E1BEC919401B3600DA4D53;
-			productRefGroup = E6E1BED319401B3600DA4D53 /* Products */;
+			productRefGroup = E6E1BEC919401B3600DA4D53;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -360,7 +331,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E6E1BEEB19401B3600DA4D53 /* Swift_PlaygroundsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,6 +432,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "au.com.electronicinnovations.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -474,6 +445,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "au.com.electronicinnovations.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -495,6 +467,7 @@
 				METAL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "au.com.electronicinnovations.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
 			name = Debug;
@@ -513,6 +486,7 @@
 				METAL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "au.com.electronicinnovations.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
 			name = Release;
