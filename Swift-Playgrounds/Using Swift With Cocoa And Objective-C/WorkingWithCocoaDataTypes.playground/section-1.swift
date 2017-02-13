@@ -1,4 +1,4 @@
-// Working with Cocoa Data Types
+// Working with Cocoa Frameworks
 //  Data types that are convertible or can be used interchangeably are referred to as bridged data types.
 
 import UIKit
@@ -8,57 +8,35 @@ import UIKit
 
 // To enable string bridging, just import Foundation.
 import Foundation
-let greeting = "hello, world!"
-let capitalizedGreeting = greeting.capitalizedString
+let string: String = "abc"
+let bridgedString: NSString = string as NSString
 
-let myString: NSString = "123"
-if let integerValue = Int(myString as String) {
-    print("\(myString) is the integer \(integerValue)")
-    integerValue
+let stringLiteral: NSString = "123"
+if let integerValue = Int(stringLiteral as String) {
+    print("\(stringLiteral) is the integer \(integerValue)")
 }
-
-
-// Localization
-//  NSLocalizedString, NSLocalizedStringFromTable, NSLocalizedStringFromTableInBundle, and NSLocalizedStringWithDefaultValue. In Swift you can use a single function that provides the same functionality as the entire set of NSLocalizedString macros—NSLocalizedString(key:tableName:bundle:value:comment:).
 
 
 // Numbers
 // Swift automatically bridges from Int, UInt, Float, Double, Bool to NSNumber
-let n = 42
-let m: NSNumber = n
-// You can pass an Int to an argument expecting an NSNumber. You can't pass an NSNumber to an argument expecting an Int though as NSnumber can represent a wide variety of number formats
+let number = 42
+let bridgedNumber: NSNumber = number as NSNumber
+
+let integerLiteral: NSNumber = 5
+let floatLiteral: NSNumber = 3.14159
+let booleanLiteral: NSNumber = true
 
 
-// Collection classes
 // Arrays
 //  Swift automatically bridges from NSArray to the native Array structure. The bridged class will be of type AnyObject[]. You can downcast the AnyObject[] to a more specific type. This will return an optional type though as it is not possible to know that all of the elements of the array can be downcast to the specified type until runtime.
-let foundationArray: NSArray = NSArray(array: [1,2,3])
-let swiftArray = foundationArray as [AnyObject]
-if let downcastedSwiftArray = swiftArray as? [UIView] {
-    for object in downcastedSwiftArray {
-        print("\(object)")
-    }
-}
-
-
-//for aView: UIView! in foundation Array as [UIView] {
-//for aView in foundationArray as! [UIView] {
-    // aView is of type UIView
-    // Though I thought this would cause an error as foundation array objects are not UIViews
-//}
 
 let schoolSupplies: NSArray = ["Pencil", "Eraser", "Notebook"]
 
+// Sets
+let amenities: NSSet = ["Sauna", "Steam Room", "Jacuzzi"]
 
-// Foundation Data Types
-let size = CGSize(width: 20, height: 40)
-let rect = CGRect(x: 50, y: 50, width: 100, height: 100)
-let width = rect.width
-let maxX = rect.maxY
-
-
-// Foundation Functions
-NSLog("%.7f", 3.1415922222)
+// Dictionaries
+let medalRankings: NSDictionary = ["Gold": "1st Place", "Silver": "2nd Place", "Bronze": "3rd Place"]
 
 
 // Core Foundation
@@ -84,6 +62,24 @@ func StringByAddingTwoStrings(CFString!, CFString!) -> Unmanaged<CFString>!
 /*
 let memoryManagedResult = StringByAddingTwoStrings(str1, str2).takeUnretainedValue()
 */
+
+
+// Unified Logging
+// The unified logging system provides an API for capturing messaging across all levels of the system, and is a replacement for the NSLog function in the Foundation framework.
+
+/*
+import os.log
+os_log("This is a log message.")
+
+let fileSize = 1234567890
+os_log("Finished downloading file. Size: %{iec-bytes}d", fileSize)
+
+os_log("This is additional info that may be helpful for troubleshooting.", type: .info)
+
+let customLog = OSLog(subsystem: "com.your_company.your_subsystem_name.plist", category: "your_category_name")
+os_log("This is info that may be helpful during development or debugging.", log: customLog, type: .debug)
+*/
+
 
 
 
