@@ -2,7 +2,7 @@
 
 Some experiments with Playgrounds in XCode 8.2 using the Swift programming language.
 
-##The Swift Programming Language Book
+## The Swift Programming Language Book
 
 I have been working through all the examples in the book Apple Inc. “The Swift Programming Language.” iBooks. https://itunes.apple.com/au/book/swift-programming-language/id881256329?mt=11. Each .playground file in the project relates to a chapter from the Swift Programming Language book.
 
