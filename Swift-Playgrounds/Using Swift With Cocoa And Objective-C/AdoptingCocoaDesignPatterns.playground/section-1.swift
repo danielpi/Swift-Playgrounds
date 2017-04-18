@@ -14,10 +14,24 @@ if let fullScreenSize = myDelegate?.window?(myWindow, willUseFullScreenContentSi
 // 4. Print the return value of the method.
 //  In a pure Swift app, type the delegate property as an optional NSWindowDelegate object and assign it an initial value of nil.
 
+class MyDelegate: NSObject, NSWindowDelegate {
+    func window(_ window: NSWindow, willUseFullScreenContentSize proposedSize: NSSize) -> NSSize {
+        return proposedSize
+    }
+}
+let myWindow = NSWindow()
+myWindow.delegate = MyDelegate()
+//if let fullScreenSize = myWindow.delegate?.window(myWindow, willUseFullScreenContentSize: NSSize()) {
+//    print(NSStringFromSize(fullScreenSize))
+//}
+
+
+// Lazy Initialization
+
 
 // Error Reporting
 //  Error reporting in Swift follows the same pattern it does in Objective-C.
-//  In the simplest case, you return a Bool value from the function to indicate whether or not it succeeded. 
+//  In the simplest case, you return a Bool value from the function to indicate whether or not it succeeded.
 //  When you need to report the reason for the error, you can add to the function an NSError out parameter of type NSErrorPointer. This type is roughly equivalent to Objective-C’s NSError **. You can use the prefix & operator to pass in a reference to an optional NSError type as an NSErrorPointer object, as shown in the code listing below.
 /*
 var writeError: NSError?

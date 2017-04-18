@@ -10,7 +10,7 @@ var literalDictionary = ["a":1]
 var dictionary = ["one": 1, "two": 2, "three": 3]
 let value = dictionary["two"]
 if let unwrappedValue = dictionary["three"] {
-    println("The integer value for \"three\" was: \(unwrappedValue)")
+    print("The integer value for \"three\" was: \(unwrappedValue)")
     unwrappedValue
 }
 
@@ -28,17 +28,17 @@ dictionary = ["one": 1, "two": 2, "three": 3]
 let previousValue = dictionary.updateValue(22, forKey: "two")
 dictionary
 if let unwrappedPreviousValue = dictionary.updateValue(33, forKey: "three") {
-    println("Replaced the previous value: \(unwrappedPreviousValue)")
+    print("Replaced the previous value: \(unwrappedPreviousValue)")
 } else {
-    println("Added a new value")
+    print("Added a new value")
 }
 
 dictionary = ["one": 1, "two": 2, "three": 3]
-let prevValue = dictionary.removeValueForKey("two")
-if let unwrappedPreviousValue = dictionary.removeValueForKey("three") {
-    println("Removed the old value: \(unwrappedPreviousValue)")
+let prevValue = dictionary.removeValue(forKey: "two")
+if let unwrappedPreviousValue = dictionary.removeValue(forKey: "three") {
+    print("Removed the old value: \(unwrappedPreviousValue)")
 } else {
-    println("Didn't find a value for the given key to delete")
+    print("Didn't find a value for the given key to delete")
 }
 
 dictionary.removeAll()
@@ -50,12 +50,12 @@ dictionary = ["one": 1, "two": 2, "three": 3]
 let elementCount = dictionary.count
 
 for key in dictionary.keys {
-    println("Key: \(key)")
+    print("Key: \(key)")
 }
 let keysArray = Array(dictionary.keys)
 
 for value in dictionary.values {
-    println("Value: \(value)")
+    print("Value: \(value)")
 }
 let valuesArray = Array(dictionary.values)
 
