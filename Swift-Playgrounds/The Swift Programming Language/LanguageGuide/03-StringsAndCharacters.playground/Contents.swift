@@ -2,6 +2,43 @@
 
 let someString = "Some tring literal value"
 
+let quotation = """
+The White Rabbit put on his spectacles. "Where shall I begin,
+please your Majesty?" he asked.
+
+"Begin at the beginning," the king said gravely, "and go on
+till you come to the end; then stop."
+"""
+
+let threeDoubleQuotes = """
+Escaping the first quote \"""
+Escaping all three quotes \"\"\"
+"""
+
+let singleLineString = "These are the same."
+let mutilineString = """
+These are the same.
+"""
+
+"""
+
+This string starts with a line feed.
+It also ends with a line feed.
+
+"""
+
+func generateQuotation() -> String {
+    let quotation = """
+        The White Rabbit put on his spectacles. "Where shall I begin,
+        please your Majesty?" he asked.
+
+        "Begin at the beginning," the king said gravely, "and go on
+        till you come to the end; then stop."
+        """
+    return quotation
+}
+print(quotation == generateQuotation())
+
 
 // Initializing an Empty Strings
 var emptyString = ""
@@ -130,9 +167,9 @@ welcome2.removeSubrange(range)
 
 
 // Comparing Strings
-let quotation = "We're a lot alike, you and I."
+let quotation2 = "We're a lot alike, you and I."
 let sameQuotation = "We're a lot alike, you and I."
-if quotation == sameQuotation {
+if quotation2 == sameQuotation {
     print("These two strings are considered equal")
 }
 // Two String values are considered equal if their extended grapheme clusters are canonically equivalent (if they have the same linguistic meaning and appearance, even if the are composed from different Unicode scalars).
