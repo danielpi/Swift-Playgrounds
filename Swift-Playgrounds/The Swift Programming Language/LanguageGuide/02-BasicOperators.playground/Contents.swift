@@ -88,6 +88,27 @@ for i in 0..<count {
     print("Person \(i + 1) is called \(names[i])")
 }
 
+// One-Sided ranges
+for name in names[2...] {
+    print(name)
+}
+// Brian
+// Jack
+ 
+for name in names[...2] {
+    print(name)
+}
+// Anna
+// Alex
+// Brian
+
+for name in names[..<2] {
+    print(name)
+}
+// Anna
+// Alex
+
+
 // Logical Operators
 let allowedEntry = false
 if !allowedEntry {
