@@ -2,7 +2,7 @@
 
 import Cocoa
 
-var str = "Hello, playground!"
+var str = "Hello, world!"
 
 
 // Simple Values
@@ -31,6 +31,11 @@ let fruitSummary = "I have \(apples + oranges) pieces of fruit"
 let π: Float = 3.14
 let name = "Peter Pie"
 let piePy = "\(name) likes the number \(π)"
+
+let quotation = """
+I said "I have \(apples) apples."
+And then I said "I have \(apples + oranges) pieces of fruit."
+"""
 
 // Arrays and Dictionaries
 var shoppingList = ["catfish", "water", "tulips", "blue paint"]
@@ -90,13 +95,13 @@ let informalGreeting: String = "Hi \(nickName ?? fullName)"
 let vegetable = "red pepper"
 switch vegetable {
 case "celery":
-    let vegetableComment = "Add some raisins and make ants on a log."
+    let _ = "Add some raisins and make ants on a log."
 case "cucumber", "watercress":
-    let vegetableComment = "That would make a good tea sandwich."
+    let _ = "That would make a good tea sandwich."
 case let x where x.hasSuffix("pepper"):
-    let vegetableComment = "Is it a spicy \(x)?"
+    let _ = "Is it a spicy \(x)?"
 default:
-    let vegetableComment = "Everything tastes good in soup."
+    let _ = "Everything tastes good in soup."
 }
 // if default: is removed we get the error "Switch must be exhaustive". This means that every
 // possible option must be included in the switch/case statement so that the result cannot be 
@@ -147,13 +152,13 @@ total
 
 // Functions and Closures
 func greet(person: String, day: String) -> String {
-    return "Hello \(name), today is \(day)."
+    return "Hello \(person), today is \(day)."
 }
 greet(person: "Bob", day: "Tuesday")
 
 //Experiment - Remove the day parameter. Add a parameter to include today’s lunch special in the greeting.
 func greet(person: String, special: String) -> String {
-    return "Hello \(name), todays lunch special is: \(special)"
+    return "Hello \(person), todays lunch special is: \(special)"
 }
 greet(person: "Bob", special:"Chicken Parmigiana")
 
@@ -206,12 +211,11 @@ func meanOf(numbers: Int...) -> Double {
 meanOf(numbers: 42, 597, 12)
 // This is a bit poor. The variable number of arguments being converted into an array means that you can't pass them onto another function. In meanOf above I was unable to reuse sumOf because numbers was an array and sumOf can't accept an array input
 
-
-// Nested functions
+// Functions can be nested
 func returnFifteen() -> Int {
     var y = 10
     func add() {
-        y += 5
+        y = y + 5
     }
     add()
     return y
@@ -243,17 +247,14 @@ func lessThanTen(number: Int) -> Bool {
 var numbers = [20, 19, 7, 12]
 hasAnyMatches(list: numbers, condition: lessThanTen)
 
-
 // Closures
 // Use the keyword "in" to seperate the parameters from the body
-numbers.map({
-    (number: Int) -> Int in
+numbers.map({ (number: Int) -> Int in
     let result = 3 * number
     return result
 })
 // Experiment - Rewrite the closure to return zero for all odd numbers.
-numbers.map({
-    (number:Int) -> Int in
+numbers.map({ (number:Int) -> Int in
     if number % 2 == 1 {
         return 0
     }
@@ -444,7 +445,7 @@ compare(rank: ace, toRank: two)
 compare(rank: ace, toRank: ace)
 
 if let convertedRank = Rank(rawValue: 3) {
-    let threeDescription = convertedRank.simpleDescription()
+    let _ = convertedRank.simpleDescription()
 }
 
 // enums don't need to be backed by a raw value if they don't make sense. You can also use Int, Double or String as the raw backing type
@@ -530,9 +531,9 @@ let failure = ServerResponse.Error("Out of cheese")
 
 switch failure {
 case let .Result(sunrise, sunset):
-    let serverResponse = "Sunrise is at \(sunrise) and sunset is at \(sunset)"
+    let _ = "Sunrise is at \(sunrise) and sunset is at \(sunset)"
 case let .Error(error):
-    let serverResponse = "Failure... \(error)"
+    let _ = "Failure... \(error)"
 }
 // Experiment - Add a third case to ServerResponse and to the switch
 
@@ -563,6 +564,8 @@ struct SimpleStructure: ExampleProtocol {
 var b = SimpleStructure()
 b.adjust()
 let bDescription = b.simpleDescription
+
+
 
 // Experiment - Write an enumeration that conforms to this protocol
 enum SimpleEnum: Int, ExampleProtocol {
@@ -610,7 +613,7 @@ var aDouble = -7.0
 aDouble.absoluteValue
 
 4.absoluteValue
-// -6.0.absoluteValue // Not sure why this doesn't work
+(-6.0).absoluteValue
 let neg = -6.0
 neg.absoluteValue
 let absNeg = (-6.0.absoluteValue)

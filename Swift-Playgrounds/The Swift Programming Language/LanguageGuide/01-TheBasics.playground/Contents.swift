@@ -262,10 +262,13 @@ do {
     print("Why did I fail")
 }
 
-//: ## Assertions
+//: ## Assertions and Preconditions
 //: ### Debugging with Assertions
 //: Use an assertion whenever a condition has the potential to be false, but must definitely be true in order for your code to continue execution.
 let age = -3
 //assert(age >= 0, "A person's age cannot be less than zero")
 // Left this out as it stops the REPL from continuing
 
+//: ### Enforcing Preconditions
+var index = -3
+precondition(index > 0, "Index must be greater than zero.")
