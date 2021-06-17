@@ -38,7 +38,7 @@ And then I said "I have \(apples + oranges) pieces of fruit."
 """
 
 // Arrays and Dictionaries
-var shoppingList = ["catfish", "water", "tulips", "blue paint"]
+var shoppingList = ["catfish", "water", "tulips"]
 shoppingList[1] = "bottle of water"
 shoppingList
 
@@ -49,12 +49,16 @@ var occupations = [
 occupations["Jayne"] = "Public Relations"
 occupations
 
+// Arrays automatically grow as you add elements
+shoppingList.append("Blue paint")
+print(shoppingList)
+
 // Initialising an empty array or dict
-let emptyArray = [String]()
-var emptyDictionary = [String: Float]()
+let emptyArray: [String] = []
+var emptyDictionary: [String: Float] = [:]
 
 shoppingList = []
-emptyDictionary = [:]
+occupations = [:]
 
 
 // Control Flow
@@ -95,13 +99,13 @@ let informalGreeting: String = "Hi \(nickName ?? fullName)"
 let vegetable = "red pepper"
 switch vegetable {
 case "celery":
-    let _ = "Add some raisins and make ants on a log."
+    print("Add some raisins and make ants on a log.")
 case "cucumber", "watercress":
-    let _ = "That would make a good tea sandwich."
+    print("That would make a good tea sandwich.")
 case let x where x.hasSuffix("pepper"):
-    let _ = "Is it a spicy \(x)?"
+    print("Is it a spicy \(x)?")
 default:
-    let _ = "Everything tastes good in soup."
+    print("Everything tastes good in soup.")
 }
 // if default: is removed we get the error "Switch must be exhaustive". This means that every
 // possible option must be included in the switch/case statement so that the result cannot be 
@@ -187,29 +191,6 @@ func calculateStatistics(scores: [Int]) -> (min: Int, max: Int, sum: Int) {
 let statistics = calculateStatistics(scores: [5, 3, 100, 3, 9])
 statistics.sum
 statistics.2
-
-// A variable number of arguments can be accepted by a function. They are collected into an array for use within the function.
-func sumOf(numbers: Int...) -> Int {
-    var sum = 0
-    for number in numbers {
-        sum += number
-    }
-    return sum
-}
-sumOf()
-sumOf(numbers: 42, 597, 12)
-
-// Experiment - Write a function that calculates the average of its arguments.
-func meanOf(numbers: Int...) -> Double {
-    var sum = 0
-    for number in numbers {
-        sum += number
-    }
-    let mean = Double(sum) / Double(numbers.count)
-    return mean
-}
-meanOf(numbers: 42, 597, 12)
-// This is a bit poor. The variable number of arguments being converted into an array means that you can't pass them onto another function. In meanOf above I was unable to reuse sumOf because numbers was an array and sumOf can't accept an array input
 
 // Functions can be nested
 func returnFifteen() -> Int {
@@ -482,6 +463,22 @@ let heartsDescription = hearts.simpleDescription()
 // hearts.toRaw() // This is an error because Suit doesnt have a raw backing type.
 let heartsColor = hearts.color()
 
+// Enumerations
+enum ServerResponse {
+    case Result(String, String)
+    case Error(String)
+}
+
+let success = ServerResponse.Result("6:00am", "8.09pm")
+let failure = ServerResponse.Error("Out of cheese")
+
+switch failure {
+case let .Result(sunrise, sunset):
+    let _ = "Sunrise is at \(sunrise) and sunset is at \(sunset)"
+case let .Error(error):
+    let _ = "Failure... \(error)"
+}
+// Experiment - Add a third case to ServerResponse and to the switch
 
 // Structures
 // Structures are very similar to classes. They can both have methods and initialisers. One key difference is that structures are always copied when they are passed around in code. Classes are passed by reference.
@@ -518,24 +515,6 @@ let threeOfSpadesDescription = threeOfSpades.simpleDescription()
 
 let aFullDeck = threeOfSpades.createFullDeck()
 aFullDeck.map({ card in card.simpleDescription() })
-
-
-// Enumerations
-enum ServerResponse {
-    case Result(String, String)
-    case Error(String)
-}
-
-let success = ServerResponse.Result("6:00am", "8.09pm")
-let failure = ServerResponse.Error("Out of cheese")
-
-switch failure {
-case let .Result(sunrise, sunset):
-    let _ = "Sunrise is at \(sunrise) and sunset is at \(sunset)"
-case let .Error(error):
-    let _ = "Failure... \(error)"
-}
-// Experiment - Add a third case to ServerResponse and to the switch
 
 
 // Protocols and Extensions
